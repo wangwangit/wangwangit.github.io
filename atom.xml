@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-03-22T08:36:20.309Z</updated>
+  <updated>2023-03-30T00:42:41.509Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务器常用脚本</title>
+    <link href="https://www.wangwangit.com/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/"/>
+    <id>https://www.wangwangit.com/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/</id>
+    <published>2023-03-30T00:14:00.000Z</published>
+    <updated>2023-03-30T00:42:41.509Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="快速初始化root用户"><a href="#快速初始化root用户" class="headerlink" title="快速初始化root用户"></a>快速初始化root用户</h3><pre><code class="sh">#!/bin/bashecho root:123456 |sudo chpasswd rootsudo sed -i &#39;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#39; /etc/ssh/sshd_config;sudo sed -i &#39;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#39; /etc/ssh/sshd_config;sudo service sshd restart</code></pre>]]></content>
+    
+    
+    <summary type="html">服务器常用脚本记事本!!!</summary>
+    
+    
+    
+    <category term="开发" scheme="https://www.wangwangit.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="https://www.wangwangit.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>抢先体验Office Copilot</title>
+    <link href="https://www.wangwangit.com/OfficeCopilot%E6%8A%A2%E5%85%88%E4%BD%93%E9%AA%8C/"/>
+    <id>https://www.wangwangit.com/OfficeCopilot%E6%8A%A2%E5%85%88%E4%BD%93%E9%AA%8C/</id>
+    <published>2023-03-29T11:14:00.000Z</published>
+    <updated>2023-03-30T00:42:55.542Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>账号需要拥有Microsoft 365订阅!!!</p><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="1-打开注册表"><a href="#1-打开注册表" class="headerlink" title="1.打开注册表"></a>1.打开注册表</h3><p><img src="https://cdn.wangzai.top/img/image-20230329084452837.png" alt="image-20230329084452837"></p><h3 id="2-定位修改位置"><a href="#2-定位修改位置" class="headerlink" title="2.定位修改位置"></a>2.定位修改位置</h3><p>路径如下:</p><pre><code>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration</code></pre><p><img src="https://cdn.wangzai.top/img/image-20230329084605880.png" alt="image-20230329084605880"></p><p>右键单击Configuration文件夹,进行导出备份</p><h3 id="3-修改注册表"><a href="#3-修改注册表" class="headerlink" title="3.修改注册表"></a>3.修改注册表</h3><p>分别修改以下几个值</p><pre><code>AudienceData-&gt;Dogfood::DevMainAudienceID-&gt;ea4a4090-de26-49d7-93c1-91bff9e53fc3CDNBaseURL-&gt;http://officecdn.microsoft.com/pr/ea4a4090-de26-49d7-93c1-91bff9e53fc3UpdateChannel-&gt;http://officecdn.microsoft.com/pr/ea4a4090-de26-49d7-93c1-91bff9e53fc3</code></pre><p><img src="https://cdn.wangzai.top/img/image-20230329084725355.png" alt="image-20230329084725355"></p><p>然后打开word进行更新</p><p><img src="https://cdn.wangzai.top/img/image-20230329084910181.png" alt="image-20230329084910181"></p><h3 id="4-再次修改注册表"><a href="#4-再次修改注册表" class="headerlink" title="4.再次修改注册表"></a>4.再次修改注册表</h3><p>更新完成之后版本号应该是如下所示或者高于此版本号</p><p><img src="https://cdn.wangzai.top/img/202303291907514.png" alt="image-20230329190749364"></p><p>再打开注册表路径</p><pre><code>计算机\HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\ExperimentConfigs\ExternalFeatureOverrides\word</code></pre><p>新建一个REG_SZ(字符串)值,如图</p><pre><code>名称:Microsoft.Office.Word.CoPilotExperiment值:true</code></pre><p><img src="https://cdn.wangzai.top/img/image-20230329085406659.png" alt="image-20230329085406659"></p><h3 id="5-使用Copilot"><a href="#5-使用Copilot" class="headerlink" title="5.使用Copilot"></a>5.使用Copilot</h3><p>再次重启word,即可看到Copilot了</p><p><img src="https://cdn.wangzai.top/img/202303291912226.png" alt="image-20230329191217080"></p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>Dogfood的更新频率很快，可能一周会发两到三个版本,而且目前很鸡肋，适合尝鲜，且目前好像只有word能用。</p><p><img src="https://cdn.wangzai.top/img/202303291955151.png" alt="11"></p>]]></content>
+    
+    
+    <summary type="html">true</summary>
+    
+    
+    
+    <category term="开发" scheme="https://www.wangwangit.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Chatgpt" scheme="https://www.wangwangit.com/tags/Chatgpt/"/>
+    
+    <category term="Office" scheme="https://www.wangwangit.com/tags/Office/"/>
+    
+  </entry>
   
   <entry>
     <title>ChatGPT 在线体验网站</title>
@@ -138,9 +182,9 @@
     <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Shell" scheme="https://www.wangwangit.com/tags/Shell/"/>
-    
     <category term="Linux" scheme="https://www.wangwangit.com/tags/Linux/"/>
+    
+    <category term="Shell" scheme="https://www.wangwangit.com/tags/Shell/"/>
     
   </entry>
   
@@ -405,52 +449,6 @@
     <category term="Aria2" scheme="https://www.wangwangit.com/tags/Aria2/"/>
     
     <category term="Alist" scheme="https://www.wangwangit.com/tags/Alist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最新Chatgpt微信机器人搭建教程</title>
-    <link href="https://www.wangwangit.com/ChatGPT%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.wangwangit.com/ChatGPT%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
-    <published>2023-01-02T04:14:00.000Z</published>
-    <updated>2023-03-22T08:36:17.388Z</updated>
-    
-    <content type="html"><![CDATA[<p>ChatGPT 以其强大的信息整合和对话能力惊艳了全球，在自然语言处理上面表现出了惊人的能力。这么强大的工具我们都想体验一下，那么 <a href="https://chatgpt.pro/">ChatGPT</a> 怎么用呢？本文将给你逐步详细介绍。</p><p>使用 ChatGPT 主要有4步：</p><ol><li>注册 ChatGPT 账号</li><li>通过短信接码平台 <a href="https://sms-activate.org/?ref=2780512">sms-activate.org</a> 完成 ChatGPT 手机号验证</li><li>登录 ChatGPT 账号，对话框输入，开始使用 Chat GPT ！ </li><li>输入任意话题，探索 ChatGPT 的强大功能</li></ol><p>好了，我们开始逐步图文介绍。</p><h2 id="1-注册-Chat-GPT-账号"><a href="#1-注册-Chat-GPT-账号" class="headerlink" title="1.注册 Chat GPT 账号"></a>1.注册 Chat GPT 账号</h2><p>注冊ChatGPT这一步主要包含以下几步（需要按照顺序逐步操作）：</p><ol><li>将网络环境切换成国外ip（注意：必须是国外 ip 如美国、加拿大等，香港澳门 ip 是不行的），且后续整个注册流程都必须在此网络环境下进行。</li><li>打开 <a href="https://chat.openai.com/auth/login">https://chat.openai.com/auth/login</a> 链接并使用自己的邮箱进行账号注册</li><li>打开邮箱查收 OpenAI 账号验证邮件，点击验证按钮完成邮箱验证</li></ol><p>下面每一个步骤的图片，大家可以对照着进行操作</p><p><img src="https://cdn.wangzai.top/img/202301021347007.png" alt="image-20230102132844215"></p><p><img src="https://cdn.wangzai.top/img/202301021348584.png" alt="image-20230102132850950"></p><p><img src="https://cdn.wangzai.top/img/202301021347829.png" alt="image-20230102132857008"></p><p><img src="https://cdn.wangzai.top/img/202301021347230.png" alt="image-20230102132902982"></p><p>邮箱验证完成后，我们第一步<a href="https://chatgpt.pro/zh/how-to-register-chatgpt/">注册 ChatGPT</a> 账号就算完成了，但是到这里我们还不能开始使用 ChatGPT，因为我们还需要进行手机号码验证。没有通过手机号码验证是使用不了 OpenAI（ChatGPT的开发商） 的服务的。</p><p>国内和港澳的手机号码还有 Google Voice 的虚拟号码都是不能使用的。那要怎么验证呢，请看下一步。</p><h2 id="2-完成-ChatGPT-手机号码验证"><a href="#2-完成-ChatGPT-手机号码验证" class="headerlink" title="2.完成 ChatGPT 手机号码验证"></a>2.完成 ChatGPT 手机号码验证</h2><p>这一步需要用到接码平台完成手机号验证，推荐平台链接地址：<a href="https://sms-activate.org/?ref=2780512">sms-activate.org</a></p><p>具体过程包含以下几步：</p><ol><li>通过自己的邮箱注册 sms-activate.org 账号并完成邮箱验证（其他接码平台同理，但是不一定每个都好用，sms-activate是博主亲自验证过的）</li><li>打开邮箱查收验证邮件并点击确认完成 sms-activate.org 账号认证</li><li>登录sms-activate并且在右上角找到充值按钮，点击进行充值</li><li>点击充值跳转后，往下滑找到支付宝，这里建议大家充值0.2美金就可以了（不够用再充）。</li><li>充值好了以后回到首页搜索「open」关键字就可以找到 OpenAI 验证码的临时号码购买链接。</li><li>在右侧激活区看到待使用的临时号码，将此号码复制到 OpenAI 的验证码接收区里面。</li><li>在 OpenAI 的页面点击发送验证码，这样就可以在接码平台接收到验证码（有时候有一点慢需要耐心等待一下），将验证码填进去，这样就完成 ChatGPT 手机号验证了。</li></ol><p> 这一步比较长，但是操起其实也不复杂，简单说就是通过接码平台收验证码完成验证，大家只要按照步骤操作就能成功。</p><p>下面是每一步的操作图，大家可以对照操作。</p><p><img src="https://cdn.wangzai.top/img/202301021347067.png" alt="image-20230102132936962"></p><p>打开邮箱找到验证邮件</p><p><img src="https://cdn.wangzai.top/img/202301021347252.png" alt="image-20230102132954319"></p><p><img src="https://cdn.wangzai.top/img/202301021347810.png" alt="image-20230102133002823"></p><p><img src="https://cdn.wangzai.top/img/202301021347013.png" alt="image-20230102133009033"></p><p><img src="https://cdn.wangzai.top/img/202301021347148.png" alt="image-20230102133015061"></p><p><img src="https://cdn.wangzai.top/img/202301021347759.png" alt="image-20230102133022610"></p><p><img src="https://cdn.wangzai.top/img/202301021347422.png" alt="image-20230102133028331"></p><p>历经千辛万苦，我们终于可以开始使用 ChatGPT 啦，恭喜！</p><h2 id="3-登录-ChatGPT-账号并开始使用"><a href="#3-登录-ChatGPT-账号并开始使用" class="headerlink" title="3.登录 ChatGPT 账号并开始使用"></a>3.登录 ChatGPT 账号并开始使用</h2><p>注册完后，我们去 ChatGPT 网站去登陆： <a href="https://chat.openai.com/auth/login">https://chat.openai.com/auth/login</a></p><p>输入我们上面第一步注册好的账号密码就可以成功登录。</p><p>登录以后我们会进入到 ChatGPT 的主界面，在屏幕的正下方就是我们使用 ChatGPT 的输入对话框，ChatGPT采用交互式对话界面，使用非常便捷友好，你可以任意输入你感兴趣的内容并敲回车，ChatGPT 将会回答你。</p><p><img src="https://cdn.wangzai.top/img/202301021347460.png" alt="image-20230102133050925"></p><p>比如我们问一下 ChatGPT 梯形相关的问题，看看他会怎么回答。</p><p><img src="https://cdn.wangzai.top/img/202301021347176.png" alt="image-20230102133104398"></p><h2 id="4-搭建微信机器人"><a href="#4-搭建微信机器人" class="headerlink" title="4.搭建微信机器人"></a>4.搭建微信机器人</h2><h3 id="安装python环境"><a href="#安装python环境" class="headerlink" title="安装python环境"></a>安装python环境</h3><p>前往<a href="https://www.python.org/downloads/windows/">python官网</a>下载安装包,然后解压,将该目录配置到电脑环境变量中.如图</p><p><img src="https://cdn.wangzai.top/img/202301021347032.png" alt="image-20230102133917867"></p><h3 id="安装node环境"><a href="#安装node环境" class="headerlink" title="安装node环境"></a>安装node环境</h3><p>前往<a href="https://nodejs.org/en/download/">node官网</a>下载最新的node版本,然后按提示安装即可</p><p><img src="https://cdn.wangzai.top/img/202301021347003.png" alt="image-20230102133524565"></p><p>安装完成之后,打开cmd,输入npm -v, node -v能正常显示版本号,即安装成功!</p><p><img src="https://cdn.wangzai.top/img/202301021347130.png" alt="image-20230102133627221"></p><h3 id="安装Google"><a href="#安装Google" class="headerlink" title="安装Google"></a>安装Google</h3><p>前往谷歌<a href="https://www.google.com/intl/zh-CN/chrome/">官网</a>,下载浏览器,这一步是必须的!</p><h3 id="部署程序"><a href="#部署程序" class="headerlink" title="部署程序"></a>部署程序</h3><p>下载代码<a href="https://github.com/fuergaosi233/wechat-chatgpt">chatgpt</a>到本地,并解压</p><p><img src="https://cdn.wangzai.top/img/202301021347967.png" alt="image-20230102133328242"></p><p>进入目录,打开cmd输入以下命令</p><pre><code>npm install &amp;&amp; poetry install</code></pre><p>等待执行完成,复制文件夹中的config.yaml.example,重命名为config.yaml,并打开填入自己的chatgpt账号</p><p><img src="https://cdn.wangzai.top/img/202301021347342.png" alt="image-20230102134305374"></p><p><img src="https://cdn.wangzai.top/img/202301021347387.png" alt="image-20230102134336100"></p><p>修改完成之后,在到cmd执行npm run dev即可,等待程序自行打开谷歌浏览器,手动点过cloudflare的验证,然后程序会自行填入账号密码,cmd中出现微信二维码,使用微信小号扫码登录即可!</p><p><img src="https://cdn.wangzai.top/img/202301021347472.png" alt="image-20230102134545827"></p><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>上述步骤已经完成微信机器人搭建,只要去给你登录的微信账号发消息,即可获得回复!</p><p><img src="https://cdn.wangzai.top/img/202301021347159.png" alt="image-20230102134648428"></p>]]></content>
-    
-    
-    <summary type="html">true</summary>
-    
-    
-    
-    <category term="开发" scheme="https://www.wangwangit.com/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="Chatgpt" scheme="https://www.wangwangit.com/tags/Chatgpt/"/>
-    
-    <category term="Hexo" scheme="https://www.wangwangit.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github+Hexo搭建个人网站详细教程</title>
-    <link href="https://www.wangwangit.com/Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.wangwangit.com/Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
-    <published>2023-01-01T04:14:00.000Z</published>
-    <updated>2023-03-13T03:51:03.053Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://cdn.wangzai.top/img/202301021115709.png" alt="v2-d4c1239e75c02e8482c22017a6c8d407_1440w"></p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>​随着互联网浪潮的翻腾，国内外涌现出越来越多优秀的社交网站让用户分享信息更加便捷。然后，如果你是一个不甘寂寞的程序猿，是否也想要搭建一个属于自己的个人网站，如果你曾经或者现在正有这样的想法，请跟随这篇文章发挥你的Geek精神，让你快速拥有自己的博客网站，写文章记录生活，享受这种从0到1的过程。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>Github账号</li><li>安装Git</li><li>安装Node.js</li></ul><h3 id="Github账号"><a href="#Github账号" class="headerlink" title="Github账号"></a>Github账号</h3><p>​首先我们需要一个<strong>Github</strong>账号,若是没有的话,可以前往<a href="https://github.com/">官网</a>注册一个,不懂的话,可以参考<a href="https://segmentfault.com/a/1190000040770337">Github账号注册</a></p><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>什么是Git ?</p><p>简单来说Git是开源的分布式版本控制系统，用于敏捷高效地处理项目。我们网站在本地搭建好了，需要使用Git同步到GitHub上。</p><p>如果想要了解Git的细节，参看廖雪峰老师的Git教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git教程</a></p><p>从Git官网下载：<a href="https://git-scm.com/download/win">Git - Downloading Package (git-scm.com)</a></p><p>现在的机子基本都是64位的，选择64位的安装包，下载后安装，在命令行里输入git测试是否安装成功，若安装失败，参看其他详细的Git安装教程。</p><p>安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash</p><p><img src="https://cdn.wangzai.top/img/202301021125501.png" alt="image-20230102112524450"></p><p>或者在菜单里搜索Git Bash，设置user.name和user.email配置信息：</p><pre><code>git config --global user.name &quot;你的GitHub用户名&quot;git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></pre><p>生成ssh密钥文件：</p><pre><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code></pre><p>然后直接三个回车即可，默认不需要设置密码<br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p><p><img src="https://cdn.wangzai.top/img/202301021126570.png" alt="image-20230102112653519"></p><p>打开<a href="https://github.com/settings/keys">SSH and GPG keys (github.com)</a>页面，新建new SSH Key</p><p><img src="https://cdn.wangzai.top/img/202301021127244.png" alt="image-20230102112741186"></p><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a> ：</p><p><img src="https://cdn.wangzai.top/img/202301021128368.png" alt="image-20230102112805293"></p><p>如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Hexo基于Node.js，Node.js下载地址：<a href="https://link.zhihu.com/?target=https://nodejs.org/en/download/">Download | Node.js</a> 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :</p><p><img src="https://cdn.wangzai.top/img/202301021133738.png" alt="image-20230102113340687"></p><p>检测npm是否安装成功，在命令行中输入npm -v :</p><p><img src="https://cdn.wangzai.top/img/202301021133006.png" alt="image-20230102113355960"></p><p>到这了，安装Hexo的环境已经全部搭建完成。</p><h3 id="创建Github仓库"><a href="#创建Github仓库" class="headerlink" title="创建Github仓库"></a>创建Github仓库</h3><p>打开<a href="https://github.com/%EF%BC%8C%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%8C%E5%A6%82%E4%B8%8B%E6%89%80%E7%A4%BA%EF%BC%9A">https://github.com/，新建一个项目，如下所示：</a></p><p><img src="https://cdn.wangzai.top/img/202301021148586.png" alt="image-20230102114820493"></p><p>然后如下图所示，输入自己的项目名字，后面一定要加<code>.github.io</code>后缀，README初始化也要勾上。<strong>名称一定要和你的github名字完全一样，比如你github名字叫<code>abc</code>，那么仓库名字一定要是<code>abc.github.io</code></strong></p><p><img src="https://cdn.wangzai.top/img/202301021149232.png" alt="image-20230102114957155"></p><p>然后项目就建成了，点击<code>Settings</code>，向下拉到最后有个<code>GitHub Pages</code>，点击<code>Choose a theme</code>选择一个主题。然后等一会儿，再回到<code>GitHub Pages</code>，会变成下面这样：</p><p><img src="https://cdn.wangzai.top/img/202301021151790.png" alt="image-20230102115118709"></p><p>点击那个链接，就会出现自己的网页啦，效果如下(我的是已经使用主题的页面,你们的页面可能不一样)：</p><p><img src="https://cdn.wangzai.top/img/202301021152123.png" alt="image-20230102115238914"></p><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中，按住shift键，右击鼠标点击命令行</p><p><img src="https://cdn.wangzai.top/img/202301021140439.png" alt="image-20230102114003386"></p><p>使用npm命令安装Hexo，输入：</p><pre><code>npm install -g hexo-cli </code></pre><p>这个安装时间较长耐心等待，安装完成后，初始化我们的博客，输入：</p><pre><code>hexo init blog</code></pre><p>注意，这里的命令都是作用在刚刚创建的Blog文件夹中。</p><p>为了检测我们的网站雏形，分别按顺序输入以下三条命令：</p><pre><code>hexo new test_my_sitehexo ghexo s</code></pre><p>这些命令在后面作介绍，完成后，打开浏览器输入地址：</p><p><a href="http://localhost:4000/">http://localhost:4000</a></p><p>可以看出我们写出第一篇博客</p><p><img src="https://cdn.wangzai.top/img/202301021237653.png" alt="image-20230102122254270"></p><p><strong>Hexo常用命令</strong></p><p>npm install hexo -g #安装Hexo<br>npm update hexo -g #升级<br>hexo init #初始化博客</p><p>命令简写<br>hexo n “我的博客” &#x3D;&#x3D; hexo new “我的博客” #新建文章<br>hexo g &#x3D;&#x3D; hexo generate #生成<br>hexo s &#x3D;&#x3D; hexo server #启动服务预览<br>hexo d &#x3D;&#x3D; hexo deploy #部署</p><p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p><p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p><h2 id="连接Github仓库"><a href="#连接Github仓库" class="headerlink" title="连接Github仓库"></a>连接Github仓库</h2><p>打开博客根目录下的<code>_config.yml</code>文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p><p>修改最后一行的配置：</p><pre><code>deploy:- type: git  repository: https://github.com/wangwangit/wangwangit.github.io.git  branch: master</code></pre><p>repository修改为你自己的github项目地址.</p><h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>现在默认的域名还是<code>xxx.github.io</code>，是不是很没有牌面？想不想也像我一样弄一个专属域名呢，首先你得购买一个域名，xx云都能买，看你个人喜好了。</p><p>以我的谷歌域名为例，如下图所示，添加一条解析记录：</p><p><img src="https://cdn.wangzai.top/img/202301021204574.png" alt="image-20230102120424491"></p><p>然后打开你的github博客项目，点击<code>settings</code>，拉到下面<code>Custom domain</code>处，填上你自己的域名，保存：</p><p><img src="https://cdn.wangzai.top/img/202301021205245.png" alt="image-20230102120521154"></p><p>这时候你的项目根目录应该会出现一个名为<code>CNAME</code>的文件了。如果没有的话，打开你本地博客<code>/source</code>目录，我的是<code>D:\study\program\blog\source</code>，新建<code>CNAME</code>文件，注意没有后缀。然后在里面写上你的域名，保存。最后运行<code>hexo g</code>、<code>hexo d</code>上传到github</p><p><img src="https://cdn.wangzai.top/img/202301021205499.png" alt="image-20230102120559425"></p><p><img src="https://cdn.wangzai.top/img/202301021206160.png" alt="image-20230102120617069"></p><h2 id="备份博客源文件"><a href="#备份博客源文件" class="headerlink" title="备份博客源文件"></a>备份博客源文件</h2><p>有时候我们想换一台电脑继续写博客，这时候就可以将博客目录下的所有源文件都上传到github上面。</p><p>首先在github博客仓库下新建一个分支<code>hexo</code>，然后<code>git clone</code>到本地，把<code>.git</code>文件夹拿出来，放在博客根目录下。</p><p>然后<code>git checkout hexo</code>切换到<code>hexo</code>分支，然后<code>git add .</code>，然后<code>git commit -m &quot;xxx&quot;</code>，最后<code>git push origin hexo</code>提交就行了。</p><h2 id="替换主题"><a href="#替换主题" class="headerlink" title="替换主题"></a>替换主题</h2><p>我使用的主题是这个:<a href="https://github.com/tangyuxian/hexo-theme-tangyuxian">博客主题</a></p><p>具体操作可以参考该主题的文档</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>对于图床使用可以参考我以下文章:</p><p><a href="http://www.wangwangit.com/%E8%85%BE%E8%AE%AFCDN%E4%BC%98%E5%8C%96github%E5%9B%BE%E5%BA%8A%E8%AE%BF%E9%97%AE/">使用腾讯CDN优化github图床访问</a></p><p><a href="http://www.wangwangit.com/Nginx%E8%87%AA%E5%BB%BACDN/">使用Nginx自建CDN加速Hexo博客</a></p><p><a href="http://www.wangwangit.com/picGo/">优秀的开源图床picGo</a></p>]]></content>
-    
-    
-    <summary type="html">true</summary>
-    
-    
-    
-    <category term="博客" scheme="https://www.wangwangit.com/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.wangwangit.com/tags/Hexo/"/>
-    
-    <category term="Github" scheme="https://www.wangwangit.com/tags/Github/"/>
     
   </entry>
   
