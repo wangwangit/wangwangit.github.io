@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-03-30T00:42:41.509Z</updated>
+  <updated>2023-03-30T01:06:36.544Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.wangwangit.com/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/"/>
     <id>https://www.wangwangit.com/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/</id>
     <published>2023-03-30T00:14:00.000Z</published>
-    <updated>2023-03-30T00:42:41.509Z</updated>
+    <updated>2023-03-30T01:06:36.544Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="快速初始化root用户"><a href="#快速初始化root用户" class="headerlink" title="快速初始化root用户"></a>快速初始化root用户</h3><pre><code class="sh">#!/bin/bashecho root:123456 |sudo chpasswd rootsudo sed -i &#39;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#39; /etc/ssh/sshd_config;sudo sed -i &#39;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#39; /etc/ssh/sshd_config;sudo service sshd restart</code></pre>]]></content>
+    <content type="html"><![CDATA[<h3 id="快速初始化root用户"><a href="#快速初始化root用户" class="headerlink" title="快速初始化root用户"></a>快速初始化root用户</h3><pre><code class="sh">#!/bin/bashecho root:123456 |sudo chpasswd rootsudo sed -i &#39;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#39; /etc/ssh/sshd_config;sudo sed -i &#39;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#39; /etc/ssh/sshd_config;sudo service sshd restart</code></pre><h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><pre><code class="sh">iptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -F</code></pre>]]></content>
     
     
     <summary type="html">服务器常用脚本记事本!!!</summary>
@@ -274,9 +274,9 @@
     <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
-    
     <category term="Chatgpt" scheme="https://www.wangwangit.com/tags/Chatgpt/"/>
+    
+    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
     
   </entry>
   
