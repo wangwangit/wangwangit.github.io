@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-04-12T02:56:22.491Z</updated>
+  <updated>2023-04-12T05:20:49.976Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Claude免排队使用教程</title>
+    <link href="https://www.wangwangit.com/Claude%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://www.wangwangit.com/Claude%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2023-04-12T04:14:00.000Z</published>
+    <updated>2023-04-12T05:20:49.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>OpenAI 前副总裁创立的 Claude 或可与ChatGPT 竞争,支持使用 API 从第三方接入，还接入了 Slack ，目前需要申请 Waitlist。目前测试无需代理即可使用!</p><h3 id="申请试用候补"><a href="#申请试用候补" class="headerlink" title="申请试用候补"></a>申请试用候补</h3><p>地址:<a href="https://www.anthropic.com/">https://www.anthropic.com/</a></p><h3 id="免申请使用"><a href="#免申请使用" class="headerlink" title="免申请使用"></a>免申请使用</h3><p>1.打开网站<a href="https://t.co/x4SVklb6NM,%E7%82%B9%E5%87%BB%E7%99%BB%E5%BD%95%E5%AE%89%E8%A3%85">https://t.co/x4SVklb6NM,点击登录安装</a></p><p><img src="https://cdn.wangzai.top/img/image-20230412122725443.png" alt="image-20230412122725443"></p><p>2.我是用google账号直接登录的</p><p><img src="https://cdn.wangzai.top/img/image-20230412122826962.png" alt="image-20230412122826962"></p><p>3.点击在Slack打开</p><p><img src="https://cdn.wangzai.top/img/image-20230412122856221.png" alt="image-20230412122856221"></p><p>4.直接从浏览器打开此链接</p><p><img src="https://cdn.wangzai.top/img/image-20230412122915041.png" alt="image-20230412122915041"></p><p>5.开始对话!</p><p><img src="https://cdn.wangzai.top/img/image-20230412123019857.png" alt="image-20230412123019857"></p><h3 id="手机端使用"><a href="#手机端使用" class="headerlink" title="手机端使用"></a>手机端使用</h3><p>执行完上面的步骤,安装Slack这款软件,即可实现在手机端对话,软件地址:<a href="http://ali.wangwangit.com/onedrive/%E8%BD%AF%E4%BB%B6/slack.apk">slack.apk | 一只会飞的旺旺 (wangwangit.com)</a></p><p><img src="https://cdn.wangzai.top/img/image-20230412123154915.png" alt="image-20230412123154915"></p><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>我创建了一个AI交流群,会实时分享新的好玩的资源,有兴趣的可以扫码进群,若群二维码失效,可以扫下方个人二维码拉你进群!</p><p><img src="https://cdn.wangzai.top/img/202304021659925.png" alt="image-20230402165946824"></p><p><img src="https://cdn.wangzai.top/img/202304021659526.png" alt="image-20230402165951361"></p>]]></content>
+    
+    
+    <summary type="html">true</summary>
+    
+    
+    
+    <category term="开发" scheme="https://www.wangwangit.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="AI" scheme="https://www.wangwangit.com/tags/AI/"/>
+    
+    <category term="Claude" scheme="https://www.wangwangit.com/tags/Claude/"/>
+    
+  </entry>
   
   <entry>
     <title>AI作画网站一键搭建，让您的创意无限释放</title>
@@ -424,27 +447,6 @@
     
     
     <category term="Oracle" scheme="https://www.wangwangit.com/tags/Oracle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023年在中国观看Netflix(网飞奈飞)指南</title>
-    <link href="https://www.wangwangit.com/%E8%A7%82%E7%9C%8BNetflix%E6%8C%87%E5%8D%97/"/>
-    <id>https://www.wangwangit.com/%E8%A7%82%E7%9C%8BNetflix%E6%8C%87%E5%8D%97/</id>
-    <published>2023-01-03T15:59:00.000Z</published>
-    <updated>2023-03-13T03:51:03.076Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>下面是一篇基于Chatgpt生成的软件介绍文档,你还不知道Chatgpt是啥?快看看我以前的文章吧!</strong></p><h3 id="介绍文案"><a href="#介绍文案" class="headerlink" title="介绍文案"></a>介绍文案</h3><p>​如果你是一个电视剧迷，那么你一定不能错过这款软件。这款软件叫做<strong>春秋岁月</strong>，它可以让你在手机、平板电脑上随时随地观看各种电视剧，包括奈飞新出的剧集。</p><p>​软件提供了海量的电视剧内容，包括国内外热门剧集、奈飞出品的剧集等。另外，它还提供了追剧提醒功能，让你不会错过任何一集。此外，它还有自动缓存功能，让你可以在没有网络的情况下观看已缓存的剧集。</p><p>​软件的界面简洁易用，让你可以轻松找到你想看的剧集。它还提供了多种播放模式，让你可以根据自己的喜好调整播放速度和画质。</p><p>​总的来说，该软件是一款不可多得的电视剧软件，让你可以随时随地追剧，并且提供了丰富的功能和优质的播放</p><p><img src="https://cdn.wangzai.top/img/202301041432671.png" alt="image-20230104143244507"></p><h3 id="获取方式"><a href="#获取方式" class="headerlink" title="获取方式"></a>获取方式</h3><pre><code>春秋岁月：https://apps.apple.com/cn/app/id1659647017解锁方法：点击右上角设置图标，在【意见反馈】中输入【tk999】，然后右上角发送，再完全关闭应用后台，重启即可加载出完整的影视内容。</code></pre>]]></content>
-    
-    
-    <summary type="html">true</summary>
-    
-    
-    
-    <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="Netflix" scheme="https://www.wangwangit.com/tags/Netflix/"/>
     
   </entry>
   
