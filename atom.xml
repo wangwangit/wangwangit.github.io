@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-04-20T01:04:32.525Z</updated>
+  <updated>2023-04-20T09:28:20.906Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.wangwangit.com/Azure%20OpenAI%20%E7%94%B3%E8%AF%B7%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/"/>
     <id>https://www.wangwangit.com/Azure%20OpenAI%20%E7%94%B3%E8%AF%B7%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</id>
     <published>2023-04-12T04:14:00.000Z</published>
-    <updated>2023-04-20T01:04:32.525Z</updated>
+    <updated>2023-04-20T09:28:20.906Z</updated>
     
-    <content type="html"><![CDATA[<p>Azure OpenAI 和 OpenAI 官方提供的服务基本是一致的，但是目前前者还是处于预览版的状态，一些功能还没有完全开放。</p><p>优点：</p><ul><li>不受地域限制，国内可以直接调用。</li><li>可以自己上传训练数据进行训练（据说很贵）。</li><li>Azure 多语言 SDK 支持。</li><li>更适合企业私有化，数据可完全控制删除。</li></ul><p>缺点：</p><ul><li>部分功能未开放，但 ChatGPT 的功能是没问题的。</li><li>和 OpenAI 官方的 API 标准有差异，<strong>无法直接用</strong>一些只支持 OpenAI 官方API 的开源项目。</li></ul><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul><li>Azure 订阅 - <a href="https://azure.microsoft.com/free/cognitive-services">免费创建订阅</a>。</li><li>已在所需的 Azure 订阅中授予对 Azure OpenAI 的访问权限。</li><li>已部署模型的 Azure OpenAI 资源。 有关模型部署的详细信息，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/how-to/create-resource">资源部署指南</a>。</li></ul><h2 id="申请教程"><a href="#申请教程" class="headerlink" title="申请教程"></a>申请教程</h2><p>目前，仅应用程序授予对此服务的访问权限。 可以通过在 <strong><a href="https://aka.ms/oai/access">https://aka.ms/oai/access</a></strong> 上填写表单来申请对 Azure OpenAI 的访问权限。 如果有任何问题，请在此存储库上提出问题以联系我们。</p><h3 id="非企业申请方案"><a href="#非企业申请方案" class="headerlink" title="非企业申请方案"></a>非企业申请方案</h3><p>很多小伙伴表示没有企业信息,这里也可以使用教育信息代替,只要有教育邮箱即可,</p><p>企业信息全部替换成教育邮箱对应的学校信息就行.邮箱是必须的,后续会有信息发送到邮箱.</p><p>直接按照表单要求填写真实信息即可!然后等待2~10天不等，你会收到一封邮件，通知验证通过!</p><p><img src="https://cdn.wangzai.top/img/202304171938424.png" alt="image-20230417193826254"></p><h2 id="配置Azure-OpenAI"><a href="#配置Azure-OpenAI" class="headerlink" title="配置Azure OpenAI"></a>配置Azure OpenAI</h2><h3 id="1-创建服务"><a href="#1-创建服务" class="headerlink" title="1.创建服务"></a>1.创建服务</h3><p>进入 Azure 后，直接搜索OpenAI</p><p><img src="https://cdn.wangzai.top/img/202304171940170.png" alt="image-20230417194048098"></p><p>若是已经通过,这里即可选择订阅,否则会在下方提示让你申请</p><p><img src="https://cdn.wangzai.top/img/202304171941152.png" alt="image-20230417194155071"></p><h3 id="2-创建模型部署"><a href="#2-创建模型部署" class="headerlink" title="2.创建模型部署"></a>2.创建模型部署</h3><p>在资源管理-&gt;模型部署 选择需要的模型进行创建，每个模型只能创建1个部署。</p><p><img src="https://cdn.wangzai.top/img/202304171942678.png" alt="image-20230417194251588"></p><p>部署完成之后,点击Azure OpenAI Studio即可进行测试</p><p><img src="https://cdn.wangzai.top/img/202304171944609.png" alt="image-20230417194400525"></p><p>如下所示!</p><p><img src="https://cdn.wangzai.top/img/202304171944217.png" alt="image-20230417194452117"></p><h3 id="3-API调用"><a href="#3-API调用" class="headerlink" title="3.API调用"></a>3.API调用</h3><p>很多小伙伴是需要用第三方服务部署的,需要的内容可以在 资源管理-&gt;密钥和终结点 可以获取 API 地址以及调用密钥。</p><p><img src="https://cdn.wangzai.top/img/202304171945877.png" alt="image-20230330104847592"></p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>相信以上教程已经足够让小伙伴们申请到自己的Azure OpenAI服务了!</p><p>有需要进交流群的可以加我,备注AI即可!</p><p><img src="https://cdn.wangzai.top/img/202304171948999.png" alt="image-20230417194824820"></p>]]></content>
+    <content type="html"><![CDATA[<p>Azure OpenAI 和 OpenAI 官方提供的服务基本是一致的，但是目前前者还是处于预览版的状态，一些功能还没有完全开放。</p><p>优点：</p><ul><li>不受地域限制，国内可以直接调用。</li><li>可以自己上传训练数据进行训练（据说很贵）。</li><li>Azure 多语言 SDK 支持。</li><li>更适合企业私有化，数据可完全控制删除。</li></ul><p>缺点：</p><ul><li>部分功能未开放，但 ChatGPT 的功能是没问题的。</li><li>和 OpenAI 官方的 API 标准有差异，<strong>无法直接用</strong>一些只支持 OpenAI 官方API 的开源项目。</li></ul><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul><li>Azure 订阅 - <a href="https://azure.microsoft.com/free/cognitive-services">免费创建订阅</a>。</li><li>已在所需的 Azure 订阅中授予对 Azure OpenAI 的访问权限。</li><li>已部署模型的 Azure OpenAI 资源。 有关模型部署的详细信息，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/how-to/create-resource">资源部署指南</a>。</li></ul><h2 id="申请教程"><a href="#申请教程" class="headerlink" title="申请教程"></a>申请教程</h2><p>目前，仅应用程序授予对此服务的访问权限。 可以通过在 <strong><a href="https://aka.ms/oai/access">https://aka.ms/oai/access</a></strong> 上填写表单来申请对 Azure OpenAI 的访问权限。 如果有任何问题，请在此存储库上提出问题以联系我们。</p><h2 id="配置Azure-OpenAI"><a href="#配置Azure-OpenAI" class="headerlink" title="配置Azure OpenAI"></a>配置Azure OpenAI</h2><h3 id="1-创建服务"><a href="#1-创建服务" class="headerlink" title="1.创建服务"></a>1.创建服务</h3><p>进入 Azure 后，直接搜索OpenAI</p><p><img src="https://cdn.wangzai.top/img/202304171940170.png" alt="image-20230417194048098"></p><p>若是已经通过,这里即可选择订阅,否则会在下方提示让你申请</p><p><img src="https://cdn.wangzai.top/img/202304171941152.png" alt="image-20230417194155071"></p><h3 id="2-创建模型部署"><a href="#2-创建模型部署" class="headerlink" title="2.创建模型部署"></a>2.创建模型部署</h3><p>在资源管理-&gt;模型部署 选择需要的模型进行创建，每个模型只能创建1个部署。</p><p><img src="https://cdn.wangzai.top/img/202304171942678.png" alt="image-20230417194251588"></p><p>部署完成之后,点击Azure OpenAI Studio即可进行测试</p><p><img src="https://cdn.wangzai.top/img/202304171944609.png" alt="image-20230417194400525"></p><p>如下所示!</p><p><img src="https://cdn.wangzai.top/img/202304171944217.png" alt="image-20230417194452117"></p><h3 id="3-API调用"><a href="#3-API调用" class="headerlink" title="3.API调用"></a>3.API调用</h3><p>很多小伙伴是需要用第三方服务部署的,需要的内容可以在 资源管理-&gt;密钥和终结点 可以获取 API 地址以及调用密钥。</p><p><img src="https://cdn.wangzai.top/img/202304171945877.png" alt="image-20230330104847592"></p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>相信以上教程已经足够让小伙伴们申请到自己的Azure OpenAI服务了!</p><p>有需要进交流群的可以加我,备注AI即可!</p><p><img src="https://cdn.wangzai.top/img/202304171948999.png" alt="image-20230417194824820"></p>]]></content>
     
     
     <summary type="html">本教程将向您介绍如何申请和使用 Azure OpenAI 服务。我们将逐步引导您完成整个过程，包括创建 Azure 账户、设置订阅、创建资源组、创建并配置 OpenAI 服务。</summary>
@@ -341,9 +341,9 @@
     <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
-    
     <category term="Chatgpt" scheme="https://www.wangwangit.com/tags/Chatgpt/"/>
+    
+    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
     
   </entry>
   
