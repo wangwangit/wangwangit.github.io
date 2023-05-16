@@ -524,90 +524,33 @@ details[open] > summary .remove {
 .aplayer .aplayer-list ol li.aplayer-list-light {
   background: #f8f8f8 !important;
 }
-article.nexmoe-py > *:first-child {
-  margin-top: 0 !important;
-}
 article.nexmoe-py ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin: -5px;
+  justify-content: space-around;
 }
 article.nexmoe-py ul li {
-  transition: all 0.03s;
-  width: calc(14.285714285714286% - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
   margin: 5px;
-  border-radius: 10px;
+  padding: 5px;
   border: 1px solid #eee;
-  font-size: 0;
-  overflow: hidden;
-}
-article.nexmoe-py ul li > a {
-  padding-top: 100%;
-  display: block;
-  position: relative;
-}
-article.nexmoe-py ul li > a:before {
-  background-image: -moz-linear-gradient(to top, rgba(16,16,16,0.35) 25%, rgba(16,16,16,0) 100%);
-  background-image: -webkit-linear-gradient(to top, rgba(16,16,16,0.35) 25%, rgba(16,16,16,0) 100%);
-  background-image: -ms-linear-gradient(to top, rgba(16,16,16,0.35) 25%, rgba(16,16,16,0) 100%);
-  background-image: linear-gradient(to top, rgba(16,16,16,0.35) 25%, rgba(16,16,16,0) 100%);
-  -moz-pointer-events: none;
-  -webkit-pointer-events: none;
-  -ms-pointer-events: none;
-  pointer-events: none;
-  background-size: cover;
-  content: '';
-  display: block;
-  height: 36px;
-  left: 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-  opacity: 0.8;
-}
-article.nexmoe-py ul li > a::after {
-  font-size: 13px;
-  color: #fff;
-  -webkit-transition: none;
-  transition: none;
-  content: attr(title);
-  display: block;
-  width: 100%;
-  border: none;
-  padding: 2px 10px;
+  border-radius: 10px;
   text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  position: absolute;
-  bottom: 0;
-  z-index: 2;
 }
 article.nexmoe-py ul li img {
-  width: 100%;
-  border-radius: 0;
-  border: none;
-  display: block;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  pointer-events: none;
-}
-article.nexmoe-py ul li img.lazyload {
-  padding-bottom: 100%;
-  opacity: 0;
-}
-article.nexmoe-py ul li img.lazyloaded {
-  padding-bottom: 0;
-  opacity: 1;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 5px;
 }
 @media screen and (max-width: 768px) {
   article.nexmoe-py ul li {
-    width: calc(33.3333333333% - 10px);
+    width: calc(50% - 10px);
   }
 }
 *,
@@ -1272,11 +1215,11 @@ photos img {
   flex: none;
   width: 60px;
   padding: 5px 0;
-  background-color: #ff4e6a;
+  background-color: #0d47a1;
   transform: rotate(0deg);
   border-radius: 50%;
   color: #fff;
-  box-shadow: 0 2px 12px #e67249;
+  box-shadow: 0 2px 12px #1a237e;
   position: relative;
 }
 #nexmoe-header .nexmoe-count .nexmoe-count-item .item-radius {
@@ -1286,7 +1229,7 @@ photos img {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #ff4e6a;
+  background-color: #0d47a1;
 }
 #nexmoe-header .nexmoe-count .nexmoe-count-item .item-right {
   left: auto;
@@ -1296,8 +1239,8 @@ photos img {
   color: #fff;
 }
 #nexmoe-header .nexmoe-list .nexmoe-list-item.active {
-  background-color: #ff4e6a;
-  box-shadow: 0 2px 12px #e67249;
+  background-color: #0d47a1;
+  box-shadow: 0 2px 12px #1a237e;
 }
 #nexmoe-header .nexmoe-search input {
   width: 100%;
@@ -1311,7 +1254,7 @@ photos img {
   background-color: #fff;
   border-radius: 15px;
   overflow: auto;
-  box-shadow: 0 2px 12px #e67249;
+  box-shadow: 0 2px 12px #1a237e;
   animation: anim 0.5s;
   max-height: 200px;
 }
@@ -1329,7 +1272,7 @@ photos img {
   color: #333;
 }
 #nexmoe-header #local-search-result .search-result-list .search-result-list-item a:hover {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 @-moz-keyframes anim {
   0% {
@@ -1368,14 +1311,14 @@ photos img {
   overflow: inherit;
 }
 #nexmoe-header .nexmoe-widget-wrap .nexmoe-widget .category-list-count {
-  color: #ff4e6a;
-  background-color: #f8e6d8;
+  color: #0d47a1;
+  background-color: rgba(48,63,159,0.5);
 }
 #nexmoe-header .nexmoe-widget-wrap .nexmoe-widget .archive-list-count {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 #nexmoe-header .nexmoe-copyright a {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 #nexmoe-content .nexmoe-posts .nexmoe-post {
   position: relative;
@@ -1388,9 +1331,9 @@ photos img {
   padding: 0 10px;
   font-size: 14px;
   border-radius: 15px 0 8px 0;
-  background-color: #f8e6d8;
+  background-color: rgba(48,63,159,0.5);
   height: 30px;
-  color: #ff4e6a;
+  color: #0d47a1;
   display: flex;
   align-items: center;
 }
@@ -1405,8 +1348,8 @@ photos img {
   width: 300px;
 }
 #nexmoe-pendant .nexmoe-pd .clock {
-  border: solid 2.8vh #ff4e6a;
-  box-shadow: 0 1.4vh 2.8vh #e67249;
+  border: solid 2.8vh #0d47a1;
+  box-shadow: 0 1.4vh 2.8vh #1a237e;
 }
 #nexmoe-pendant .nexmoe-pd .clock .memory {
   background-color: #a50e00 !important;
@@ -1415,8 +1358,8 @@ photos img {
   background-image: url("/images/background/cangshu.webp");
 }
 #nexmoe-pendant .nexmoe-pd .qweather #he-plugin-standard {
-  border: 2px solid #ff4e6a;
-  box-shadow: 0 1px 0 0 #e67249, 0 1px 2px 0 #e67249;
+  border: 2px solid #0d47a1;
+  box-shadow: 0 1px 0 0 #1a237e, 0 1px 2px 0 #1a237e;
 }
 #nexmoe-pendant .nexmoe-pd .qweather #he-plugin-standard .wv-lt-refresh {
   display: none;
@@ -1428,31 +1371,31 @@ photos img {
   background-image: url("/images/background/cangshu.webp");
 }
 article a {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 article h2:after {
-  background: #ff4e6a;
-  box-shadow: 0 2px 12px #e67249;
+  background: #0d47a1;
+  box-shadow: 0 2px 12px #1a237e;
 }
 article h4:before,
 article h5:before,
 article h6:before {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 article ol li::before {
-  color: #ff4e6a;
-  background-color: #f8e6d8;
+  color: #0d47a1;
+  background-color: rgba(48,63,159,0.5);
 }
 article pre .text,
 article pre .txt {
   color: #abb2bf;
 }
 .nexmoe-archives li::before {
-  background: #ff4e6a;
+  background: #0d47a1;
 }
 .nexmoe-rainbow a:nth-child(7n+1) {
-  background: #f8e6d8;
-  color: #ff4e6a;
+  background: rgba(48,63,159,0.5);
+  color: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-py .aplayer {
   background-image: url("/images/background/chichi.webp");
@@ -1461,11 +1404,11 @@ article pre .txt {
   background-repeat: no-repeat;
 }
 #nexmoe-content .nexmoe-post .nexmoe-py p em {
-  color: #ff4e6a;
+  color: #0d47a1;
   font-size: 17px;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v a::before {
-  background: #ff4e6a;
+  background: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .veditor {
   background-image: url("/images/background/papa.webp");
@@ -1475,19 +1418,19 @@ article pre .txt {
   background-color: #fff;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vlist .vcard .vhead .vnick {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vlist .vcard .vhead .vnick::before {
-  background: #ff4e6a;
+  background: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v button {
-  background: #f8e6d8;
-  color: #ff4e6a;
+  background: rgba(48,63,159,0.5);
+  color: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v button:hover {
-  background: #ff4e6a;
+  background: #0d47a1;
   color: #fff;
-  border-color: #ff4e6a;
+  border-color: #0d47a1;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vcontrol .col-20 a {
   display: none;
@@ -1496,11 +1439,11 @@ article pre .txt {
   display: none;
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-copyright a {
-  color: #ff4e6a;
+  color: #0d47a1;
 }
 #nexmoe-content .nexmoe-primary .nexmoe-page-nav .current {
-  background: #ff4e6a;
-  box-shadow: 0 2px 12px #f8e6d8;
+  background: #0d47a1;
+  box-shadow: 0 2px 12px rgba(48,63,159,0.5);
 }
 #daodream-container .daodream-launcher {
   right: 60px !important;
@@ -1510,46 +1453,46 @@ article pre .txt {
   display: none;
 }
 #daodream-container .daodream-sheet-header {
-  background-image: linear-gradient(0deg, #f8e6d8, #f8e6d8) !important;
-  box-shadow: 0 1px 0 0 #f8e6d8, 0 1px 2px 0 #f8e6d8 !important;
-  color: #ff4e6a;
+  background-image: linear-gradient(0deg, rgba(48,63,159,0.5), rgba(48,63,159,0.5)) !important;
+  box-shadow: 0 1px 0 0 rgba(48,63,159,0.5), 0 1px 2px 0 rgba(48,63,159,0.5) !important;
+  color: #0d47a1;
 }
 #daodream-container .daodream-sheet-header .daodream-sheet-header-generic-title {
-  color: #ff4e6a;
+  color: #0d47a1;
   font-weight: bold;
 }
 #daodream-container .daodream-composer-textarea textarea {
-  color: #ff4e6a !important;
+  color: #0d47a1 !important;
 }
 #daodream-container .daodream-composer-textarea textarea:focus {
   outline: none;
-  border: 1px solid #ff4e6a !important;
+  border: 1px solid #0d47a1 !important;
 }
 #daodream-container .daodream-composer-send-button {
-  background-image: linear-gradient(180deg, #ff4e6a, #ff4e6a) !important;
-  background: #ff4e6a !important;
+  background-image: linear-gradient(180deg, #0d47a1, #0d47a1) !important;
+  background: #0d47a1 !important;
 }
 #daodream-container .daodream-conversations-item-user-avatar {
-  background-color: #ff4e6a !important;
+  background-color: #0d47a1 !important;
 }
 #daodream-container .daodream-conversations-new-conversation-button {
-  background-image: linear-gradient(180deg, #ff4e6a, #ff4e6a) !important;
-  background: #ff4e6a !important;
+  background-image: linear-gradient(180deg, #0d47a1, #0d47a1) !important;
+  background: #0d47a1 !important;
 }
 #daodream-container .daodream-comment-card .notification-input {
-  border: 1px solid #ff4e6a !important;
+  border: 1px solid #0d47a1 !important;
 }
 #daodream-container .daodream-comment-card .notification-submit {
-  background-color: #ff4e6a !important;
+  background-color: #0d47a1 !important;
 }
 #daodream-container .daodream-comment-card .daodream-comment-avatar {
   content: url("/images/head/head.webp") !important;
 }
 #daodream-container .daodream-comment-by-user .daodream-comment-body-container {
-  background-color: #ff4e6a !important;
+  background-color: #0d47a1 !important;
 }
 #daodream-container .daodream-comment-by-user .daodream-comment-caret:before {
-  background-color: #ff4e6a !important;
+  background-color: #0d47a1 !important;
 }
 #daodream-container .daodream-sheet-spinner {
   border-radius: 50% !important;
@@ -1559,7 +1502,7 @@ article pre .txt {
 #daodream-container .daodream-launcher-button {
   width: 80px !important;
   height: 80px !important;
-  background-color: #ff4e6a !important;
+  background-color: #0d47a1 !important;
   background-image: url("/images/head/call.webp") !important;
   background-size: 100% 100% !important;
   border-radius: 50% !important;
