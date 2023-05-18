@@ -42,7 +42,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684390356767">
+  <link rel="stylesheet" href="/css/style.css?v=1684393863884">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -61,7 +61,8 @@
     </div>
   </div>
   <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+      <script src="/js/popup.js"></script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="一只会飞的旺旺">
             <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
@@ -259,6 +260,7 @@
 			
 			
 	</div>
+ 
 
 </div><!-- .nexmoe-drawer -->
   </div>
@@ -300,6 +302,60 @@
     </div>
     
 </section>
+    <!-- 找到这里，添加代码 -->
+    
+        <div class="popup">
+    <div class="popup-content">
+        <!-- 在这里添加弹窗的内容 -->
+        <p>欢迎来到我的世界!</p>
+    </div>
+</div>
+
+<style>
+    /* 弹窗样式 */
+    .popup {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 20px;
+        background: linear-gradient(135deg, #0aee0a, #71a7ec);
+        /* 使用渐变背景色 */
+        color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: top 1s ease-in-out; /* 将过渡时间设置为1秒，并添加缓动效果 */
+        /* 将过渡时间设置为1秒，并添加缓动效果 */
+        border-radius: 10px;
+    }
+
+    .popup.show {
+        top: 20px;
+        /* 弹窗滑动到顶部 */
+    }
+
+
+    /* 弹窗的进入和退出动画效果 */
+    @keyframes slideIn {
+        0% {
+            top: -100%;
+        }
+
+        100% {
+            top: 20px;
+        }
+    }
+
+    @keyframes slideOut {
+        0% {
+            top: 20px;
+        }
+
+        100% {
+            top: -100%;
+        }
+    }
+</style>
+        
+      <!-- 到这里结束 -->
 
 
         <div class="nexmoe-post-right">
@@ -1014,7 +1070,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684390356768"></script>
+<script src="/js/app.js?v=1684393863885"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -1050,8 +1106,6 @@ var _hmt = _hmt || [];
 
 
 <!-- hexo injector body_end start -->
-<script src="/js/clock.js"></script>
-
 <script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
 
 <script src="/lib/codeBlock/codeBlockFuction.js"></script>
@@ -1063,6 +1117,8 @@ var _hmt = _hmt || [];
 <script src="/lib/codeBlock/codeShrink.js"></script>
 
 <link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/clock.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
