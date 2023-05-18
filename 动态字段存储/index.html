@@ -31,18 +31,18 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="最近遇到了一个存储动态字段的问题,根据以往的项目经验,以及查阅相关资料,记录总结一下解决方案">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282011854.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282012062.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282012748.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282012085.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282012072.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282011854.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012062.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012748.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012085.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012072.png">
 <meta property="article:published_time" content="2022-06-10T04:14:00.000Z">
-<meta property="article:modified_time" content="2023-03-13T03:51:03.069Z">
+<meta property="article:modified_time" content="2023-05-18T09:00:23.478Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="JSON">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.wangzai.top/img/202209282011854.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282011854.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -51,7 +51,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684393863697">
+  <link rel="stylesheet" href="/css/style.css?v=1684400499117">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -340,19 +340,19 @@
   <!-- 到这里结束 -->
         <article>
             <h2 id="一-前言"><a href="#一-前言" class="headerlink" title="一.前言"></a>一.前言</h2><p>最近遇到了一个存储动态字段的问题,根据以往的项目经验,以及查阅相关资料,记录总结一下解决方案</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282011854.png" alt="image-20220928201152792" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282011854.png" alt="image-20220928201152792" class="lazyload"></p>
 <h2 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二.解决方案"></a>二.解决方案</h2><p>1.列模型</p>
 <p>建表时预留一些空白字段</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282012062.png" alt="image-20220928201200999" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012062.png" alt="image-20220928201200999" class="lazyload"></p>
 <p>2.行模型</p>
 <p>将动态字段以key-value形式存储到表中,然后通过id关联到业务上</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282012748.png" alt="image-20220928201211674" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012748.png" alt="image-20220928201211674" class="lazyload"></p>
 <p>3.EAV模型</p>
 <p>EAV模型，就是把实体-属性-值（Entity-Attribute-Value）分开表进行存储。实体表存储对象的ID和主要属性，属性表存储需要扩展的属性，值表由不同类型的表组成一个集合，一个值需要由实体ID+属性ID来确定。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282012085.png" alt="image-20220928201230970" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012085.png" alt="image-20220928201230970" class="lazyload"></p>
 <p>4.JSON模型</p>
 <p>直接将所有字段以json格式进行存储,增删改查逻辑有代码层面实现</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282012072.png" alt="image-20220928201241016" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282012072.png" alt="image-20220928201241016" class="lazyload"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不同的方案各有优劣,根据实际情况进行取舍!</p>
 
         </article>
@@ -385,7 +385,7 @@
         <section class="nexmoe-comment">
     <div class="valine"></div>
 <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://cdn.wangzai.top/img/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/Valine.min.js'></script>
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
@@ -1117,7 +1117,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684393863699"></script>
+<script src="/js/app.js?v=1684400499118"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

@@ -31,20 +31,20 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="SpringBoot是所有基于Spring开发的项目的起点,SpringBoot的设计是为了让你尽快的跑起来Spring应用程序并且尽可能减少你的配置文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131558900.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131558925.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131559509.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131603287.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131604265.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210131645837.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210141358204.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210141437926.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131558900.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131558925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131559509.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131603287.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131604265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131645837.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210141358204.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210141437926.png">
 <meta property="article:published_time" content="2022-10-12T18:14:00.000Z">
-<meta property="article:modified_time" content="2023-03-13T03:51:03.058Z">
+<meta property="article:modified_time" content="2023-05-18T09:00:23.477Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.wangzai.top/img/202210131558900.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131558900.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -53,7 +53,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684393863645">
+  <link rel="stylesheet" href="/css/style.css?v=1684400499039">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -343,15 +343,15 @@
         <article>
             <h2 id="SpringBootܻ原理深入及源码剖析"><a href="#SpringBootܻ原理深入及源码剖析" class="headerlink" title="SpringBootܻ原理深入及源码剖析"></a>SpringBootܻ原理深入及源码剖析</h2><h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><h4 id="问题一-为什么某些Maven依赖不需要指定版本号"><a href="#问题一-为什么某些Maven依赖不需要指定版本号" class="headerlink" title="问题一:为什么某些Maven依赖不需要指定版本号?"></a>问题一:为什么某些Maven依赖不需要指定版本号?</h4><p>因为spring-boot-starter-parent中已经定义了常用依赖匹配的版本号.</p>
 <p>按住Ctrl,点击spring-boot-starter-parent的版本号</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131558900.png" alt="image-20221013155539028" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131558900.png" alt="image-20221013155539028" class="lazyload"></p>
 <p>可见pom文件中的parent是spring-boot-dependencies,然后再次按住Ctrl,点击版本号</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131558925.png" alt="image-20221013155647320" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131558925.png" alt="image-20221013155647320" class="lazyload"></p>
 <p>我们会发现这个pom中维护了一大堆依赖的版本号</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131559509.png" alt="image-20221013155755730" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131559509.png" alt="image-20221013155755730" class="lazyload"></p>
 <h4 id="问题二-Springboot是如何引入这些jar包的"><a href="#问题二-Springboot是如何引入这些jar包的" class="headerlink" title="问题二:Springboot是如何引入这些jar包的"></a>问题二:Springboot是如何引入这些jar包的</h4><p>在我们做web项目时,除了上面的parent外,还会引入spring-boot-starter-web,而在这个依赖中,则定义了web项目需要的jar依赖.</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131603287.png" alt="image-20221013160305222" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131603287.png" alt="image-20221013160305222" class="lazyload"></p>
 <p>依据不同的使用场景,spring官方也提供了不同的starter封装</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131604265.png" alt="image-20221013160428204" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131604265.png" alt="image-20221013160428204" class="lazyload"></p>
 <h4 id="问题三-Springboot是如何进行自动配置的"><a href="#问题三-Springboot是如何进行自动配置的" class="headerlink" title="问题三:Springboot是如何进行自动配置的"></a>问题三:Springboot是如何进行自动配置的</h4><p>我们进入查看启动类上的SpringBootApplication注解</p>
 <pre><code class="java">@Target(&#123;ElementType.TYPE&#125;) // 注解适用范围,Type表示注解可以描述类,接口,注解或枚举类
 @Retention(RetentionPolicy.RUNTIME) // 表示注解的生命周期,Runtime运行时
@@ -528,7 +528,7 @@ public @interface AutoConfigurationPackage &#123;
     &#125;
 </code></pre>
 <p>实际上,加载的就是这个路径下的配置文件</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210131645837.png" alt="image-20221013164539737" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210131645837.png" alt="image-20221013164539737" class="lazyload"></p>
 <p>以web项目为例,在项目中加入了Web环境依赖启动器,对应的WebMvcAutoConfiguration就会生效,打开这个配置类,就会发现该类通过全注解的方式对Spring所需环境进行了默认配置.</p>
 <p><strong>总结</strong></p>
 <p>springboot底层自动配置的步骤是:</p>
@@ -577,7 +577,7 @@ public class MyAutoConfiguration &#123;
 &#125;
 </code></pre>
 <h4 id="4-配置启动类加载路径"><a href="#4-配置启动类加载路径" class="headerlink" title="4.配置启动类加载路径"></a>4.配置启动类加载路径</h4><p>在resources下创建&#x2F;META-INF&#x2F;spring.factories文件,指定配置类全路径</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210141358204.png" alt="image-20221014135815091" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210141358204.png" alt="image-20221014135815091" class="lazyload"></p>
 <h4 id="5-测试starter"><a href="#5-测试starter" class="headerlink" title="5.测试starter"></a>5.测试starter</h4><p>在测试包中引入自定义starter</p>
 <pre><code class="xml">        &lt;dependency&gt;
             &lt;groupId&gt;org.example&lt;/groupId&gt;
@@ -676,7 +676,7 @@ simple.name=test
         &#125;
     &#125;
 </code></pre>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210141437926.png" alt="image-20221014143737733" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210141437926.png" alt="image-20221014143737733" class="lazyload"></p>
 <h3 id="Springboot缓存管理"><a href="#Springboot缓存管理" class="headerlink" title="Springboot缓存管理"></a>Springboot缓存管理</h3><h4 id="默认缓存"><a href="#默认缓存" class="headerlink" title="默认缓存"></a>默认缓存</h4><p>1.启动类使用@EnableCaching注解</p>
 <pre><code class="java">@SpringBootApplication
 @EnableCaching // 开启SpringBoot基于注解的缓存管理支持
@@ -739,7 +739,7 @@ spring.redis.password=
         <section class="nexmoe-comment">
     <div class="valine"></div>
 <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://cdn.wangzai.top/img/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/Valine.min.js'></script>
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
@@ -1471,7 +1471,7 @@ spring.redis.password=
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684393863646"></script>
+<script src="/js/app.js?v=1684400499042"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

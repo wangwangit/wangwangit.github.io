@@ -31,25 +31,25 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="Spring Security是一个功能强大且高度可定制的身份验证和访问控制框架。它是用于保护基于Spring的应用程序的实际标准。Spring Security是一个框架，致力于为Java应用程序提供身份验证和授权。与所有Spring项目一样，Spring Security的真正强大之处在于可以轻松扩展以满足自定义要求.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121404908.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121406301.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121412614.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121420997.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121427676.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121440543.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121447219.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121456778.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121519683.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121523408.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121525462.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121527151.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202210121530517.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121404908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121406301.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121412614.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121420997.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121427676.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121440543.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121447219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121456778.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121519683.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121523408.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121525462.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121527151.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121530517.png">
 <meta property="article:published_time" content="2022-10-11T18:14:00.000Z">
-<meta property="article:modified_time" content="2023-03-13T03:51:03.061Z">
+<meta property="article:modified_time" content="2023-05-18T09:00:23.520Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="SpringSecurity">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.wangzai.top/img/202210121404908.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121404908.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -58,7 +58,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684393863653">
+  <link rel="stylesheet" href="/css/style.css?v=1684400499048">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -346,14 +346,14 @@
     
   <!-- 到这里结束 -->
         <article>
-            <h2 id="授权原理"><a href="#授权原理" class="headerlink" title="授权原理"></a>授权原理</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121404908.png" alt="image-20221012135724547" class="lazyload"></p>
+            <h2 id="授权原理"><a href="#授权原理" class="headerlink" title="授权原理"></a>授权原理</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121404908.png" alt="image-20221012135724547" class="lazyload"></p>
 <p>如果我们想要控制用户权限,需要两部分数据</p>
 <p>1:配置资源访问需要的权限</p>
 <p>2.用户拥有的权限</p>
 <p>本质上,权限控制实际上就是控制哪些url能否访问.</p>
 <h2 id="SpringSecurity授权"><a href="#SpringSecurity授权" class="headerlink" title="SpringSecurity授权"></a>SpringSecurity授权</h2><h3 id="内置权限表达式"><a href="#内置权限表达式" class="headerlink" title="内置权限表达式"></a>内置权限表达式</h3><p>ExpressionUrlAuthorizationConfigurer包含了所有表达式</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121406301.png" alt="image-20221012140635225" class="lazyload"></p>
-<h3 id="URL权限控制"><a href="#URL权限控制" class="headerlink" title="URL权限控制"></a>URL权限控制</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121412614.png" alt="image-20221012141221556" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121406301.png" alt="image-20221012140635225" class="lazyload"></p>
+<h3 id="URL权限控制"><a href="#URL权限控制" class="headerlink" title="URL权限控制"></a>URL权限控制</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121412614.png" alt="image-20221012141221556" class="lazyload"></p>
 <pre><code>/**
  * 自定义权限不足信息
  * @author pengwangwang
@@ -408,10 +408,10 @@ public class MyAuthorizationService &#123;
 
 &#125;
 </code></pre>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121420997.png" alt="image-20221012142058924" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121420997.png" alt="image-20221012142058924" class="lazyload"></p>
 <h3 id="Method安全表达式"><a href="#Method安全表达式" class="headerlink" title="Method安全表达式"></a>Method安全表达式</h3><p>提供四种注解:@PreAuthorize , @PostAuthorize , @PreFilter , @PostFilter .</p>
 <p>开启注解配置:</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121427676.png" alt="image-20221012142757613" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121427676.png" alt="image-20221012142757613" class="lazyload"></p>
 <p>在方法上使用注解</p>
 <pre><code class="java">    @RequestMapping(&quot;/findAll&quot;)
     @PreAuthorize(&quot;hasRole(&#39;ROLE_ADMIN&#39;)&quot;) // 指定角色才能访问
@@ -431,20 +431,20 @@ public class MyAuthorizationService &#123;
 <p>用户：系统接口及访问的操作者 </p>
 <p>权限：能够访问某接口或者做某操作的授权资格 </p>
 <p>角色：具有一类相同操作权限的总称</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121440543.png" alt="image-20221012144007485" class="lazyload"></p>
-<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="过滤器加载流程"><a href="#过滤器加载流程" class="headerlink" title="过滤器加载流程"></a>过滤器加载流程</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121447219.png" alt="image-20221012144745168" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121440543.png" alt="image-20221012144007485" class="lazyload"></p>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="过滤器加载流程"><a href="#过滤器加载流程" class="headerlink" title="过滤器加载流程"></a>过滤器加载流程</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121447219.png" alt="image-20221012144745168" class="lazyload"></p>
 <p>1.springboot启动时,会加载spring.factories文件,其中有SpringSecurity的过滤链配置信息</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121456778.png" alt="image-20221012145637699" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121456778.png" alt="image-20221012145637699" class="lazyload"></p>
 <p>2.SecurityFilterAutoConfiguration类</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121519683.png" alt="image-20221012151957617" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121519683.png" alt="image-20221012151957617" class="lazyload"></p>
 <p>3.SecurityAutoConfiguration类</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121523408.png" alt="image-20221012152343337" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121523408.png" alt="image-20221012152343337" class="lazyload"></p>
 <p>4.WebSecurityEnablerConfiguration类</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121525462.png" alt="image-20221012152516407" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121525462.png" alt="image-20221012152516407" class="lazyload"></p>
 <p>@EnableWebSecurity注解有两个作用:1.加载了WebSecurityConfiguration配置类, 配置安全认证策略。2.加载了AuthenticationConfiguration, 配置了认证信息。</p>
 <p>5.WebSecurityConfiguration类</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121527151.png" alt="image-20221012152759076" class="lazyload"></p>
-<h3 id="认证流程分析"><a href="#认证流程分析" class="headerlink" title="认证流程分析"></a>认证流程分析</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202210121530517.png" alt="image-20221012153038461" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121527151.png" alt="image-20221012152759076" class="lazyload"></p>
+<h3 id="认证流程分析"><a href="#认证流程分析" class="headerlink" title="认证流程分析"></a>认证流程分析</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202210121530517.png" alt="image-20221012153038461" class="lazyload"></p>
 <h4 id="代码跟踪"><a href="#代码跟踪" class="headerlink" title="代码跟踪"></a>代码跟踪</h4><p>UsernamePasswordAuthenticationFilter</p>
 <pre><code class="java">@Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
@@ -653,7 +653,7 @@ public class MyAuthorizationService &#123;
         <section class="nexmoe-comment">
     <div class="valine"></div>
 <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://cdn.wangzai.top/img/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/Valine.min.js'></script>
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
@@ -1385,7 +1385,7 @@ public class MyAuthorizationService &#123;
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684393863654"></script>
+<script src="/js/app.js?v=1684400499050"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

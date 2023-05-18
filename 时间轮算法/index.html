@@ -31,17 +31,17 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="在计算机世界中，只有待解决的问题变得大规模后，算法的价值才能够最大化的体现。时间轮算法可以将插入和删除操作的时间复杂度都降为 O(1)，在大规模问题下还能够达到非常好的运行效果。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282028978.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282029197.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282029696.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282029897.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202209282030185.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282028978.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029197.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029696.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029897.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282030185.png">
 <meta property="article:published_time" content="2022-07-03T22:14:00.000Z">
-<meta property="article:modified_time" content="2023-03-13T03:51:03.070Z">
+<meta property="article:modified_time" content="2023-05-18T09:00:23.478Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="Oracle,Java,Python,VPS,Spring,Hexo,Google,ChatGPT,Bing,Bard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.wangzai.top/img/202209282028978.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282028978.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -50,7 +50,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684393863682">
+  <link rel="stylesheet" href="/css/style.css?v=1684400499099">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -381,7 +381,7 @@
 </ul>
 <h3 id="2-1-简单时间轮算法"><a href="#2-1-简单时间轮算法" class="headerlink" title="2.1 简单时间轮算法"></a>2.1 简单时间轮算法</h3><p>时间轮算法的核心是：轮询线程不再负责遍历所有任务，而是仅仅遍历时间刻度。时间轮算法好比指针不断在时钟上旋转、遍历，如果一个发现某一时刻上有任务（任务队列），那么就会将任务队列上的所有任务都执行一遍。</p>
 <p>时间轮算法不再将任务队列作为数据结构，其数据结构如下图所示（我们以小时为单位）：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282028978.png" alt="image-20220928202838915" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282028978.png" alt="image-20220928202838915" class="lazyload"></p>
 <blockquote>
 <p>图-1 时间轮数据结构示意图（黄色块为时间刻度，绿色块为任务）</p>
 </blockquote>
@@ -389,7 +389,7 @@
 <p>现在，即使有 10k 个任务，轮询线程也不必每轮遍历 10 k 个任务，而仅仅需要遍历 24 个时间刻度。</p>
 <hr>
 <p>一个以小时为单位的时间轮算法就这么简单地实现了。不过，小时作为时间单位粒度太大，我们有时候会希望基于分钟作为时间刻度。最直接的方式是增加时间刻度，每一天有 24 * 60 &#x3D; 1440。此时时间轮的数据结构如下：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282029197.png" alt="image-20220928202916134" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029197.png" alt="image-20220928202916134" class="lazyload"></p>
 <blockquote>
 <p>图-2 时间精度为分钟的时间轮数据结构</p>
 </blockquote>
@@ -403,18 +403,18 @@
 <p>轮询线程的执行逻辑是：每隔一秒处理一个时间刻度上任务队列中的所有任务，任务的 round 字段减 1，接着判断如果 round 字段的值变为 0，那么将任务移出任务队列，交给异步线程池来执行对应任务。如果是重复执行任务，那么再将任务添加到任务队列中。</p>
 <p>轮询线程遍历一次时间轮需要 60 秒。如果一个任务需要间隔 x 秒执行一次，那么其 round 字段的值为 x&#x2F;60（整除），任务位于第 (x%60)（取余）个刻度对应的任务队列中。例如任务需要间隔 130 秒执行一次，那么 round 字段的值为 2，此任务位于第 10 号时间刻度的任务队列中。</p>
 <p>此时时间轮算法的数据结构如下图所示：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282029696.png" alt="image-20220928202932641" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029696.png" alt="image-20220928202932641" class="lazyload"></p>
 <blockquote>
 <p>图-3 时间精度为秒的 round 时间轮数据结构</p>
 </blockquote>
 <p>这种方式虽然简化了时间轮的刻度个数，但是并没有简化轮询线程运行效率不高的问题。时间轮每次处理一个时间刻度，就需要处理其上任务队列的所有任务。其运行效率甚至与基于普通任务队列实现的定时任务框架没有区别。</p>
 <h3 id="2-3-分层时间轮算法"><a href="#2-3-分层时间轮算法" class="headerlink" title="2.3 分层时间轮算法"></a>2.3 分层时间轮算法</h3><p>分层的时间轮算法在生活中有对应的模型（艺术来源于生活~），那就是水表：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282029897.png" alt="image-20220928202946681" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282029897.png" alt="image-20220928202946681" class="lazyload"></p>
 <blockquote>
 <p>图-4 水表</p>
 </blockquote>
 <p>此时，我们有秒、分钟、小时级别的三个时间轮，每一个时间轮分别有 60、60、24 个刻度。分层时间轮如下图所示：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202209282030185.png" alt="image-20220928203002124" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202209282030185.png" alt="image-20220928203002124" class="lazyload"></p>
 <blockquote>
 <p>图-5 一种分层时间轮数据结构</p>
 </blockquote>
@@ -457,7 +457,7 @@
         <section class="nexmoe-comment">
     <div class="valine"></div>
 <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://cdn.wangzai.top/img/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/Valine.min.js'></script>
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
@@ -1189,7 +1189,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684393863683"></script>
+<script src="/js/app.js?v=1684400499100"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

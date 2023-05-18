@@ -31,15 +31,15 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="InfluxDB是一个由InfluxData开发的开源时序型数据库。它由Go写成，着力于高性能地查询与存储时序型数据。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202302131737411.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202302131737482.png">
-<meta property="og:image" content="https://cdn.wangzai.top/img/202302131737526.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737411.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737482.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737526.png">
 <meta property="article:published_time" content="2023-02-12T21:14:00.000Z">
-<meta property="article:modified_time" content="2023-03-13T03:51:03.054Z">
+<meta property="article:modified_time" content="2023-05-18T09:00:23.520Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="InfluxDB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.wangzai.top/img/202302131737411.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737411.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -48,7 +48,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684393863611">
+  <link rel="stylesheet" href="/css/style.css?v=1684400498988">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -438,7 +438,7 @@ influxdb:
 <p>可以通过api访问获取配置内容</p>
 <pre><code>http://&#123;ip&#125;:&#123;port&#125;/api/v2/config
 </code></pre>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202302131737411.png" alt="image-20230213151613500" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737411.png" alt="image-20230213151613500" class="lazyload"></p>
 <h3 id="4-调整配置-开始测试"><a href="#4-调整配置-开始测试" class="headerlink" title="4.调整配置,开始测试"></a>4.调整配置,开始测试</h3><p>首先,我们使用默认配置启动InfluxDB,执行一个大数据量查询</p>
 <pre><code>from(bucket: &quot;zfzn_new&quot;)
   |&gt; range(start: -30d)
@@ -449,10 +449,10 @@ influxdb:
   |&gt; yield()
 </code></pre>
 <p>使用top查看Influxdb服务内存占用.</p>
-<img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202302131737482.png" alt="image-20230210161443055" class="lazyload">
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737482.png" alt="image-20230210161443055" class="lazyload">
 
 <p>调整为最大查询内存1G之后:</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.wangzai.top/img/202302131737526.png" alt="image-20230210165042436" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/202302131737526.png" alt="image-20230210165042436" class="lazyload"></p>
 <p>优化常用字段: </p>
 <p>具体说明参考官方文档: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3/reference/config-options/">InfluxDB 配置选项</a></p>
 <pre><code class="yml">log-level: warn # 日志输出级别
@@ -522,7 +522,7 @@ store: disk
         <section class="nexmoe-comment">
     <div class="valine"></div>
 <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://cdn.wangzai.top/img/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/wangwangit/image@master/img/Valine.min.js'></script>
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
@@ -1254,7 +1254,7 @@ store: disk
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684393863613"></script>
+<script src="/js/app.js?v=1684400498990"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
