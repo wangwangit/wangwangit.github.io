@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://voice.wangwangit.com/img/image-20230523103759670.png">
 <meta property="article:published_time" content="2023-05-22T04:14:00.000Z">
-<meta property="article:modified_time" content="2023-05-23T02:50:13.112Z">
+<meta property="article:modified_time" content="2023-05-23T05:13:28.895Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="Nginx">
 <meta property="article:tag" content="CDN">
@@ -47,7 +47,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1684812928995">
+  <link rel="stylesheet" href="/css/style.css?v=1684818841120">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -346,12 +346,11 @@
 <p>关于图床和Nginx的教程，你可以查看之前的文章。</p>
 <h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p><strong>第一步：</strong> </p>
 <p>拉取Github图片仓库到&#x2F;var&#x2F;www&#x2F;目录下。请替换下面命令中的仓库地址为你自己的地址。</p>
-<pre><code>shCopy code
-git clone https://github.com/image
+<pre><code>git clone https://github.com/image
 </code></pre>
 <p><strong>第二步：</strong> </p>
 <p>配置Nginx，映射当前图片仓库目录。假设我的图片仓库地址是：&#x2F;var&#x2F;www&#x2F;image。以下配置的作用是，当访问 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://aaa.wangwangit.com/img/1.jpg">http://aaa.wangwangit.com/img/1.jpg</a> 时，会实际访问服务器上的 &#x2F;var&#x2F;www&#x2F;image&#x2F;img&#x2F;1.jpg 文件。</p>
-<pre><code>cssCopy code server &#123;
+<pre><code>server &#123;
     listen 80;
     server_name aaa.wangwangit.com;
     root /var/www/html;
@@ -367,7 +366,7 @@ git clone https://github.com/image
 <p>上面两步实际上已经配置好了图床的加速器。我们只需要使用自己的域名地址进行访问即可。也许你会问为什么要使用Github，而不是直接将图片存储在服务器上。这样做有几个原因：首先，我的以前的图片已经存在Github上了；另外，使用Github的话，我不需要自己去维护图床。</p>
 <p>接下来，我们还需要及时拉取Github图床的更新。下面我来介绍如何实现这一点。</p>
 <p>我们可以使用Github的Webhook功能，在服务器的&#x2F;var&#x2F;www&#x2F;目录下创建一个名为webhook_receiver.py的Python文件，并编辑以下内容：</p>
-<pre><code>pythonCopy codefrom flask import Flask, request
+<pre><code>from flask import Flask, request
 import subprocess
 
 app = Flask(__name__)
@@ -1162,7 +1161,7 @@ if __name__ == &#39;__main__&#39;:
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1684812928998"></script>
+<script src="/js/app.js?v=1684818841122"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
