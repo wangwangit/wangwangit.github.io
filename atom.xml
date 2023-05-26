@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-05-23T05:13:28.895Z</updated>
+  <updated>2023-05-26T07:22:39.211Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git教程从入门到入土</title>
+    <link href="https://www.wangwangit.com/Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/"/>
+    <id>https://www.wangwangit.com/Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</id>
+    <published>2023-05-22T20:14:00.000Z</published>
+    <updated>2023-05-26T07:22:39.211Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a>What is Git?</h2><p>Git 是一个用于管理源代码的分布式版本控制系统。</p><p>那么什么是版本控制？简而言之，版本控制是用于跟踪文件更改的系统。修改文件时，版本控制系统会记录并保存每个更改。这允许您随时还原以前版本的代码。</p><h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><h4 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h4><p>最初的版本控制系统，它们使用简单的数据库或文件复制的方式来保存不同的版本，但是容易出错和丢失数据。例如 RCS。</p><h4 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h4><p>后来出现的版本控制系统，它们使用一个中央服务器来保存所有文件的修订版本，而客户端通过网络连接来取出或提交更新。这样可以方便地管理权限和协作，但是也有单点故障和必须联网的缺点。例如 CVS、SVN和 Perforce。</p><h4 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h4><p>最新的版本控制系统，它们允许每个客户端完整地镜像整个代码仓库，包括所有的历史记录。这样可以提高速度和安全性，也可以支持更灵活的协作模式。例如 Git、Mercurial、Bazaar 和 Darcs</p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul><li>跟踪代码历史记录</li><li>方便团队协作处理代码</li><li>便于代码溯源,查看谁进行了哪些更改</li><li>将代码部署到过渡或生产环境</li></ul><h2 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ol><li><p>下载最新的 Git for Windows 安装程序。</p></li><li><p>成功启动安装程序后，应会看到 Git 安装程序向导屏幕。按照“下一步”和“完成”提示完成安装。默认选项对于大多数用户来说非常明智。</p></li><li><p>打开命令提示符（如果在安装过程中选择不使用 Windows 命令提示符下的 Git，则打开 Git Bash）。<br><img src="https://voice.wangwangit.com/img/image-20230526151632523.png" alt="image-20230526151632523"></p></li><li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p><pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;$ git config --global user.email &quot;wangwangit@qq.com&quot;</code></pre></li></ol><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ol><li><p>在 shell 中，使用 apt-get 安装 Git：</p><pre><code class="sh">$ sudo apt-get update$ sudo apt-get install git</code></pre></li><li><p>通过键入 <code>git --version</code> 验证安装是否成功：</p><pre><code class="sh">$ git --versiongit version 2.9.2</code></pre></li><li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p><pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;$ git config --global user.email &quot;wangwangit@qq.com&quot;</code></pre></li></ol><h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><ol><li><p>下载最新的 Git for Mac 安装程序。<a href="https://sourceforge.net/projects/git-osx-installer/files/">Git for Mac installer</a></p></li><li><p>按照提示安装 Git。</p></li><li><p>打开终端并通过键入 <code>git --version</code> 验证安装是否成功：</p><pre><code class="shell">$ git --versiongit version 2.9.2</code></pre></li><li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p><pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;$ git config --global user.email &quot;wangwangit@qq.com&quot;</code></pre></li></ol><h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><ul><li><a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">Learn Git with Bitbucket Cloud </a></li><li><a href="https://nulab.com/learn/software-development/git-tutorial/git-basics/">Learn Git Basics</a></li><li><a href="https://backlog.com/git-tutorial/cn/">猴子都能懂的GIT入门</a></li><li><a href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></li></ul>]]></content>
+    
+    
+    <summary type="html">Git 是一个用于管理源代码的分布式版本控制系统。那么什么是版本控制？简而言之，版本控制是用于跟踪文件更改的系统。修改文件时，版本控制系统会记录并保存每个更改。这允许您随时还原以前版本的代码。</summary>
+    
+    
+    
+    <category term="开发" scheme="https://www.wangwangit.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Git" scheme="https://www.wangwangit.com/tags/Git/"/>
+    
+    <category term="Github" scheme="https://www.wangwangit.com/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
     <title>利用闲置服务器搭建一个专属图床加速器</title>
     <link href="https://www.wangwangit.com/Nginx%E8%87%AA%E5%BB%BAGithub%E5%9B%BE%E5%BA%8A%E5%8A%A0%E9%80%9F/"/>
     <id>https://www.wangwangit.com/Nginx%E8%87%AA%E5%BB%BAGithub%E5%9B%BE%E5%BA%8A%E5%8A%A0%E9%80%9F/</id>
     <published>2023-05-22T04:14:00.000Z</published>
-    <updated>2023-05-23T05:13:28.895Z</updated>
+    <updated>2023-05-26T06:26:16.249Z</updated>
     
     <content type="html"><![CDATA[<p>我的博客是基于Hexo+Github搭建的，图床也是使用的Github。众所周知，由于某些原因，Github上的图片经常无法访问。通常，我们会使用<strong>jsDelivr</strong>进行加速，或者使用国内的CDN服务提供商，如腾讯云、七牛云等。</p><p>由于jsDelivr最近被墙了一段时间，国内访问速度也不太理想，因此我选择了腾讯CDN加速。价格倒是不贵，但最近发现由于一些文章的热度上升，流量消耗得很快。同时，我一直担心我的网站会受到恶意攻击。于是我决定换一种思路来解决这个问题，利用我自己的闲置服务器搭建一个加速器。</p><h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><ul><li>一台国内能流畅访问且能正常访问Github的服务器</li><li>Nginx</li><li>域名（非必需）</li><li>Python</li></ul><p>关于图床和Nginx的教程，你可以查看之前的文章。</p><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p><strong>第一步：</strong> </p><p>拉取Github图片仓库到&#x2F;var&#x2F;www&#x2F;目录下。请替换下面命令中的仓库地址为你自己的地址。</p><pre><code>git clone https://github.com/image</code></pre><p><strong>第二步：</strong> </p><p>配置Nginx，映射当前图片仓库目录。假设我的图片仓库地址是：&#x2F;var&#x2F;www&#x2F;image。以下配置的作用是，当访问 <a href="http://aaa.wangwangit.com/img/1.jpg">http://aaa.wangwangit.com/img/1.jpg</a> 时，会实际访问服务器上的 &#x2F;var&#x2F;www&#x2F;image&#x2F;img&#x2F;1.jpg 文件。</p><pre><code>server &#123;    listen 80;    server_name aaa.wangwangit.com;    root /var/www/html;     location /img &#123;        root /var/www/image/;        autoindex on;    &#125;&#125;</code></pre><p>完成修改后，执行 <code>nginx -s reload</code> 命令来更新配置。</p><p><strong>第三步：</strong> </p><p>上面两步实际上已经配置好了图床的加速器。我们只需要使用自己的域名地址进行访问即可。也许你会问为什么要使用Github，而不是直接将图片存储在服务器上。这样做有几个原因：首先，我的以前的图片已经存在Github上了；另外，使用Github的话，我不需要自己去维护图床。</p><p>接下来，我们还需要及时拉取Github图床的更新。下面我来介绍如何实现这一点。</p><p>我们可以使用Github的Webhook功能，在服务器的&#x2F;var&#x2F;www&#x2F;目录下创建一个名为webhook_receiver.py的Python文件，并编辑以下内容：</p><pre><code>from flask import Flask, requestimport subprocessapp = Flask(__name__)@app.route(&#39;/webhook&#39;, methods=[&#39;POST&#39;])def webhook():    if request.headers.get(&#39;X-GitHub-Event&#39;) == &#39;push&#39;:        subprocess.Popen([&#39;git&#39;, &#39;-C&#39;, &#39;/var/www/image&#39;, &#39;pull&#39;])        return &#39;Webhook received successfully&#39;, 200    else:        return &#39;Unsupported event&#39;, 200if __name__ == &#39;__main__&#39;:    app.run(host=&#39;0.0.0.0&#39;, port=5000)</code></pre><p>保存文件后，执行 <code>pip install flask</code> 命令来安装依赖。你可以先使用 <code>python3 webhook_receiver.py</code> 命令进行测试，确认是否正常运行。若一切正常，可以使用 <code>Ctrl+c</code> 结束执行，然后使用 <code>nohup python3 webhook_receiver.py &amp;</code> 命令来运行它。</p><p>接下来，在Github项目中设置Webhook：</p><ol><li>打开你的项目页面，点击 “Settings”（设置）选项卡。</li><li>在左侧导航栏中选择 “Webhooks”（Web钩子）。</li><li>点击 “Add webhook”（添加Webhook）按钮。</li><li>在 “Payload URL”（有效载荷 URL）字段中输入 <code>http://your-server-ip:5000/webhook</code>，将 <code>your-server-ip</code> 替换为你服务器的实际IP地址。</li><li>在 “Content type”（内容类型）字段中选择 “application&#x2F;json”。</li><li>在 “Secret”（密钥）字段中输入一个可选的密钥，用于在请求中进行身份验证。</li><li>在 “Which events would you like to trigger this webhook?”（您想要触发此Webhook的事件？）部分选择 “Just the push event”（仅推送事件）选项。</li><li>确保 “Active”（启用）复选框被选中。</li><li>点击 “Add webhook”（添加Webhook）按钮保存设置。</li></ol><p><img src="https://voice.wangwangit.com/img/image-20230523103759670.png" alt="image-20230523103759670"></p><p>至此，部署完成。只需要在图床仓库上传一张图片，然后使用服务器的域名去访问，就可以测试是否配置正常了！</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我在文章中提到的几个方案，在之前的文章中都有详细介绍。如果你还有不懂的地方，可以去查看相关文章，或者加入我的交流学习群一起探讨！</p>]]></content>
     
@@ -364,9 +387,9 @@
     <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
-    
     <category term="Chatgpt" scheme="https://www.wangwangit.com/tags/Chatgpt/"/>
+    
+    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
     
   </entry>
   
@@ -420,27 +443,6 @@
     <updated>2023-05-23T01:44:22.435Z</updated>
     
     <content type="html"><![CDATA[<p>有时候，当你在访问<a href="http://www.bing.com时,会发现页面重定向到cn.bing.com,这很可能是因为你的地理位置.为了避免这种情况,可以使用header/">www.bing.com时，会发现页面重定向到cn.bing.com，这很可能是因为你的地理位置。为了避免这种情况，可以使用Header</a> Editor插件。</p><p>Header Editor是一款浏览器插件，可以帮助我们在请求网页时修改HTTP头信息，从而防止页面重定向。下面是使用Header Editor插件防止Bing重定向到cn.bing.com的步骤。</p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>首先，需要安装Header Editor插件。</p><ol><li>打开Edge浏览器，点击“应用商店”图标。</li><li>在搜索栏中输入“Header Editor”。</li><li>选择Header Editor插件，点击“Get”按钮进行安装。</li><li>安装完成后，点击“启用”，使插件生效。</li></ol><p><img src="https://voice.wangwangit.com/img/202302121433770.png" alt="image-20230212143346657"></p><h2 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h2><p>安装完Head Edit插件后，就可以使用它防止Bing重定向了。</p><p><img src="https://voice.wangwangit.com/img/202302121434051.png" alt="image-20230212143432940"></p><ol><li>打开Edge浏览器，访问<a href="http://www.bing.com./">www.bing.com。</a></li><li>点击Head Edit插件的图标，打开插件设置面板。</li><li>在“Custom headers”栏中，输入以下内容：</li></ol><p><img src="https://voice.wangwangit.com/img/202302121437362.png" alt="image-20230212143706297"></p><p>​ 若是不行,调整匹配规则如下:</p><pre><code>^http(s?)://(www\.)?bing\.com/?(.*)=</code></pre><ol start="4"><li><p>点击“Save”按钮保存设置。</p></li><li><p>重新访问<a href="http://www.bing.com,此时页面不会再重定向到cn.bing.com了./">www.bing.com，此时页面不会再重定向到cn.bing.com了。</a></p></li></ol><h2 id="申请内测"><a href="#申请内测" class="headerlink" title="申请内测"></a>申请内测</h2><p>上诉步骤完成之后,只需要访问<a href="https://www.bing.com/">必应 (bing.com)</a>,即可进行内测登记,等待通过之后则会收到邮件,建议使用国外的邮箱,不要使用QQ邮箱!</p><p><img src="https://voice.wangwangit.com/img/202302121440193.png" alt="image-20230212144013077"></p>]]></content>
-    
-    
-    <summary type="html">如今，随着科技的进步，翻译工具也越来越方便。在Edge浏览器中，有一款叫做“沉浸式翻译”的插件，可以帮助用户实时翻译网页内容。下面，我们来看一下如何使用这款插件。</summary>
-    
-    
-    
-    <category term="软件" scheme="https://www.wangwangit.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="Edge" scheme="https://www.wangwangit.com/tags/Edge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>沉浸式翻译插件的使用</title>
-    <link href="https://www.wangwangit.com/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6/"/>
-    <id>https://www.wangwangit.com/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6/</id>
-    <published>2023-02-12T07:14:00.000Z</published>
-    <updated>2023-05-23T01:44:22.436Z</updated>
-    
-    <content type="html"><![CDATA[<p>如今，随着科技的进步，翻译工具也越来越方便。在Edge浏览器中，有一款叫做“沉浸式翻译”的插件，可以帮助用户实时翻译网页内容。下面，我们来看一下如何使用这款插件。</p><h2 id="安装沉浸式翻译插件"><a href="#安装沉浸式翻译插件" class="headerlink" title="安装沉浸式翻译插件"></a>安装沉浸式翻译插件</h2><p>首先，我们需要在Edge浏览器的应用商店中安装“沉浸式翻译”插件。具体操作如下：</p><p><img src="https://voice.wangwangit.com/img/202302121425010.png" alt="image-20230212142505837"></p><ol><li>打开Edge浏览器，在地址栏输入<code>Microsoft Edge 应用商店</code></li><li>在应用商店中搜索“沉浸式翻译”，找到该插件并点击“安装”按钮。</li><li>安装完成后，在Edge浏览器的地址栏右侧会显示一个翻译图标，表示插件安装成功。</li></ol><h2 id="使用沉浸式翻译插件"><a href="#使用沉浸式翻译插件" class="headerlink" title="使用沉浸式翻译插件"></a>使用沉浸式翻译插件</h2><p><img src="https://voice.wangwangit.com/img/202302121427586.png" alt="image-20230212142703480"></p><p>安装完成后，我们就可以开始使用该插件了。使用方法如下：</p><ol><li>打开任意网页，点击Edge浏览器地址栏右侧的翻译图标。</li><li>选择翻译源语言和目标语言。</li><li>点击“翻译”按钮，等待片刻，整个网页内容就会被翻译成你所选择的语言。</li><li>在翻译过的网页中，如果你想翻译某个单词或短语，只需将鼠标悬停在该单词或短语上，稍等片刻，它就会被翻译。</li><li>若是不喜欢这种显示样式,也可以点击插件左下角的设置,进行调整样式!</li></ol><p><img src="https://voice.wangwangit.com/img/202302121427905.png" alt="image-20230212142755783"></p><p>这就是“沉浸式翻译”插件的基本使用方法。不仅方便，还十分实用。它可以帮助我们在浏览国外网页时顺利阅读，避免因为语言不通而带来的困扰。</p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用“沉浸式翻译”插件时，请注意以下几点：</p><ol><li>翻译的准确性取决于翻译引擎的准确性，有时可能会存在翻译错误。</li><li>翻译的速度取决于网络环境，在网络较差的情况下翻译速度可能会较慢。</li><li>由于插件是第三方开发的，使用前请注意阅读其隐私政策和使用条款。</li></ol><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>“沉浸式翻译”插件是一款非常实用的工具，可以帮助我们轻松阅读国外网页。使用前请注意阅读其隐私政策和使用条款，以确保使用的安全性。如果你正在使用Edge浏览器，不妨试试这款插件，它一定会让你的网页阅读体验更加愉快。</p>]]></content>
     
     
     <summary type="html">如今，随着科技的进步，翻译工具也越来越方便。在Edge浏览器中，有一款叫做“沉浸式翻译”的插件，可以帮助用户实时翻译网页内容。下面，我们来看一下如何使用这款插件。</summary>
