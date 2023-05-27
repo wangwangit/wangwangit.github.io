@@ -53,7 +53,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1685168329676">
+  <link rel="stylesheet" href="/css/style.css?v=1685169926579">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -292,6 +292,17 @@
 </div>
 
         <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%DC%BB%E5%8E%9F%E7%90%86%E6%B7%B1%E5%85%A5%E5%8F%8A%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">SpringBootܻ原理深入及源码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">依赖管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9F%90%E4%BA%9BMaven%E4%BE%9D%E8%B5%96%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">问题一:为什么某些Maven依赖不需要指定版本号?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C-Springboot%E6%98%AF%E5%A6%82%E4%BD%95%E5%BC%95%E5%85%A5%E8%BF%99%E4%BA%9Bjar%E5%8C%85%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">问题二:Springboot是如何引入这些jar包的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%89-Springboot%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">问题三:Springboot是如何进行自动配置的</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-SpringBootConfiguration"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.@SpringBootConfiguration</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-EnableAutoConfiguration"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">2.@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-ComponentScan"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">3.@ComponentScan</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Starter"><span class="toc-number">1.2.</span> <span class="toc-text">自定义Starter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BC%95%E5%85%A5%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.引入自动配置依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89JavaBean"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.定义JavaBean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BC%96%E5%86%99%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.编写配置类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.配置启动类加载路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B5%8B%E8%AF%95starter"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.测试starter</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">执行原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-SpringApplication%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.SpringApplication初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-run-%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.run()方法执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Springboot%E7%BC%93%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">Springboot缓存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.1.</span> <span class="toc-text">默认缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%90%88Reids%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.2.</span> <span class="toc-text">整合Reids进行缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0Spring-Data-Redis%E4%BE%9D%E8%B5%96%E5%90%AF%E5%8A%A8%E5%99%A8"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">1.添加Spring Data Redis依赖启动器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0redis%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.添加redis连接配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%B0%86%E7%BC%93%E5%AD%98%E5%AF%B9%E8%B1%A1%E8%BF%9B%E8%A1%8C%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">3.将缓存对象进行序列化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E4%B8%8A%E9%9D%A2%E5%90%8C%E6%A0%B7%E7%9A%84%E6%B3%A8%E8%A7%A3-%E5%8D%B3%E5%8F%AF%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8ERedis%E7%9A%84%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">4.使用上面同样的注解,即可实现基于Redis的缓存</span></a></li></ol></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
             
         </div>
 
@@ -1447,8 +1458,7 @@ spring.redis.password=
 </div>
 <style>
     .nexmoe-pd {
-        left: auto;
-        top: 40px;
+        top: 150px;
         right: 0;
     }
     .nexmoe-pd-item{
@@ -1471,7 +1481,9 @@ spring.redis.password=
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1685168329677"></script>
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+<script src="/js/app.js?v=1685169926580"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

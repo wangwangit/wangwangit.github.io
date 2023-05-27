@@ -63,7 +63,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1685168329679">
+  <link rel="stylesheet" href="/css/style.css?v=1685169926584">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -302,6 +302,17 @@
 </div>
 
         <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一致性Hash算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8Hash"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要用Hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Hash算法的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9AHash%E7%AE%97%E6%B3%95%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">普通Hash算法的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95-1"><span class="toc-number">1.4.</span> <span class="toc-text">一致性Hash算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%97%B6%E9%92%9F%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">集群时钟同步问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%97%B6%E9%92%9F%E5%90%8C%E6%AD%A5%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.</span> <span class="toc-text">集群时钟同步思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8A%82%E7%82%B9%E8%83%BD%E5%A4%9F%E8%81%94%E7%BD%91"><span class="toc-number">2.1.1.</span> <span class="toc-text">服务器节点能够联网</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8A%82%E7%82%B9%E4%B8%8D%E8%83%BD%E8%81%94%E7%BD%91"><span class="toc-number">2.1.2.</span> <span class="toc-text">服务器节点不能联网</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8FID%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">分布式ID解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UUID"><span class="toc-number">3.1.</span> <span class="toc-text">UUID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%87%AA%E5%A2%9EID"><span class="toc-number">3.2.</span> <span class="toc-text">独立数据库的自增ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SnowFlake%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">SnowFlake雪花算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ERedis%E8%8E%B7%E5%8F%96"><span class="toc-number">3.4.</span> <span class="toc-text">基于Redis获取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">分布式调度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-number">4.1.</span> <span class="toc-text">定时任务的场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E8%B0%83%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">什么是分布式调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.3.</span> <span class="toc-text">定时任务与消息队列的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">4.3.1.</span> <span class="toc-text">共同点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-number">4.3.2.</span> <span class="toc-text">不同点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">定时任务的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quartz"><span class="toc-number">5.1.</span> <span class="toc-text">Quartz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Elastic-Job"><span class="toc-number">5.2.</span> <span class="toc-text">Elastic-Job</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E7%89%87"><span class="toc-number">5.2.2.</span> <span class="toc-text">任务分片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E6%89%A9%E5%AE%B9"><span class="toc-number">5.2.3.</span> <span class="toc-text">弹性扩容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">Session共享问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">6.1.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx%E7%9A%84IP-Hash%E7%AD%96%E7%95%A5-%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.1.</span> <span class="toc-text">Nginx的IP_Hash策略(可以使用)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E5%A4%8D%E5%88%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="toc-number">6.1.2.</span> <span class="toc-text">Session复制(不推荐)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E5%85%B1%E4%BA%AB-Session%E9%9B%86%E4%B8%AD%E5%AD%98%E5%82%A8-%E6%8E%A8%E8%8D%90"><span class="toc-number">6.1.3.</span> <span class="toc-text">Session共享,Session集中存储(推荐)</span></a></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
             
         </div>
 
@@ -1326,8 +1337,7 @@ spring.redis.port=6379
 </div>
 <style>
     .nexmoe-pd {
-        left: auto;
-        top: 40px;
+        top: 150px;
         right: 0;
     }
     .nexmoe-pd-item{
@@ -1350,7 +1360,9 @@ spring.redis.port=6379
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1685168329681"></script>
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+<script src="/js/app.js?v=1685169926586"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

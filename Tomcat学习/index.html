@@ -65,7 +65,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1685168329677">
+  <link rel="stylesheet" href="/css/style.css?v=1685169926581">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -304,6 +304,17 @@
 </div>
 
         <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">Tomcat系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">浏览器访问服务器的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Tomcat请求处理过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat-Servlet%E5%AE%B9%E5%99%A8%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">Tomcat Servlet容器处理流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">Tomcat核心组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%99%A8%E7%BB%84%E4%BB%B6Coyote"><span class="toc-number">1.4.1.</span> <span class="toc-text">连接器组件Coyote</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8Contalina"><span class="toc-number">1.4.2.</span> <span class="toc-text">容器Contalina</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Tomcat核心配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-number">2.0.1.</span> <span class="toc-text">配置说明</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E7%AE%80%E6%98%93%E7%89%88Tomcat"><span class="toc-number">3.</span> <span class="toc-text">手写简易版Tomcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">源码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">4.1.</span> <span class="toc-text">Tomcat启动流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">Tomcat请求处理流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">4.2.1.</span> <span class="toc-text">流程分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">4.2.2.</span> <span class="toc-text">示意图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mapper%E7%BB%84%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.3.</span> <span class="toc-text">Mapper组件体系结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">Tomcat类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">5.1.</span> <span class="toc-text">JVM类加载机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-number">5.2.</span> <span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6-1"><span class="toc-number">5.3.</span> <span class="toc-text">Tomcat类加载机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">6.</span> <span class="toc-text">Tomcat优化策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E6%94%AF%E6%8C%81HTTPS"><span class="toc-number">6.1.</span> <span class="toc-text">Tomcat支持HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E4%B8%8EHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.1.1.</span> <span class="toc-text">HTTP与HTTPS的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTPS%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">6.1.2.</span> <span class="toc-text">HTTPS工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tomcat%E9%85%8D%E7%BD%AEHTTPS"><span class="toc-number">6.1.3.</span> <span class="toc-text">Tomcat配置HTTPS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">6.2.</span> <span class="toc-text">Tomcat性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%8C%87%E6%A0%87"><span class="toc-number">6.2.1.</span> <span class="toc-text">优化指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">6.2.2.</span> <span class="toc-text">优化策略</span></a></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
             
         </div>
 
@@ -1498,8 +1509,7 @@ certificateKeystoreFile=&quot;a.keystore 证书文件地址&quot; certificateKey
 </div>
 <style>
     .nexmoe-pd {
-        left: auto;
-        top: 40px;
+        top: 150px;
         right: 0;
     }
     .nexmoe-pd-item{
@@ -1522,7 +1532,9 @@ certificateKeystoreFile=&quot;a.keystore 证书文件地址&quot; certificateKey
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1685168329679"></script>
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+<script src="/js/app.js?v=1685169926582"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

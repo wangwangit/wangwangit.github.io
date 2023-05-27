@@ -51,7 +51,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1685168329714">
+  <link rel="stylesheet" href="/css/style.css?v=1685169926620">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -290,6 +290,17 @@
 </div>
 
         <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Minio"><span class="toc-number">1.</span> <span class="toc-text">Minio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Minio"><span class="toc-number">2.</span> <span class="toc-text">安装 Minio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">使用docker安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A89000%E7%AB%AF%E5%8F%A3-%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-number">2.1.3.</span> <span class="toc-text">使用9000端口 登录控制台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E6%A1%B6"><span class="toc-number">2.1.4.</span> <span class="toc-text">创建存储桶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%A1%B6%E6%9D%83%E9%99%90"><span class="toc-number">2.1.5.</span> <span class="toc-text">设置桶权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Java-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">创建 Java 客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-number">3.0.1.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.0.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">3.0.3.</span> <span class="toc-text">配置文件配置类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-minio-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">3.0.4.</span> <span class="toc-text">创建 minio 客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%9C%B0%E5%9D%80%E8%BF%94%E5%9B%9E%E8%B7%AF%E5%BE%84%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-number">3.0.5.</span> <span class="toc-text">文件地址返回路径实体类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">3.0.6.</span> <span class="toc-text">上传文件工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6-Controller"><span class="toc-number">3.0.7.</span> <span class="toc-text">测试上传文件 Controller</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0"><span class="toc-number">4.</span> <span class="toc-text">测试上传</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
             
         </div>
 
@@ -1550,8 +1561,7 @@ public class TestController &#123;
 </div>
 <style>
     .nexmoe-pd {
-        left: auto;
-        top: 40px;
+        top: 150px;
         right: 0;
     }
     .nexmoe-pd-item{
@@ -1574,7 +1584,9 @@ public class TestController &#123;
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1685168329715"></script>
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+<script src="/js/app.js?v=1685169926622"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

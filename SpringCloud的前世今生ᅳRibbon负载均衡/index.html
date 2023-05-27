@@ -85,7 +85,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1685168329630">
+  <link rel="stylesheet" href="/css/style.css?v=1685169926537">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -324,6 +324,17 @@
 </div>
 
         <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.</span> <span class="toc-text">负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ribbon"><span class="toc-number">2.</span> <span class="toc-text">Ribbon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">使用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.2.</span> <span class="toc-text">负载均衡策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">2.4.</span> <span class="toc-text">源码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-LoadBalancerAutoConfiguration"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.LoadBalancerAutoConfiguration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-RoundRobinRule%E8%BD%AE%E8%AF%A2%E7%AD%96%E7%95%A5%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.RoundRobinRule轮询策略源码剖析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-RandomRule%E9%9A%8F%E6%9C%BA%E7%AD%96%E7%95%A5%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">2.4.3.</span> <span class="toc-text">3.RandomRule随机策略源码剖析</span></a></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
             
         </div>
 
@@ -1283,8 +1294,7 @@ import org.slf4j.LoggerFactory;
 </div>
 <style>
     .nexmoe-pd {
-        left: auto;
-        top: 40px;
+        top: 150px;
         right: 0;
     }
     .nexmoe-pd-item{
@@ -1307,7 +1317,9 @@ import org.slf4j.LoggerFactory;
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1685168329632"></script>
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+<script src="/js/app.js?v=1685169926539"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
