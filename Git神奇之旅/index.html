@@ -10,7 +10,7 @@
 <head>
   
   <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>Git神奇之旅 - 一只会飞的旺旺-IT技术分享</title>
+  <title>Git奇幻之旅 - 一只会飞的旺旺-IT技术分享</title>
   <meta charset="UTF-8">
   <meta name="description" content="一只会飞的旺旺是一个专注于Java编程、云服务、黑科技分享、AI工具学习、以及个人博客建设的网站">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -26,13 +26,13 @@
   <link rel="shortcut icon" href="/images/head/head.webp" type="image/png" />
   <meta name="description" content="今天我要给你讲一个关于Git的故事，希望你能从中学到一些常用的命令。😊">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git神奇之旅">
+<meta property="og:title" content="Git奇幻之旅">
 <meta property="og:url" content="https://www.wangwangit.com/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85/index.html">
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="今天我要给你讲一个关于Git的故事，希望你能从中学到一些常用的命令。😊">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-09T20:14:00.000Z">
-<meta property="article:modified_time" content="2023-06-12T05:55:59.395Z">
+<meta property="article:modified_time" content="2023-06-13T02:48:20.242Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Github">
@@ -45,7 +45,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1686624421632">
+  <link rel="stylesheet" href="/css/style.css?v=1686625985721">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -272,8 +272,8 @@
         <div class="nexmoe-post">
     
         <div class="nexmoe-post-cover" style="padding-bottom: NaN%;">
-            <img data-src="/images/background/18.webp" data-sizes="auto" alt="Git神奇之旅" class="lazyload">
-            <h1>Git神奇之旅</h1>
+            <img data-src="/images/background/18.webp" data-sizes="auto" alt="Git奇幻之旅" class="lazyload">
+            <h1>Git奇幻之旅</h1>
         </div>
     
 
@@ -488,100 +488,109 @@ git push origin dev1 # 推送dev1分支到远程仓库
 
 
         <div id="reward">
-            <div id="showRewardButton" onclick="toggleRewards()">赏</div>
-            <div id="rewardCodes" class="reward-codes" onclick="toggleRewards()">
-              <div class="reward-code">
-                <div class="reward-image">
-                  <img src="/images/alipay.jpg" alt="支付宝赞赏码">
-                  <span class="reward-label">支付宝</span>
-                </div>
+          <div id="showRewardButton" onclick="toggleRewards()">赏</div>
+          <div id="rewardCodes" class="reward-codes" onclick="toggleRewards()">
+            <div class="reward-code">
+              <div class="reward-image">
+                <img src="/images/alipay.jpg" alt="支付宝赞赏码">
+                <span class="reward-label">支付宝</span>
               </div>
-              <div class="reward-code">
-                <div class="reward-image">
-                  <img src="/images/wechatpay.jpg" alt="微信赞赏码">
-                  <span class="reward-label">微信</span>
-                </div>
+            </div>
+            <div class="reward-code">
+              <div class="reward-image">
+                <img src="/images/wechatpay.jpg" alt="微信赞赏码">
+                <span class="reward-label">微信</span>
               </div>
             </div>
           </div>
-          
-          <style>
-            #reward {
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin-bottom: 20px;
+        </div>
+        
+        <style>
+          #reward {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+        
+          #showRewardButton {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(#06ee19, #e90909);
+            color: #fff;
+            border: none;
+            font-size: 24px;
+            line-height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+          }
+        
+          .reward-codes {
+            display: none; /* 初始状态隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+          }
+        
+          .reward-code {
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+        
+          .reward-image {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+          }
+        
+          .reward-image img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 10px;
+            border: 2px solid #fff;
+            border-radius: 4px;
+          }
+        
+          .reward-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-weight: bold;
+          }
+        </style>
+        
+        <script>
+          var firstClick = true; // 添加变量记录首次点击状态
+        
+          function toggleRewards(event) {
+            var rewards = document.getElementById("rewardCodes");
+            if (firstClick) {
+              rewards.style.display = "block";
+              firstClick = false;
+            } else {
+              rewards.style.display = rewards.style.display === "none" ? "block" : "none";
             }
-          
-            #showRewardButton {
-              width: 60px;
-              height: 60px;
-              background: linear-gradient(#06ee19, #e90909);
-              color: #fff;
-              border: none;
-              font-size: 24px;
-              line-height: 60px;
-              border-radius: 50%;
-              cursor: pointer;
-              text-align: center;
+      
+            // 点击页面其他区域时关闭图片
+            if (event.target.id !== "showRewardButton") {
+              rewards.style.display = "none";
+              firstClick = true;
             }
-          
-            .reward-codes {
-              display: none;
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: rgba(0, 0, 0, 0.5);
-              z-index: 9999;
-            }
-          
-            .reward-code {
-                display: inline-block;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              text-align: center;
-              margin-bottom: 20px;
-            }
-          
-            .reward-image {
-              position: relative;
-              display: inline-block;
-              text-align: center;
-            }
-          
-            .reward-image img {
-              width: 250px;
-              height: 250px;
-              margin-bottom: 10px;
-              border: 2px solid #fff;
-              border-radius: 4px;
-            }
-          
-            .reward-label {
-              position: absolute;
-              top: -30px;
-              left: 50%;
-              transform: translateX(-50%);
-              color: #fff;
-              font-weight: bold;
-            }
-          </style>
-          
-          <script>
-            function toggleRewards() {
-              var rewards = document.getElementById("rewardCodes");
-              if (rewards.style.display === "none") {
-                rewards.style.display = "block";
-              } else {
-                rewards.style.display = "none";
-              }
-            }
-          </script>
-          
+          }
+        </script>
+        
           
         
             
@@ -1344,7 +1353,7 @@ git push origin dev1 # 推送dev1分支到远程仓库
 
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
-<script src="/js/app.js?v=1686624421634"></script>
+<script src="/js/app.js?v=1686625985723"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

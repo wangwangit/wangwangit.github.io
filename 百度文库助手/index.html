@@ -48,7 +48,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1686624422268">
+  <link rel="stylesheet" href="/css/style.css?v=1686625985796">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -359,100 +359,109 @@
 
 
         <div id="reward">
-            <div id="showRewardButton" onclick="toggleRewards()">赏</div>
-            <div id="rewardCodes" class="reward-codes" onclick="toggleRewards()">
-              <div class="reward-code">
-                <div class="reward-image">
-                  <img src="/images/alipay.jpg" alt="支付宝赞赏码">
-                  <span class="reward-label">支付宝</span>
-                </div>
+          <div id="showRewardButton" onclick="toggleRewards()">赏</div>
+          <div id="rewardCodes" class="reward-codes" onclick="toggleRewards()">
+            <div class="reward-code">
+              <div class="reward-image">
+                <img src="/images/alipay.jpg" alt="支付宝赞赏码">
+                <span class="reward-label">支付宝</span>
               </div>
-              <div class="reward-code">
-                <div class="reward-image">
-                  <img src="/images/wechatpay.jpg" alt="微信赞赏码">
-                  <span class="reward-label">微信</span>
-                </div>
+            </div>
+            <div class="reward-code">
+              <div class="reward-image">
+                <img src="/images/wechatpay.jpg" alt="微信赞赏码">
+                <span class="reward-label">微信</span>
               </div>
             </div>
           </div>
-          
-          <style>
-            #reward {
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin-bottom: 20px;
+        </div>
+        
+        <style>
+          #reward {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+        
+          #showRewardButton {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(#06ee19, #e90909);
+            color: #fff;
+            border: none;
+            font-size: 24px;
+            line-height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+          }
+        
+          .reward-codes {
+            display: none; /* 初始状态隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+          }
+        
+          .reward-code {
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+        
+          .reward-image {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+          }
+        
+          .reward-image img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 10px;
+            border: 2px solid #fff;
+            border-radius: 4px;
+          }
+        
+          .reward-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-weight: bold;
+          }
+        </style>
+        
+        <script>
+          var firstClick = true; // 添加变量记录首次点击状态
+        
+          function toggleRewards(event) {
+            var rewards = document.getElementById("rewardCodes");
+            if (firstClick) {
+              rewards.style.display = "block";
+              firstClick = false;
+            } else {
+              rewards.style.display = rewards.style.display === "none" ? "block" : "none";
             }
-          
-            #showRewardButton {
-              width: 60px;
-              height: 60px;
-              background: linear-gradient(#06ee19, #e90909);
-              color: #fff;
-              border: none;
-              font-size: 24px;
-              line-height: 60px;
-              border-radius: 50%;
-              cursor: pointer;
-              text-align: center;
+      
+            // 点击页面其他区域时关闭图片
+            if (event.target.id !== "showRewardButton") {
+              rewards.style.display = "none";
+              firstClick = true;
             }
-          
-            .reward-codes {
-              display: none;
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: rgba(0, 0, 0, 0.5);
-              z-index: 9999;
-            }
-          
-            .reward-code {
-                display: inline-block;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              text-align: center;
-              margin-bottom: 20px;
-            }
-          
-            .reward-image {
-              position: relative;
-              display: inline-block;
-              text-align: center;
-            }
-          
-            .reward-image img {
-              width: 250px;
-              height: 250px;
-              margin-bottom: 10px;
-              border: 2px solid #fff;
-              border-radius: 4px;
-            }
-          
-            .reward-label {
-              position: absolute;
-              top: -30px;
-              left: 50%;
-              transform: translateX(-50%);
-              color: #fff;
-              font-weight: bold;
-            }
-          </style>
-          
-          <script>
-            function toggleRewards() {
-              var rewards = document.getElementById("rewardCodes");
-              if (rewards.style.display === "none") {
-                rewards.style.display = "block";
-              } else {
-                rewards.style.display = "none";
-              }
-            }
-          </script>
-          
+          }
+        </script>
+        
           
         
             
@@ -1213,7 +1222,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
-<script src="/js/app.js?v=1686624422270"></script>
+<script src="/js/app.js?v=1686625985797"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
