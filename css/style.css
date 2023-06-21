@@ -1149,6 +1149,9 @@ font.douyin {
   background: linear-gradient(to right, #c33764, #1d2671);
   padding: 10px;
   border-radius: 10px;
+/* add these two lines */
+  overflow: auto; /* or scroll */
+  max-height: 500px; /* adjust as needed */
 }
 .nexmoe-post-right .nexmoe-toc a {
   color: #fff;
@@ -1180,6 +1183,8 @@ font.douyin {
 .nexmoe-toc li > ol {
   display: flex;
   flex-wrap: wrap;
+/* add this line */
+  list-style-type: none; /* remove numbers */
 }
 photos img {
   width: 25%;
