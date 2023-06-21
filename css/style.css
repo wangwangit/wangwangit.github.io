@@ -1234,11 +1234,11 @@ photos img {
   flex: none;
   width: 60px;
   padding: 5px 0;
-  background-color: #0d47a1;
+  background-color: #ff6f00;
   transform: rotate(0deg);
   border-radius: 50%;
   color: #fff;
-  box-shadow: 0 2px 12px #1a237e;
+  box-shadow: 0 2px 12px #bf360c;
   position: relative;
 }
 #nexmoe-header .nexmoe-count .nexmoe-count-item .item-radius {
@@ -1248,7 +1248,7 @@ photos img {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #0d47a1;
+  background-color: #ff6f00;
 }
 #nexmoe-header .nexmoe-count .nexmoe-count-item .item-right {
   left: auto;
@@ -1258,8 +1258,8 @@ photos img {
   color: #fff;
 }
 #nexmoe-header .nexmoe-list .nexmoe-list-item.active {
-  background-color: #0d47a1;
-  box-shadow: 0 2px 12px #1a237e;
+  background-color: #ff6f00;
+  box-shadow: 0 2px 12px #bf360c;
 }
 #nexmoe-header .nexmoe-search input {
   width: 100%;
@@ -1273,7 +1273,7 @@ photos img {
   background-color: #fff;
   border-radius: 15px;
   overflow: auto;
-  box-shadow: 0 2px 12px #1a237e;
+  box-shadow: 0 2px 12px #bf360c;
   animation: anim 0.5s;
   max-height: 200px;
 }
@@ -1291,7 +1291,7 @@ photos img {
   color: #333;
 }
 #nexmoe-header #local-search-result .search-result-list .search-result-list-item a:hover {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 @-moz-keyframes anim {
   0% {
@@ -1330,14 +1330,14 @@ photos img {
   overflow: inherit;
 }
 #nexmoe-header .nexmoe-widget-wrap .nexmoe-widget .category-list-count {
-  color: #0d47a1;
-  background-color: rgba(48,63,159,0.5);
+  color: #ff6f00;
+  background-color: rgba(255,143,0,0.5);
 }
 #nexmoe-header .nexmoe-widget-wrap .nexmoe-widget .archive-list-count {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 #nexmoe-header .nexmoe-copyright a {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 #nexmoe-content .nexmoe-posts .nexmoe-post {
   position: relative;
@@ -1350,9 +1350,9 @@ photos img {
   padding: 0 10px;
   font-size: 14px;
   border-radius: 15px 0 8px 0;
-  background-color: rgba(48,63,159,0.5);
+  background-color: rgba(255,143,0,0.5);
   height: 30px;
-  color: #0d47a1;
+  color: #ff6f00;
   display: flex;
   align-items: center;
 }
@@ -1367,8 +1367,8 @@ photos img {
   width: 300px;
 }
 #nexmoe-pendant .nexmoe-pd .clock {
-  border: solid 2.8vh #0d47a1;
-  box-shadow: 0 1.4vh 2.8vh #1a237e;
+  border: solid 2.8vh #ff6f00;
+  box-shadow: 0 1.4vh 2.8vh #bf360c;
 }
 #nexmoe-pendant .nexmoe-pd .clock .memory {
   background-color: #a50e00 !important;
@@ -1377,8 +1377,8 @@ photos img {
   background-image: url("/images/background/cangshu.webp");
 }
 #nexmoe-pendant .nexmoe-pd .qweather #he-plugin-standard {
-  border: 2px solid #0d47a1;
-  box-shadow: 0 1px 0 0 #1a237e, 0 1px 2px 0 #1a237e;
+  border: 2px solid #ff6f00;
+  box-shadow: 0 1px 0 0 #bf360c, 0 1px 2px 0 #bf360c;
 }
 #nexmoe-pendant .nexmoe-pd .qweather #he-plugin-standard .wv-lt-refresh {
   display: none;
@@ -1390,31 +1390,31 @@ photos img {
   background-image: url("/images/background/cangshu.webp");
 }
 article a {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 article h2:after {
-  background: #0d47a1;
-  box-shadow: 0 2px 12px #1a237e;
+  background: #ff6f00;
+  box-shadow: 0 2px 12px #bf360c;
 }
 article h4:before,
 article h5:before,
 article h6:before {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 article ol li::before {
-  color: #0d47a1;
-  background-color: rgba(48,63,159,0.5);
+  color: #ff6f00;
+  background-color: rgba(255,143,0,0.5);
 }
 article pre .text,
 article pre .txt {
   color: #abb2bf;
 }
 .nexmoe-archives li::before {
-  background: #0d47a1;
+  background: #ff6f00;
 }
 .nexmoe-rainbow a:nth-child(7n+1) {
-  background: rgba(48,63,159,0.5);
-  color: #0d47a1;
+  background: rgba(255,143,0,0.5);
+  color: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-py .aplayer {
   background-image: url("/images/background/chichi.webp");
@@ -1423,11 +1423,11 @@ article pre .txt {
   background-repeat: no-repeat;
 }
 #nexmoe-content .nexmoe-post .nexmoe-py p em {
-  color: #0d47a1;
+  color: #ff6f00;
   font-size: 17px;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v a::before {
-  background: #0d47a1;
+  background: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .veditor {
   background-image: url("/images/background/papa.webp");
@@ -1437,19 +1437,19 @@ article pre .txt {
   background-color: #fff;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vlist .vcard .vhead .vnick {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vlist .vcard .vhead .vnick::before {
-  background: #0d47a1;
+  background: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v button {
-  background: rgba(48,63,159,0.5);
-  color: #0d47a1;
+  background: rgba(255,143,0,0.5);
+  color: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v button:hover {
-  background: #0d47a1;
+  background: #ff6f00;
   color: #fff;
-  border-color: #0d47a1;
+  border-color: #ff6f00;
 }
 #nexmoe-content .nexmoe-post .nexmoe-comment .v .vcontrol .col-20 a {
   display: none;
@@ -1458,11 +1458,11 @@ article pre .txt {
   display: none;
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-copyright a {
-  color: #0d47a1;
+  color: #ff6f00;
 }
 #nexmoe-content .nexmoe-primary .nexmoe-page-nav .current {
-  background: #0d47a1;
-  box-shadow: 0 2px 12px rgba(48,63,159,0.5);
+  background: #ff6f00;
+  box-shadow: 0 2px 12px rgba(255,143,0,0.5);
 }
 #daodream-container .daodream-launcher {
   right: 60px !important;
@@ -1472,46 +1472,46 @@ article pre .txt {
   display: none;
 }
 #daodream-container .daodream-sheet-header {
-  background-image: linear-gradient(0deg, rgba(48,63,159,0.5), rgba(48,63,159,0.5)) !important;
-  box-shadow: 0 1px 0 0 rgba(48,63,159,0.5), 0 1px 2px 0 rgba(48,63,159,0.5) !important;
-  color: #0d47a1;
+  background-image: linear-gradient(0deg, rgba(255,143,0,0.5), rgba(255,143,0,0.5)) !important;
+  box-shadow: 0 1px 0 0 rgba(255,143,0,0.5), 0 1px 2px 0 rgba(255,143,0,0.5) !important;
+  color: #ff6f00;
 }
 #daodream-container .daodream-sheet-header .daodream-sheet-header-generic-title {
-  color: #0d47a1;
+  color: #ff6f00;
   font-weight: bold;
 }
 #daodream-container .daodream-composer-textarea textarea {
-  color: #0d47a1 !important;
+  color: #ff6f00 !important;
 }
 #daodream-container .daodream-composer-textarea textarea:focus {
   outline: none;
-  border: 1px solid #0d47a1 !important;
+  border: 1px solid #ff6f00 !important;
 }
 #daodream-container .daodream-composer-send-button {
-  background-image: linear-gradient(180deg, #0d47a1, #0d47a1) !important;
-  background: #0d47a1 !important;
+  background-image: linear-gradient(180deg, #ff6f00, #ff6f00) !important;
+  background: #ff6f00 !important;
 }
 #daodream-container .daodream-conversations-item-user-avatar {
-  background-color: #0d47a1 !important;
+  background-color: #ff6f00 !important;
 }
 #daodream-container .daodream-conversations-new-conversation-button {
-  background-image: linear-gradient(180deg, #0d47a1, #0d47a1) !important;
-  background: #0d47a1 !important;
+  background-image: linear-gradient(180deg, #ff6f00, #ff6f00) !important;
+  background: #ff6f00 !important;
 }
 #daodream-container .daodream-comment-card .notification-input {
-  border: 1px solid #0d47a1 !important;
+  border: 1px solid #ff6f00 !important;
 }
 #daodream-container .daodream-comment-card .notification-submit {
-  background-color: #0d47a1 !important;
+  background-color: #ff6f00 !important;
 }
 #daodream-container .daodream-comment-card .daodream-comment-avatar {
   content: url("/images/head/head.webp") !important;
 }
 #daodream-container .daodream-comment-by-user .daodream-comment-body-container {
-  background-color: #0d47a1 !important;
+  background-color: #ff6f00 !important;
 }
 #daodream-container .daodream-comment-by-user .daodream-comment-caret:before {
-  background-color: #0d47a1 !important;
+  background-color: #ff6f00 !important;
 }
 #daodream-container .daodream-sheet-spinner {
   border-radius: 50% !important;
@@ -1521,7 +1521,7 @@ article pre .txt {
 #daodream-container .daodream-launcher-button {
   width: 80px !important;
   height: 80px !important;
-  background-color: #0d47a1 !important;
+  background-color: #ff6f00 !important;
   background-image: url("/images/head/call.webp") !important;
   background-size: 100% 100% !important;
   border-radius: 50% !important;
