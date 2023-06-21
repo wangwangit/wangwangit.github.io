@@ -1146,21 +1146,40 @@ font.douyin {
   margin-left: 16px;
   width: 240px;
   text-align: left;
+  background: linear-gradient(to right, #c33764, #1d2671);
+  padding: 10px;
+  border-radius: 10px;
 }
 .nexmoe-post-right .nexmoe-toc a {
-  color: rgba(0,0,0,0.6);
+  color: #fff;
+  text-decoration: none;
+}
+.nexmoe-post-right .nexmoe-toc a:hover {
+  color: #f0f0f0;
 }
 .nexmoe-post-right .nexmoe-toc ol {
   padding-left: 1em;
 }
 .nexmoe-post-right .nexmoe-toc li {
-  margin: 1em 0;
+  margin: 0.5em 0;
+  text-shadow: 1px 1px 2px #c33764;
 }
 .nexmoe-post-right .nexmoe-toc > ol {
   padding-left: 0;
 }
 .nexmoe-toc * {
   list-style: none;
+}
+.nexmoe-toc span {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.nexmoe-toc li > ol {
+  display: flex;
+  flex-wrap: wrap;
 }
 photos img {
   width: 25%;
