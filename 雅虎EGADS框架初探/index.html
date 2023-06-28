@@ -10,7 +10,7 @@
 <head>
   
   <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>文章归档：2023/6 - 一只会飞的旺旺-IT技术分享</title>
+  <title>异常检测-雅虎EGADS框架初探 - 一只会飞的旺旺-IT技术分享</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -24,14 +24,20 @@
     <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
 
   <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一只会飞的旺旺-IT技术分享">
-<meta property="og:url" content="https://www.wangwangit.com/archives/2023/06/index.html">
+  <meta name="description" content="EGADS (Extensible Generic Anomaly Detection System 可扩展通用的异常检测系统) 是雅虎开源的java库，用于自动检测大规模时序数据中的异常。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常检测-雅虎EGADS框架初探">
+<meta property="og:url" content="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/index.html">
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="EGADS (Extensible Generic Anomaly Detection System 可扩展通用的异常检测系统) 是雅虎开源的java库，用于自动检测大规模时序数据中的异常。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://voice.wangwangit.com/img/image-20230628095857133.png">
+<meta property="article:published_time" content="2023-06-27T20:14:00.000Z">
+<meta property="article:modified_time" content="2023-06-28T02:09:51.785Z">
 <meta property="article:author" content="一只会飞的旺旺">
-<meta property="article:tag" content="Oracle,Java,Python,VPS,Spring,Hexo,Google,ChatGPT,Bing,Bard">
+<meta property="article:tag" content="EGADS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://voice.wangwangit.com/img/image-20230628095857133.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -40,7 +46,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1687918243066">
+  <link rel="stylesheet" href="/css/style.css?v=1687918242828">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -264,257 +270,279 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        
-<section class="nexmoe-posts">
-<div class="nexmoe-post">
-        <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangwangit">
-            
-			<div class="nexmoe-post-cover1 mdui-ripple" style="padding-bottom: 26.666666666666668%;">
-				<img data-src="https://ghchart.rshah.org/FFA500/wangwangit" data-sizes="auto" alt="github" class="lazyautosizes lazyloaded" sizes="910px" src="https://ghchart.rshah.org/FFA500/wangwangit">
-			</div>
-		
-        </a>
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/21.webp" data-sizes="auto" alt="异常检测-雅虎EGADS框架初探" class="lazyload">
+            <h1>异常检测-雅虎EGADS框架初探</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月28日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.8k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
 </div>
-    
-    <div class="nexmoe-post">
-        <a href="/%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/">
+
+        <div class="nexmoe-post-right">
             
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/21.webp" data-sizes="auto" alt="异常检测-雅虎EGADS框架初探" class="lazyload" height="242.66" width="910">
-                    <h1>异常检测-雅虎EGADS框架初探</h1>
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Egads%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">Egads优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">整体架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E6%A8%A1%E5%9D%97-Time-series-Modeling-Module"><span class="toc-number">3.1.</span> <span class="toc-text">时间序列构造模块(Time-series Modeling Module)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9D%97-Anomaly-Detection-Module"><span class="toc-number">3.2.</span> <span class="toc-text">异常检测模块(Anomaly Detection Module)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E8%87%AA%E5%8A%A8%E9%80%89%E4%BC%98"><span class="toc-number">3.3.</span> <span class="toc-text">序列构造自动选优</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%95%B0%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">多数投票算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E5%9E%8B"><span class="toc-number">3.5.</span> <span class="toc-text">常用选型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="toc-number">4.</span> <span class="toc-text">参考网站</span></a></li></ol>
+                            
+                        </div>
+                    </div>
                 </div>
             
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月28日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.8k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
         </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/ChatGPT%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/20.webp" data-sizes="auto" alt="ChatGPT注册与常见问题" class="lazyload" height="242.66" width="910">
-                    <h1>ChatGPT注册与常见问题</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月23日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.6k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%88/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/21.webp" data-sizes="auto" alt="ChatGPT和AI和GPT4和Midjourney和Poe" class="lazyload" height="242.66" width="910">
-                    <h1>ChatGPT和AI和GPT4和Midjourney和Poe</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月21日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.5k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85%E4%BA%8C/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/19.webp" data-sizes="auto" alt="Git奇幻之旅二" class="lazyload" height="242.66" width="910">
-                    <h1>Git奇幻之旅二</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月13日</a>
-            <a><i class="nexmoefont icon-areachart"></i>2.3k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/%E9%95%9C%E5%83%8F%E7%BD%91%E7%AB%99/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/16.webp" data-sizes="auto" alt="Z-Library等镜像网站" class="lazyload" height="242.66" width="910">
-                    <h1>Z-Library等镜像网站</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月11日</a>
-            <a><i class="nexmoefont icon-areachart"></i>272 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/17.webp" data-sizes="auto" alt="Git常用命令" class="lazyload" height="242.66" width="910">
-                    <h1>Git常用命令</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月11日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.4k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/18.webp" data-sizes="auto" alt="Git奇幻之旅一" class="lazyload" height="242.66" width="910">
-                    <h1>Git奇幻之旅一</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>4.5k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 18 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/ChatGPT%E5%85%8D%E8%B4%B9%E5%85%B1%E4%BA%AB%E8%B4%A6%E5%8F%B7/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 25%">
-                    <img src="https://voice.wangwangit.com/img/images/background/15.webp" data-sizes="auto" alt="ChatGPT免费共享账号" class="lazyload" height="242.66" width="910">
-                    <h1>ChatGPT免费共享账号</h1>
-                </div>
-            
-        </a>
-		
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2023年06月09日</a>
-            <a><i class="nexmoefont icon-areachart"></i>619 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-        </div>
-        
-        <article>
-            
-                
-            
-        </article>
-    </div>
-    
-</section>
+
     <!-- 找到这里，添加代码 -->
+  
     
-        <div class="popup">
-    <div class="popup-content">
-        <!-- 在这里添加弹窗的内容 -->
-        <p>欢迎来到我的世界! <a href=https://voice.wangwangit.com/img/image-20230423085657772.png>一键进群</a></p>
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
     </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>EGADS (Extensible Generic Anomaly Detection System 可扩展通用的异常检测系统) 是雅虎开源的java库，用于自动检测大规模时序数据中的异常。它包含了许多异常检测技术，适用于很多使用情况，只需要一个包，唯一依赖是java。EDADS的工作原理是，首先建立一个时间序列模型来计算时间t的预期值，然后通过对比时间t的预期值和实际值，计算出若干误差E。EDADS自动确定E的阈值，并输出最有可能的异常点。EGADS库可以在各种各样的情形中使用，以检测具有各种季节性、趋势和噪声成分的时间序列中的异常点和变化点。</p>
+<p>EGADS能够准确、可扩展地检测时间序列的异常。EGADS将预测和异常检测分离成两个独立的组件，允许用户将自己的模型添加到任何组件中。</p>
+<h2 id="Egads优缺点"><a href="#Egads优缺点" class="headerlink" title="Egads优缺点"></a>Egads优缺点</h2><ul>
+<li>优点：<ul>
+<li>Egads具有<strong>通用性</strong>和<strong>可扩展性</strong>，可以处理不同类型和规模的时序数据，也可以很容易地添加自己的模型和算法到框架中。</li>
+<li>Egads提供了多种<strong>时间序列模型</strong>和<strong>异常检测算法</strong>，可以根据数据的特点和业务的需求，选择合适的方法或者组合多种方法。</li>
+<li>Egads还提供了一些<strong>自动化</strong>的功能，如自动选择最佳的时间序列模型和异常检测算法，以及多数投票的方法来提高异常检测的准确性。</li>
+<li>Egads还提供了一个<strong>异常值聚合算法</strong>，可以过滤和汇总异常值，减少冗余和噪声。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>Egads的<strong>文档</strong>和<strong>示例</strong>比较少，可能不够详细和清晰，需要用户自己阅读源码和论文来理解框架的原理和使用方法。</li>
+<li>Egads的<strong>性能测试</strong>和<strong>评估结果</strong>也比较少，可能不够全面和客观，需要用户自己在实际数据上进行测试和评估。</li>
+<li>Egads的<strong>异常检测算法</strong>可能不够先进和完善，可能存在一些局限性和缺陷，需要用户自己进行调整和优化。</li>
+</ul>
+</li>
+<li>适用场景：<ul>
+<li>Egads适用于需要对大规模时序数据进行异常检测的场景，如物联网、金融、电力、网络等领域。</li>
+<li>Egads适用于需要对时序数据进行建模和预测的场景，如趋势分析、季节性分析、异常预警等功能。</li>
+<li>Egads适用于需要对时序数据进行多角度和多层次的异常检测的场景，如异常值、变点、异常时间序列等类型。</li>
+</ul>
+</li>
+</ul>
+<h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p>主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。</p>
+<p>给定一段时间的离散值（构成一个序列），时间序列模块会学习这段序列的特征，并试图重新构建一个和原序列尽量接近的序列。结果和原序列一同送入异常检测模块，基于不同的算法（原则，阈值），异常点会被标记出来。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://voice.wangwangit.com/img/image-20230628095857133.png" alt="image-20230628095857133" class="lazyload"></p>
+<h3 id="时间序列构造模块-Time-series-Modeling-Module"><a href="#时间序列构造模块-Time-series-Modeling-Module" class="headerlink" title="时间序列构造模块(Time-series Modeling Module)"></a>时间序列构造模块(Time-series Modeling Module)</h3><ul>
+<li>DoubleExponentialSmoothingModel 双指数平滑 – 也称为Holt指数平滑 – 改进了常见的简单指数平滑模型，考虑了数据中含有有趋势因素的情况。</li>
+<li>MovingAverageModel 移动平均预测模型基于人工构建的时间序列，其中给定时间段的值由该值的平均值和某些前后时间段的值代替。</li>
+<li>MultipleLinearRegressionModel 多变量线性回归模型</li>
+<li>NaiveForecastingModel 朴素预测模型是移动平均预测模型的一个特例，即当 平滑周期数为1时的特例。</li>
+<li>OlympicModel 去掉一个最高分，去掉一个最低分，然后计算最近k周的数据的平均数，作为当前的预测值。</li>
+<li>PolynomialRegressionModel 单变量多项式回归模型</li>
+<li>RegressionModel 单变量线性回归模型</li>
+<li>SimpleExponentialSmoothingModel 简单指数平滑回归模型</li>
+<li>SpectralSmoother 基于输入时间序列Hankel矩阵的奇异值分解（SVD）实现平滑技术</li>
+<li>TripleExponentialSmoothingModel 三指数平滑，也称为Winters方法, 是双指数平滑模型的改进，考虑了数据中含有季节性和周期性</li>
+<li>WeightedMovingAverageModel 加权移动平均模型，由当前周期和上个周期的数据做的加权平均值做为当前的预测值</li>
+</ul>
+<h3 id="异常检测模块-Anomaly-Detection-Module"><a href="#异常检测模块-Anomaly-Detection-Module" class="headerlink" title="异常检测模块(Anomaly Detection Module)"></a>异常检测模块(Anomaly Detection Module)</h3><ul>
+<li>ExtremeLowDensityModel 超低密度模型，很简单有效的密度模型。</li>
+<li>AdaptiveKernelDensityChangePointDetector 拐点检测模型</li>
+<li>KSigmaModel 经典K-sigma模型</li>
+<li>DBScanModel（Density-Based Spatial Clustering of Applications with Noise）基于DBScan密度的模型，在空间中作聚类，如果目标序列可以比较好的分类的话会有不错的效果。</li>
+</ul>
+<h3 id="序列构造自动选优"><a href="#序列构造自动选优" class="headerlink" title="序列构造自动选优"></a>序列构造自动选优</h3><p>不同类型的数据可能适合不同的模型，选择AutoForecastModel，程序会自动把所有TMM都跑一遍，并推选偏差值最小的模型送入异常检测模块。值得注意的是，这里自动选取的标准只关注了还原度，但还原度高并不直接代表能更好的查找异常，在使用本方法的时候要留意在心。</p>
+<h3 id="多数投票算法"><a href="#多数投票算法" class="headerlink" title="多数投票算法"></a>多数投票算法</h3><p>不同的异常检测算法从不同的角度定义了异常。实践过程发现，单一异常算法并不能找出所有异常点，还会出现一系列的假阳性异常。使用Majority Voting，规定半数以上算法识别为异常的点才输出为结果，在实际数据中提供了远高于单一算法的准确度。</p>
+<h3 id="常用选型"><a href="#常用选型" class="headerlink" title="常用选型"></a>常用选型</h3><ul>
+<li>对于温度湿度这种上下波动的数值，你可以使用<strong>OlympicModel</strong>作为时间序列模型，它可以预测有周期或者嵌套周期的曲线。你也可以使用<strong>AutoForecastModel</strong>，它会自动选择最优的时间序列模型。对于异常检测模型，你可以使用<strong>ExtremeLowDensityModel</strong>或者<strong>KSigmaModel</strong>，它们都是基于误差指标和阈值来判断异常的。你也可以使用<strong>MajorityVotingModel</strong>，它会综合多个异常检测模型的结果，提高准确度。</li>
+<li>对于用电量，用水量这种递增的值，你可以使用<strong>PolynomialRegressionModel</strong>或者<strong>MultipleLinearRegressionModel</strong>作为时间序列模型，它们可以拟合多项式或者线性的趋势。对于异常检测模型，你可以使用<strong>AdaptiveKernelDensityChangePointDetector</strong>或者<strong>DBScanModel</strong>，它们都是基于密度或者聚类来检测变化点或者离群点的。</li>
+<li>对于开关量0,1这种固定的值，你可以使用<strong>NaiveForecastingModel</strong>或者<strong>WeightedMovingAverageModel</strong>作为时间序列模型，它们可以根据历史数据来预测当前值。对于异常检测模型，你可以使用<strong>KSigmaModel</strong>或者<strong>ExtremeLowDensityModel</strong>，它们都是基于误差指标和阈值来判断异常的。</li>
+</ul>
+<h2 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h2><ul>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.cnblogs.com/ljhbjehp/p/14287917.html">EGADS介绍(一)–框架处理流程分析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.biaodianfu.com/egads.html">雅虎时序异常检测框架EGADS</a></p>
+</li>
+</ul>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 200px;
+            height: 200px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>wangwang<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/EGADS/" rel="tag">EGADS</a>
+    
 </div>
 
-<style>
-    /* 弹窗样式 */
-    .popup {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 20px;
-        background: linear-gradient(135deg, #0aee0a, #71a7ec);
-        /* 使用渐变背景色 */
-        color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        transition: top 1s ease-in-out; /* 将过渡时间设置为1秒，并添加缓动效果 */
-        /* 将过渡时间设置为1秒，并添加缓动效果 */
-        border-radius: 10px;
-    }
-
-    .popup.show {
-        top: 20px;
-        /* 弹窗滑动到顶部 */
-    }
-
-
-    /* 弹窗的进入和退出动画效果 */
-    @keyframes slideIn {
-        0% {
-            top: -100%;
-        }
-
-        100% {
-            top: 20px;
-        }
-    }
-
-    @keyframes slideOut {
-        0% {
-            top: 20px;
-        }
-
-        100% {
-            top: -100%;
-        }
-    }
-</style>
-        
-      <!-- 到这里结束 -->
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://voice.wangwangit.com/img/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: '95S7dz1u0N3bdQOx7m1AC0eW-gzGzoHsz',
+        appKey: 'nTTnzHXlvizjDtS7gQYt9fug',
+		avatar: 'monsterid',
+		requiredFields: ['nick', 'mail', 'link'],
+		enableQQ: true,
+		recordIP: true,
+		visitor: true,
+		placeholder: ' \\(≧▽≦)/你想说什么呢，邮箱使用QQ邮箱可以有专属头像哟!'
+})
+</script>
+</section>
+    </div>
+</div>
 
 
         <div class="nexmoe-post-right">
@@ -546,7 +574,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
-<script src="/js/app.js?v=1687918243068"></script>
+<script src="/js/app.js?v=1687918242834"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
