@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.wangwangit.com/Windows-Copilot%E6%8A%A2%E5%85%88%E4%BD%93%E9%AA%8C/</loc>
+    <lastmod>2023-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/%E6%8B%AF%E6%95%91Slack%E4%B8%AD%E7%9A%84Claude/</loc>
+    <lastmod>2023-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/%E5%8D%9A%E5%AE%A2%E8%87%AA%E8%BF%B0/</loc>
+    <lastmod>2023-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/ChatGPT%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/ChatGPT%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2023-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85/</loc>
+    <lastmod>2023-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85%E4%BA%8C/</loc>
+    <lastmod>2023-06-29</lastmod>
+  </url>
+  <url>
     <loc>https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/</loc>
     <lastmod>2023-06-28</lastmod>
   </url>
@@ -11,18 +39,6 @@
   <url>
     <loc>https://www.wangwangit.com/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%88/</loc>
     <lastmod>2023-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wangwangit.com/ChatGPT%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2023-06-25</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wangwangit.com/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85%E4%BA%8C/</loc>
-    <lastmod>2023-06-21</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wangwangit.com/Git%E7%A5%9E%E5%A5%87%E4%B9%8B%E6%97%85/</loc>
-    <lastmod>2023-06-21</lastmod>
   </url>
   <url>
     <loc>https://www.wangwangit.com/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
@@ -49,10 +65,6 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/ChatGPT%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-05-23</lastmod>
-  </url>
-  <url>
     <loc>https://www.wangwangit.com/ELK%E9%83%A8%E7%BD%B2%E6%8E%A5%E5%85%A5/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
@@ -65,7 +77,7 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/SpringCloud%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E1%85%B3Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</loc>
+    <loc>https://www.wangwangit.com/SpringCloud%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E1%85%B3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9D%A5%E5%8E%86/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
@@ -73,7 +85,7 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/SpringCloud%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E1%85%B3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9D%A5%E5%8E%86/</loc>
+    <loc>https://www.wangwangit.com/SpringCloud%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E1%85%B3Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
@@ -109,11 +121,11 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.wangwangit.com/%E7%BE%8E%E5%8C%BAAppstore%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/%E7%BE%8E%E5%8C%BAAppstore%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C/</loc>
+    <loc>https://www.wangwangit.com/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
@@ -125,11 +137,11 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://www.wangwangit.com/%E8%AE%A9%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%8E%8C%E6%8F%A1%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%80%E5%B7%A7%E7%9A%84%E7%A5%9E%E5%99%A8/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/%E8%AE%A9%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%8E%8C%E6%8F%A1%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%80%E5%B7%A7%E7%9A%84%E7%A5%9E%E5%99%A8/</loc>
+    <loc>https://www.wangwangit.com/%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
@@ -213,19 +225,19 @@
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/Microsoft365%E8%B4%A6%E5%8F%B7%E7%94%B3%E8%AF%B7%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-05-23</lastmod>
-  </url>
-  <url>
     <loc>https://www.wangwangit.com/Minio%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://www.wangwangit.com/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/</loc>
+    <loc>https://www.wangwangit.com/Microsoft365%E8%B4%A6%E5%8F%B7%E7%94%B3%E8%AF%B7%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
     <loc>https://www.wangwangit.com/Nginx%E8%87%AA%E5%BB%BACDN/</loc>
+    <lastmod>2023-05-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wangwangit.com/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
@@ -262,10 +274,6 @@
   </url>
   <url>
     <loc>https://www.wangwangit.com/WebSocket%E6%B6%88%E6%81%AF%E5%A4%AA%E5%A4%A7%E6%97%A0%E6%B3%95%E5%8F%91%E9%80%81/</loc>
-    <lastmod>2023-05-19</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wangwangit.com/%E5%8D%9A%E5%AE%A2%E8%87%AA%E8%BF%B0/</loc>
     <lastmod>2023-05-19</lastmod>
   </url>
   <url>
