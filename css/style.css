@@ -1181,9 +1181,7 @@ font.douyin {
   margin-right: 5px;
 }
 .nexmoe-toc li > ol {
-  display: flex;
-  flex-wrap: wrap;
-/* add this line */
+/* add this line flex-wrap: wrap;*/
   list-style-type: none; /* remove numbers */
 }
 photos img {
