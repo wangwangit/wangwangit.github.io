@@ -41,11 +41,11 @@ updateTime = () => {
 
 // ----- Clock execution
 
-setInterval(() => {
-  updateTime();
-}, data.renderTime);
+// setInterval(() => {
+//   updateTime();
+// }, data.renderTime);
 
-updateTime();
+// updateTime();
 
 // ----- Events area
 

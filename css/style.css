@@ -553,6 +553,137 @@ article.nexmoe-py ul li img {
     width: calc(50% - 10px);
   }
 }
+article.nexmoe-bookmark ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+article.nexmoe-bookmark ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #eee; /* 添加了这里 */
+}
+article.nexmoe-bookmark ul li img {
+  width: 48px; /* 修改了这里 */
+  height: 48px; /* 修改了这里 */
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+article.nexmoe-bookmark ul li p {
+  visibility: hidden;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 15em;
+}
+@media screen and (max-width: 768px) {
+  article.nexmoe-bookmark ul li {
+    width: calc(50% - 10px);
+  }
+}
+article.nexmoe-bookmark ul li:hover img {
+  transform: scale(1.1) rotate(5deg); /* 修改了这里 */
+  transition: all 0.3s ease-in-out;
+}
+article.nexmoe-bookmark ul li:hover p {
+  visibility: visible;
+  color: #fff; /* 添加了这里 */
+  background-color: rgba(0,0,0,0.5); /* 添加了这里 */
+  padding: 2px; /* 添加了这里 */
+  border-radius: 5px; /* 添加了这里 */
+}
+article.nexmoe-bookmark ul li {
+  border-color: #eee;
+  animation: rainbow 2s linear infinite;
+}
+@-moz-keyframes rainbow {
+  0% {
+    border-color: #f00;
+  }
+  20% {
+    border-color: #ffa500;
+  }
+  40% {
+    border-color: #ff0;
+  }
+  60% {
+    border-color: #008000;
+  }
+  80% {
+    border-color: #00f;
+  }
+  100% {
+    border-color: #800080;
+  }
+}
+@-webkit-keyframes rainbow {
+  0% {
+    border-color: #f00;
+  }
+  20% {
+    border-color: #ffa500;
+  }
+  40% {
+    border-color: #ff0;
+  }
+  60% {
+    border-color: #008000;
+  }
+  80% {
+    border-color: #00f;
+  }
+  100% {
+    border-color: #800080;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    border-color: #f00;
+  }
+  20% {
+    border-color: #ffa500;
+  }
+  40% {
+    border-color: #ff0;
+  }
+  60% {
+    border-color: #008000;
+  }
+  80% {
+    border-color: #00f;
+  }
+  100% {
+    border-color: #800080;
+  }
+}
+@keyframes rainbow {
+  0% {
+    border-color: #f00;
+  }
+  20% {
+    border-color: #ffa500;
+  }
+  40% {
+    border-color: #ff0;
+  }
+  60% {
+    border-color: #008000;
+  }
+  80% {
+    border-color: #00f;
+  }
+  100% {
+    border-color: #800080;
+  }
+}
 *,
 *::after,
 *::before {
