@@ -34,7 +34,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.wangwangit.com/img/image-20230908111142894.png">
 <meta property="article:published_time" content="2023-09-06T11:14:00.000Z">
-<meta property="article:modified_time" content="2023-09-08T03:56:29.793Z">
+<meta property="article:modified_time" content="2023-09-08T04:25:38.502Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="EGADS">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1694145438322">
+  <link rel="stylesheet" href="/css/style.css?v=1694147546634">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -309,8 +309,8 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2023年09月06日</a>
-    <a><i class="nexmoefont icon-areachart"></i>3.8k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 17 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 16 分钟</a>
 </div>
 
         <div class="nexmoe-post-right">
@@ -691,30 +691,25 @@ if ((i - baseWindows[0]) &lt; 0) &#123;
 &#125;
 </code></pre>
 <p>关于配置中各个参数的说明</p>
-<pre><code class="ini">DETECTION_WINDOW_START_TIME:检测窗口的起始时间,如果设置为0,则从最大允许的异常时间(MAX_ANOMALY_TIME_AGO)开始。
-MAX_ANOMALY_TIME_AGO:最大允许检测到的异常时间点离当前的时间跨度,用于控制检测到的异常的新鲜度。
-AGGREGATION:时间序列聚合参数,用于控制降采样比例,如果设置为1则不进行降采样。
-OP_TYPE:操作类型,包括检测异常、更新模型、转换输入等。
-TS_MODEL:时间序列建模模型类型,如自动预测、指数平滑、奥林匹克模型等。
-AD_MODEL:异常检测模型类型,如极低密度、K西格玛、自适应核密度等。
-SIMPLE_THRESHOLD_TYPE:简单阈值模型的类型,如自适应最大最小方差、自适应K西格玛敏感度等。
-INPUT:输入来源,标准输入or CSV文件。
-OUTPUT:输出目标,标准输出、异常数据库、图形界面等。
-THRESHOLD:异常检测模型的阈值参数。
-TIME_SHIFTS:奥林匹克模型的时间偏移参数。
-BASE_WINDOWS:奥林匹克模型的基准窗口大小参数。
-PERIOD:时间序列的周期性参数。
-WINDOW_SIZE:朴素模型的窗口大小参数。
-AUTO_SENSITIVITY_ANOMALY_PCNT:预期的异常百分比。
-AUTO_SENSITIVITY_SD:聚类标准差参数。
-ALPHA/BETA/GAMMA:三指数平滑模型的平滑因子。
+<pre><code class="ini">DETECTION_WINDOW_START_TIME: 检测窗口的起始时间,如果设置为0,则从最大允许的异常时间(MAX_ANOMALY_TIME_AGO)开始。
+MAX_ANOMALY_TIME_AGO:  最大允许检测到的异常时间点离当前的时间跨度,用于控制检测到的异常的新鲜度。
+AGGREGATION:  时间序列聚合参数,用于控制降采样比例,如果设置为1则不进行降采样。
+OP_TYPE:  操作类型,包括检测异常、更新模型、转换输入等。
+TS_MODEL:  时间序列建模模型类型,如自动预测、指数平滑、奥林匹克模型等。
+AD_MODEL:  异常检测模型类型,如极低密度、K西格玛、自适应核密度等。
+SIMPLE_THRESHOLD_TYPE:  简单阈值模型的类型,如自适应最大最小方差、自适应K西格玛敏感度等。
+INPUT:  输入来源,标准输入or CSV文件。
+OUTPUT:  输出目标,标准输出、异常数据库、图形界面等。
+THRESHOLD:  异常检测模型的阈值参数。
+TIME_SHIFTS:  奥林匹克模型的时间偏移参数。
+BASE_WINDOWS:  奥林匹克模型的基准窗口大小参数。
+PERIOD:  时间序列的周期性参数。
+WINDOW_SIZE:  朴素模型的窗口大小参数。
+AUTO_SENSITIVITY_ANOMALY_PCNT:  预期的异常百分比。
+AUTO_SENSITIVITY_SD:  聚类标准差参数。
+ALPHA/BETA/GAMMA:  三指数平滑模型的平滑因子。
+THRESHOLD mape#10,mase#15: 表示设置了两组阈值,mape代表平均百分比误差(Mean Absolute Percentage Error)。这个阈值表示当预测值和实际值的差异超过10%时,会被判定为异常。这个阈值表示当预测误差超过实际值的15%时,会被判定为异常。也就是说,EGADS在进行异常检测时,会计算每个数据点的mape和mase。如果mape超过10%或者mase超过15%,则会将该点判定为一个异常点。
 </code></pre>
-<p>THRESHOLD mape#10,mase#15: 表示设置了两组阈值:</p>
-<p>mape#10<br>mape代表平均百分比误差(Mean Absolute Percentage Error)。这个阈值表示当预测值和实际值的差异超过10%时,会被判定为异常。</p>
-<p>mase#15<br>mase代表平均绝对缩放误差(Mean Absolute Scaled Error)。这个阈值表示当预测误差超过实际值的15%时,会被判定为异常。</p>
-<p>也就是说,EGADS在进行异常检测时,会计算每个数据点的mape和mase。如果mape超过10%或者mase超过15%,则会将该点判定为一个异常点。</p>
-<p>通过设置多个阈值,可以使异常检测更加可靠和准确。不同的阈值指标侧重点不同,组合使用可以综合判断一个点是否应该被检测为异常。</p>
-<p>所以THRESHOLD参数为异常检测模型提供了灵活的阈值设置方式,我们可以根据需要选择不同的阈值指标和阈值大小,从而实现自定义的敏感度要求。</p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>上面就是关于EGADS的源码解读。我希望这篇文章能够帮助您了解EGADS的工作原理和使用方法。如果您有任何问题或建议，请随时与我联系。谢谢！😊</p>
 
         </article>
@@ -896,7 +891,7 @@ ALPHA/BETA/GAMMA:三指数平滑模型的平滑因子。
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1694145438324"></script>
+<script src="/js/app.js?v=1694147546637"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -944,11 +939,11 @@ var _hmt = _hmt || [];
 
 <link rel="stylesheet" href="/lib/codeBlock/matery.css">
 
+<script src="/js/webapp.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script src="/js/search.js"></script>
-
-<script src="/js/webapp.js"></script>
 <!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"left","width":145,"height":315},"mobile":{"show":false},"log":false});</script></body>
 </html>
 
