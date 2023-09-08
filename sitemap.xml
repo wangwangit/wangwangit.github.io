@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.wangwangit.com/SpringBoot%E4%B8%80/</loc>
+    
+    <lastmod>2023-09-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</loc>
     
     <lastmod>2023-09-08</lastmod>
@@ -363,15 +372,6 @@
   
   <url>
     <loc>https://www.wangwangit.com/SpringCloud%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E1%85%B3Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</loc>
-    
-    <lastmod>2023-07-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/SpringBoot%E4%B8%80/</loc>
     
     <lastmod>2023-07-18</lastmod>
     
@@ -792,13 +792,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Chat2DB/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/JetBrains/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -806,7 +799,7 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Azure/</loc>
+    <loc>https://www.wangwangit.com/tags/Chat2DB/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -828,6 +821,13 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Alist/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Azure/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -862,6 +862,13 @@
   </url>
   
   <url>
+    <loc>https://www.wangwangit.com/tags/Claude/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.wangwangit.com/tags/Elasticsearch/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -884,13 +891,6 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Easypoi/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Claude/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -932,14 +932,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/InfluxDB/</loc>
+    <loc>https://www.wangwangit.com/tags/Bing/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Bing/</loc>
+    <loc>https://www.wangwangit.com/tags/InfluxDB/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -953,14 +953,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/MarkDown/</loc>
+    <loc>https://www.wangwangit.com/tags/Microsoft/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Microsoft/</loc>
+    <loc>https://www.wangwangit.com/tags/MarkDown/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1009,20 +1009,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/RabbitMQ/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Mqtt/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/Ai/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1037,14 +1023,21 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/SpringBoot/</loc>
+    <loc>https://www.wangwangit.com/tags/Slack/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Slack/</loc>
+    <loc>https://www.wangwangit.com/tags/RabbitMQ/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Mqtt/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1072,7 +1065,7 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Spring/</loc>
+    <loc>https://www.wangwangit.com/tags/SpringBoot/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1080,6 +1073,27 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/SpringSecurity/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Spring/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Netplan/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Ubuntu/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1101,20 +1115,6 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Cloudflare/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Netplan/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Ubuntu/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,13 +1184,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Domain/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/Redis/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1206,6 +1199,13 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Oracle/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Domain/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1247,13 +1247,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/CORS/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/ZLibrary/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1262,6 +1255,13 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/SciHub/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/CORS/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
