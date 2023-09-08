@@ -11,7 +11,7 @@
 <head>
   
   <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>AI 助手来了！JetBrains的新玩法 - 一只会飞的旺旺-IT技术分享</title>
+  <title>雅虎EGADS项目源码解析 - 一只会飞的旺旺-IT技术分享</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -25,30 +25,20 @@
     <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
 
   <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
-  <meta name="description" content="今天我要给大家介绍一个非常酷炫的新功能，那就是 JetBrains AI 助手。">
+  <meta name="description" content="EGADS (Extendible Generic Anomaly Detection System)是Yahoo一个开源的大规模时间序列异常检测项目，主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI 助手来了！JetBrains的新玩法">
-<meta property="og:url" content="https://www.wangwangit.com/AI%E5%8A%A9%E6%89%8B%E6%9D%A5%E4%BA%86!JetBrains%E7%9A%84%E6%96%B0%E7%8E%A9%E6%B3%95/index.html">
+<meta property="og:title" content="雅虎EGADS项目源码解析">
+<meta property="og:url" content="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
-<meta property="og:description" content="今天我要给大家介绍一个非常酷炫的新功能，那就是 JetBrains AI 助手。">
+<meta property="og:description" content="EGADS (Extendible Generic Anomaly Detection System)是Yahoo一个开源的大规模时间序列异常检测项目，主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230704090747626.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/generate_method-1.gif">
-<meta property="og:image" content="https://img.wangwangit.com/img/explain.gif">
-<meta property="og:image" content="https://img.wangwangit.com/img/doc.gif">
-<meta property="og:image" content="https://img.wangwangit.com/img/rename.gif">
-<meta property="og:image" content="https://img.wangwangit.com/img/commit.gif">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230704105539575.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230704091040737.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230704105412429.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230704091220993.png">
-<meta property="article:published_time" content="2023-07-03T20:14:00.000Z">
-<meta property="article:modified_time" content="2023-07-18T05:38:41.204Z">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20230908111142894.png">
+<meta property="article:published_time" content="2023-09-06T11:14:00.000Z">
+<meta property="article:modified_time" content="2023-09-08T03:56:29.793Z">
 <meta property="article:author" content="一只会飞的旺旺">
-<meta property="article:tag" content="AI">
-<meta property="article:tag" content="JetBrains">
+<meta property="article:tag" content="EGADS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.wangwangit.com/img/image-20230704090747626.png">
+<meta name="twitter:image" content="https://img.wangwangit.com/img/image-20230908111142894.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -57,7 +47,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1694145438916">
+  <link rel="stylesheet" href="/css/style.css?v=1694145438322">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -312,15 +302,15 @@
         <div class="nexmoe-post">
     
         <div class="nexmoe-post-cover" style="padding-bottom: 30%">
-            <img data-src="/images/background/27.webp" data-sizes="auto" alt="AI 助手来了！JetBrains的新玩法" class="lazyload">
-            <h1>AI 助手来了！JetBrains的新玩法</h1>
+            <img data-src="/images/background/2.webp" data-sizes="auto" alt="雅虎EGADS项目源码解析" class="lazyload">
+            <h1>雅虎EGADS项目源码解析</h1>
         </div>
     
 
         <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2023年07月04日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年09月06日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.8k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 17 分钟</a>
 </div>
 
         <div class="nexmoe-post-right">
@@ -330,7 +320,7 @@
                         <div class="nexmoe-toc">
                             
                             
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8-AI-%E5%8A%A9%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text">如何启用 AI 助手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-AI-%E5%8A%9F%E8%83%BD"><span class="toc-number">2.</span> <span class="toc-text">如何使用 AI 功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%81%8A%E5%A4%A9"><span class="toc-number">2.1.</span> <span class="toc-text">人工智能聊天</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90"><span class="toc-number">2.2.</span> <span class="toc-text">文档生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E7%A7%B0%E5%BB%BA%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text">名称建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF%E7%94%9F%E6%88%90"><span class="toc-number">2.4.</span> <span class="toc-text">提交消息生成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">如何在国内使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EGADS%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">EGADS是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EGADS%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">EGADS如何工作?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB"><span class="toc-number">3.</span> <span class="toc-text">源码阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">开始工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E6%B5%8B"><span class="toc-number">3.2.</span> <span class="toc-text">数据预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="toc-number">3.3.</span> <span class="toc-text">异常检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98"><span class="toc-number">4.</span> <span class="toc-text">实战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
                             
                         </div>
                     </div>
@@ -379,96 +369,353 @@
     
   <!-- 到这里结束 -->
         <article>
-            <p>今天我要给大家介绍一个非常酷炫的新功能，那就是 JetBrains AI 助手。</p>
-<p>什么是 JetBrains AI 助手？它是一款基于生成式人工智能和大型语言模型的软件开发工具，可以帮助您提高编码效率和质量。它可以与您对话，为您生成文档，建议名称，生成提交消息等等。它可以深度集成到 JetBrains 的各种 IDE 和 .NET 工具中，让您在编程过程中享受 AI 的帮助。</p>
-<p>听起来很神奇吧？那么，如何使用这个功能呢？接下来，我将以 IntelliJ IDEA 为例，给大家详细介绍一下 JetBrains AI 助手的使用方法。</p>
-<h2 id="如何启用-AI-助手"><a href="#如何启用-AI-助手" class="headerlink" title="如何启用 AI 助手"></a>如何启用 AI 助手</h2><p>首先，您需要下载并安装最新的 EAP 版本的 IntelliJ IDEA。EAP 是 Early Access Program 的缩写，意思是早期访问计划。这是 JetBrains 为了让用户尽早体验最新的功能和改进而推出的测试版本。您可以在这里下载 EAP 版本：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jetbrains.com/idea/nextversion/">https://www.jetbrains.com/idea/nextversion/</a></p>
-<p>安装好 EAP 版本后，您需要使用您的 JetBrains 帐户登录 JetBrains AI 服务。这是一个提供 AI 功能的云端服务，它可以将您连接到不同的大型语言模型，并在许多 JetBrains 产品中启用特定的 AI 功能。目前支持 OpenAI，并托管了许多由 JetBrains 创建的较小模型。将来还会支持更多提供商和模型。</p>
-<p>要登录 JetBrains AI 服务，您可以从 AI 助手工具窗口或“设置”|”工具 |人工智能助手”中进行操作。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230704090747626.png" alt="image-20230704090747626" class="lazyload"></p>
-<p>请注意，JetBrains AI 服务可能并非立即对所有人开放。我们将首先让一定数量的用户进入，一旦达到最大容量，剩余的用户将被添加到等候名单中。我们将在未来几周内逐步邀请更多人试用该产品。</p>
-<p>对 AI 服务的访问目前仅限于提供 OpenAI 服务的地区。您可以在此处查看完整的地区列表：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://openai.com/blog/openai-codex/">https://openai.com/blog/openai-codex/</a></p>
-<p>AI 服务在 EAP 周期内可免费使用。我们将在稍后提供许可和定价模型。</p>
-<h2 id="如何使用-AI-功能"><a href="#如何使用-AI-功能" class="headerlink" title="如何使用 AI 功能"></a>如何使用 AI 功能</h2><p>启用了 AI 服务后，您就可以开始使用各种 AI 功能了。目前有以下几种功能可供选择：</p>
-<h3 id="人工智能聊天"><a href="#人工智能聊天" class="headerlink" title="人工智能聊天"></a>人工智能聊天</h3><p>这是一个非常有趣的功能，它可以让您与大型语言模型进行对话、提出问题或迭代任务。您可以打开 AI 助手工具窗口，在输入框中输入您想说的话或问的问题，然后按回车键发送。AI 将根据您输入的内容和项目中使用的语言和技术给出回复。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/generate_method-1.gif" alt="img" class="lazyload"></p>
-<p>如果您对 AI 的回复满意，并且想要将 AI 生成的代码插入到编辑器中，您可以使用插入插入代码段插入插入符号功能，或者直接将其复制过来。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/explain.gif" alt="img" class="lazyload"></p>
-<p>如果您想要向 AI 询问有关特定代码片段的信息，您可以在编辑器中选择该代码片段，然后从“AI 操作”菜单（在编辑器上下文菜单中或使用 Alt+Enter 快捷方式提供）调用操作。使用选择操作新建聊天允许您提供自己的提示或请求。可以通过根据需要选择“解释代码”、“建议重构”或“查找潜在问题”来输入其他标准 AI 帮助提示。</p>
-<h3 id="文档生成"><a href="#文档生成" class="headerlink" title="文档生成"></a>文档生成</h3><p>这是一个非常实用的功能，它可以帮助您为声明生成文档。目前 Java、Kotlin 和 Python 都支持此功能。</p>
-<p>要使用这个功能，您可以调用“AI 操作”菜单并选择“生成文档操作”。AI 将根据声明的内容和上下文为您生成文档注释。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/doc.gif" alt="img" class="lazyload"></p>
-<p>对于 Java 和 Kotlin，您还可以使用一个更方便的方法来生成文档：在声明的上方键入 ,并按回车键。IDE 将生成注释的静态已知部分（例如 Java 中的标记），AI 将为您生成实际的文档文本。</p>
-<h3 id="名称建议"><a href="#名称建议" class="headerlink" title="名称建议"></a>名称建议</h3><p>这是一个非常智能的功能，它可以根据声明的内容为您建议合适的名称。当您重命名 Java、Kotlin 或 Python 声明时，AI 将在重命名对话框中显示名称选项。您可以从中选择一个或者输入自己的名称。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/rename.gif" alt="img" class="lazyload"></p>
-<p>如果您不想使用 AI 的名称建议，您可以在“设置”|”工具 |人工智能助手”中关闭这个功能。</p>
-<h3 id="提交消息生成"><a href="#提交消息生成" class="headerlink" title="提交消息生成"></a>提交消息生成</h3><p>这是一个非常方便的功能，它可以帮助您为代码提交生成描述性的消息。当您打开提交消息对话框时，您会看到一个“使用 AI 助手生成提交消息”按钮。单击它以将更改的差异发送到 LLM，LLM 将生成描述更改的提交消息。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/commit.gif" alt="img" class="lazyload"></p>
-<h2 id="如何在国内使用"><a href="#如何在国内使用" class="headerlink" title="如何在国内使用"></a>如何在国内使用</h2><p>如果您在国内使用 JetBrains AI 助手，可能会遇到一些网络问题，导致无法正常连接到 AI 服务。这时候，您可以使用一些代理工具来解决这个问题。我推荐使用 Clash for Windows 这个软件，它是一个基于 Clash 的 Windows GUI 代理客户端，支持 Shadowsocks、VMess、Socks5 等协议，支持订阅、托盘图标、规则编辑等功能。</p>
-<p>要使用 Clash for Windows，请按照以下步骤操作：</p>
-<ol>
-<li><p>进入网站 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Fndroid/clash_for_windows_pkg/releases">https://github.com/Fndroid/clash_for_windows_pkg/releases</a> ，下载最新版本的 Clash.for.Windows-Setup-x.x.x.exe 安装包，并安装到电脑上。</p>
+            <h2 id="EGADS是什么"><a href="#EGADS是什么" class="headerlink" title="EGADS是什么?"></a>EGADS是什么?</h2><p>EGADS（Extendible Generic Anomaly Detection System）是雅虎开源的一个大规模时间序列异常检测项目。它的目标是提供一个通用的、可扩展的、易于使用的框架，用于检测各种类型的时间序列数据中的异常点。</p>
+<p>时间序列数据是指按照时间顺序排列的一组数据点，它们通常反映了某个变量随着时间的变化趋势。例如，某个城市每天的气温、某个网站每小时的访问量、某个股票每分钟的价格等，都是时间序列数据的例子。</p>
+<p>异常检测是指在时间序列数据中寻找那些与正常情况下有很大偏差的数据点，它们通常反映了某种异常或突变的情况。例如，某个城市某天的气温突然升高或降低、某个网站某小时的访问量突然增加或减少、某个股票某分钟的价格突然上涨或下跌等，都是异常检测的例子。</p>
+<h2 id="EGADS如何工作"><a href="#EGADS如何工作" class="headerlink" title="EGADS如何工作?"></a>EGADS如何工作?</h2><p>Egads（Extensible Generic Anomaly Detection System）是一个用于自动检测大规模时间序列数据中的异常的开源Java包。它主要由两个模块构成，一个是时间序列建模模块（TMM），另一个是异常检测模块（ADM）。</p>
+<p><strong>时间序列建模模块（TMM）</strong>: 是用于预测时间序列数据中每个点的正常值的，它可以使用不同的算法来建立不同类型的时间序列模型，例如周期性最近邻（PNN）、奥林匹克模型（OlympicModel）、指数平滑（ExponentialSmoothing）等。</p>
+<p><strong>异常检测模块（ADM）</strong>: 是用于比较时间序列数据中每个点的实际值和预期值，并根据一定的阈值来判断是否为异常点的，它也可以使用不同的算法来实现不同类型的异常检测模型，例如极低密度模型（ExtremeLowDensityModel）、K西格玛模型（KSigmaModel）、自适应核密度变点检测器（AdaptiveKernelDensityChangePointDetector）等。</p>
+<h2 id="源码阅读"><a href="#源码阅读" class="headerlink" title="源码阅读"></a>源码阅读</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230908111142894.png" alt="image-20230908111142894" class="lazyload"></p>
+<p>我们时间序列以<strong>OlympicModel</strong>,异常检测<strong>KSigmaModel</strong>为例.</p>
+<p>在阅读源码前,我们先理解几个概念:</p>
+<p>1.EGADS的预测是针对过去时间数据的预测,而不是对未来时间数据的预测.</p>
+<p>2.时间序列数据示例如下,实际数据可能是按秒或者分钟为单位时间间隔的数据</p>
+<table>
+<thead>
+<tr>
+<th align="left">日期</th>
+<th align="left">气温</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1月1日</td>
+<td align="left">10℃</td>
+</tr>
+<tr>
+<td align="left">1月2日</td>
+<td align="left">12℃</td>
+</tr>
+<tr>
+<td align="left">1月3日</td>
+<td align="left">11℃</td>
+</tr>
+<tr>
+<td align="left">1月4日</td>
+<td align="left">9℃</td>
+</tr>
+<tr>
+<td align="left">1月5日</td>
+<td align="left">13℃</td>
+</tr>
+<tr>
+<td align="left">1月6日</td>
+<td align="left">8℃</td>
+</tr>
+<tr>
+<td align="left">1月7日</td>
+<td align="left">15℃</td>
+</tr>
+<tr>
+<td align="left">1月8日</td>
+<td align="left">10℃</td>
+</tr>
+<tr>
+<td align="left">1月9日</td>
+<td align="left">12℃</td>
+</tr>
+<tr>
+<td align="left">1月10日</td>
+<td align="left">11℃</td>
+</tr>
+<tr>
+<td align="left">1月11日</td>
+<td align="left">9℃</td>
+</tr>
+<tr>
+<td align="left">1月12日</td>
+<td align="left">13℃</td>
+</tr>
+<tr>
+<td align="left">1月13日</td>
+<td align="left">8℃</td>
+</tr>
+<tr>
+<td align="left">1月14日</td>
+<td align="left">15℃</td>
+</tr>
+</tbody></table>
+<p>3.项目中的config.ini配置文件中的配置至关重要.不要忽略!预测数据与期望数据的长度尽量<strong>保持一致</strong>,具体原因可以查看<strong>predict</strong>方法的实现.</p>
+<h3 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h3><p>我们直接从Egads这个类入手,可以发现这个方法中,主要是通过传入的配置类<strong>sample_config.ini</strong>和数据集<strong>sample_input.csv</strong>构建了一个Properties对象和一个InputProcessor对象!</p>
+<p>然后在processInput方法中,实现下面几个功能</p>
+<ul>
+<li><p>createTimeSeries: 将传入的csv转换为一个或多个时间序列对象</p>
 </li>
-<li><p>打开 Clash for Windows 软件，点击 General 中 Home Directory 右边的文件夹图标，打开配置文件所在目录。</p>
+<li><p>ProcessableObjectFactory.create(ts, p)</p>
+<ul>
+<li>buildTSModel : 构建时间序列模型</li>
+<li>buildAnomalyModel : 构建异常检测模型</li>
+<li>new DetectAnomalyProcessable : 用于执行异常检测的过程的对象</li>
+</ul>
+<blockquote>
+<p>这一步使用到了配置文件中的几个属性:</p>
+<p><strong>PERIOD</strong>:指定时间序列数据的周期性，即相邻两个数据点之间的时间差 </p>
+<p><strong>TS_MODEL</strong>:指定的时间序列模型 </p>
+<p><strong>AD_MODEL</strong>:指定的异常检测模型</p>
+</blockquote>
 </li>
-<li><p>进入网站 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.wintun.net/">https://www.wintun.net</a> ，点击界面中 Download Wintun xxx 下载压缩包，根据系统版本（win10 64 位对应的是 amd64目录下）将对应目录中 wintun.dll 复制至 Clash 的 Home Directory 目录中。</p>
+<li><p>po.process(): 这个方法就是数据预测与异常检测的具体实现</p>
 </li>
-<li><p>点击 General 中 Service Mode 右边 Manage，在打开窗口中安装服务模式，安装完成应用会自动重启，Service Mode 右边地球图标变为绿色即安装成功。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230704105539575.png" alt="image-20230704105539575" class="lazyload"></p>
-</li>
-<li><p>点击 Profiles，选择一个合适的代理配置文件，或者点击 Download from URL 从网上下载一个订阅链接。您可以在一些代理服务提供商的网站上找到订阅链接，或者在网上搜索一些免费的订阅链接。</p>
-</li>
-<li><p>点击 settings——Profile Mixin——YAML，点击 edit，输入下面的内容，点击保存：</p>
-<pre><code class="yaml">mixin: 
-   hosts:
-     &#39;mtalk.google.com&#39;: 108.177.125.188
-     &#39;services.googleapis.cn&#39;: 74.125.203.94
-     &#39;raw.githubusercontent.com&#39;: 151.101.76.133
-   dns:
-     enable: true
-     default-nameserver:
-       - 223.5.5.5
-       - 1.0.0.1
-     ipv6: false
-     enhanced-mode: redir-host #fake-ip
-     nameserver:
-       - https://dns.rubyfish.cn/dns-query
-       - https://223.5.5.5/dns-query
-       - https://dns.pub/dns-query
-     fallback:
-       - https://1.0.0.1/dns-query
-       - https://public.dns.iij.jp/dns-query
-       - https://dns.twnic.tw/dns-query
-     fallback-filter:
-       geoip: true
-       ipcidr:
-         - 240.0.0.0/4
-         - 0.0.0.0/32
-         - 127.0.0.1/32
-       domain:
-         - +.google.com
-         - +.facebook.com
-         - +.twitter.com
-         - +.youtube.com
-         - +.xn--ngstr-lra8j.com
-         - +.google.cn
-         - +.googleapis.cn
-         - +.gvt1.com
-   tun: 
-     enable: true
-     stack: gvisor
-     dns-hijack:
-       - 198.18.0.2:53
-     macOS-auto-route: true
-     macOS-auto-detect-interface: true # 自动检测出口网卡
+</ul>
+<pre><code class="java">public void process() throws Exception &#123;
+
+        // Resetting the models
+        ma.reset();
+
+        // Training the model with the whole metric
+        ma.train();
+
+        // Finding the expected values
+        ArrayList&lt;TimeSeries.DataSequence&gt; list = ma.forecast(
+            ma.metric.startTime(), ma.metric.lastTime());
+
+        // For each model&#39;s prediction in the ModelAdapter
+        for (TimeSeries.DataSequence ds : list) &#123;
+            // Reseting the anomaly detectors
+            ad.reset();
+
+            // Unsupervised tuning of the anomaly detectors
+            ad.tune(ds);
+
+            // Detecting anomalies for each anomaly detection model in anomaly detector
+            anomalyList = ad.detect(ad.metric, ds);
+
+            // Writing the anomalies to AnomalyDB
+            if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;ANOMALY_DB&quot;)) &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    // TODO: Batch Anomaly Process.
+                &#125;
+            &#125; else if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;GUI&quot;)) &#123;
+                GUIUtils.plotResults(ma.metric.data, ds, anomalyList, config);
+            &#125; else if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;PLOT&quot;)) &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    System.out.print(anomaly.toPlotString());
+                &#125;
+            &#125; else &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    System.out.print(anomaly.toPerlString());
+                &#125;
+            &#125;
+        &#125;
+    &#125;
 </code></pre>
+<h3 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h3><pre><code class="java">        // Resetting the models
+        ma.reset();
+
+        // Training the model with the whole metric
+        ma.train();
+
+        // Finding the expected values
+        ArrayList&lt;TimeSeries.DataSequence&gt; list = ma.forecast(
+            ma.metric.startTime(), ma.metric.lastTime());
+</code></pre>
+<ul>
+<li><p>reset(): 重置模型相关属性</p>
 </li>
-<li><p>点击 General，开启 System Proxy 和 Allow LAN和Mixin。您就可以让浏览器等应用使用系统代理，也可以让局域网内的其他设备通过您的电脑访问代理服务。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230704091040737.png" alt="image-20230704091040737" class="lazyload"></p>
+<li><p>train():用于训练一个基于周期性最近邻（PNN）的时间序列模型</p>
+<pre><code class="java">public void train(TimeSeries.DataSequence data) &#123;
+        this.data = data;
+        
+        int n = data.size();
+        
+        java.util.Arrays.sort(baseWindows);
+        java.util.Arrays.sort(timeShifts);
+        float precision = (float) 0.000001;
+        
+        for (int i = 0; i &lt; n; i++) &#123;
+            float baseVal = Float.POSITIVE_INFINITY;
+            float tmpbase = (float) 0.0;
+            
+            // Cannot compute the expected value if the time-series
+            // is too short preventing us form getting the reference
+            // window.
+            if ((i - baseWindows[0]) &lt; 0) &#123;
+                model.add(data.get(i).value);
+                continue;
+            &#125;
+            
+            // Attempt to shift the time-series.
+            for (int w = 0; w &lt; baseWindows.length; w++) &#123;
+                for (int j = 0; j &lt; timeShifts.length; j++) &#123;
+                    if (timeShifts[j] == 0) &#123;
+                        tmpbase = computeExpected(i, baseWindows[w]);
+                        if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                            baseVal = tmpbase;
+                        &#125;
+                    &#125; else &#123;
+                        if (i + timeShifts[j] &lt; n) &#123;
+                            tmpbase = computeExpected(i + timeShifts[j], baseWindows[w]);
+                            if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                                baseVal = tmpbase;
+                            &#125;
+                        &#125;
+                        if (i - timeShifts[j] &gt;= 0) &#123;
+                            tmpbase = computeExpected(i - timeShifts[j], baseWindows[w]);
+                            if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                                baseVal = tmpbase;
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
+            model.add(baseVal);
+        &#125;
+        
+        initForecastErrors(model, data);
+        
+        logger.debug(getBias() + &quot;\t&quot; + getMAD() + &quot;\t&quot; + getMAPE() + &quot;\t&quot; + getMSE() + &quot;\t&quot; + getSAE() + &quot;\t&quot; + 0 + &quot;\t&quot; + 0);
+    &#125;
+</code></pre>
+<blockquote>
+<p>它是OlympicModel类的一个成员方法，它需要一个参数，就是时间序列数据（data）。它会根据类中的一些参数，例如基准窗口（baseWindows），时间偏移（timeShifts），动态参数（dynamicParameters）等，来计算每个数据点的预期值，并将结果存储在一个列表（model）中。然后，它会调用initForecastErrors方法来初始化预测误差指标，并打印出来。具体的实现步骤如下：</p>
+<ul>
+<li>首先，将时间序列数据（data）赋值给类中的一个属性（this.data），以便后续使用。</li>
+<li>然后，获取时间序列数据的长度（n），并对基准窗口（baseWindows）和时间偏移（timeShifts）进行排序，以便后续遍历。</li>
+<li>接着，定义一个精度值（precision），用于比较浮点数是否相等。</li>
+<li>然后，遍历时间序列数据中的每个数据点（i），初始化一个最大的浮点数（baseVal）作为预期值，和一个临时变量（tmpbase）用于存储计算结果。</li>
+<li>接着，判断当前数据点是否有足够长的过去数据来计算预期值，如果没有，则直接使用实际值作为预期值，并添加到列表（model）中，然后跳过当前循环，继续下一个数据点。</li>
+<li>然后，尝试将时间序列数据向前或向后移动一定的时间偏移（timeShifts），并从移动后的数据中取出与当前数据点相同位置的值，作为过去的数据。对于每个过去的数据，调用computeExpected方法来计算预期值，并将结果赋值给临时变量（tmpbase）。然后，比较临时变量（tmpbase）和最大浮点数（baseVal）与实际值的差的绝对值，如果前者更小，则将临时变量（tmpbase）赋值给最大浮点数（baseVal），表示找到了更好的预期值。</li>
+<li>最后，将最大浮点数（baseVal）作为最终的预期值，并添加到列表（model）中。</li>
+<li>最后，调用initForecastErrors方法来初始化预测误差指标，并打印出来。</li>
+</ul>
+</blockquote>
 </li>
-<li><p>现在，您就可以正常使用 JetBrains AI 助手了。如果您遇到任何问题，您可以在 AI 助手工具窗口中查看日志信息，或者在“设置”|”工具 |人工智能助手”中调整日志级别和日志文件位置。</p>
-<p>IDEA中配置代理,根据实际情况调整这个端口!<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230704105412429.png" alt="image-20230704105412429" class="lazyload"><br><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230704091220993.png" alt="image-20230704091220993" class="lazyload"></p>
+<li><p>forecast(): 这个方法主要是获取指定时间的预期值</p>
 </li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是我为大家介绍的 JetBrains AI 助手的使用教程。我希望这篇文章能够对您有所帮助，让您能够体验到 AI 带来的便利和乐趣。如果您喜欢这篇文章，请给我点个赞，关注我的公众号，分享给您的朋友。感谢您的阅读，下次再见！</p>
+</ul>
+<h3 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h3><pre><code class="java"> // Reseting the anomaly detectors
+            ad.reset();
+
+            // Unsupervised tuning of the anomaly detectors
+            ad.tune(ds);
+
+            // Detecting anomalies for each anomaly detection model in anomaly detector
+            anomalyList = ad.detect(ad.metric, ds);
+</code></pre>
+<ul>
+<li><p>ad.reset(): 重置检测模型的属性</p>
+</li>
+<li><p>ad.tune(ds): 它会根据类中的一些参数，例如误差指标（aes），自动灵敏度（sDAutoSensitivity）等，来计算每个数据点的观测值和预期值之间的误差指标，并根据K西格玛原则来确定每种误差指标的阈值，并将结果存储在一个哈希表（threshold）中。</p>
+<pre><code class="java">    public void tune(DataSequence observedSeries, DataSequence expectedSeries) throws Exception &#123;
+        HashMap&lt;String, ArrayList&lt;Float&gt;&gt; allErrors = aes.initAnomalyErrors(observedSeries, expectedSeries);
+
+        for (int i = 0; i &lt; (aes.getIndexToError().keySet()).size(); i++) &#123;
+            // Add a new error metric if the error metric has not been
+            // defined by the user.
+            if (!threshold.containsKey(aes.getIndexToError().get(i))) &#123;
+                Float[] fArray = (allErrors.get(aes.getIndexToError().get(i))).toArray(new Float[(allErrors.get(aes.getIndexToError().get(i))).size()]);
+                threshold.put(aes.getIndexToError().get(i), AutoSensitivity.getKSigmaSensitivity(fArray, sDAutoSensitivity));
+            &#125;
+        &#125;
+    &#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>首先，调用initAnomalyErrors方法来初始化所有误差指标的列表，并将结果存储在一个哈希表（allErrors）中。initAnomalyErrors方法会遍历每个数据点，调用computeErrorMetrics方法来计算该点的观测值和预期值之间的误差指标，并将结果存储在一个数组（errors）中。然后，将这些数组按照不同的误差指标分别添加到对应的列表中，并返回这些列表组成的哈希表。</li>
+<li>然后，遍历每种误差指标（i），判断是否已经有用户定义的阈值（threshold），如果没有，则调用getKSigmaSensitivity方法来根据K西格玛原则计算该种误差指标的阈值，并将结果存储在哈希表（threshold）中。getKSigmaSensitivity方法会根据自动灵敏度（sDAutoSensitivity）和误差指标列表（fArray）来计算该种误差指标的均值和标准差，并返回均值加上K倍标准差作为阈值。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>ad.detect(ad.metric, ds):用于检测时间序列数据中的异常点</p>
+<pre><code class="java">public IntervalSequence detect(DataSequence observedSeries,
+            DataSequence expectedSeries) throws Exception &#123;
+        
+        // At detection time, the anomaly thresholds shouldn&#39;t all be 0.
+        Float threshSum = (float) 0.0;
+        for (Map.Entry&lt;String, Float&gt; entry : this.threshold.entrySet()) &#123;
+            threshSum += Math.abs(entry.getValue());
+        &#125;
+        
+        // Get an array of thresholds.
+        Float[] thresholdErrors = new Float[aes.getErrorToIndex().size()];
+        for (Map.Entry&lt;String, Float&gt; entry : this.threshold.entrySet()) &#123;
+            thresholdErrors[aes.getErrorToIndex().get(entry.getKey())] = Math.abs(entry.getValue());
+        &#125;
+        
+        IntervalSequence output = new IntervalSequence();
+        int n = observedSeries.size();
+        
+        for (int i = 0; i &lt; n; i++) &#123;
+            Float[] errors = aes.computeErrorMetrics(expectedSeries.get(i).value, observedSeries.get(i).value);
+            logger.debug(&quot;TS:&quot; + observedSeries.get(i).time + &quot;,E:&quot; + arrayF2S(errors) + &quot;,TE:&quot; + arrayF2S(thresholdErrors) + &quot;,OV:&quot; + observedSeries.get(i).value + &quot;,EV:&quot; + expectedSeries.get(i).value);
+            if (observedSeries.get(i).value != expectedSeries.get(i).value &amp;&amp;
+                threshSum &gt; (float) 0.0 &amp;&amp;
+                isAnomaly(errors, threshold) == true &amp;&amp;
+                (isDetectionWindowPoint(maxHrsAgo, windowStart, observedSeries.get(i).time, observedSeries.get(0).time) ||
+                (maxHrsAgo == 0 &amp;&amp; i == (n - 1)))) &#123;
+                output.add(new Interval(observedSeries.get(i).time,
+                                        i,
+                                        errors,
+                                        thresholdErrors,
+                                        observedSeries.get(i).value,
+                                        expectedSeries.get(i).value));
+            &#125;
+        &#125;
+        return output;
+    &#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>首先，创建一个空的区间序列对象（output），用于存储异常点的信息。</li>
+<li>然后，计算阈值（threshold）中所有绝对值的和（threshSum），用于判断是否有有效的阈值。</li>
+<li>接着，将阈值（threshold）中的每个绝对值存储在一个数组（thresholdErrors）中，方便后续使用。</li>
+<li>然后，遍历观测值序列（observedSeries）中的每个数据点（i），调用computeErrorMetrics方法来计算该点的观测值和预期值之间的误差指标，并存储在一个数组（errors）中。打印出该点的时间戳、误差指标、阈值、观测值和预期值等信息。</li>
+<li>接着，判断该点是否满足以下条件，如果满足，则表示该点是一个异常点，并将其添加到区间序列对象（output）中。条件如下：<ul>
+<li>观测值不等于预期值；</li>
+<li>阈值之和大于0；</li>
+<li>误差指标超过阈值；</li>
+<li>该点在检测窗口内，或者检测窗口为0且该点是最后一个数据点。</li>
+</ul>
+</li>
+<li>最后，返回区间序列对象（output），其中包含了检测出来的异常点的信息。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>针对实际需求,我个人采取的方法是使用数据库中存储的历史数据训练模型,然后使用MQ接收实时数据,这里需要注意的一个点是训练数据集需要足够,还有一个点就是在调用ad.tune方法时,需要传入历史数据来获取合适的误差指标,否则就需要自己指定这些指标的值.否则就会导致无法检测异常点!</p>
+<pre><code class="java">// Cannot compute the expected value if the time-series
+// is too short preventing us form getting the reference
+// window.
+if ((i - baseWindows[0]) &lt; 0) &#123;
+    model.add(data.get(i).value);
+    continue;
+&#125;
+</code></pre>
+<p>关于配置中各个参数的说明</p>
+<pre><code class="ini">DETECTION_WINDOW_START_TIME:检测窗口的起始时间,如果设置为0,则从最大允许的异常时间(MAX_ANOMALY_TIME_AGO)开始。
+MAX_ANOMALY_TIME_AGO:最大允许检测到的异常时间点离当前的时间跨度,用于控制检测到的异常的新鲜度。
+AGGREGATION:时间序列聚合参数,用于控制降采样比例,如果设置为1则不进行降采样。
+OP_TYPE:操作类型,包括检测异常、更新模型、转换输入等。
+TS_MODEL:时间序列建模模型类型,如自动预测、指数平滑、奥林匹克模型等。
+AD_MODEL:异常检测模型类型,如极低密度、K西格玛、自适应核密度等。
+SIMPLE_THRESHOLD_TYPE:简单阈值模型的类型,如自适应最大最小方差、自适应K西格玛敏感度等。
+INPUT:输入来源,标准输入or CSV文件。
+OUTPUT:输出目标,标准输出、异常数据库、图形界面等。
+THRESHOLD:异常检测模型的阈值参数。
+TIME_SHIFTS:奥林匹克模型的时间偏移参数。
+BASE_WINDOWS:奥林匹克模型的基准窗口大小参数。
+PERIOD:时间序列的周期性参数。
+WINDOW_SIZE:朴素模型的窗口大小参数。
+AUTO_SENSITIVITY_ANOMALY_PCNT:预期的异常百分比。
+AUTO_SENSITIVITY_SD:聚类标准差参数。
+ALPHA/BETA/GAMMA:三指数平滑模型的平滑因子。
+</code></pre>
+<p>THRESHOLD mape#10,mase#15: 表示设置了两组阈值:</p>
+<p>mape#10<br>mape代表平均百分比误差(Mean Absolute Percentage Error)。这个阈值表示当预测值和实际值的差异超过10%时,会被判定为异常。</p>
+<p>mase#15<br>mase代表平均绝对缩放误差(Mean Absolute Scaled Error)。这个阈值表示当预测误差超过实际值的15%时,会被判定为异常。</p>
+<p>也就是说,EGADS在进行异常检测时,会计算每个数据点的mape和mase。如果mape超过10%或者mase超过15%,则会将该点判定为一个异常点。</p>
+<p>通过设置多个阈值,可以使异常检测更加可靠和准确。不同的阈值指标侧重点不同,组合使用可以综合判断一个点是否应该被检测为异常。</p>
+<p>所以THRESHOLD参数为异常检测模型提供了灵活的阈值设置方式,我们可以根据需要选择不同的阈值指标和阈值大小,从而实现自定义的敏感度要求。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>上面就是关于EGADS的源码解读。我希望这篇文章能够帮助您了解EGADS的工作原理和使用方法。如果您有任何问题或建议，请随时与我联系。谢谢！😊</p>
 
         </article>
        
@@ -579,7 +826,7 @@
   <div class="nexmoe-post-copyright">
     <strong>本文作者：</strong>wangwang<br>
     
-    <strong>本文链接：</strong><a href="https://www.wangwangit.com/AI%E5%8A%A9%E6%89%8B%E6%9D%A5%E4%BA%86!JetBrains%E7%9A%84%E6%96%B0%E7%8E%A9%E6%B3%95/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;AI%E5%8A%A9%E6%89%8B%E6%9D%A5%E4%BA%86!JetBrains%E7%9A%84%E6%96%B0%E7%8E%A9%E6%B3%95&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;AI%E5%8A%A9%E6%89%8B%E6%9D%A5%E4%BA%86!JetBrains%E7%9A%84%E6%96%B0%E7%8E%A9%E6%B3%95&#x2F;</a><br>
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90&#x2F;</a><br>
 
     
       <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
@@ -591,10 +838,10 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/AI/">AI</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/AI/" rel="tag">AI</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/JetBrains/" rel="tag">JetBrains</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/EGADS/" rel="tag">EGADS</a>
     
 </div>
 
@@ -649,7 +896,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1694145438918"></script>
+<script src="/js/app.js?v=1694145438324"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
