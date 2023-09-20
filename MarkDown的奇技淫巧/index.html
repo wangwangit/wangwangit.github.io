@@ -51,7 +51,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1695007451362">
+  <link rel="stylesheet" href="/css/style.css?v=1695202392083">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -732,7 +732,7 @@ if (TextUtils.isEmpty(text)) &#123;
 </code></pre>
 <p><strong>预览效果：</strong></p>
 <p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/">https://github.com</a></p>
-<p><a href="mailto:&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;" rel="external nofollow noreferrer">&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="mailto:&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;" rel="external nofollow noreferrer">&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></p>
 <p><strong>对应 HTML：</strong></p>
 <pre><code class="html">&lt;p&gt;&lt;a href=&quot;https://github.com&quot;&gt;https://github.com&lt;/a&gt;&lt;/p&gt;
 
@@ -908,23 +908,17 @@ if (TextUtils.isEmpty(text)) &#123;
 
     <div class="nexmoe-post-footer">
         <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://img.wangwangit.com/img/Valine.min.js'></script>
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: '95S7dz1u0N3bdQOx7m1AC0eW-gzGzoHsz',
-        appKey: 'nTTnzHXlvizjDtS7gQYt9fug',
-		avatar: 'monsterid',
-		requiredFields: ['nick', 'mail', 'link'],
-		enableQQ: true,
-		recordIP: true,
-		visitor: true,
-		placeholder: ' \\(≧▽≦)/你想说什么呢，邮箱使用QQ邮箱可以有专属头像哟!'
-})
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://waline-3u8474ssy-wangwangit.vercel.app',
+});
 </script>
+  
 </section>
     </div>
 </div>
@@ -957,7 +951,7 @@ if (TextUtils.isEmpty(text)) &#123;
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1695007451364"></script>
+<script src="/js/app.js?v=1695202392085"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

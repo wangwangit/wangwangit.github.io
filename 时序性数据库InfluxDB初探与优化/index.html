@@ -47,7 +47,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1695007451177">
+  <link rel="stylesheet" href="/css/style.css?v=1695202391894">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -900,23 +900,17 @@ influx restore \
 
     <div class="nexmoe-post-footer">
         <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
-<script src='https://img.wangwangit.com/img/Valine.min.js'></script>
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
 <script>
     // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: '95S7dz1u0N3bdQOx7m1AC0eW-gzGzoHsz',
-        appKey: 'nTTnzHXlvizjDtS7gQYt9fug',
-		avatar: 'monsterid',
-		requiredFields: ['nick', 'mail', 'link'],
-		enableQQ: true,
-		recordIP: true,
-		visitor: true,
-		placeholder: ' \\(≧▽≦)/你想说什么呢，邮箱使用QQ邮箱可以有专属头像哟!'
-})
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://waline-3u8474ssy-wangwangit.vercel.app',
+});
 </script>
+  
 </section>
     </div>
 </div>
@@ -949,7 +943,7 @@ influx restore \
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1695007451179"></script>
+<script src="/js/app.js?v=1695202391896"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
