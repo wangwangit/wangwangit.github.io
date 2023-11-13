@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="引入原因 在消息中间件出现之前，分布式系统中的通信和数据传递面临着一些问题，比如：  同步调用的性能瓶颈和阻塞问题。如果服务之间采用同步调用的方式，那么发送方必须等待接收方返回响应才能继续执行后续操作。这样会导致发送方的线程资源被占用，增加响应时间和网络开销，降低系统的吞吐量和可用性 应用之间的耦合问题。如果服务之间采用直接调用的方式，那么发送方必须知道接收方的地址、协议、接口等信息，而且接收方的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:url" content="https://www.wangwangit.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="引入原因 在消息中间件出现之前，分布式系统中的通信和数据传递面临着一些问题，比如：  同步调用的性能瓶颈和阻塞问题。如果服务之间采用同步调用的方式，那么发送方必须等待接收方返回响应才能继续执行后续操作。这样会导致发送方的线程资源被占用，增加响应时间和网络开销，降低系统的吞吐量和可用性 应用之间的耦合问题。如果服务之间采用直接调用的方式，那么发送方必须知道接收方的地址、协议、接口等信息，而且接收方的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231023113528556.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231023135305309.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231023140803887.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231023172150243.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024092320185.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024092938046.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024093014363.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024093804119.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024093811452.png">
+<meta property="og:image" content="https://img.wangwangit.com/img/image-20231024094157351.png">
+<meta property="article:published_time" content="2023-11-09T06:27:01.717Z">
+<meta property="article:modified_time" content="2023-10-24T02:37:01.615Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="Oracle,Java,Python,VPS,Spring,Hexo,Google,ChatGPT,Bing,Bard">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.wangwangit.com/img/image-20231023113528556.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1699836204402">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>87 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>69<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>8<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://software.wangzai.top/" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '软件'}" style="color: rgb(199,29,35);background-color: rgba(199,29,35,.1);">
+            <i class="nexmoefont icon-appstore-fill"></i>
+        </a><a class="mdui-ripple" href="https://tz.wangzai.top/" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '探针'}" style="color: rgb(66, 214, 29);background-color: rgba(66, 214, 29, .1);">
+            <i class="nexmoefont icon-zhanku"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit/" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangzai.top/" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(64, 224, 208);background-color: rgba(64, 224, 208, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">19</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/代理/">代理</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">41</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/羊毛/">羊毛</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/账号/">账号</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.86px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 17.14px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.43px;">Claude</a> <a href="/tags/Cloudflare/" style="font-size: 10px;">Cloudflare</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 14.29px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.43px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/Git/" style="font-size: 14.29px;">Git</a> <a href="/tags/Github/" style="font-size: 18.57px;">Github</a> <a href="/tags/Google/" style="font-size: 11.43px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.86px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.43px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JetBrains/" style="font-size: 11.43px;">JetBrains</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 11.43px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.43px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.43px;">Mybatis</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.86px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/RabbitMQ/" style="font-size: 11.43px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.43px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.71px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 15.71px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.43px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.43px;">Vps</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(69);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/13.webp" data-sizes="auto" alt="" class="lazyload">
+            <h1></h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年11月09日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.2k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">引入原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">消息中间件概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">概念说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E5%9E%8B%E8%A6%81%E6%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">选型要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BB%A3%E8%A1%A8"><span class="toc-number">2.3.</span> <span class="toc-text">常见代表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.</span> <span class="toc-text">应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E5%95%86%E7%A7%92%E6%9D%80"><span class="toc-number">2.4.1.</span> <span class="toc-text">电商秒杀</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E8%B4%AD%E4%B9%B0%E7%94%B5%E5%BD%B1%E7%A5%A8"><span class="toc-number">2.4.2.</span> <span class="toc-text">支付宝购买电影票</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5"><span class="toc-number">2.4.3.</span> <span class="toc-text">网站数据同步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JMS%E8%A7%84%E8%8C%83%E5%92%8CAMQP%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">JMS规范和AMQP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JMS%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.1.</span> <span class="toc-text">JMS详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">3.1.2.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">体系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.1.4.</span> <span class="toc-text">对象模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.1.5.</span> <span class="toc-text">模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.6.</span> <span class="toc-text">传递方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">3.1.7.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMQP%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">AMQP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.1.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">概念</span></a></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="引入原因"><a href="#引入原因" class="headerlink" title="引入原因"></a>引入原因</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231023113528556.png" alt="image-20231023113528556" class="lazyload"></p>
+<p>在消息中间件出现之前，分布式系统中的通信和数据传递面临着一些问题，比如：</p>
+<ul>
+<li>同步调用的性能瓶颈和阻塞问题。如果服务之间采用同步调用的方式，那么发送方必须等待接收方返回响应才能继续执行后续操作。这样会导致发送方的线程资源被占用，增加响应时间和网络开销，降低系统的吞吐量和可用性</li>
+<li>应用之间的耦合问题。如果服务之间采用直接调用的方式，那么发送方必须知道接收方的地址、协议、接口等信息，而且接收方的变化可能会影响发送方的代码。这样会导致应用之间的耦合度增加，降低系统的可维护性和可扩展性</li>
+<li>消息通信的灵活性问题。如果服务之间采用固定的通信模式，那么发送方和接收方的数量、角色、关系等都可能受到限制。这样会导致消息通信的灵活性降低，无法满足不同场景下的消息通信需求。</li>
+<li>流量削峰和缓冲区问题。如果服务之间没有一个缓冲区来暂存突发的高峰流量，那么接收方可能会因为处理不过来而崩溃或者丢失数据。这样会导致系统的稳定性和可靠性降低。</li>
+<li>异构系统的兼容性问题。如果服务之间采用不同的平台、语言、协议等进行开发和部署，那么发送方和接收方可能会因为格式、编码、序列化等问题而无法进行消息传递。这样会导致系统的兼容性和灵活性降低。</li>
+</ul>
+<h2 id="消息中间件概念"><a href="#消息中间件概念" class="headerlink" title="消息中间件概念"></a>消息中间件概念</h2><h3 id="概念说明"><a href="#概念说明" class="headerlink" title="概念说明"></a>概念说明</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231023135305309.png" alt="image-20231023135305309" class="lazyload"></p>
+<p><strong>消息中间件</strong>是指在分布式系统中完成消息的发送和接收的基础软件。<br>消息中间件也可以称消息队列（Message Queue &#x2F; MQ），用高效可靠的消息传递机制进行与平台无关的数据交流，并基于数据通信来进行分布式系统的集成。通过提供消息传递和消息队列模型，可以在分布式环境下扩展进程的通信。<br>简而言之，互联网场景中经常使用消息中间件进行消息路由、订阅发布、异步处理等操作，来缓解系统的压力。</p>
+<h3 id="选型要求"><a href="#选型要求" class="headerlink" title="选型要求"></a>选型要求</h3><ul>
+<li>消息传输的可靠性,需要保证消息不丢失</li>
+<li>支持集群,包括横向扩展,单点故障都可以解决</li>
+<li>性能要好,要能满足业务的性能需求</li>
+<li>产品尽量是开源的,并且流行的</li>
+</ul>
+<h3 id="常见代表"><a href="#常见代表" class="headerlink" title="常见代表"></a>常见代表</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231023140803887.png" alt="image-20231023140803887" class="lazyload"></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><h4 id="电商秒杀"><a href="#电商秒杀" class="headerlink" title="电商秒杀"></a>电商秒杀</h4><p>​		比如6.18，活动从0:00开始，仅限前 200 名，秒杀即将开始时，用户会疯狂刷新 APP或者浏览器来保证自己能够尽早的看到商品。</p>
+<ul>
+<li>当秒杀开始前，用户在不断的刷新页面，系统应该如何应对高并发的读请求呢？</li>
+<li>在秒杀开始时，大量并发用户瞬间向系统请求生成订单，扣减库存，系统应该如何应对高并发的写请求呢？</li>
+</ul>
+<p><strong>应对方案:</strong></p>
+<p><strong>读:</strong></p>
+<ul>
+<li>使用缓存策略将请求挡在上层中的缓存中</li>
+<li>能静态化的数据尽量做到静态化</li>
+<li>加入限流（比如对短时间之内来自某一个用户，某一个IP、某个设备的重复请求做丢弃处理</li>
+</ul>
+<p><strong>写:</strong></p>
+<ul>
+<li>削去秒杀场景下的峰值写流量——流量削峰</li>
+<li>通过异步处理简化秒杀请求中的业务流程——异步处理</li>
+<li>解耦，实现秒杀系统模块之间松耦合——解耦</li>
+</ul>
+<h4 id="支付宝购买电影票"><a href="#支付宝购买电影票" class="headerlink" title="支付宝购买电影票"></a>支付宝购买电影票</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231023172150243.png" alt="image-20231023172150243" class="lazyload"></p>
+<p>​		如上图，用户在支付宝购买了一张电影票后很快就收到消息推送和短信（电影院地址、几号厅、座位号、场次时间等），同时用户会积累一定的会员积分。<br>​		这里，交易系统并不需要一直等待消息送达等动作都完成后才返回成功，允许一定延迟和瞬时不一致（最终一致性），而且后面两个动作通常可以并发执行。<br>​		如果后期监控大盘想要获取实时交易数据，只需要新增个消费者程序并订阅该消息即可，交易系统对此并不感知，松耦合。</p>
+<h4 id="网站数据同步"><a href="#网站数据同步" class="headerlink" title="网站数据同步"></a>网站数据同步</h4><p>​		网站分B端和C端，B端面向企业用户，C端面向求职者。<br>​		这两个模块业务处理逻辑不同，数据库表结构不同，实际上是处于解耦的状态。但是各自又需要对方的数据，需要共享：如</p>
+<ol>
+<li>当C端求职者在更新简历之后，B端企业用户如何尽早看到该简历更新？</li>
+<li>当B端企业用户发布新的职位需求后，C端用户如何尽早看到该职位信息？<br>无论是B端还是C端，都有各自的搜索引擎和缓存，B端需要获取C端的更新以更新搜索引擎和缓<br>存；C端需要获取B端的更新以更新C端的搜索引擎与缓存。<br>如何解决B端C端数据共享的问题？</li>
+</ol>
+<p><strong>应对方案:</strong></p>
+<ol>
+<li>同步方式：B端和C端通过RPC或WebService的方式发布服务，让对方来调用，以获取对方的<br>信息。求职者每更新一次简历，就调用一次B端的服务，进行数据的同步；B端企业用户每更<br>新职位需求，就调用C端的服务，进行数据的同步。</li>
+<li>异步方式：使用消息队列，B端将更新的数据发布到消息队列，C端将更新的数据发布到消息<br>队列，B端订阅C端的消息队列，C端订阅B端的消息队列</li>
+</ol>
+<h2 id="JMS规范和AMQP协议"><a href="#JMS规范和AMQP协议" class="headerlink" title="JMS规范和AMQP协议"></a>JMS规范和AMQP协议</h2><h3 id="JMS详解"><a href="#JMS详解" class="headerlink" title="JMS详解"></a>JMS详解</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>JMS即Java消息服务（Java Message Service）应用程序接口，是一个Java平台中关于面向消息中间件（MOM，Message oriented Middleware）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。与具体平台无关的API，绝大多数MOM提供商都支持。</p>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>消息是JMS中的一种类型对象，由两部分组成：报文头和消息主体。<br>报文头包括消息头字段和消息头属性。字段是JMS协议规定的字段，属性可以由用户按需添加。</p>
+<h4 id="体系"><a href="#体系" class="headerlink" title="体系"></a>体系</h4><p>JMS由以下元素组成：</p>
+<ol>
+<li>JMS供应商产品<br> JMS接口的一个实现。该产品可以是Java的JMS实现，也可以是非Java的面向消息中间件的适<br> 配器。</li>
+<li>JMS Client<br> 生产或消费基于消息的Java的应用程序或对象。</li>
+<li>JMS Producer<br> 创建并发送消息的JMS客户。</li>
+<li>JMS Consumer<br> 接收消息的JMS客户。</li>
+<li>JMS Message<br> 包括可以在JMS客户之间传递的数据的对象</li>
+<li>JMS Queue<br> 缓存消息的容器。消息的接受顺序并不一定要与消息的发送顺序相同。消息被消费后将从队列<br> 中移除。</li>
+<li>JMS Topic<br> Pub&#x2F;Sub模式。</li>
+</ol>
+<h4 id="对象模型"><a href="#对象模型" class="headerlink" title="对象模型"></a>对象模型</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024092320185.png" alt="image-20231024092320185" class="lazyload"></p>
+<ol>
+<li>ConnectionFactory 接口（连接工厂）<br>用户用来创建到JMS提供者的连接的被管对象。JMS客户通过可移植的接口访问连接，这样当<br>下层的实现改变时，代码不需要进行修改。管理员在JNDI名字空间中配置连接工厂，这样，<br>JMS客户才能够查找到它们。根据消息类型的不同，用户将使用队列连接工厂，或者主题连接<br>工厂。</li>
+<li>Connection 接口（连接）<br>连接代表了应用程序和消息服务器之间的通信链路。在获得了连接工厂后，就可以创建一个与<br>JMS提供者的连接。根据不同的连接类型，连接允许用户创建会话，以发送和接收队列和主题<br>到目标。</li>
+<li>Destination 接口（目标）<br>目标是一个包装了消息目标标识符的被管对象，消息目标是指消息发布和接收的地点，或者是<br>队列，或者是主题。JMS管理员创建这些对象，然后用户通过JNDI发现它们。和连接工厂一<br>样，管理员可以创建两种类型的目标，点对点模型的队列，以及发布者&#x2F;订阅者模型的主题。</li>
+<li>Session 接口（会话）<br>表示一个单线程的上下文，用于发送和接收消息。由于会话是单线程的，所以消息是连续的，<br>就是说消息是按照发送的顺序一个一个接收的。会话的好处是它支持事务。如果用户选择了事<br>务支持，会话上下文将保存一组消息，直到事务被提交才发送这些消息。在提交事务之前，用<br>户可以使用回滚操作取消这些消息。一个会话允许用户创建消息，生产者来发送消息，消费者<br>来接收消息。</li>
+<li>MessageConsumer 接口（消息消费者）<br>由会话创建的对象，用于接收发送到目标的消息。消费者可以同步地（阻塞模式），或（非阻<br>塞）接收队列和主题类型的消息。</li>
+<li>MessageProducer 接口（消息生产者）<br>由会话创建的对象，用于发送消息到目标。用户可以创建某个目标的发送者，也可以创建一个<br>通用的发送者，在发送消息时指定目标。</li>
+<li>Message 接口（消息）<br>是在消费者和生产者之间传送的对象，也就是说从一个应用程序传送到另一个应用程序。</li>
+</ol>
+<h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><p>Java消息服务应用程序结构支持两种模式：</p>
+<p><strong>点对点(队列)</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024092938046.png" alt="image-20231024092938046" class="lazyload"></p>
+<p><strong>发布&#x2F;订阅</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024093014363.png" alt="image-20231024093014363" class="lazyload"></p>
+<h4 id="传递方式"><a href="#传递方式" class="headerlink" title="传递方式"></a>传递方式</h4><p>JMS有两种传递消息的方式。<br>        标记为NON_PERSISTENT的消息最多投递一次，而标记为PERSISTENT的消息将使用暂存后再转送的机理投递。<br>        如果一个JMS服务下线，持久性消息不会丢失，等该服务恢复时再传递。默认的消息传递方式是非持久性的。使用非持久性消息可能降低内务和需要的存储器，当不需要接收所有消息时使用。</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>​		生产中应用基本上都是以集群部署的。在Queue模式下，消息的消费没有什么问题，因为不同节点的相同应用会抢占式地消费消息，这样还能分摊负载。<br>​		如果使用Topic广播模式？对于一个消息，不同节点的相同应用都会收到该消息，进行相应的操作，这样就重复消费了。。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024093804119.png" alt="image-20231024093804119" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024093811452.png" alt="image-20231024093811452" class="lazyload"></p>
+<p><strong>方案一</strong>：选择Queue模式，创建多个一样的Queue，每个应用消费自己的Queue。<br>    弊端：浪费空间，生产者还需要关注下游到底有几个消费者，违反了“解耦”的初衷。<br><strong>方案二</strong>：选择Topic模式，在业务上做散列，或者通过分布式锁等方式来实现不同节点间的竞争。<br>    弊端：对业务侵入较大，不是优雅的解决方法。</p>
+<p>ActiveMQ通过“<strong>虚拟主题</strong>”解决了这个问题。<br>生产中似乎需要结合这两种模式：即不同节点的相同应用间存在竞争，会部分消费（P2P），而不<br>同的应用都需要消费到全量的消息（Topic）模式。这样就可以避免重复消费。</p>
+<h3 id="AMQP协议"><a href="#AMQP协议" class="headerlink" title="AMQP协议"></a>AMQP协议</h3><h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><p>AMQP全称高级消息队列协议（Advanced Message Queuing Protocol），是一种标准，类似于<br>JMS，兼容JMS协议。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20231024094157351.png" alt="image-20231024094157351" class="lazyload"></p>
+<h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p><strong>Publisher</strong>：消息发送者，将消息发送到Exchange并指定RoutingKey，以便queue可以接收到指定的消息。</p>
+<p><strong>Consumer</strong>：消息消费者，从queue获取消息，一个Consumer可以订阅多个queue以从多个queue中接收消息。</p>
+<p><strong>Server</strong>：一个具体的MQ服务实例，也称为Broker。</p>
+<p><strong>Virtual host</strong>：虚拟主机，一个Server下可以有多个虚拟主机，用于隔离不同项目，一个Virtual<br>host通常包含多个Exchange、Message Queue。</p>
+<p><strong>Exchange</strong>：交换器，接收Producer发送来的消息，把消息转发到对应的Message Queue中。</p>
+<p><strong>Routing key</strong>：路由键，用于指定消息路由规则（Exchange将消息路由到具体的queue中），通常需要和具体的Exchange类型、Binding的Routing key结合起来使用。</p>
+<p><strong>Bindings</strong>：指定了Exchange和Queue之间的绑定关系。Exchange根据消息的Routing key和Binding配置（绑定关系、Binding、Routing key等）来决定把消息分派到哪些具体的queue中。这依<br>赖于Exchange类型。</p>
+<p><strong>Message Queue</strong>：实际存储消息的容器，并把消息传递给最终的Consumer。</p>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-%E5%85%A5%E9%97%A8/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-%E5%85%A5%E9%97%A8&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-%E5%85%A5%E9%97%A8&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://waline-two-sandy-88.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1699836204404"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"left","width":145,"height":315},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+
