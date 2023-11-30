@@ -6,7 +6,7 @@
   <link href="https://www.wangwangit.com/atom.xml" rel="self"/>
   
   <link href="https://www.wangwangit.com/"/>
-  <updated>2023-11-30T02:08:43.069Z</updated>
+  <updated>2023-11-30T03:11:44.651Z</updated>
   <id>https://www.wangwangit.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.wangwangit.com/WSL2%E4%B8%8A%E5%90%AF%E7%94%A8systemd/"/>
     <id>https://www.wangwangit.com/WSL2%E4%B8%8A%E5%90%AF%E7%94%A8systemd/</id>
     <published>2023-11-28T10:14:00.000Z</published>
-    <updated>2023-11-30T02:08:43.069Z</updated>
+    <updated>2023-11-30T03:11:44.651Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>如果需要使用微软官方支持的systmed，在目前来说你需要满足这些前置条件：</p><ol><li>操作系统为windows 11</li><li>wsl 版本为 0.67.6 或以上（目前均为预览版本）。</li></ol><p>查看wsl版本号命令为： <code>wsl --version</code>，如果此命令未正常回显版本号，或版本号低于0.67.6，那么你安装的wsl还不支持systemd。</p><p><img src="https://img.wangwangit.com/img/image-20231130100307278.png" alt="image-20231130100307278"></p><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol><li>前往Microsoft Store安装最新的WSL Perview,或者去 <a href="https://github.com/microsoft/WSL/releases">https://github.com/microsoft/WSL/releases</a> 下载最新的进行安装!</li></ol><p><img src="https://img.wangwangit.com/img/image-20231130100525773.png" alt="image-20231130100525773"></p><ol start="2"><li>通过wsl命令进入服务器内部,修改wsl配置启用systemd</li></ol><pre><code class="sh">echo -e &quot;[boot]\nsystemd=true&quot; | sudo tee -a /etc/wsl.conf</code></pre><ol start="3"><li>通过下面命令判断systemd是否启用成功,若返回init说明未启用,若是systemd则表示启动成功!</li></ol><p><img src="https://img.wangwangit.com/img/image-20231130100758542.png" alt="image-20231130100758542"></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>如果需要使用微软官方支持的systmed，在目前来说你需要满足这些前置条件：</p><ol><li>操作系统为windows 11</li><li>wsl 版本为 0.67.6 或以上（目前均为预览版本）。</li></ol><p>查看wsl版本号命令为： <code>wsl --version</code>，如果此命令未正常回显版本号，或版本号低于0.67.6，那么你安装的wsl还不支持systemd。</p><p><img src="https://img.wangwangit.com/img/image-20231130100307278.png" alt="image-20231130100307278"></p><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol><li><p>前往Microsoft Store安装最新的WSL Perview,或者去 <a href="https://github.com/microsoft/WSL/releases">https://github.com/microsoft/WSL/releases</a> 下载最新的进行安装!</p><p><img src="https://img.wangwangit.com/img/image-20231130100525773.png" alt="image-20231130100525773"></p></li><li><p>通过wsl命令进入服务器内部,修改wsl配置启用systemd</p><pre><code class="sh">echo -e &quot;[boot]\nsystemd=true&quot; | sudo tee -a /etc/wsl.conf</code></pre></li><li><p>通过下面命令判断systemd是否启用成功,若返回init说明未启用,若是systemd则表示启动成功!</p><p><img src="https://img.wangwangit.com/img/image-20231130100758542.png" alt="image-20231130100758542"></p></li></ol>]]></content>
     
     
     <summary type="html">微软和Canonical联合声明发布了官方支持的systemd,在安装体验后，个人感觉官方支持的systemd确实比上述两个开源项目体验更佳。很值得有需要在wsl环境中运行docker、nginx、mysql等后台服务的小伙伴来尝鲜。</summary>
