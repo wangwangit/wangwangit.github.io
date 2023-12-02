@@ -569,13 +569,19 @@ article.nexmoe-bookmark ul li {
   padding: 5px;
   border-radius: 10px;
   text-align: center;
-  border: 2px solid #eee; /* 添加了这里 */
+  border: 2px solid #eee;
+  transition: all 0.3s ease-in-out;
+  background-color: #f9f9f9;
 }
 article.nexmoe-bookmark ul li img {
-  width: 48px; /* 修改了这里 */
-  height: 48px; /* 修改了这里 */
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
   margin-bottom: 5px;
+}
+article.nexmoe-bookmark ul li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 article.nexmoe-bookmark ul li p {
   visibility: hidden;
@@ -600,9 +606,18 @@ article.nexmoe-bookmark ul li:hover p {
   padding: 2px; /* 添加了这里 */
   border-radius: 5px; /* 添加了这里 */
 }
+.default-icon {
+  background: url("https://ai-bot.cn/wp-content/uploads/2023/03/default-icon.png") no-repeat center center;
+  background-size: cover;
+}
 article.nexmoe-bookmark ul li {
   border-color: #eee;
   animation: rainbow 2s linear infinite;
+}
+@media screen and (max-width: 768px) {
+  article.nexmoe-bookmark ul li {
+    width: calc(50% - 10px);
+  }
 }
 @-moz-keyframes rainbow {
   0% {
