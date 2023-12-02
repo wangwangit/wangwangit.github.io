@@ -1,10 +1,10 @@
 window.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-      document.querySelector('.popup').style.display = 'none';
-    }, 5000);
-  });
-  
-  function closePopup() {
-    document.querySelector('.popup').style.display = 'none';
-  }
-  
+    var popupElement = document.querySelector('.popup');
+    if (popupElement) {
+        setTimeout(function () {
+            popupElement.style.display = 'none';
+        }, 5000);
+    } else {
+        console.log('No element with class .popup found');
+    }
+});
