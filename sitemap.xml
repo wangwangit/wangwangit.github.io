@@ -857,13 +857,6 @@
 
   
   <url>
-    <loc>https://www.wangwangit.com/tags/AI/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/JetBrains/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -871,14 +864,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Chat2DB/</loc>
+    <loc>https://www.wangwangit.com/tags/AI/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Azure/</loc>
+    <loc>https://www.wangwangit.com/tags/Chat2DB/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -906,7 +899,7 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Chatgpt/</loc>
+    <loc>https://www.wangwangit.com/tags/Azure/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -914,6 +907,13 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Edge/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Chatgpt/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -935,20 +935,6 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Elasticsearch/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Logstash/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.wangwangit.com/tags/Kibana/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -997,14 +983,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Bing/</loc>
+    <loc>https://www.wangwangit.com/tags/InfluxDB/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/InfluxDB/</loc>
+    <loc>https://www.wangwangit.com/tags/Bing/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1130,14 +1116,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Ribbon/</loc>
+    <loc>https://www.wangwangit.com/tags/Eureka/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Eureka/</loc>
+    <loc>https://www.wangwangit.com/tags/Ribbon/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1158,13 +1144,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Tomcat/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/Netplan/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1179,13 +1158,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Windows/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/Warp/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1194,6 +1166,34 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/Cloudflare/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Tomcat/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Windows/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Logstash/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/Kibana/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1312,13 +1312,6 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/Netflix/</loc>
-    <lastmod>2023-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.wangwangit.com/tags/Shell/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1326,14 +1319,14 @@
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/CORS/</loc>
+    <loc>https://www.wangwangit.com/tags/Netflix/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.wangwangit.com/tags/EGADS/</loc>
+    <loc>https://www.wangwangit.com/tags/CORS/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1348,6 +1341,13 @@
   
   <url>
     <loc>https://www.wangwangit.com/tags/SciHub/</loc>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wangwangit.com/tags/EGADS/</loc>
     <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
