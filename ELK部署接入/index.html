@@ -32,17 +32,17 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="一般大型系统是一个分布式部署的架构，不同的服务模块部署在不同的服务器上，问题出现时，大部分情况需要根据问题暴露的关键信息，定位到具体的服务器和服务模块，构建一套集中式日志系统，可以提高定位问题的效率。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.wangwangit.com/img/202209282019730.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/202209282021219.png">
-<meta property="og:image" content="https://img.wangwangit.com/img/202209282021906.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282019730.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282021219.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282021906.png">
 <meta property="article:published_time" content="2022-06-25T03:14:00.000Z">
-<meta property="article:modified_time" content="2023-07-18T05:38:41.284Z">
+<meta property="article:modified_time" content="2024-03-16T06:33:15.968Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="Elasticsearch">
 <meta property="article:tag" content="Logstash">
 <meta property="article:tag" content="Kibana">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.wangwangit.com/img/202209282019730.png">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282019730.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -51,7 +51,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1710487841619">
+  <link rel="stylesheet" href="/css/style.css?v=1710570842219">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -391,7 +391,7 @@
 <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p><strong>Elasticsearch</strong>: 是个开源分布式搜索引擎，提供搜集、分析、存储数据三大功能。它的特点有：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。</p>
 <p><strong>Logstash</strong>: 主要是用来日志的搜集、分析、过滤日志的工具，支持大量的数据获取方式。一般工作方式为c&#x2F;s架构，client端安装在需要收集日志的主机上，server端负责将收到的各节点日志进行过滤、修改等操作在一并发往elasticsearch上去。</p>
 <p><strong>Kibana</strong>: 一个开源和免费的工具，Kibana可以为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助汇总、分析和搜索重要数据日志。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/202209282019730.png" alt="image-20220928201954649" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282019730.png" alt="image-20220928201954649" class="lazyload"></p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="1-创建安装目录"><a href="#1-创建安装目录" class="headerlink" title="1. 创建安装目录"></a>1. 创建安装目录</h3><pre><code>/elk_cluster/node/es1/data/
 /elk_cluster/node/es2/data/
 /elk_cluster/logstash/
@@ -563,9 +563,9 @@ i18n.locale: zh-CN
         &lt;/encoder&gt;
     &lt;/appender&gt;
 </code></pre>
-<h3 id="3-在kibana中配置索引模式"><a href="#3-在kibana中配置索引模式" class="headerlink" title="3.在kibana中配置索引模式"></a>3.在kibana中配置索引模式</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/202209282021219.png" alt="image-20220928202100153" class="lazyload"></p>
+<h3 id="3-在kibana中配置索引模式"><a href="#3-在kibana中配置索引模式" class="headerlink" title="3.在kibana中配置索引模式"></a>3.在kibana中配置索引模式</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282021219.png" alt="image-20220928202100153" class="lazyload"></p>
 <p>然后进入Discover,即可看到日志数据</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/202209282021906.png" alt="image-20220928202109835" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202209282021906.png" alt="image-20220928202109835" class="lazyload"></p>
 
         </article>
        
@@ -747,7 +747,7 @@ i18n.locale: zh-CN
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1710487841625"></script>
+<script src="/js/app.js?v=1710570842221"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

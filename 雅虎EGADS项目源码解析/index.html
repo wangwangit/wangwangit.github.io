@@ -32,13 +32,13 @@
 <meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
 <meta property="og:description" content="EGADS (Extendible Generic Anomaly Detection System)是Yahoo一个开源的大规模时间序列异常检测项目，主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.wangwangit.com/img/image-20230908111142894.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png">
 <meta property="article:published_time" content="2023-09-06T11:14:00.000Z">
-<meta property="article:modified_time" content="2023-09-21T07:47:21.496Z">
+<meta property="article:modified_time" content="2024-03-16T06:33:15.969Z">
 <meta property="article:author" content="一只会飞的旺旺">
 <meta property="article:tag" content="EGADS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.wangwangit.com/img/image-20230908111142894.png">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -47,7 +47,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1710487841414">
+  <link rel="stylesheet" href="/css/style.css?v=1710570842047">
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
 </head>
 
@@ -379,7 +379,7 @@
 <h2 id="EGADS如何工作"><a href="#EGADS如何工作" class="headerlink" title="EGADS如何工作?"></a>EGADS如何工作?</h2><p>Egads（Extensible Generic Anomaly Detection System）是一个用于自动检测大规模时间序列数据中的异常的开源Java包。它主要由两个模块构成，一个是时间序列建模模块（TMM），另一个是异常检测模块（ADM）。</p>
 <p><strong>时间序列建模模块（TMM）</strong>: 是用于预测时间序列数据中每个点的正常值的，它可以使用不同的算法来建立不同类型的时间序列模型，例如周期性最近邻（PNN）、奥林匹克模型（OlympicModel）、指数平滑（ExponentialSmoothing）等。</p>
 <p><strong>异常检测模块（ADM）</strong>: 是用于比较时间序列数据中每个点的实际值和预期值，并根据一定的阈值来判断是否为异常点的，它也可以使用不同的算法来实现不同类型的异常检测模型，例如极低密度模型（ExtremeLowDensityModel）、K西格玛模型（KSigmaModel）、自适应核密度变点检测器（AdaptiveKernelDensityChangePointDetector）等。</p>
-<h2 id="源码阅读"><a href="#源码阅读" class="headerlink" title="源码阅读"></a>源码阅读</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.wangwangit.com/img/image-20230908111142894.png" alt="image-20230908111142894" class="lazyload"></p>
+<h2 id="源码阅读"><a href="#源码阅读" class="headerlink" title="源码阅读"></a>源码阅读</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png" alt="image-20230908111142894" class="lazyload"></p>
 <p>我们时间序列以<strong>OlympicModel</strong>,异常检测<strong>KSigmaModel</strong>为例.</p>
 <p>在阅读源码前,我们先理解几个概念:</p>
 <p>1.EGADS的预测是针对过去时间数据的预测,而不是对未来时间数据的预测.</p>
@@ -898,7 +898,7 @@ THRESHOLD mape#10,mase#15: 表示设置了两组阈值,mape代表平均百分比
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1710487841426"></script>
+<script src="/js/app.js?v=1710570842052"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
