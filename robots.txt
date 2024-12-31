@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Disallow: /vendors/
+Disallow: /fonts/
+Disallow: /fancybox/
+Sitemap: https://www.wangwangit.com/sitemap.xml
+Sitemap: https://www.wangwangit.com/baidusitemap.xml
