@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>时序性数据库InfluxDB初探与优化 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="InfluxDB是一个由InfluxData开发的开源时序型数据库。它由Go写成，着力于高性能地查询与存储时序型数据。时序型数据是指那些随时间变化而变化的数据，比如温度，湿度，股票价格，网站访问量等。这些数据通常具有高频率，高精度，高复杂度和高价值的特点。InfluxDB可以帮助我们有效地管理和分析这些数据，为我们提供实时的洞察和预测。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时序性数据库InfluxDB初探与优化">
+<meta property="og:url" content="https://www.wangwangit.com/%E6%97%B6%E5%BA%8F%E6%80%A7%E6%95%B0%E6%8D%AE%E5%BA%93InfluxDB%E5%88%9D%E6%8E%A2%E4%B8%8E%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="InfluxDB是一个由InfluxData开发的开源时序型数据库。它由Go写成，着力于高性能地查询与存储时序型数据。时序型数据是指那些随时间变化而变化的数据，比如温度，湿度，股票价格，网站访问量等。这些数据通常具有高频率，高精度，高复杂度和高价值的特点。InfluxDB可以帮助我们有效地管理和分析这些数据，为我们提供实时的洞察和预测。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230912143817577.png">
+<meta property="article:published_time" content="2023-09-11T11:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.871Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="InfluxDB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230912143817577.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487416">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/20.webp" data-sizes="auto" alt="时序性数据库InfluxDB初探与优化" class="lazyload">
+            <h1>时序性数据库InfluxDB初探与优化</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年09月11日</a>
+    <a><i class="nexmoefont icon-areachart"></i>5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 22 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2InfluxDB"><span class="toc-number">3.2.</span> <span class="toc-text">部署InfluxDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">配置优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">4.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">5.1.</span> <span class="toc-text">接收数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">5.2.</span> <span class="toc-text">写入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-number">5.3.</span> <span class="toc-text">查询数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">5.4.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.5.</span> <span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F%E6%95%B0%E6%8D%AE"><span class="toc-number">5.6.</span> <span class="toc-text">备份还原数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.7.</span> <span class="toc-text">使用实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>InfluxDB是一个由InfluxData开发的开源时序型数据库。它由Go写成，着力于高性能地查询与存储时序型数据。时序型数据是指那些随时间变化而变化的数据，比如温度，湿度，股票价格，网站访问量等。这些数据通常具有高频率，高精度，高复杂度和高价值的特点。InfluxDB可以帮助我们有效地管理和分析这些数据，为我们提供实时的洞察和预测。</p>
+<p>为了让你更好地理解InfluxDB的优势和特色，我用一个表格来比较它和MySQL等传统关系型数据库的区别：</p>
+<table>
+<thead>
+<tr>
+<th align="left">特点</th>
+<th align="left">InfluxDB</th>
+<th align="left">MySQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">数据模型</td>
+<td align="left">基于时间序列的键值对</td>
+<td align="left">基于表格的行列</td>
+</tr>
+<tr>
+<td align="left">数据结构</td>
+<td align="left">灵活，无需预定义模式</td>
+<td align="left">固定，需要预先定义模式</td>
+</tr>
+<tr>
+<td align="left">数据类型</td>
+<td align="left">主要支持数值类型</td>
+<td align="left">支持多种类型</td>
+</tr>
+<tr>
+<td align="left">查询语言</td>
+<td align="left">使用Flux语言，专为时序型数据设计</td>
+<td align="left">使用SQL语言，通用但不针对时序型数据</td>
+</tr>
+<tr>
+<td align="left">写入性能</td>
+<td align="left">高效，支持批量写入和压缩存储</td>
+<td align="left">一般，需要事务处理和索引维护</td>
+</tr>
+<tr>
+<td align="left">查询性能</td>
+<td align="left">快速，支持多维聚合和窗口函数</td>
+<td align="left">慢速，需要多表连接和分组排序</td>
+</tr>
+<tr>
+<td align="left">可扩展性</td>
+<td align="left">易于水平扩展和分布式部署</td>
+<td align="left">难以水平扩展和分布式部署</td>
+</tr>
+</tbody></table>
+<p>从上表可以看出，InfluxDB比MySQL更适合处理时序型数据，因为它有更高的性能，更灵活的数据模型，更强大的查询语言和更好的可扩展性。</p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>官网:  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3/">InfluxDB OSS 2.3 Documentation (influxdata.com)</a></p>
+<p>如果你想更深入地了解InfluxDB的功能和用法，我强烈建议你去多看官方文档。官方文档是InfluxDB的最权威和最全面的资料来源，它包含了InfluxDB的安装，配置，管理，查询，分析，可视化等方面的详细说明和示例。官方文档还提供了一些常见问题和解决方案，以及一些最佳实践和技巧。官方文档是你学习和使用InfluxDB的最好的伙伴。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>在InfluxDB中,配置文件默认是不存在的,需要执行以下命令进行生成,<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3/reference/config-options/">流入数据库配置选项 |InfluxDB OSS 2.3 文档 (influxdata.com)</a></p>
+<pre><code>docker run --rm influxdb:2.3.0 influx server-config &gt; config.yml
+</code></pre>
+<p>具体内容如下:</p>
+<pre><code class="yml">&#123;
+        &quot;assets-path&quot;: &quot;&quot;,
+        &quot;bolt-path&quot;: &quot;/var/lib/influxdb2/influxd.bolt&quot;,
+        &quot;e2e-testing&quot;: false,
+        &quot;engine-path&quot;: &quot;/var/lib/influxdb2/engine&quot;,
+        &quot;feature-flags&quot;: null,
+        &quot;flux-log-enabled&quot;: false,
+        &quot;hardening-enabled&quot;: false,
+        &quot;http-bind-address&quot;: &quot;:8086&quot;,
+        &quot;http-idle-timeout&quot;: 180000000000,
+        &quot;http-read-header-timeout&quot;: 10000000000,  #服务器应尝试读取新请求的 HTTP 标头的最长持续时间。设置为 0 表示没有超时
+        &quot;http-read-timeout&quot;: 0, # 读超时
+        &quot;http-write-timeout&quot;: 0, # 写超时 
+        &quot;influxql-max-select-buckets&quot;: 0,
+        &quot;influxql-max-select-point&quot;: 0,
+        &quot;influxql-max-select-series&quot;: 0,
+        &quot;instance-id&quot;: &quot;&quot;,
+        &quot;log-level&quot;: &quot;info&quot;, # 日志输出级别
+        &quot;metrics-disabled&quot;: false,
+        &quot;nats-max-payload-bytes&quot;: 0,
+        &quot;nats-port&quot;: 4222,
+        &quot;no-tasks&quot;: false,
+        &quot;pprof-disabled&quot;: false,
+        &quot;query-concurrency&quot;: 1024,  # 允许并发执行的查询数。
+        &quot;query-initial-memory-bytes&quot;: 0,  #  为查询分配的初始内存字节数。
+        &quot;query-max-memory-bytes&quot;: 0, #  允许查询的最大内存总字节数。 等于查询并发×单次查询内存字节数
+        &quot;query-memory-bytes&quot;: 0,  # 单个查询允许的最大内存字节数。必须大于或等于 query-initial-memory-bytes 。
+        &quot;query-queue-size&quot;: 1024,  # 执行队列中允许的最大查询数。当达到队列限制时，新查询将被拒绝。
+        &quot;reporting-disabled&quot;: false,
+        &quot;secret-store&quot;: &quot;bolt&quot;,
+        &quot;session-length&quot;: 60,
+        &quot;session-renew-disabled&quot;: false,
+        &quot;sqlite-path&quot;: &quot;/var/lib/influxdb2/influxd.sqlite&quot;,
+        &quot;storage-cache-max-memory-size&quot;: 1073741824,  #  控制存储引擎内存缓存的大小，以字节为单位。
+        &quot;storage-cache-snapshot-memory-size&quot;: 26214400, # 控制存储引擎快照使用的内存大小，以字节为单位。
+        &quot;storage-cache-snapshot-write-cold-duration&quot;: &quot;10m0s&quot;,  # 控制存储引擎冷数据快照写入的时间。
+        &quot;storage-compact-full-write-cold-duration&quot;: &quot;4h0m0s&quot;,  # 控制存储引擎数据压缩的时间。
+        &quot;storage-compact-throughput-burst&quot;: 50331648,
+        &quot;storage-max-concurrent-compactions&quot;: 0,
+        &quot;storage-max-index-log-file-size&quot;: 1048576,
+        &quot;storage-no-validate-field-size&quot;: false,
+        &quot;storage-retention-check-interval&quot;: &quot;30m0s&quot;,
+        &quot;storage-series-file-max-concurrent-snapshot-compactions&quot;: 0,
+        &quot;storage-series-id-set-cache-size&quot;: 0,
+        &quot;storage-shard-precreator-advance-period&quot;: &quot;30m0s&quot;,
+        &quot;storage-shard-precreator-check-interval&quot;: &quot;10m0s&quot;,
+        &quot;storage-tsm-use-madv-willneed&quot;: false,
+        &quot;storage-validate-keys&quot;: false,
+        &quot;storage-wal-fsync-delay&quot;: &quot;0s&quot;,
+        &quot;storage-wal-max-concurrent-writes&quot;: 0,
+        &quot;storage-wal-max-write-delay&quot;: 600000000000,
+        &quot;storage-write-timeout&quot;: 10000000000,
+        &quot;store&quot;: &quot;disk&quot;,
+        &quot;testing-always-allow-setup&quot;: false,
+        &quot;tls-cert&quot;: &quot;&quot;,
+        &quot;tls-key&quot;: &quot;&quot;,
+        &quot;tls-min-version&quot;: &quot;1.2&quot;,
+        &quot;tls-strict-ciphers&quot;: false,
+        &quot;tracing-type&quot;: &quot;&quot;,
+        &quot;ui-disabled&quot;: false,
+        &quot;vault-addr&quot;: &quot;&quot;,
+        &quot;vault-cacert&quot;: &quot;&quot;,
+        &quot;vault-capath&quot;: &quot;&quot;,
+        &quot;vault-client-cert&quot;: &quot;&quot;,
+        &quot;vault-client-key&quot;: &quot;&quot;,
+        &quot;vault-client-timeout&quot;: 0,
+        &quot;vault-max-retries&quot;: 0,
+        &quot;vault-skip-verify&quot;: false,
+        &quot;vault-tls-server-name&quot;: &quot;&quot;,
+        &quot;vault-token&quot;: &quot;&quot;
+&#125;
+</code></pre>
+<h3 id="部署InfluxDB"><a href="#部署InfluxDB" class="headerlink" title="部署InfluxDB"></a>部署InfluxDB</h3><p>我是基于Docker部署的InfluxDB2.3版本,docker-compose配置文件如下:</p>
+<pre><code class="yml">version: &quot;3.1&quot;
+services:
+  influxdb:
+    image: influxdb:2.3.0
+    container_name: influxdb
+    ports:
+      - &quot;8086:8086&quot;
+    volumes:
+      - influxdbv2:/var/lib/influxdb2
+      - config.yml:/home/config.yml      
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
+      - DOCKER_INFLUXDB_INIT_ORG=myorg
+      - DOCKER_INFLUXDB_INIT_BUCKET=mybucket
+      - DOCKER_INFLUXDB_INIT_RETENTION=1w
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mytoken
+    restart: always      
+</code></pre>
+<p>这个文件定义了一个名为influxdb的服务，它使用influxdb:2.3这个镜像来创建一个容器，它将容器的8086端口映射到主机的8086端口，它将容器的&#x2F;var&#x2F;lib&#x2F;influxdb2目录挂载到主机的influxdbv2这个卷上，它设置了一些环境变量来初始化InfluxDB的用户，组织，存储桶，保留策略和令牌。</p>
+<h3 id="配置优化"><a href="#配置优化" class="headerlink" title="配置优化"></a>配置优化</h3><ul>
+<li>[http]：这个部分控制了InfluxDB的HTTP服务，包括绑定地址，端口，超时时间，日志级别等。你可以根据你的网络环境和安全需求来调整这些参数。</li>
+<li>[storage]：这个部分控制了InfluxDB的存储引擎，包括缓存大小，快照频率，压缩策略，索引大小等。你可以根据你的硬件资源和性能需求来调整这些参数。</li>
+<li>[retention]：这个部分控制了InfluxDB的数据保留策略，包括检查间隔，启用状态等。你可以根据你的数据量和存储空间来调整这些参数。</li>
+<li>[query]：这个部分控制了InfluxDB的查询引擎，包括并发度，队列大小，内存限制等。你可以根据你的查询负载和内存资源来调整这些参数。</li>
+</ul>
+<p>针对内存占用空间过大的问题,可以尝试以下方法:</p>
+<ul>
+<li>减少写入数据的频率和精度。如果你不需要实时或高精度的数据，你可以降低写入数据的频率和精度，从而减少数据量和索引大小。</li>
+<li>增加数据压缩比率。如果你不需要高速查询或写入数据，你可以增加数据压缩比率，从而减少数据占用的空间。你可以通过修改storage-compact-throughput-burst参数来调整压缩比率。</li>
+<li>启用数据保留策略。如果你不需要永久保存数据，你可以启用数据保留策略，从而定期删除过期或无用的数据。你可以通过修改retention-check-interval参数来调整保留策略。</li>
+</ul>
+<p><strong>GC优化</strong></p>
+<p>参考: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://community.influxdata.com/t/high-memory-usage-on-tsi-mode/16521/2">HTSI 模式内存使用率高</a></p>
+<pre><code>- GODEBUG=madvdontneed=1
+- GOGC=80
+</code></pre>
+<p>GODEBUG&#x3D;madvdontneed&#x3D;1可以减少InfluxDB的虚拟内存占用，而GOGC&#x3D;80可以减少InfluxDB的实际内存占用。</p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>时序型数据在InfluxDB中是以一种叫做行协议（line protocol）的格式来表示的。行协议是一种文本格式，它由四个部分组成：</p>
+<ul>
+<li>度量（measurement）：表示数据的类别或名称，比如温度，湿度，电压等。</li>
+<li>标签（tag）：表示数据的元数据或属性，比如设备ID，位置，类型等。标签可以用来过滤或分组数据。</li>
+<li>字段（field）：表示数据的值或内容，比如数值，字符串，布尔值等。字段可以用来计算或分析数据。</li>
+<li>时间戳（timestamp）：表示数据的时间点或区间，比如秒，毫秒，纳秒等。时间戳可以用来排序或窗口化数据。</li>
+</ul>
+<p>行协议的格式如下：</p>
+<pre><code>measurement,tag_key=tag_value field_key=field_value timestamp
+</code></pre>
+<p>例如，一个表示温度的行协议可以是这样的：</p>
+<pre><code class="text">temperature,device_id=123,location=room1 value=25.6 1631377078000000000
+</code></pre>
+<p>这表示在1631377078000000000纳秒（2023-09-11T15:17:58Z）时，设备ID为123，位置为room1的温度值为25.6摄氏度。</p>
+<h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><p>为了使数据模型易于查询且性能高效，需要遵循以下设计原则：</p>
+<ul>
+<li>将常用的元数据或属性存储为标签，将变化的数值存储为字段。标签是被索引的，字段不是。这意味着通过标签过滤或分组数据比通过字段更快。例如，在查询某个位置的电表读数时，可以通过<code>location</code>标签快速定位到相关的数据点，而不需要扫描所有的字段值。</li>
+<li>将每个属性存储为单独的标签，而不是将多个属性拼接在一起。这样可以避免在查询时使用正则表达式来解析复杂的标签值。正则表达式会降低查询性能和可读性。例如，在查询某个区域的水表读数时，可以通过<code>region</code>标签直接过滤出相关的数据点，而不需要从<code>location</code>标签中提取出区域信息。</li>
+<li>避免在测量，标签和字段中存储数据。如果在这些要素中存储数据，会导致高基数（cardinality）问题。基数是指不同的测量和标签组合的数量。高基数会消耗更多的内存和CPU资源，并降低查询性能。例如，在存储电表读数时，应该将设备ID作为标签而不是测量或字段。</li>
+<li>避免使用保留关键字或特殊字符作为标签和字段的名称。如果使用了Flux关键字作为名称，则需要在查询时用双引号括起来。如果使用了非字母数字字符作为名称，则需要在查询时用方括号表示法。</li>
+<li>避免在同一个架构中使用相同的名称作为标签和字段。如果有一个标签和一个字段有相同的名称，则查询结果可能会出现不可预测的情况。</li>
+</ul>
+<h3 id="接收数据"><a href="#接收数据" class="headerlink" title="接收数据"></a>接收数据</h3><p>收集数据是InfluxDB的第一个步骤，它指的是如何将时序型数据从不同的来源传输到InfluxDB中。时序型数据可以来自于各种设备，应用程序，服务，监控系统，日志系统等。为了方便地收集数据，InfluxDB提供了多种方法，包括：</p>
+<ul>
+<li>使用Telegraf代理。Telegraf是一个开源的插件驱动的代理，它可以从各种输入源收集时序型数据，并且将其发送到各种输出目标。Telegraf支持超过200个插件，覆盖了常见的数据来源和目标。你可以使用Telegraf来轻松地将数据从你的设备或应用程序发送到InfluxDB中。</li>
+<li>使用Flux语言。Flux是一种功能性的数据脚本语言，它可以用来查询，转换，分析和操作时序型数据。Flux也可以用来从其他数据库或服务中导入时序型数据到InfluxDB中。你可以使用Flux来编写自定义的数据收集逻辑，并且定期执行它。</li>
+<li>使用HTTP API。HTTP API是InfluxDB提供的一种基于HTTP协议的接口，它可以用来执行各种操作，包括写入和查询数据。你可以使用HTTP API来直接向InfluxDB发送时序型数据，或者从其他服务中获取时序型数据并转发到InfluxDB中。</li>
+<li>使用客户端库。客户端库是一些封装了InfluxDB的HTTP API的编程语言库，它们可以让你在你喜欢的编程语言中使用InfluxDB。客户端库支持多种语言，如Java, Python, Go, Ruby等。你可以使用客户端库来在你的代码中集成InfluxDB，并且向其发送时序型数据。</li>
+</ul>
+<p>每种方法都有其优缺点，你可以根据你的需求和场景来选择合适的方法。下面我会简单地比较一下这些方法：</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Telegraf</td>
+<td align="left">简单易用，支持多种插件，高效稳定</td>
+<td align="left">不够灵活，不能处理复杂的逻辑</td>
+</tr>
+<tr>
+<td align="left">Flux</td>
+<td align="left">强大灵活，支持多种函数和操作符，易于调试</td>
+<td align="left">需要学习新的语言，性能可能受限</td>
+</tr>
+<tr>
+<td align="left">HTTP API</td>
+<td align="left">直接高效，支持多种格式和参数，兼容多种工具</td>
+<td align="left">需要编写HTTP请求，不够友好</td>
+</tr>
+<tr>
+<td align="left">客户端库</td>
+<td align="left">方便集成，支持多种语言，提供高级功能</td>
+<td align="left">需要安装依赖，可能存在兼容性问题</td>
+</tr>
+</tbody></table>
+<h3 id="写入数据"><a href="#写入数据" class="headerlink" title="写入数据"></a>写入数据</h3><p>这里我提供一个基于Java的实现!</p>
+<p>1.导入依赖</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.influxdb&lt;/groupId&gt;
+  &lt;artifactId&gt;influxdb-client-java&lt;/artifactId&gt;
+  &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2.创建连接</p>
+<pre><code>package example;
+
+import com.influxdb.client.InfluxDBClient;
+import com.influxdb.client.InfluxDBClientFactory;
+
+public class InfluxDB2Example &#123;
+
+  public static void main(final String[] args) &#123;
+
+    // You can generate an API token from the &quot;API Tokens Tab&quot; in the UI
+    String token = &quot;1231231243214234==&quot;;
+    String bucket = &quot;wangwang&quot;;
+    String org = &quot;wangwang&quot;;
+
+    InfluxDBClient client = InfluxDBClientFactory.create(&quot;http://127.0.0.1:8086&quot;, token.toCharArray());
+  &#125;
+&#125;
+</code></pre>
+<p>3.写入数据</p>
+<pre><code>import com.influxdb.client.WriteApiBlocking;
+import com.influxdb.client.write.Point;
+import java.time.Instant;
+
+// ...
+
+Point point = Point
+  .measurement(&quot;mem&quot;)
+  .addTag(&quot;host&quot;, &quot;host1&quot;)
+  .addField(&quot;used_percent&quot;, 23.43234543)
+  .time(Instant.now(), WritePrecision.NS);
+
+WriteApiBlocking writeApi = client.getWriteApiBlocking();
+
+writeApi.writePoint(bucket, org, point);
+</code></pre>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>在InfluxDB2.3版本中,用的是Flux语法,这个在以前1.x的版本中用的是InfluxQL语法.</p>
+<p>查询InfluxDB的数据主要是以下步骤:</p>
+<ul>
+<li>定义你的数据源。你需要使用from()函数来指定你要查询的存储桶的名称或ID。</li>
+<li>定义你的时间范围。你需要使用range()函数来指定你要查询的时间范围，比如最近一小时，最近一天等。</li>
+<li>定义你的数据过滤条件。你需要使用filter()函数来指定你要查询的数据的条件，比如度量名称，字段名称，标签名称或值等。</li>
+<li>定义你的数据操作或分析方法。你可以使用各种Flux或InfluxQL函数来对数据进行操作或分析，比如求平均值，求标准差，求百分比，绘制图表等。</li>
+</ul>
+<p><strong>示例</strong></p>
+<p>这个查询会从example-bucket存储桶中获取最近一小时内度量为temperature的数据，并且对_value列求平均值。</p>
+<pre><code>from(bucket: &quot;example-bucket&quot;)
+  |&gt; range(start: -1h)
+  |&gt; filter(fn: (r) =&gt; r._measurement == &quot;temperature&quot;)
+  |&gt; mean(column: &quot;_value&quot;)
+</code></pre>
+<p>InfluxDB提供了很多函数,可以参考官方文档:<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3/query-data/flux/">使用 Flux 查询数据</a>,或者文章结尾参考的网址!</p>
+<p>在官方的控制面板,也可以看到各个API的说明!</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230912143817577.png" alt="image-20230912143817577" class="lazyload"></p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><blockquote>
+<p>POST <a target="_blank" rel="noopener external nofollow noreferrer" href="http://localhost:8086/api/v2/delete">http://localhost:8086/api/v2/delete</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">请求方法</td>
+<td align="left">字符串</td>
+<td align="left">指定HTTP请求的方法，必须为POST</td>
+<td align="left">POST</td>
+</tr>
+<tr>
+<td align="left">标题</td>
+<td align="left">字典</td>
+<td align="left">指定HTTP请求的头部信息，包括授权和内容类型</td>
+<td align="left">{“Authorization”: “Token mytoken”, “Content-Type”: “application&#x2F;json”}</td>
+</tr>
+<tr>
+<td align="left">查询参数</td>
+<td align="left">字典</td>
+<td align="left">指定HTTP请求的查询参数，包括组织名称或ID和存储桶名称或ID</td>
+<td align="left">{“org”: “myorg”, “bucket”: “mybucket”}</td>
+</tr>
+<tr>
+<td align="left">请求正文</td>
+<td align="left">JSON对象</td>
+<td align="left">指定HTTP请求的正文内容，包括开始时间，结束时间和删除条件语句</td>
+<td align="left">{“start”: “1970-01-01T00:00:00Z”, “stop”: “2023-09-11T15:17:58Z”, “predicate”: “_measurement&#x3D;”temperature” AND value&gt;30”}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>删除具有特定标签值的特定点</li>
+</ul>
+<pre><code>curl --request POST http://localhost:8086/api/v2/delete?org=example-org&amp;bucket=example-bucket \
+  --header &#39;Authorization: Token YOUR_API_TOKEN&#39; \
+  --header &#39;Content-Type: application/json&#39; \
+  --data &#39;&#123;
+    &quot;start&quot;: &quot;2020-03-01T00:00:00Z&quot;,
+    &quot;stop&quot;: &quot;2020-11-14T00:00:00Z&quot;,
+    &quot;predicate&quot;: &quot;_measurement=\&quot;example-measurement\&quot; AND exampleTag=\&quot;exampleTagValue\&quot;&quot;
+  &#125;&#39;
+</code></pre>
+<ul>
+<li>删除指定时间范围内的说有点</li>
+</ul>
+<pre><code>curl --request POST http://localhost:8086/api/v2/delete?org=example-org&amp;bucket=example-bucket \
+  --header &#39;Authorization: Token YOUR_API_TOKEN&#39; \
+  --header &#39;Content-Type: application/json&#39; \
+  --data &#39;&#123;
+    &quot;start&quot;: &quot;2020-03-01T00:00:00Z&quot;,
+    &quot;stop&quot;: &quot;2020-11-14T00:00:00Z&quot;
+  &#125;&#39;
+</code></pre>
+<p>如果请求成功，你应该看到一个空白的响应。如果请求失败，你应该看到一个包含错误信息的响应。</p>
+<h3 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h3><p>InfluxDB中的定时任务是一种使用Flux语言编写的定期执行的脚本，它可以对输入的数据流进行修改或分析，然后将修改后的数据写回到InfluxDB或执行其他操作。定时任务的功能包括：</p>
+<ul>
+<li>数据降采样：数据降采样是一种减少数据量和存储空间的方法，它可以将高精度或高频率的数据转换为低精度或低频率的数据，比如将每秒的数据转换为每分钟或每小时的数据。数据降采样可以提高查询效率，降低存储成本，增加数据保留期限。你可以使用定时任务来定期对你的数据进行降采样，并且将降采样后的数据存储在一个新的存储桶中。</li>
+<li>数据清洗：数据清洗是一种提高数据质量和可用性的方法，它可以将不完整，不准确，不一致或无关的数据进行修改或删除，比如将空值填充，将异常值替换，将重复值去除，或者将无用值删除。数据清洗可以提高分析准确性，减少错误率，增加信任度。你可以使用定时任务来定期对你的数据进行清洗，并且将清洗后的数据写回到原来的存储桶中。</li>
+<li>数据分析：数据分析是一种从数据中提取有价值信息和知识的方法，它可以将原始数据进行转换，计算，统计，聚合或可视化，比如求平均值，求标准差，求百分比，绘制图表等。数据分析可以提高决策支持，发现规律，预测趋势。你可以使用定时任务来定期对你的数据进行分析，并且将分析结果存储在一个新的存储桶中或发送到其他服务中。</li>
+<li>数据告警：数据告警是一种根据数据状态或变化触发通知或动作的方法，它可以将实时或历史数据与预设的阈值或条件进行比较，并且在满足条件时发送邮件，短信，电话等通知方式，或者执行其他操作，比如调整参数，启动备份等。数据告警可以提高监控效果，及时响应，防止危机。你可以使用定时任务来定期对你的数据进行告警，并且将告警信息发送到指定的目标中</li>
+</ul>
+<p><strong>示例</strong></p>
+<pre><code>// Task options
+option task = &#123;name: &quot;downsample_5m_precision&quot;, every: 1h, offset: 0m&#125;
+
+// Data source
+from(bucket: &quot;example-bucket&quot;)
+    |&gt; range(start: -task.every)
+    |&gt; filter(fn: (r) =&gt; r._measurement == &quot;mem&quot; and r.host == &quot;myHost&quot;)
+    // Data processing
+    |&gt; aggregateWindow(every: 5m, fn: mean)
+    // Data destination
+    |&gt; to(bucket: &quot;example-downsampled&quot;)
+</code></pre>
+<h3 id="备份还原数据"><a href="#备份还原数据" class="headerlink" title="备份还原数据"></a>备份还原数据</h3><ul>
+<li><p>备份</p>
+<pre><code>influx backup &lt;backup-path&gt; -t &lt;root-token&gt;
+</code></pre>
+</li>
+<li><p>还原</p>
+<ul>
+<li><p>所有数据</p>
+<pre><code>influx restore /backups/2020-01-20_12-00/
+</code></pre>
+</li>
+<li><p>特定桶数据</p>
+<pre><code>influx restore \
+  /backups/2020-01-20_12-00/ \
+  --bucket example-bucket
+
+# OR
+
+influx restore \
+  /backups/2020-01-20_12-00/ \
+  --bucket-id 000000000000
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p> <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/influxdata/influxdb-client-java">influxdata&#x2F;influxdb-client-java</a></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>可以参考:<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3/reference/faq/">常见问题 |InfluxDB OSS 2.3 文档 (influxdata.com)</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.sqlpac.com/en/documents/influxdb-v2-flux-language-quick-reference-guide-cheat-sheet.html">InfluxDB v2：Flux 语言、快速参考指南和备忘单 </a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://jet.dev/blog/secure-influxdb-setup-with-docker/"> Docker 设置生产 InfluxDB 2 实例</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.influxdata.com/influxdb/v2.3">InfluxDB OSS 2.3 文档</a></li>
+</ol>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E6%97%B6%E5%BA%8F%E6%80%A7%E6%95%B0%E6%8D%AE%E5%BA%93InfluxDB%E5%88%9D%E6%8E%A2%E4%B8%8E%E4%BC%98%E5%8C%96/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E6%97%B6%E5%BA%8F%E6%80%A7%E6%95%B0%E6%8D%AE%E5%BA%93InfluxDB%E5%88%9D%E6%8E%A2%E4%B8%8E%E4%BC%98%E5%8C%96&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E6%97%B6%E5%BA%8F%E6%80%A7%E6%95%B0%E6%8D%AE%E5%BA%93InfluxDB%E5%88%9D%E6%8E%A2%E4%B8%8E%E4%BC%98%E5%8C%96&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/InfluxDB/" rel="tag">InfluxDB</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487419"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

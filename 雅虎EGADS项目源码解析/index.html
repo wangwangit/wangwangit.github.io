@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>雅虎EGADS项目源码解析 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="EGADS (Extendible Generic Anomaly Detection System)是Yahoo一个开源的大规模时间序列异常检测项目，主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="雅虎EGADS项目源码解析">
+<meta property="og:url" content="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="EGADS (Extendible Generic Anomaly Detection System)是Yahoo一个开源的大规模时间序列异常检测项目，主要由两个模块构成，一个是时间序列构造模块，另一个是异常检测模块。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png">
+<meta property="article:published_time" content="2023-09-06T11:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.875Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="EGADS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487422">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/2.webp" data-sizes="auto" alt="雅虎EGADS项目源码解析" class="lazyload">
+            <h1>雅虎EGADS项目源码解析</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年09月06日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 17 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EGADS%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">EGADS是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EGADS%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">EGADS如何工作?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB"><span class="toc-number">3.</span> <span class="toc-text">源码阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">开始工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E6%B5%8B"><span class="toc-number">3.2.</span> <span class="toc-text">数据预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="toc-number">3.3.</span> <span class="toc-text">异常检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98"><span class="toc-number">4.</span> <span class="toc-text">实战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="EGADS是什么"><a href="#EGADS是什么" class="headerlink" title="EGADS是什么?"></a>EGADS是什么?</h2><p>EGADS（Extendible Generic Anomaly Detection System）是雅虎开源的一个大规模时间序列异常检测项目。它的目标是提供一个通用的、可扩展的、易于使用的框架，用于检测各种类型的时间序列数据中的异常点。</p>
+<p>时间序列数据是指按照时间顺序排列的一组数据点，它们通常反映了某个变量随着时间的变化趋势。例如，某个城市每天的气温、某个网站每小时的访问量、某个股票每分钟的价格等，都是时间序列数据的例子。</p>
+<p>异常检测是指在时间序列数据中寻找那些与正常情况下有很大偏差的数据点，它们通常反映了某种异常或突变的情况。例如，某个城市某天的气温突然升高或降低、某个网站某小时的访问量突然增加或减少、某个股票某分钟的价格突然上涨或下跌等，都是异常检测的例子。</p>
+<h2 id="EGADS如何工作"><a href="#EGADS如何工作" class="headerlink" title="EGADS如何工作?"></a>EGADS如何工作?</h2><p>Egads（Extensible Generic Anomaly Detection System）是一个用于自动检测大规模时间序列数据中的异常的开源Java包。它主要由两个模块构成，一个是时间序列建模模块（TMM），另一个是异常检测模块（ADM）。</p>
+<p><strong>时间序列建模模块（TMM）</strong>: 是用于预测时间序列数据中每个点的正常值的，它可以使用不同的算法来建立不同类型的时间序列模型，例如周期性最近邻（PNN）、奥林匹克模型（OlympicModel）、指数平滑（ExponentialSmoothing）等。</p>
+<p><strong>异常检测模块（ADM）</strong>: 是用于比较时间序列数据中每个点的实际值和预期值，并根据一定的阈值来判断是否为异常点的，它也可以使用不同的算法来实现不同类型的异常检测模型，例如极低密度模型（ExtremeLowDensityModel）、K西格玛模型（KSigmaModel）、自适应核密度变点检测器（AdaptiveKernelDensityChangePointDetector）等。</p>
+<h2 id="源码阅读"><a href="#源码阅读" class="headerlink" title="源码阅读"></a>源码阅读</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230908111142894.png" alt="image-20230908111142894" class="lazyload"></p>
+<p>我们时间序列以<strong>OlympicModel</strong>,异常检测<strong>KSigmaModel</strong>为例.</p>
+<p>在阅读源码前,我们先理解几个概念:</p>
+<p>1.EGADS的预测是针对过去时间数据的预测,而不是对未来时间数据的预测.</p>
+<p>2.时间序列数据示例如下,实际数据可能是按秒或者分钟为单位时间间隔的数据</p>
+<table>
+<thead>
+<tr>
+<th align="left">日期</th>
+<th align="left">气温</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1月1日</td>
+<td align="left">10℃</td>
+</tr>
+<tr>
+<td align="left">1月2日</td>
+<td align="left">12℃</td>
+</tr>
+<tr>
+<td align="left">1月3日</td>
+<td align="left">11℃</td>
+</tr>
+<tr>
+<td align="left">1月4日</td>
+<td align="left">9℃</td>
+</tr>
+<tr>
+<td align="left">1月5日</td>
+<td align="left">13℃</td>
+</tr>
+<tr>
+<td align="left">1月6日</td>
+<td align="left">8℃</td>
+</tr>
+<tr>
+<td align="left">1月7日</td>
+<td align="left">15℃</td>
+</tr>
+<tr>
+<td align="left">1月8日</td>
+<td align="left">10℃</td>
+</tr>
+<tr>
+<td align="left">1月9日</td>
+<td align="left">12℃</td>
+</tr>
+<tr>
+<td align="left">1月10日</td>
+<td align="left">11℃</td>
+</tr>
+<tr>
+<td align="left">1月11日</td>
+<td align="left">9℃</td>
+</tr>
+<tr>
+<td align="left">1月12日</td>
+<td align="left">13℃</td>
+</tr>
+<tr>
+<td align="left">1月13日</td>
+<td align="left">8℃</td>
+</tr>
+<tr>
+<td align="left">1月14日</td>
+<td align="left">15℃</td>
+</tr>
+</tbody></table>
+<p>3.项目中的config.ini配置文件中的配置至关重要.不要忽略!预测数据与期望数据的长度尽量<strong>保持一致</strong>,具体原因可以查看<strong>predict</strong>方法的实现.</p>
+<h3 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h3><p>我们直接从Egads这个类入手,可以发现这个方法中,主要是通过传入的配置类<strong>sample_config.ini</strong>和数据集<strong>sample_input.csv</strong>构建了一个Properties对象和一个InputProcessor对象!</p>
+<p>然后在processInput方法中,实现下面几个功能</p>
+<ul>
+<li><p>createTimeSeries: 将传入的csv转换为一个或多个时间序列对象</p>
+</li>
+<li><p>ProcessableObjectFactory.create(ts, p)</p>
+<ul>
+<li>buildTSModel : 构建时间序列模型</li>
+<li>buildAnomalyModel : 构建异常检测模型</li>
+<li>new DetectAnomalyProcessable : 用于执行异常检测的过程的对象</li>
+</ul>
+<blockquote>
+<p>这一步使用到了配置文件中的几个属性:</p>
+<p><strong>PERIOD</strong>:指定时间序列数据的周期性，即相邻两个数据点之间的时间差 </p>
+<p><strong>TS_MODEL</strong>:指定的时间序列模型 </p>
+<p><strong>AD_MODEL</strong>:指定的异常检测模型</p>
+</blockquote>
+</li>
+<li><p>po.process(): 这个方法就是数据预测与异常检测的具体实现</p>
+</li>
+</ul>
+<pre><code class="java">public void process() throws Exception &#123;
+
+        // Resetting the models
+        ma.reset();
+
+        // Training the model with the whole metric
+        ma.train();
+
+        // Finding the expected values
+        ArrayList&lt;TimeSeries.DataSequence&gt; list = ma.forecast(
+            ma.metric.startTime(), ma.metric.lastTime());
+
+        // For each model&#39;s prediction in the ModelAdapter
+        for (TimeSeries.DataSequence ds : list) &#123;
+            // Reseting the anomaly detectors
+            ad.reset();
+
+            // Unsupervised tuning of the anomaly detectors
+            ad.tune(ds);
+
+            // Detecting anomalies for each anomaly detection model in anomaly detector
+            anomalyList = ad.detect(ad.metric, ds);
+
+            // Writing the anomalies to AnomalyDB
+            if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;ANOMALY_DB&quot;)) &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    // TODO: Batch Anomaly Process.
+                &#125;
+            &#125; else if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;GUI&quot;)) &#123;
+                GUIUtils.plotResults(ma.metric.data, ds, anomalyList, config);
+            &#125; else if (config.getProperty(&quot;OUTPUT&quot;) != null &amp;&amp; config.getProperty(&quot;OUTPUT&quot;).equals(&quot;PLOT&quot;)) &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    System.out.print(anomaly.toPlotString());
+                &#125;
+            &#125; else &#123;
+                for (Anomaly anomaly : anomalyList) &#123;
+                    System.out.print(anomaly.toPerlString());
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+</code></pre>
+<h3 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h3><pre><code class="java">        // Resetting the models
+        ma.reset();
+
+        // Training the model with the whole metric
+        ma.train();
+
+        // Finding the expected values
+        ArrayList&lt;TimeSeries.DataSequence&gt; list = ma.forecast(
+            ma.metric.startTime(), ma.metric.lastTime());
+</code></pre>
+<ul>
+<li><p>reset(): 重置模型相关属性</p>
+</li>
+<li><p>train():用于训练一个基于周期性最近邻（PNN）的时间序列模型</p>
+<pre><code class="java">public void train(TimeSeries.DataSequence data) &#123;
+        this.data = data;
+        
+        int n = data.size();
+        
+        java.util.Arrays.sort(baseWindows);
+        java.util.Arrays.sort(timeShifts);
+        float precision = (float) 0.000001;
+        
+        for (int i = 0; i &lt; n; i++) &#123;
+            float baseVal = Float.POSITIVE_INFINITY;
+            float tmpbase = (float) 0.0;
+            
+            // Cannot compute the expected value if the time-series
+            // is too short preventing us form getting the reference
+            // window.
+            if ((i - baseWindows[0]) &lt; 0) &#123;
+                model.add(data.get(i).value);
+                continue;
+            &#125;
+            
+            // Attempt to shift the time-series.
+            for (int w = 0; w &lt; baseWindows.length; w++) &#123;
+                for (int j = 0; j &lt; timeShifts.length; j++) &#123;
+                    if (timeShifts[j] == 0) &#123;
+                        tmpbase = computeExpected(i, baseWindows[w]);
+                        if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                            baseVal = tmpbase;
+                        &#125;
+                    &#125; else &#123;
+                        if (i + timeShifts[j] &lt; n) &#123;
+                            tmpbase = computeExpected(i + timeShifts[j], baseWindows[w]);
+                            if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                                baseVal = tmpbase;
+                            &#125;
+                        &#125;
+                        if (i - timeShifts[j] &gt;= 0) &#123;
+                            tmpbase = computeExpected(i - timeShifts[j], baseWindows[w]);
+                            if ((Math.abs(tmpbase - data.get(i).value) - Math.abs(baseVal - data.get(i).value)) &lt; precision) &#123;
+                                baseVal = tmpbase;
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
+            model.add(baseVal);
+        &#125;
+        
+        initForecastErrors(model, data);
+        
+        logger.debug(getBias() + &quot;\t&quot; + getMAD() + &quot;\t&quot; + getMAPE() + &quot;\t&quot; + getMSE() + &quot;\t&quot; + getSAE() + &quot;\t&quot; + 0 + &quot;\t&quot; + 0);
+    &#125;
+</code></pre>
+<blockquote>
+<p>它是OlympicModel类的一个成员方法，它需要一个参数，就是时间序列数据（data）。它会根据类中的一些参数，例如基准窗口（baseWindows），时间偏移（timeShifts），动态参数（dynamicParameters）等，来计算每个数据点的预期值，并将结果存储在一个列表（model）中。然后，它会调用initForecastErrors方法来初始化预测误差指标，并打印出来。具体的实现步骤如下：</p>
+<ul>
+<li>首先，将时间序列数据（data）赋值给类中的一个属性（this.data），以便后续使用。</li>
+<li>然后，获取时间序列数据的长度（n），并对基准窗口（baseWindows）和时间偏移（timeShifts）进行排序，以便后续遍历。</li>
+<li>接着，定义一个精度值（precision），用于比较浮点数是否相等。</li>
+<li>然后，遍历时间序列数据中的每个数据点（i），初始化一个最大的浮点数（baseVal）作为预期值，和一个临时变量（tmpbase）用于存储计算结果。</li>
+<li>接着，判断当前数据点是否有足够长的过去数据来计算预期值，如果没有，则直接使用实际值作为预期值，并添加到列表（model）中，然后跳过当前循环，继续下一个数据点。</li>
+<li>然后，尝试将时间序列数据向前或向后移动一定的时间偏移（timeShifts），并从移动后的数据中取出与当前数据点相同位置的值，作为过去的数据。对于每个过去的数据，调用computeExpected方法来计算预期值，并将结果赋值给临时变量（tmpbase）。然后，比较临时变量（tmpbase）和最大浮点数（baseVal）与实际值的差的绝对值，如果前者更小，则将临时变量（tmpbase）赋值给最大浮点数（baseVal），表示找到了更好的预期值。</li>
+<li>最后，将最大浮点数（baseVal）作为最终的预期值，并添加到列表（model）中。</li>
+<li>最后，调用initForecastErrors方法来初始化预测误差指标，并打印出来。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>forecast(): 这个方法主要是获取指定时间的预期值</p>
+</li>
+</ul>
+<h3 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h3><pre><code class="java"> // Reseting the anomaly detectors
+            ad.reset();
+
+            // Unsupervised tuning of the anomaly detectors
+            ad.tune(ds);
+
+            // Detecting anomalies for each anomaly detection model in anomaly detector
+            anomalyList = ad.detect(ad.metric, ds);
+</code></pre>
+<ul>
+<li><p>ad.reset(): 重置检测模型的属性</p>
+</li>
+<li><p>ad.tune(ds): 它会根据类中的一些参数，例如误差指标（aes），自动灵敏度（sDAutoSensitivity）等，来计算每个数据点的观测值和预期值之间的误差指标，并根据K西格玛原则来确定每种误差指标的阈值，并将结果存储在一个哈希表（threshold）中。</p>
+<pre><code class="java">    public void tune(DataSequence observedSeries, DataSequence expectedSeries) throws Exception &#123;
+        HashMap&lt;String, ArrayList&lt;Float&gt;&gt; allErrors = aes.initAnomalyErrors(observedSeries, expectedSeries);
+
+        for (int i = 0; i &lt; (aes.getIndexToError().keySet()).size(); i++) &#123;
+            // Add a new error metric if the error metric has not been
+            // defined by the user.
+            if (!threshold.containsKey(aes.getIndexToError().get(i))) &#123;
+                Float[] fArray = (allErrors.get(aes.getIndexToError().get(i))).toArray(new Float[(allErrors.get(aes.getIndexToError().get(i))).size()]);
+                threshold.put(aes.getIndexToError().get(i), AutoSensitivity.getKSigmaSensitivity(fArray, sDAutoSensitivity));
+            &#125;
+        &#125;
+    &#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>首先，调用initAnomalyErrors方法来初始化所有误差指标的列表，并将结果存储在一个哈希表（allErrors）中。initAnomalyErrors方法会遍历每个数据点，调用computeErrorMetrics方法来计算该点的观测值和预期值之间的误差指标，并将结果存储在一个数组（errors）中。然后，将这些数组按照不同的误差指标分别添加到对应的列表中，并返回这些列表组成的哈希表。</li>
+<li>然后，遍历每种误差指标（i），判断是否已经有用户定义的阈值（threshold），如果没有，则调用getKSigmaSensitivity方法来根据K西格玛原则计算该种误差指标的阈值，并将结果存储在哈希表（threshold）中。getKSigmaSensitivity方法会根据自动灵敏度（sDAutoSensitivity）和误差指标列表（fArray）来计算该种误差指标的均值和标准差，并返回均值加上K倍标准差作为阈值。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>ad.detect(ad.metric, ds):用于检测时间序列数据中的异常点</p>
+<pre><code class="java">public IntervalSequence detect(DataSequence observedSeries,
+            DataSequence expectedSeries) throws Exception &#123;
+        
+        // At detection time, the anomaly thresholds shouldn&#39;t all be 0.
+        Float threshSum = (float) 0.0;
+        for (Map.Entry&lt;String, Float&gt; entry : this.threshold.entrySet()) &#123;
+            threshSum += Math.abs(entry.getValue());
+        &#125;
+        
+        // Get an array of thresholds.
+        Float[] thresholdErrors = new Float[aes.getErrorToIndex().size()];
+        for (Map.Entry&lt;String, Float&gt; entry : this.threshold.entrySet()) &#123;
+            thresholdErrors[aes.getErrorToIndex().get(entry.getKey())] = Math.abs(entry.getValue());
+        &#125;
+        
+        IntervalSequence output = new IntervalSequence();
+        int n = observedSeries.size();
+        
+        for (int i = 0; i &lt; n; i++) &#123;
+            Float[] errors = aes.computeErrorMetrics(expectedSeries.get(i).value, observedSeries.get(i).value);
+            logger.debug(&quot;TS:&quot; + observedSeries.get(i).time + &quot;,E:&quot; + arrayF2S(errors) + &quot;,TE:&quot; + arrayF2S(thresholdErrors) + &quot;,OV:&quot; + observedSeries.get(i).value + &quot;,EV:&quot; + expectedSeries.get(i).value);
+            if (observedSeries.get(i).value != expectedSeries.get(i).value &amp;&amp;
+                threshSum &gt; (float) 0.0 &amp;&amp;
+                isAnomaly(errors, threshold) == true &amp;&amp;
+                (isDetectionWindowPoint(maxHrsAgo, windowStart, observedSeries.get(i).time, observedSeries.get(0).time) ||
+                (maxHrsAgo == 0 &amp;&amp; i == (n - 1)))) &#123;
+                output.add(new Interval(observedSeries.get(i).time,
+                                        i,
+                                        errors,
+                                        thresholdErrors,
+                                        observedSeries.get(i).value,
+                                        expectedSeries.get(i).value));
+            &#125;
+        &#125;
+        return output;
+    &#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>首先，创建一个空的区间序列对象（output），用于存储异常点的信息。</li>
+<li>然后，计算阈值（threshold）中所有绝对值的和（threshSum），用于判断是否有有效的阈值。</li>
+<li>接着，将阈值（threshold）中的每个绝对值存储在一个数组（thresholdErrors）中，方便后续使用。</li>
+<li>然后，遍历观测值序列（observedSeries）中的每个数据点（i），调用computeErrorMetrics方法来计算该点的观测值和预期值之间的误差指标，并存储在一个数组（errors）中。打印出该点的时间戳、误差指标、阈值、观测值和预期值等信息。</li>
+<li>接着，判断该点是否满足以下条件，如果满足，则表示该点是一个异常点，并将其添加到区间序列对象（output）中。条件如下：<ul>
+<li>观测值不等于预期值；</li>
+<li>阈值之和大于0；</li>
+<li>误差指标超过阈值；</li>
+<li>该点在检测窗口内，或者检测窗口为0且该点是最后一个数据点。</li>
+</ul>
+</li>
+<li>最后，返回区间序列对象（output），其中包含了检测出来的异常点的信息。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>针对实际需求,我个人采取的方法是使用数据库中存储的历史数据训练模型,然后使用MQ接收实时数据,这里需要注意的一个点是训练数据集需要足够,还有一个点就是在调用ad.tune方法时,需要传入历史数据来获取合适的误差指标,否则就需要自己指定这些指标的值.否则就会导致无法检测异常点!</p>
+<pre><code class="java">// Cannot compute the expected value if the time-series
+// is too short preventing us form getting the reference
+// window.
+if ((i - baseWindows[0]) &lt; 0) &#123;
+    model.add(data.get(i).value);
+    continue;
+&#125;
+</code></pre>
+<p>关于配置中各个参数的说明</p>
+<pre><code class="ini">DETECTION_WINDOW_START_TIME: 检测窗口的起始时间,如果设置为0,则从最大允许的异常时间(MAX_ANOMALY_TIME_AGO)开始。
+MAX_ANOMALY_TIME_AGO:  最大允许检测到的异常时间点离当前的时间跨度,用于控制检测到的异常的新鲜度。
+AGGREGATION:  时间序列聚合参数,用于控制降采样比例,如果设置为1则不进行降采样。
+OP_TYPE:  操作类型,包括检测异常、更新模型、转换输入等。
+TS_MODEL:  时间序列建模模型类型,如自动预测、指数平滑、奥林匹克模型等。
+AD_MODEL:  异常检测模型类型,如极低密度、K西格玛、自适应核密度等。
+SIMPLE_THRESHOLD_TYPE:  简单阈值模型的类型,如自适应最大最小方差、自适应K西格玛敏感度等。
+INPUT:  输入来源,标准输入or CSV文件。
+OUTPUT:  输出目标,标准输出、异常数据库、图形界面等。
+THRESHOLD:  异常检测模型的阈值参数。
+TIME_SHIFTS:  奥林匹克模型的时间偏移参数。
+BASE_WINDOWS:  奥林匹克模型的基准窗口大小参数。
+PERIOD:  时间序列的周期性参数。
+WINDOW_SIZE:  朴素模型的窗口大小参数。
+AUTO_SENSITIVITY_ANOMALY_PCNT:  预期的异常百分比。
+AUTO_SENSITIVITY_SD:  聚类标准差参数。
+ALPHA/BETA/GAMMA:  三指数平滑模型的平滑因子。
+THRESHOLD mape#10,mase#15: 表示设置了两组阈值,mape代表平均百分比误差(Mean Absolute Percentage Error)。这个阈值表示当预测值和实际值的差异超过10%时,会被判定为异常。这个阈值表示当预测误差超过实际值的15%时,会被判定为异常。也就是说,EGADS在进行异常检测时,会计算每个数据点的mape和mase。如果mape超过10%或者mase超过15%,则会将该点判定为一个异常点。
+</code></pre>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>上面就是关于EGADS的源码解读。我希望这篇文章能够帮助您了解EGADS的工作原理和使用方法。如果您有任何问题或建议，请随时与我联系。谢谢！😊</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://s.yimg.com/ge/labs/v2/uploads/kdd2015.pdf">kdd2015.pdf (yimg.com)</a></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.biaodianfu.com/egads.html">雅虎时序异常检测框架EGADS </a></p>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E9%9B%85%E8%99%8EEGADS%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/EGADS/" rel="tag">EGADS</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487424"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

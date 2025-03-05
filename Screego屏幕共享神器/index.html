@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>Screego程序员的屏幕共享神器 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="Screego是一款专为开发者设计的开源屏幕共享工具，具有低延迟、高分辨率、安全传输等特点，支持多用户共享，部署简单，让你的远程协作如丝般顺滑！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Screego程序员的屏幕共享神器">
+<meta property="og:url" content="https://www.wangwangit.com/Screego%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB%E7%A5%9E%E5%99%A8/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="Screego是一款专为开发者设计的开源屏幕共享工具，具有低延迟、高分辨率、安全传输等特点，支持多用户共享，部署简单，让你的远程协作如丝般顺滑！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191013910.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191025664.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191020268.png">
+<meta property="article:published_time" content="2024-05-19T00:25:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.863Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="屏幕共享">
+<meta property="article:tag" content="WebRTC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191013910.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487302">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/25.webp" data-sizes="auto" alt="Screego程序员的屏幕共享神器" class="lazyload">
+            <h1>Screego程序员的屏幕共享神器</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2024年05月19日</a>
+    <a><i class="nexmoefont icon-areachart"></i>874 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Screego%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">Screego是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">直接使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85Screego"><span class="toc-number">3.</span> <span class="toc-text">如何安装Screego?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Docker%E8%BF%90%E8%A1%8C"><span class="toc-number">3.1.</span> <span class="toc-text">使用Docker运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8DockerCompose%E8%BF%90%E8%A1%8C"><span class="toc-number">3.2.</span> <span class="toc-text">使用DockerCompose运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C"><span class="toc-number">3.3.</span> <span class="toc-text">使用二进制文件运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Screego"><span class="toc-number">4.</span> <span class="toc-text">如何使用Screego?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <p>💻 <strong>远程协作痛点，Screego来拯救！</strong></p>
+<p>作为一名程序员，你是否也遇到过这些远程协作的痛点？</p>
+<ul>
+<li>😕 <strong>卡顿延迟：</strong> 对方屏幕上的代码还没刷出来，我已经敲完一行了…</li>
+<li>😖 <strong>画面模糊：</strong> 字都看不清，更别提找bug了！</li>
+<li>🔐 <strong>安全隐患：</strong> 公司机密代码，怎么能随便共享？</li>
+</ul>
+<p>前段时间我发现了一个宝藏工具: Screego,瞬间解决了这些痛点!🎉今天就来给大家安利一下。</p>
+<h2 id="Screego是什么"><a href="#Screego是什么" class="headerlink" title="Screego是什么?"></a>Screego是什么?</h2><p>Screego(<a target="_blank" rel="noopener external nofollow noreferrer" href="https://screego.net/">https://screego.net/</a> )是一款基于WebRTC技术的网页版屏幕共享工具。它有以下几个特点:</p>
+<ul>
+<li>🌐 不需要安装任何客户端,用浏览器就能使用</li>
+<li>🚀 传输延迟低,画面清晰度高</li>
+<li>👥 支持多人同时查看屏幕共享</li>
+<li>🆓 完全免费开源,不用注册账号</li>
+</ul>
+<p>Screego 的开发者深知程序员的痛点，因此在设计时充分考虑了开发者需求。它不仅是一款工具，更是 <strong>程序员远程协作的秘密武器</strong>！😎</p>
+<h2 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h2><p>个人部署地址: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://screen.wangwangit.com/">https://screen.wangwangit.com/</a></p>
+<h2 id="如何安装Screego"><a href="#如何安装Screego" class="headerlink" title="如何安装Screego?"></a>如何安装Screego?</h2><p>Screego的安装非常简单,提供了Docker镜像和各个平台的二进制文件。</p>
+<h3 id="使用Docker运行"><a href="#使用Docker运行" class="headerlink" title="使用Docker运行"></a>使用Docker运行</h3><ol>
+<li>拉取Screego镜像(支持多种架构)</li>
+</ol>
+<pre><code>docker pull ghcr.io/screego/server:1.10.3
+</code></pre>
+<ol start="2">
+<li>启动容器,设置<code>SCREEGO_EXTERNAL_IP</code>为主机的外网IP<pre><code>docker run -it \
+ -e SCREEGO_EXTERNAL_IP=你的外网ip \
+ -e SCREEGO_TURN_PORT_RANGE=50000:50200 \
+ -p 5050:5050 \
+ -p 3478:3478 \
+ -p 50000-50200:50000-50200/udp \
+ screego/server:1.10.3
+</code></pre>
+</li>
+</ol>
+<h3 id="使用DockerCompose运行"><a href="#使用DockerCompose运行" class="headerlink" title="使用DockerCompose运行"></a>使用DockerCompose运行</h3><pre><code>version: &quot;3.7&quot;
+services:
+  screego:
+    image: ghcr.io/screego/server:1.10.3
+    ports:
+      - 5050:5050
+      - 3478:3478
+      - 50000-50200:50000-50200/udp
+    environment:
+      SCREEGO_EXTERNAL_IP: &quot;192.168.178.2&quot;
+      SCREEGO_TURN_PORT_RANGE: &quot;50000:50200&quot;
+</code></pre>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191013910.png" alt="image-20240519101348775" class="lazyload"></p>
+<h3 id="使用二进制文件运行"><a href="#使用二进制文件运行" class="headerlink" title="使用二进制文件运行"></a>使用二进制文件运行</h3><ol>
+<li>从 Github Releases(<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/screego/server/releases">https://github.com/screego/server/releases</a> ) 下载对应平台的压缩包</li>
+<li>解压后给<code>screego</code>添加可执行权限(Linux&#x2F;Mac)</li>
+<li>运行<code>screego</code>或<code>screego.exe</code></li>
+</ol>
+<p>就是这么简单!Screego默认运行在本机的5050端口,现在你就可以通过 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://ip:5050/">http://ip:5050</a> 访问它了。</p>
+<h2 id="如何使用Screego"><a href="#如何使用Screego" class="headerlink" title="如何使用Screego?"></a>如何使用Screego?</h2><p>Screego的使用也非常直观:</p>
+<ol>
+<li>主持人打开Screego,点击”Create Room”创建一个房间</li>
+<li>复制生成的链接,发送给参会人</li>
+<li>参会人打开链接,输入自己的昵称即可加入房间</li>
+<li>主持人点击”Share screen”开始共享屏幕</li>
+<li>参会人就可以实时看到主持人的屏幕了</li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191025664.png" alt="image-20240519102512585" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202405191020268.png" alt="image-20240519102036139" class="lazyload"></p>
+<p>Screego 还提供了丰富的配置选项，你可以根据自己的需求进行个性化设置。具体配置方法请参考官方文档。📖</p>
+<p>💡 <strong>Screego：使用小技巧</strong></p>
+<ul>
+<li><strong>开启硬件加速：</strong> 如果你使用的是 Chrome 浏览器，可以在 <code>chrome://flags</code> 中开启硬件加速，提升画面流畅度。</li>
+<li><strong>调整分辨率：</strong> Screego 默认使用 1080p 分辨率，如果网络带宽有限，可以适当降低分辨率。</li>
+<li><strong>使用 TURN 服务器：</strong> 如果遇到 NAT 穿透问题，可以开启 Screego 内置的 TURN 服务器。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Screego作为一款专为开发者设计的屏幕共享工具,解决了传统工具画质差、延迟高的问题。它安装部署简单,使用体验流畅。</p>
+<p>我自从用上Screego后,和同事沟通代码的效率提高了不少。😊再也不用担心屏幕共享卡顿了。</p>
+<p>如果你也经常需要和别人分享屏幕,不妨试试Screego。它或许能为你的工作流程带来惊喜。</p>
+<p>还在等什么？赶快试试 Screego，让你的远程协作如丝般顺滑！✨</p>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/Screego%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB%E7%A5%9E%E5%99%A8/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;Screego%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB%E7%A5%9E%E5%99%A8&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;Screego%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB%E7%A5%9E%E5%99%A8&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/WebRTC/" rel="tag">WebRTC</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" rel="tag">屏幕共享</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487304"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

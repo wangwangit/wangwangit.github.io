@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>代码整洁之路 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="写整洁代码，需要遵循大量的小技巧，贯彻刻苦习得的‘整洁感’">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码整洁之路">
+<meta property="og:url" content="https://www.wangwangit.com/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E8%B7%AF/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="写整洁代码，需要遵循大量的小技巧，贯彻刻苦习得的‘整洁感’">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-14T10:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.869Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487397">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/4.webp" data-sizes="auto" alt="代码整洁之路" class="lazyload">
+            <h1>代码整洁之路</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2024年03月14日</a>
+    <a><i class="nexmoefont icon-areachart"></i>4.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 17 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E5%90%8D%E7%89%87%E2%80%9D"><span class="toc-number">2.1.</span> <span class="toc-text">命名：代码的“名片”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E5%A3%AB%E5%85%B5%E2%80%9D"><span class="toc-number">2.2.</span> <span class="toc-text">函数：代码的“士兵”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E7%82%B9%E7%BC%80%E2%80%9D"><span class="toc-number">2.3.</span> <span class="toc-text">注释：代码的“点缀”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E9%A2%9C%E5%80%BC%E2%80%9D"><span class="toc-number">2.4.</span> <span class="toc-text">格式：代码的“颜值”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E9%AA%A8%E6%9E%B6%E2%80%9D"><span class="toc-number">2.5.</span> <span class="toc-text">对象和数据结构：代码的“骨架”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E6%B6%88%E9%98%B2%E5%91%98%E2%80%9D"><span class="toc-number">2.6.</span> <span class="toc-text">错误处理：代码的“消防员”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E5%9B%BD%E5%A2%83%E7%BA%BF%E2%80%9D"><span class="toc-number">2.7.</span> <span class="toc-text">边界：代码的“国境线”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E4%BE%A6%E5%AF%9F%E5%85%B5%E2%80%9D"><span class="toc-number">2.8.</span> <span class="toc-text">单元测试：代码的“侦察兵”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E5%BB%BA%E7%AD%91%E5%B8%88%E2%80%9D"><span class="toc-number">2.9.</span> <span class="toc-text">类：代码的“建筑师”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%EF%BC%9A%E6%8C%81%E7%BB%AD%E7%B2%BE%E8%BF%9B"><span class="toc-number">2.10.</span> <span class="toc-text">代码整洁之道：持续精进</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">3.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E6%B2%9F%E9%80%9A"><span class="toc-number">3.1.</span> <span class="toc-text">持续沟通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8A%E6%97%B6%E4%BF%AE%E5%A4%8D%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.2.</span> <span class="toc-text">及时修复漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81"><span class="toc-number">3.3.</span> <span class="toc-text">持续重构代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%90%88%E9%80%82%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">3.4.</span> <span class="toc-text">使用合适的工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%80%81%E5%BA%A6"><span class="toc-number">3.5.</span> <span class="toc-text">保持学习的态度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8D%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C"><span class="toc-number">3.6.</span> <span class="toc-text">注重团队合作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E6%B3%A8%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">3.7.</span> <span class="toc-text">关注用户体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96"><span class="toc-number">3.8.</span> <span class="toc-text">拥抱变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E6%B1%82%E5%8D%93%E8%B6%8A"><span class="toc-number">3.9.</span> <span class="toc-text">追求卓越</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%AB%E5%8F%97%E5%BC%80%E5%8F%91%E7%9A%84%E4%B9%90%E8%B6%A3"><span class="toc-number">3.10.</span> <span class="toc-text">享受开发的乐趣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E4%B9%A6%E7%B1%8D"><span class="toc-number">5.</span> <span class="toc-text">参考书籍</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>各位程序猿&#x2F;媛们，还记得你刚入行时写下的那些代码吗？是不是像一堆乱麻，连自己都看不懂？是不是像我一样，曾经天真地以为，只要代码能运行，就万事大吉？</p>
+<p>哈哈，别担心，我们都经历过那个阶段。写代码就像学武功，一开始都是乱打一气，只有经过不断的练习和领悟，才能慢慢掌握其中的奥妙。</p>
+<p>那么推荐大家可以看看文章末尾推荐的几本书籍.这些书籍就是指引我们从无名小辈到扫地僧的武功秘籍。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="命名：代码的“名片”"><a href="#命名：代码的“名片”" class="headerlink" title="命名：代码的“名片”"></a>命名：代码的“名片”</h3><p>还记得那个名为 d 的变量吗？它就像一个没有名片的人，你永远不知道它是谁，它要做什么。这样的代码，就像一个江湖黑话满天飞的武林，让人摸不着头脑。</p>
+<p>好的命名，就像一张清晰的名片，能让人一眼就明白它的身份和职责。比如，elapsedTimeInDays 比 d 好懂多了吧？这就好比武林中人，行走江湖，总得有个响亮的名号，让人一听就知道你是谁，你擅长什么。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>抛弃那些毫无意义的字母，用完整的单词或短语来命名。</strong></li>
+<li><strong>避免误导。</strong> 别用 accountList 来指代一组账号，除非它真的是 List 类型。</li>
+<li><strong>做有意义的区分。</strong> a1、a2、aN 这种命名方式简直是灾难，请用 source 和 destination 来代替吧！</li>
+</ul>
+<p>好的命名是代码整洁的第一步，也是最重要的一步。它能让你的代码像优美的散文一样，清晰易懂，令人愉悦。</p>
+<h3 id="函数：代码的“士兵”"><a href="#函数：代码的“士兵”" class="headerlink" title="函数：代码的“士兵”"></a>函数：代码的“士兵”</h3><p>还记得那个长达几千行的函数吗？它就像一个臃肿的胖子，行动迟缓，效率低下。这样的代码，就像一支乌合之众，毫无纪律可言，战斗力自然低下。</p>
+<p>好的函数，应该像训练有素的士兵，短小精悍，各司其职。每个函数只做一件事，就像每个士兵只负责一个任务一样，这样才能保证整个队伍的效率和战斗力。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>函数要短，越短越好！</strong> 20 行封顶， 10 行更佳。(根据实际情况来)</li>
+<li><strong>每个函数只做一件事。</strong> 别让你的函数像个杂耍演员，一会儿变个戏法，一会儿又变个戏法。</li>
+<li><strong>每个函数一个抽象层级。</strong> 别把高层逻辑和底层细节混在一起，这会让你的代码像迷宫一样难懂。</li>
+</ul>
+<p>好的函数是代码整洁的基石。它能让你的代码像积木一样，易于组合，易于维护。</p>
+<p><strong>示例</strong></p>
+<pre><code class="java">// 糟糕的函数
+public void calculateAndPrintReport() &#123;
+  // 计算数据
+  // 格式化数据
+  // 打印报表
+&#125;
+
+// 好的函数
+public void calculateReport() &#123;
+  // 计算数据
+&#125;
+
+public void printReport() &#123;
+  // 格式化数据
+  // 打印报表
+&#125;
+</code></pre>
+<h3 id="注释：代码的“点缀”"><a href="#注释：代码的“点缀”" class="headerlink" title="注释：代码的“点缀”"></a>注释：代码的“点缀”</h3><p>还记得那些不知所云的注释吗？它们就像一堆垃圾，只会让代码更难懂。这样的代码，就像一个脸上涂满油彩的小丑，让人眼花缭乱，却不知其意。</p>
+<p><strong>示例</strong></p>
+<pre><code class="java">i++; // 将 i 加 1
+</code></pre>
+<p>好的注释，应该像画龙点睛，起到解释和说明的作用，而不是画蛇添足。它应该简洁明了，直击要害，让人一看就懂。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>注释不能美化糟糕的代码。</strong> 如果代码很烂，最好的办法是重写，而不是加注释。</li>
+<li><strong>用代码来阐述。</strong> 很多时候，你都可以用代码来表达你的意图，而不需要注释。</li>
+<li><strong>写好注释。</strong> 如果非要写注释，请确保它清晰、准确、简洁。</li>
+</ul>
+<p>好的注释是代码整洁的点缀。它能让你的代码锦上添花，但绝不能喧宾夺主。</p>
+<p><strong>示例</strong></p>
+<pre><code class="java">// 解释算法的注释
+// 使用快速排序算法对数组进行排序
+public void sort(int[] array) &#123;
+  // ...
+&#125;
+</code></pre>
+<h3 id="格式：代码的“颜值”"><a href="#格式：代码的“颜值”" class="headerlink" title="格式：代码的“颜值”"></a>格式：代码的“颜值”</h3><p>还记得那些缩进混乱、毫无章法的代码吗？它们就像一堆杂草，让人头晕眼花。这样的代码，就像一个衣衫褴褛的乞丐，毫无美感可言。</p>
+<p>好的格式，就像代码的“颜值”，能让你的代码赏心悦目，易于阅读。它就像一个穿着得体的绅士，让人一看就心生好感。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>保持代码行短小。</strong> 别让你的代码像一条长蛇，让人看不到尽头。</li>
+<li><strong>使用空格和缩进来区分不同的代码块，让代码结构清晰可见。</strong></li>
+<li><strong>团队要有一致的格式规范，别让你的代码像一个拼凑的怪物。</strong></li>
+</ul>
+<p>好的格式是代码整洁的门面。它能让你的代码更专业，更易于维护。</p>
+<p><strong>示例</strong></p>
+<pre><code class="java">// 糟糕的格式
+if (condition) &#123;
+doSomething();
+&#125; else
+&#123;
+doSomethingElse();
+&#125;
+
+// 好的格式
+if (condition) &#123;
+  doSomething();
+&#125; else &#123;
+  doSomethingElse();
+&#125;
+</code></pre>
+<h3 id="对象和数据结构：代码的“骨架”"><a href="#对象和数据结构：代码的“骨架”" class="headerlink" title="对象和数据结构：代码的“骨架”"></a>对象和数据结构：代码的“骨架”</h3><p>对象和数据结构，就像代码中的“骨架”，支撑着代码的整体结构。它们就像武功中的内功和招式，相辅相成，缺一不可。</p>
+<p>对象，就像一个训练有素的特工，身怀绝技，却又深藏不露。它把数据隐藏在幕后，只向外界展示它能做什么，而不是它是什么。</p>
+<p>数据结构，就像一个透明的玻璃箱，里面装满了各种数据，一目了然。它没有隐藏，也没有秘密，所有数据都直接暴露在外。</p>
+<p>那么，什么时候该用对象，什么时候该用数据结构呢？</p>
+<ul>
+<li><strong>当你需要添加新数据类型，而不是新函数时，对象是你的好帮手。</strong></li>
+<li><strong>当你需要添加新函数，而不是新数据类型时，数据结构是你的好选择。</strong></li>
+</ul>
+<p>记住，对象和数据结构各有优劣，选择合适的工具，才能写出整洁的代码。</p>
+<p><strong>示例</strong></p>
+<ul>
+<li>当你需要存储和操作一组数据，并且需要频繁地添加或删除数据时，ArrayList 是一个好的选择。</li>
+<li>当你需要存储和操作一组数据，并且需要快速地查找数据时，HashMap 是一个好的选择。</li>
+<li>当你需要定义一个抽象的概念，并提供一些操作数据的函数时，对象是你的好帮手。</li>
+</ul>
+<h3 id="错误处理：代码的“消防员”"><a href="#错误处理：代码的“消防员”" class="headerlink" title="错误处理：代码的“消防员”"></a>错误处理：代码的“消防员”</h3><p>错误处理，就像代码中的“消防员”，负责在代码出现问题时及时扑灭火灾。它就像武功中的防御招式，能够在关键时刻化解危机。</p>
+<p>但是，如果消防员到处乱跑，只会让火势蔓延得更快。同样，如果错误处理代码写得不好，只会让代码更加混乱，难以维护。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>使用异常来处理错误，而不是返回错误码。</strong> 这能让你的代码更整洁，逻辑更清晰。</li>
+<li><strong>先写 try-catch-finally 语句，再写正常逻辑。</strong> 这能帮你定义代码的行为边界，让代码更易于维护。</li>
+<li><strong>避免返回 null 值。</strong> 这只会给调用者添乱，增加代码的复杂度。</li>
+</ul>
+<p>好的错误处理应该像隐形的防护网，在代码出现问题时及时保护，而不是像个碍手碍脚的家伙，到处添乱。</p>
+<h3 id="边界：代码的“国境线”"><a href="#边界：代码的“国境线”" class="headerlink" title="边界：代码的“国境线”"></a>边界：代码的“国境线”</h3><p>边界，就像代码中的“国境线”，将你的代码与外部世界隔离开来。它就像武功中的门派之别，划清了界限，避免了冲突和混乱。</p>
+<p>如何守好这道“国境线”，是写出整洁代码的关键。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>封装第三方代码。</strong> 不要让你的代码对第三方代码了如指掌，这会增加代码的耦合度。</li>
+<li><strong>编写学习性测试。</strong> 通过编写测试来学习和理解第三方代码，这能让你更快、更准确地使用它。</li>
+<li><strong>预测未来。</strong> 当你需要使用尚未存在的代码时，先定义你想要的接口，这能让你不受制于人。</li>
+</ul>
+<p>好的边界应该像一道坚固的城墙，保护你的代码免受外部世界的侵害，同时又能方便地与外界沟通。</p>
+<h3 id="单元测试：代码的“侦察兵”"><a href="#单元测试：代码的“侦察兵”" class="headerlink" title="单元测试：代码的“侦察兵”"></a>单元测试：代码的“侦察兵”</h3><p>单元测试，就像代码中的“侦察兵”，负责在代码中寻找 bug 和缺陷。它就像武功中的练功桩，帮助你不断提升代码的质量。</p>
+<p>但是，如果侦察兵漫无目的地乱跑，只会浪费时间和精力。同样，如果单元测试写得不好，不仅不能保证代码质量，反而会成为代码维护的负担。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>遵循 TDD 三定律，先写测试，再写代码。</strong></li>
+<li><strong>保持测试整洁。</strong> 测试代码和生产代码一样重要，都需要精心设计和维护。</li>
+<li><strong>每个测试只测试一个概念。</strong> 不要让你的测试像个贪婪的胖子，什么都想测。</li>
+</ul>
+<p>好的单元测试应该像一把锋利的匕首，直击代码的要害，快速、准确地找到问题。</p>
+<h3 id="类：代码的“建筑师”"><a href="#类：代码的“建筑师”" class="headerlink" title="类：代码的“建筑师”"></a>类：代码的“建筑师”</h3><p>类，就像代码中的“建筑师”，负责构建代码的整体结构。它就像武功中的心法，决定了你的代码能走多远。</p>
+<p>一个好的建筑师，应该懂得如何设计出结构合理、功能清晰的建筑。同样，一个好的程序员，应该懂得如何设计出结构清晰、易于维护的类。</p>
+<p>所以，请记住以下秘诀：</p>
+<ul>
+<li><strong>类应该短小。</strong> 不要让你的类像个巨无霸，什么功能都往里塞。</li>
+<li><strong>每个类只负责一件事。</strong> 不要让你的类像个多面手，什么都会，却什么都不精。</li>
+<li><strong>保持类的内聚性。</strong> 类中的方法和变量应该紧密相关，共同完成一个目标。</li>
+</ul>
+<p>好的类应该像一个精密的仪器，每个部件都各司其职，共同协作，完成复杂的任务。</p>
+<h3 id="代码整洁之道：持续精进"><a href="#代码整洁之道：持续精进" class="headerlink" title="代码整洁之道：持续精进"></a>代码整洁之道：持续精进</h3><p>除了上面提到的内容，我还想补充以下几点：</p>
+<ul>
+<li><strong>代码整洁是一种态度。</strong> 它不仅仅是技术问题，更是一种对代码的尊重和对专业的追求。</li>
+<li><strong>代码整洁需要团队合作。</strong> 一个人写出整洁的代码并不难，难的是整个团队都保持一致的代码风格和质量标准。</li>
+<li><strong>代码整洁需要持续学习。</strong> 随着技术的发展和项目的演进，代码整洁的标准也会不断变化，我们需要不断学习新的知识和方法，才能写出更好的代码。</li>
+</ul>
+<p>我个人的建议是，不要把代码整洁看成是一种负担，而应该把它看成是一种投资。整洁的代码可以提高开发效率，降低维护成本，让你的代码更易于理解和扩展。</p>
+<p>最后，我想说，代码整洁之道，没有终点，只有不断精进。让我们一起努力，写出更整洁、更优雅的代码吧！</p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>作为一名开发者，我深知开发不仅仅是敲代码，更是一项需要沟通、协作和不断改进的系统工程。以下是我在阅读过程中总结的一些经验：</p>
+<h3 id="持续沟通"><a href="#持续沟通" class="headerlink" title="持续沟通"></a>持续沟通</h3><p>正如书中所说：“开发者必须在许多层面上进行交流” ,与团队成员、用户和其他利益相关者的有效沟通是项目成功的关键。</p>
+<ul>
+<li><strong>与用户沟通：</strong> 了解用户的需求和期望，并确保开发的软件能够满足他们的需求。例如，在开发一个新的功能之前，可以通过用户访谈、问卷调查等方式收集用户的反馈意见。</li>
+<li><strong>与团队成员沟通：</strong> 保持项目进度和代码质量的一致性。例如，可以通过定期召开团队会议、使用代码审查工具等方式进行沟通。</li>
+</ul>
+<h3 id="及时修复漏洞"><a href="#及时修复漏洞" class="headerlink" title="及时修复漏洞"></a>及时修复漏洞</h3><p>代码中的漏洞就像房间里的“破窗户”，如果不及时修复，就会让房间变得越来越脏乱。因此，我们应该养成及时修复漏洞的习惯，避免问题越积越多。</p>
+<ul>
+<li><strong>使用代码分析工具：</strong> 帮助我们发现代码中的潜在问题。例如，可以使用静态代码分析工具来检查代码的语法错误、代码风格等问题。</li>
+<li><strong>编写单元测试：</strong> 确保代码的正确性。例如，可以使用单元测试框架来编写测试用例，并定期运行测试。</li>
+</ul>
+<h3 id="持续重构代码"><a href="#持续重构代码" class="headerlink" title="持续重构代码"></a>持续重构代码</h3><p>代码重构就像整理房间，可以让我们更容易地理解和维护代码。我们应该定期对代码进行重构，消除重复、冗余和难以理解的代码，让代码更简洁、更高效。</p>
+<ul>
+<li><strong>使用重构工具：</strong> 帮助我们进行代码重构。例如，可以使用 IDE 中的重构功能来进行代码重构。</li>
+<li><strong>遵循重构原则：</strong> 确保代码重构不会改变代码的行为。例如，可以使用测试驱动开发的方式来进行代码重构。</li>
+</ul>
+<h3 id="使用合适的工具"><a href="#使用合适的工具" class="headerlink" title="使用合适的工具"></a>使用合适的工具</h3><p>工欲善其事，必先利其器。选择合适的工具可以让我们事半功倍。</p>
+<ul>
+<li><strong>版本控制工具：</strong> 例如 Git，可以帮助我们管理代码版本，方便团队协作。</li>
+<li><strong>代码分析工具：</strong> 例如 SonarQube，可以帮助我们发现代码中的潜在问题，提高代码质量。</li>
+<li><strong>构建工具：</strong> 例如 Maven，可以帮助我们自动化构建过程，提高开发效率。</li>
+</ul>
+<h3 id="保持学习的态度"><a href="#保持学习的态度" class="headerlink" title="保持学习的态度"></a>保持学习的态度</h3><p>软件开发是一个快速发展的领域，新的技术和工具层出不穷。作为开发者，我们需要保持学习的态度，不断学习新的知识和技能，才能跟上时代的步伐。</p>
+<ul>
+<li><strong>阅读书籍和文章：</strong> 了解最新的技术和趋势。</li>
+<li><strong>参加培训和会议：</strong> 学习新的技能和知识。</li>
+<li><strong>参与开源项目：</strong> 锻炼自己的开发技能，并与其他开发者交流学习。</li>
+</ul>
+<h3 id="注重团队合作"><a href="#注重团队合作" class="headerlink" title="注重团队合作"></a>注重团队合作</h3><p>软件开发是一个团队合作的过程，我们需要与团队成员相互协作，才能完成项目目标。</p>
+<ul>
+<li><strong>互相帮助：</strong> 团队成员之间应该互相帮助，共同解决问题。</li>
+<li><strong>代码审查：</strong> 通过代码审查可以发现代码中的问题，并提高代码质量。</li>
+<li><strong>结对编程：</strong> 通过结对编程可以提高代码质量，并促进团队成员之间的沟通。</li>
+</ul>
+<h3 id="关注用户体验"><a href="#关注用户体验" class="headerlink" title="关注用户体验"></a>关注用户体验</h3><p>最终用户是软件的使用者，他们的体验决定了软件的成败。</p>
+<ul>
+<li><strong>用户研究：</strong> 了解用户的需求和期望。</li>
+<li><strong>用户界面设计：</strong> 设计易于使用和美观的用户界面。</li>
+<li><strong>用户体验测试：</strong> 测试用户对软件的体验，并进行改进。</li>
+</ul>
+<h3 id="拥抱变化"><a href="#拥抱变化" class="headerlink" title="拥抱变化"></a>拥抱变化</h3><p>软件开发是一个充满变化的过程，需求可能会变更，技术可能会更新。作为开发者，我们需要拥抱变化，灵活应对各种挑战。</p>
+<ul>
+<li><strong>敏捷开发：</strong> 采用敏捷开发方法可以帮助我们快速响应变化。</li>
+<li><strong>持续集成和持续交付：</strong> 通过持续集成和持续交付可以帮助我们更快地将软件交付给用户。</li>
+</ul>
+<h3 id="追求卓越"><a href="#追求卓越" class="headerlink" title="追求卓越"></a>追求卓越</h3><p>作为注重实效的开发者，我们应该追求卓越，不断提升代码质量和开发效率，为用户提供更好的软件产品和服务。</p>
+<ul>
+<li><strong>编写高质量的代码：</strong> 代码应该是可读的、可维护的、可测试的。</li>
+<li><strong>提高开发效率：</strong> 使用合适的工具和方法来提高开发效率。</li>
+<li><strong>持续改进：</strong> 不断寻找改进代码和开发过程的方法。</li>
+</ul>
+<h3 id="享受开发的乐趣"><a href="#享受开发的乐趣" class="headerlink" title="享受开发的乐趣"></a>享受开发的乐趣</h3><p>软件开发是一项充满挑战和乐趣的工作。我们应该享受开发的过程，从中获得成就感和满足感。</p>
+<ul>
+<li><strong>选择自己喜欢的项目：</strong> 参与自己感兴趣的项目可以让我们更有动力。</li>
+<li><strong>与团队成员一起工作：</strong> 与团队成员一起工作可以让我们更快乐。</li>
+<li><strong>挑战自我：</strong> 不断挑战自我可以让我们获得更大的成就感。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>注重实效的开发不仅仅是编写代码，更是一项需要沟通、协作和不断改进的系统工程。通过有效的沟通、及时的修复漏洞、持续的代码重构、使用合适的工具、保持学习的态度、注重团队合作、关注用户体验、拥抱变化、追求卓越和享受开发的乐趣，我们可以成为更加注重实效的开发者，为用户提供更好的软件产品和服务。</p>
+<p>让我们一起努力，用代码改变世界！(世界太大,不如从自己开始)</p>
+<h2 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h2><p>1.《代码整洁之道》</p>
+<p>2.《程序员修炼之道:从小工到专家》</p>
+<p>3.《重构:改善既有代码的设计》</p>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E8%B7%AF/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E8%B7%AF&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E8%B7%AF&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Java/" rel="tag">Java</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487399"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

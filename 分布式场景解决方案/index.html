@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>分布式场景解决方案 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="分布式和集群是不⼀样的，分布式⼀定是集群，但是集群不⼀定是分布式,因为集群就是多个实例⼀起⼯作，分布式将⼀个系统拆分之后那就是多个实例；集群并不⼀定是分布式，因为复制型的集群不是拆分⽽是复制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式场景解决方案">
+<meta property="og:url" content="https://www.wangwangit.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="分布式和集群是不⼀样的，分布式⼀定是集群，但是集群不⼀定是分布式,因为集群就是多个实例⼀起⼯作，分布式将⼀个系统拆分之后那就是多个实例；集群并不⼀定是分布式，因为复制型的集群不是拆分⽽是复制">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210200941814.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201059611.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201106844.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201106616.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201116192.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201428845.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201430512.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201431133.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201438914.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201442557.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201510673.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201511215.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201512056.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201456541.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201500822.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201502412.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201504825.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201505723.png">
+<meta property="article:published_time" content="2022-10-12T18:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.870Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="SpringCloud">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210200941814.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487579">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/36.webp" data-sizes="auto" alt="分布式场景解决方案" class="lazyload">
+            <h1>分布式场景解决方案</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年10月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 15 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一致性Hash算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8Hash"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要用Hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Hash算法的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9AHash%E7%AE%97%E6%B3%95%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">普通Hash算法的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95-1"><span class="toc-number">1.4.</span> <span class="toc-text">一致性Hash算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%97%B6%E9%92%9F%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">集群时钟同步问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%97%B6%E9%92%9F%E5%90%8C%E6%AD%A5%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.</span> <span class="toc-text">集群时钟同步思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8A%82%E7%82%B9%E8%83%BD%E5%A4%9F%E8%81%94%E7%BD%91"><span class="toc-number">2.1.1.</span> <span class="toc-text">服务器节点能够联网</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8A%82%E7%82%B9%E4%B8%8D%E8%83%BD%E8%81%94%E7%BD%91"><span class="toc-number">2.1.2.</span> <span class="toc-text">服务器节点不能联网</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8FID%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">分布式ID解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UUID"><span class="toc-number">3.1.</span> <span class="toc-text">UUID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%87%AA%E5%A2%9EID"><span class="toc-number">3.2.</span> <span class="toc-text">独立数据库的自增ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SnowFlake%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">SnowFlake雪花算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ERedis%E8%8E%B7%E5%8F%96"><span class="toc-number">3.4.</span> <span class="toc-text">基于Redis获取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">分布式调度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-number">4.1.</span> <span class="toc-text">定时任务的场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E8%B0%83%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">什么是分布式调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.3.</span> <span class="toc-text">定时任务与消息队列的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">4.3.1.</span> <span class="toc-text">共同点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-number">4.3.2.</span> <span class="toc-text">不同点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">定时任务的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quartz"><span class="toc-number">5.1.</span> <span class="toc-text">Quartz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Elastic-Job"><span class="toc-number">5.2.</span> <span class="toc-text">Elastic-Job</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E7%89%87"><span class="toc-number">5.2.2.</span> <span class="toc-text">任务分片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E6%89%A9%E5%AE%B9"><span class="toc-number">5.2.3.</span> <span class="toc-text">弹性扩容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">Session共享问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">6.1.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx%E7%9A%84IP-Hash%E7%AD%96%E7%95%A5-%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.1.</span> <span class="toc-text">Nginx的IP_Hash策略(可以使用)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E5%A4%8D%E5%88%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="toc-number">6.1.2.</span> <span class="toc-text">Session复制(不推荐)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E5%85%B1%E4%BA%AB-Session%E9%9B%86%E4%B8%AD%E5%AD%98%E5%82%A8-%E6%8E%A8%E8%8D%90"><span class="toc-number">6.1.3.</span> <span class="toc-text">Session共享,Session集中存储(推荐)</span></a></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <p><strong>分布式与集群</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210200941814.png" alt="image-20221020094124287" class="lazyload"></p>
+<h2 id="一致性Hash算法"><a href="#一致性Hash算法" class="headerlink" title="一致性Hash算法"></a>一致性Hash算法</h2><h3 id="为什么要用Hash"><a href="#为什么要用Hash" class="headerlink" title="为什么要用Hash"></a>为什么要用Hash</h3><p>Hash算法常用于数据存储与查找领域,最经典的就是Hash表,查询效率高,查询时间复杂度可以接近于O(1)</p>
+<p>案例:提供一组数据1,4,6,2,7,8,如何判断n是否存在于这组数据中?</p>
+<p>1.使用循环匹配的方式,即<strong>顺序查找法</strong>,效率不高</p>
+<p>2.通过折半查找的方式,即<strong>二分查找法</strong>,效率依旧不高</p>
+<p>3.创建一个数组,使用数据做下标存值,查询时,只需要判断n对应的下标是否存在值,即可判断n是否存在于数据中.即<strong>直接寻址法</strong></p>
+<p>4.直接寻址法优点是可以一次查找到结果,速度块,而缺点是浪费空间,当这组数据间隔较大时,需要创建一个较大的数组,并且其中大部分空间未被使用.因此,可以将数据进行求模运算法,即<strong>除留余数法</strong></p>
+<p>5.但是取模运算可能出现多个同样的值出现在同一位置,造成hash冲突,这时,可以将值存在前后的空位,即<strong>开放寻址法</strong></p>
+<p>6.假若前后没有空位,则开放寻址法不可使用,这时我们想到使用链表,在一个位置出现多个值的时候,可以使用链表的形式进行连接.即<strong>拉链法</strong></p>
+<p>7.但是拉链法实际上也是依赖于hash算法,若是算法太差,会导致数据全部存在数组某个位置的链表中,导致查询效率变低.</p>
+<p>8.因此我们使用Hash结构时,我们需要考虑到hash算法的优劣,如我们常使用的HashCode就是一种hash算法的实现.</p>
+<h3 id="Hash算法的应用"><a href="#Hash算法的应用" class="headerlink" title="Hash算法的应用"></a>Hash算法的应用</h3><p>Hash算法在很多分布式集群产品中都有应用,比如分布式集群架构Redis,Hadoop,Nginx负载均衡,Mysql分库分表等.</p>
+<p>归纳起来就是以下两种:</p>
+<p>1.请求的负载均衡(比如nginx的ip_hash策略)</p>
+<p>Nginx的IP_hash策略可以在客户端Ip不变的情况下,将其发出的请求始终路由到同一个目标服务器上,实现会话粘连.避免处理session共享问题</p>
+<p>2.分布式存储</p>
+<p>以分布式内存数据库Redis为例,集群中有redis1,redis2.redis3三台服务器,</p>
+<p>那么可以通过hash处理,计算数据存储时,存储到具体的某一台服务器中.</p>
+<h3 id="普通Hash算法的问题"><a href="#普通Hash算法的问题" class="headerlink" title="普通Hash算法的问题"></a>普通Hash算法的问题</h3><p>普通Hash算法存在⼀个问题，以ip_hash为例，假定下载⽤户ip固定没有发⽣改变，现在tomcat3出现 了问题，down机了，服务器数量由3个变为了2个，之前所有的求模都需要重新计算。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201059611.png" alt="image-20221020105930537" class="lazyload"></p>
+<p>如果在真实⽣产情况下，后台服务器很多台，客户端也有很多，那么影响是很⼤的，缩容和扩容都会存 在这样的问题，⼤量⽤户的请求会被路由到其他的⽬标服务器处理，⽤户在原来服务器中的会话都会丢失.</p>
+<h3 id="一致性Hash算法-1"><a href="#一致性Hash算法-1" class="headerlink" title="一致性Hash算法"></a>一致性Hash算法</h3><p>以0为起点,2的32次方减1作为终点构建一个圆环,针对用户和服务器ip进行hash.然后将用户分配给顺时针方向距离最近的服务器节点</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201106844.png" alt="image-20221020110606790" class="lazyload"></p>
+<p>这样,当某一个服务器节点上下线时,只会影响当前区间的用户</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201106616.png" alt="image-20221020110657564" class="lazyload"></p>
+<p>但是,当节点太少时,如两个节点,可能会导致大量的用户请求落在节点1上,造成<strong>数据倾斜问题</strong>.</p>
+<p>为了解决数据倾斜问题,一致性哈希算法引入了<strong>虚拟节点机制</strong>,即对每个服务器节点计算多次哈希,每个计算结果位置都放置一个此服务节点,称为<strong>虚拟节点</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201116192.png" alt="image-20221020111612140" class="lazyload"></p>
+<h2 id="集群时钟同步问题"><a href="#集群时钟同步问题" class="headerlink" title="集群时钟同步问题"></a>集群时钟同步问题</h2><p>即集群部署时服务器时间的同步,若每个服务器的时间不一致,则将导致最终入库的数据混乱.</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201428845.png" alt="image-20221020142854776" class="lazyload"></p>
+<h3 id="集群时钟同步思路"><a href="#集群时钟同步思路" class="headerlink" title="集群时钟同步思路"></a>集群时钟同步思路</h3><h4 id="服务器节点能够联网"><a href="#服务器节点能够联网" class="headerlink" title="服务器节点能够联网"></a>服务器节点能够联网</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201430512.png" alt="image-20221020143044470" class="lazyload"></p>
+<pre><code>#使⽤ ntpdate ⽹络时间同步命令
+ntpdate -u ntp.api.bz #从⼀个时间服务器同步时间
+</code></pre>
+<p>定时执行同步命令</p>
+<h4 id="服务器节点不能联网"><a href="#服务器节点不能联网" class="headerlink" title="服务器节点不能联网"></a>服务器节点不能联网</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201431133.png" alt="image-20221020143143091" class="lazyload"></p>
+<p>将一台服务器节点A作为时间服务器,其他服务器与此服务器保持时间同步.</p>
+<p>1.设置好服务器节点A的时间</p>
+<p>2.把A配置为时间服务器,修改&#x2F;etc&#x2F;ntp.conf文件</p>
+<pre><code>1、如果有 restrict default ignore，注释掉它
+2、添加如下⼏⾏内容
+ restrict 172.17.0.0 mask 255.255.255.0 nomodify notrap # 放开局
+域⽹同步功能,172.17.0.0是你的局域⽹⽹段
+ server 127.127.1.0 # local clock
+ fudge 127.127.1.0 stratum 10
+3、重启⽣效并配置ntpd服务开机⾃启动
+ service ntpd restart
+ chkconfig ntpd on
+</code></pre>
+<p>3.集群中其他节点就可以从A服务器同步时间了</p>
+<pre><code>ntpdate 172.17.0.17
+</code></pre>
+<h2 id="分布式ID解决方案"><a href="#分布式ID解决方案" class="headerlink" title="分布式ID解决方案"></a>分布式ID解决方案</h2><h3 id="UUID"><a href="#UUID" class="headerlink" title="UUID"></a>UUID</h3><p>UUID 是指Universally Unique Identifier，翻译为中⽂是通⽤唯⼀识别码 产⽣重复 UUID 并造成错误的情况⾮常低，是故⼤可不必考虑此问题</p>
+<h3 id="独立数据库的自增ID"><a href="#独立数据库的自增ID" class="headerlink" title="独立数据库的自增ID"></a>独立数据库的自增ID</h3><p>⽐如A表分表为A1表和A2表，那么肯定不能让A1表和A2表的ID⾃增，那么ID怎么获取呢？我们可 以单独的创建⼀个Mysql数据库，在这个数据库中创建⼀张表，这张表的ID设置为⾃增，其他地⽅ 需要全局唯⼀ID的时候，就模拟向这个Mysql数据库的这张表中模拟插⼊⼀条记录，此时ID会⾃ 增，然后我们可以通过Mysql的select last_insert_id() 获取到刚刚这张表中⾃增⽣成的ID</p>
+<h3 id="SnowFlake雪花算法"><a href="#SnowFlake雪花算法" class="headerlink" title="SnowFlake雪花算法"></a>SnowFlake雪花算法</h3><p>雪花算法是Twitter推出的⼀个⽤于⽣成分布式ID的策略。 雪花算法是⼀个算法，基于这个算法可以⽣成ID，⽣成的ID是⼀个long型.</p>
+<h3 id="基于Redis获取"><a href="#基于Redis获取" class="headerlink" title="基于Redis获取"></a>基于Redis获取</h3><p>Redis Incr 命令将 key 中储存的数字值增⼀。如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执⾏ INCR 操作</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201438914.png" alt="image-20221020143805156" class="lazyload"></p>
+<h2 id="分布式调度问题"><a href="#分布式调度问题" class="headerlink" title="分布式调度问题"></a>分布式调度问题</h2><p>调度—&gt;定时任务，分布式调度—&gt;在分布式集群环境下定时任务这件事 </p>
+<p>Elastic-job（当当⽹开源的分布式调度框架)</p>
+<h3 id="定时任务的场景"><a href="#定时任务的场景" class="headerlink" title="定时任务的场景"></a>定时任务的场景</h3><p>定时任务形式：每隔⼀定时间&#x2F;特定某⼀时刻执⾏</p>
+<p>例如：</p>
+<ul>
+<li>订单审核、出库 </li>
+<li>订单超时⾃动取消、⽀付退款 </li>
+<li>礼券同步、⽣成、发放作业 </li>
+<li>物流信息推送、抓取作业、退换货处理作业 </li>
+<li>数据积压监控、⽇志监控、服务可⽤性探测作业</li>
+<li>定时备份数据 </li>
+<li>⾦融系统每天的定时结算 </li>
+<li>数据归档、清理作业</li>
+<li>报表、离线数据分析作业</li>
+</ul>
+<h3 id="什么是分布式调度"><a href="#什么是分布式调度" class="headerlink" title="什么是分布式调度"></a>什么是分布式调度</h3><p>什么是分布式任务调度？有两层含义</p>
+<p> 1）运⾏在分布式集群环境下的调度任务（同⼀个定时任务程序部署多份，只应该有⼀个定时任务在执⾏） </p>
+<p>2）分布式调度—&gt;定时任务的分布式—&gt;定时任务的拆分（即为把⼀个⼤的作业任务拆分为多个⼩的作 业任务，同时执⾏）</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201442557.png" alt="image-20221020144244490" class="lazyload"></p>
+<h3 id="定时任务与消息队列的区别"><a href="#定时任务与消息队列的区别" class="headerlink" title="定时任务与消息队列的区别"></a>定时任务与消息队列的区别</h3><h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><p>1.异步处理</p>
+<p>⽐如注册、下单事件</p>
+<p>2.应用解耦</p>
+<p>不管定时任务作业还是MQ都可以作为两个应⽤之间的⻮轮实现应⽤解耦，这个⻮轮可以中转数据，当然单体服务不需要考虑这些，服务拆分的时候往往都会考虑</p>
+<p>3.流量削峰</p>
+<p>双⼗⼀的时候，任务作业和MQ都可以⽤来扛流量，后端系统根据服务能⼒定时处理订单或者 从MQ抓取订单抓取到⼀个订单到来事件的话触发处理，对于前端⽤户来说看到的结果是已经下单成功了，下单是不受任何影响的</p>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>定时任务是时间驱动,而MQ是事件驱动.</p>
+<p>定时任务倾向于批处理,而MQ倾向于逐条处理</p>
+<p>时间驱动是不可代替的，⽐如⾦融系统每⽇的利息结算，不是说利息来⼀条（利息到来事件）就算 ⼀下，⽽往往是通过定时任务批量计算.</p>
+<h2 id="定时任务的实现方式"><a href="#定时任务的实现方式" class="headerlink" title="定时任务的实现方式"></a>定时任务的实现方式</h2><p>定时任务的实现⽅式有多种。早期没有定时任务框架的时候，我们会使⽤JDK中的Timer机制和多线程机 制（Runnable+线程休眠）来实现定时或者间隔⼀段时间执⾏某⼀段程序；后来有了定时任务框架，⽐ 如⼤名鼎鼎的Quartz任务调度框架，使⽤时间表达式（包括：秒、分、时、⽇、周、年）配置某⼀个任 务什么时间去执⾏;</p>
+<h3 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h3><p>使用步骤</p>
+<p>1.引入jar</p>
+<pre><code class="xml">&lt;!--任务调度框架quartz--&gt;
+&lt;!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz --
+&gt;
+&lt;dependency&gt;
+ &lt;groupId&gt;org.quartz-scheduler&lt;/groupId&gt;
+ &lt;artifactId&gt;quartz&lt;/artifactId&gt;
+ &lt;version&gt;2.3.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2.定时任务主调度程序</p>
+<pre><code class="java">package quartz;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
+public class QuartzMain &#123;
+ // 创建作业任务调度器（类似于公交调度站）
+ public static Scheduler createScheduler() throws
+SchedulerException &#123;
+ SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+ Scheduler scheduler = schedulerFactory.getScheduler();
+ return scheduler;
+ &#125;
+ // 创建⼀个作业任务（类似于⼀辆公交⻋）
+ public static JobDetail createJob() &#123;
+ JobBuilder jobBuilder = JobBuilder.newJob(DemoJob.class);
+ jobBuilder.withIdentity(&quot;jobName&quot;,&quot;myJob&quot;);
+ JobDetail jobDetail = jobBuilder.build();
+ return jobDetail;
+ &#125;
+ /**
+ * 创建作业任务时间触发器（类似于公交⻋出⻋时间表）
+ * cron表达式由七个位置组成，空格分隔
+ * 1、Seconds（秒） 0~59
+ * 2、Minutes（分） 0~59
+ * 3、Hours（⼩时） 0~23
+ * 4、Day of Month（天）1~31,注意有的⽉份不⾜31天
+ * 5、Month（⽉） 0~11,或者
+JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+ * 6、Day of Week(周) 1~7,1=SUN或者 SUN,MON,TUE,WEB,THU,FRI,SAT
+* 7、Year（年）1970~2099 可选项
+ *示例：
+ * 0 0 11 * * ? 每天的11点触发执⾏⼀次
+ * 0 30 10 1 * ? 每⽉1号上午10点半触发执⾏⼀次
+ */
+ public static Trigger createTrigger() &#123;
+ // 创建时间触发器，按⽇历调度
+ CronTrigger trigger = TriggerBuilder.newTrigger()
+ .withIdentity(&quot;triggerName&quot;,&quot;myTrigger&quot;)
+ .startNow()
+ .withSchedule(CronScheduleBuilder.cronSchedule(&quot;0/2 *
+* * * ?&quot;))
+ .build();
+ // 创建触发器，按简单间隔调度
+ /*SimpleTrigger trigger1 = TriggerBuilder.newTrigger()
+ .withIdentity(&quot;triggerName&quot;,&quot;myTrigger&quot;)
+ .startNow()
+ .withSchedule(SimpleScheduleBuilder
+ .simpleSchedule()
+.withIntervalInSeconds(3)
+.repeatForever())
+ .build();*/
+ return trigger;
+ &#125;
+ // 定时任务作业主调度程序
+ public static void main(String[] args) throws SchedulerException &#123;
+ // 创建⼀个作业任务调度器（类似于公交调度站）
+ Scheduler scheduler = QuartzMain.createScheduler();
+ // 创建⼀个作业任务（类似于⼀辆公交⻋）
+ JobDetail job = QuartzMain.createJob();
+ // 创建⼀个作业任务时间触发器（类似于公交⻋出⻋时间表）
+ Trigger trigger = QuartzMain.createTrigger();
+ // 使⽤调度器按照时间触发器执⾏这个作业任务
+ scheduler.scheduleJob(job,trigger);
+ scheduler.start();
+ &#125;
+&#125;
+</code></pre>
+<p>3.定义一个job,需要实现Job接口</p>
+<pre><code class="java">package quartz;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+public class DemoJob implements Job &#123;
+ public void execute(JobExecutionContext jobExecutionContext)
+throws JobExecutionException &#123;
+ System.out.println(&quot;我是⼀个定时任务逻辑&quot;);
+ &#125;
+&#125;
+</code></pre>
+<h3 id="Elastic-Job"><a href="#Elastic-Job" class="headerlink" title="Elastic-Job"></a>Elastic-Job</h3><p>Elastic-Job是当当⽹开源的⼀个分布式调度解决⽅案，基于Quartz⼆次开发的，由两个相互独⽴的⼦项 ⽬Elastic-Job-Lite和Elastic-Job-Cloud组成。我们要学习的是 Elastic-Job-Lite，它定位为轻量级⽆中⼼ 化解决⽅案，使⽤Jar包的形式提供分布式任务的协调服务，⽽Elastic-Job-Cloud⼦项⽬需要结合Mesos 以及Docker在云环境下使⽤。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201510673.png" alt="image-20221020151010610" class="lazyload"></p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>基于Zookeeper的Leader节点选举机制</p>
+<p>每个Elastic-Job的任务执⾏实例App作为Zookeeper的客户端来操作ZooKeeper的znode</p>
+<p>(1)多个实例同时创建&#x2F;leader节点</p>
+<p>(2)&#x2F;leader节点只能创建⼀个，后创建的会失败，创建成功的实例会被选为leader节点， 执⾏任</p>
+<h4 id="任务分片"><a href="#任务分片" class="headerlink" title="任务分片"></a>任务分片</h4><p>⼀个⼤的⾮常耗时的作业Job，⽐如：⼀次要处理⼀亿的数据，那这⼀亿的数据存储在数据库中，如果 ⽤⼀个作业节点处理⼀亿数据要很久，在互联⽹领域是不太能接受的，互联⽹领域更希望机器的增加去 横向扩展处理能⼒。所以，ElasticJob可以把作业分为多个的task（每⼀个task就是⼀个任务分⽚），每 ⼀个task交给具体的⼀个机器实例去处理（⼀个机器实例是可以处理多个task的），但是具体每个task 执⾏什么逻辑由我们⾃⼰来指定。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201511215.png" alt="image-20221020151149163" class="lazyload"></p>
+<h4 id="弹性扩容"><a href="#弹性扩容" class="headerlink" title="弹性扩容"></a>弹性扩容</h4><p>新增加⼀个运⾏实例app3，它会⾃动注册到注册中⼼，注册中⼼发现新的服务上线，注册中⼼会通知 ElasticJob 进⾏重新分⽚，那么总得分⽚项有多少，那么就可以搞多少个实例机器，⽐如完全可以分1000⽚</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201512056.png" alt="image-20221020151256005" class="lazyload"></p>
+<h2 id="Session共享问题"><a href="#Session共享问题" class="headerlink" title="Session共享问题"></a>Session共享问题</h2><p>多服务器之间的Session同步问题</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201456541.png" alt="image-20221020145641476" class="lazyload"></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="Nginx的IP-Hash策略-可以使用"><a href="#Nginx的IP-Hash策略-可以使用" class="headerlink" title="Nginx的IP_Hash策略(可以使用)"></a>Nginx的IP_Hash策略(可以使用)</h4><p>同⼀个客户端IP的请求都会被路由到同⼀个⽬标服务器，也叫做会话粘滞</p>
+<p><strong>优点</strong></p>
+<p>配置简单,不入侵应用,不需要额外修改代码</p>
+<p><strong>缺点</strong></p>
+<p>1.服务器重启session丢失</p>
+<p>2.存在单点负载高的风险</p>
+<p>3.单点故障问题</p>
+<h4 id="Session复制-不推荐"><a href="#Session复制-不推荐" class="headerlink" title="Session复制(不推荐)"></a>Session复制(不推荐)</h4><p>多个tomcat之间修改配置文件,达到Session之间的同步</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201500822.png" alt="image-20221020150014770" class="lazyload"></p>
+<p><strong>优点</strong></p>
+<p>1.不入侵应用</p>
+<p>2.便于服务器水平扩展</p>
+<p>3.能适应各种负载均衡策略</p>
+<p>4.服务器重启或者宕机不会造成Session丢失</p>
+<p><strong>缺点</strong></p>
+<p>1.性能低</p>
+<p>2.内存消耗</p>
+<p>3.不能存储太多数据,否则容易影响性能</p>
+<p>4.延迟性</p>
+<h4 id="Session共享-Session集中存储-推荐"><a href="#Session共享-Session集中存储-推荐" class="headerlink" title="Session共享,Session集中存储(推荐)"></a>Session共享,Session集中存储(推荐)</h4><p>使用缓存中间件存储Session,如Redis</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201502412.png" alt="image-20221020150238360" class="lazyload"></p>
+<p><strong>优点</strong></p>
+<p>1.能适应各种负载均衡策略</p>
+<p>2.服务器宕机不会造成Session丢失</p>
+<p>3.扩展能力强</p>
+<p>4.适合大集群使用</p>
+<p><strong>缺点</strong></p>
+<p>对应用有入侵,引入了Redis的交互代码</p>
+<p><strong>使用</strong></p>
+<p>1.引入jar</p>
+<pre><code class="xml">&lt;dependency&gt;
+ &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+ &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+ &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;
+ &lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2.配置redis</p>
+<pre><code class="properties">spring.redis.database=0
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+</code></pre>
+<p>3.添加注解</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201504825.png" alt="image-20221020150455776" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210201505723.png" alt="image-20221020150530675" class="lazyload"></p>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487581"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

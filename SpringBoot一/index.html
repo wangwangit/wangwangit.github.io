@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>SpringBoot源码剖析 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="SpringBoot是所有基于Spring开发的项目的起点,SpringBoot的设计是为了让你尽快的跑起来Spring应用程序并且尽可能减少你的配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot源码剖析">
+<meta property="og:url" content="https://www.wangwangit.com/SpringBoot%E4%B8%80/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="SpringBoot是所有基于Spring开发的项目的起点,SpringBoot的设计是为了让你尽快的跑起来Spring应用程序并且尽可能减少你的配置文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131558900.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131558925.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131559509.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131603287.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131604265.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131645837.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210141358204.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210141437926.png">
+<meta property="article:published_time" content="2022-10-12T18:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.864Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131558900.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487574">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/6.webp" data-sizes="auto" alt="SpringBoot源码剖析" class="lazyload">
+            <h1>SpringBoot源码剖析</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年10月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.3k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 11 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%DC%BB%E5%8E%9F%E7%90%86%E6%B7%B1%E5%85%A5%E5%8F%8A%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">SpringBootܻ原理深入及源码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">依赖管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9F%90%E4%BA%9BMaven%E4%BE%9D%E8%B5%96%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">问题一:为什么某些Maven依赖不需要指定版本号?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C-Springboot%E6%98%AF%E5%A6%82%E4%BD%95%E5%BC%95%E5%85%A5%E8%BF%99%E4%BA%9Bjar%E5%8C%85%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">问题二:Springboot是如何引入这些jar包的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%89-Springboot%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">问题三:Springboot是如何进行自动配置的</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-SpringBootConfiguration"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.@SpringBootConfiguration</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-EnableAutoConfiguration"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">2.@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-ComponentScan"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">3.@ComponentScan</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Starter"><span class="toc-number">1.2.</span> <span class="toc-text">自定义Starter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BC%95%E5%85%A5%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.引入自动配置依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89JavaBean"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.定义JavaBean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BC%96%E5%86%99%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.编写配置类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.配置启动类加载路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B5%8B%E8%AF%95starter"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.测试starter</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">执行原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-SpringApplication%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.SpringApplication初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-run-%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.run()方法执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Springboot%E7%BC%93%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">Springboot缓存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.1.</span> <span class="toc-text">默认缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%90%88Redis%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.2.</span> <span class="toc-text">整合Redis进行缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0Spring-Data-Redis%E4%BE%9D%E8%B5%96%E5%90%AF%E5%8A%A8%E5%99%A8"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">1.添加Spring Data Redis依赖启动器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0redis%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.添加redis连接配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%B0%86%E7%BC%93%E5%AD%98%E5%AF%B9%E8%B1%A1%E8%BF%9B%E8%A1%8C%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">3.将缓存对象进行序列化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E4%B8%8A%E9%9D%A2%E5%90%8C%E6%A0%B7%E7%9A%84%E6%B3%A8%E8%A7%A3-%E5%8D%B3%E5%8F%AF%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8ERedis%E7%9A%84%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">4.使用上面同样的注解,即可实现基于Redis的缓存</span></a></li></ol></li></ol></li></ol></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="SpringBootܻ原理深入及源码剖析"><a href="#SpringBootܻ原理深入及源码剖析" class="headerlink" title="SpringBootܻ原理深入及源码剖析"></a>SpringBootܻ原理深入及源码剖析</h2><h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><h4 id="问题一-为什么某些Maven依赖不需要指定版本号"><a href="#问题一-为什么某些Maven依赖不需要指定版本号" class="headerlink" title="问题一:为什么某些Maven依赖不需要指定版本号?"></a>问题一:为什么某些Maven依赖不需要指定版本号?</h4><p>因为spring-boot-starter-parent中已经定义了常用依赖匹配的版本号.</p>
+<p>按住Ctrl,点击spring-boot-starter-parent的版本号</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131558900.png" alt="image-20221013155539028" class="lazyload"></p>
+<p>可见pom文件中的parent是spring-boot-dependencies,然后再次按住Ctrl,点击版本号</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131558925.png" alt="image-20221013155647320" class="lazyload"></p>
+<p>我们会发现这个pom中维护了一大堆依赖的版本号</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131559509.png" alt="image-20221013155755730" class="lazyload"></p>
+<h4 id="问题二-Springboot是如何引入这些jar包的"><a href="#问题二-Springboot是如何引入这些jar包的" class="headerlink" title="问题二:Springboot是如何引入这些jar包的"></a>问题二:Springboot是如何引入这些jar包的</h4><p>在我们做web项目时,除了上面的parent外,还会引入spring-boot-starter-web,而在这个依赖中,则定义了web项目需要的jar依赖.</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131603287.png" alt="image-20221013160305222" class="lazyload"></p>
+<p>依据不同的使用场景,spring官方也提供了不同的starter封装</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131604265.png" alt="image-20221013160428204" class="lazyload"></p>
+<h4 id="问题三-Springboot是如何进行自动配置的"><a href="#问题三-Springboot是如何进行自动配置的" class="headerlink" title="问题三:Springboot是如何进行自动配置的"></a>问题三:Springboot是如何进行自动配置的</h4><p>我们进入查看启动类上的SpringBootApplication注解</p>
+<pre><code class="java">@Target(&#123;ElementType.TYPE&#125;) // 注解适用范围,Type表示注解可以描述类,接口,注解或枚举类
+@Retention(RetentionPolicy.RUNTIME) // 表示注解的生命周期,Runtime运行时
+@Documented // 表示注解可以记录在javadoc中
+@Inherited // 表示可以被子类继承该注解
+@SpringBootConfiguration // 表明该类为配置类
+@EnableAutoConfiguration // 启动自动配置功能
+@ComponentScan( // 包扫描器
+    excludeFilters = &#123;@Filter(
+    type = FilterType.CUSTOM,
+    classes = &#123;TypeExcludeFilter.class&#125;
+), @Filter(
+    type = FilterType.CUSTOM,
+    classes = &#123;AutoConfigurationExcludeFilter.class&#125;
+)&#125;
+)
+public @interface SpringBootApplication &#123;
+&#125;
+</code></pre>
+<h5 id="1-SpringBootConfiguration"><a href="#1-SpringBootConfiguration" class="headerlink" title="1.@SpringBootConfiguration"></a>1.@SpringBootConfiguration</h5><p>声明当前类为配置类</p>
+<pre><code class="java">
+
+@Target(&#123;ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Configuration
+public @interface SpringBootConfiguration &#123;
+    @AliasFor(
+        annotation = Configuration.class
+    )
+    boolean proxyBeanMethods() default true;
+&#125;
+</code></pre>
+<h5 id="2-EnableAutoConfiguration"><a href="#2-EnableAutoConfiguration" class="headerlink" title="2.@EnableAutoConfiguration"></a>2.@EnableAutoConfiguration</h5><p>表示开启自动配置功能,也是实现自动化配置的注解</p>
+<pre><code class="java">@Target(&#123;ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@AutoConfigurationPackage // 自动配置包
+@Import(&#123;AutoConfigurationImportSelector.class&#125;) // 自动配置类扫描导入
+public @interface EnableAutoConfiguration &#123;
+    String ENABLED_OVERRIDE_PROPERTY = &quot;spring.boot.enableautoconfiguration&quot;;
+
+    Class&lt;?&gt;[] exclude() default &#123;&#125;;
+
+    String[] excludeName() default &#123;&#125;;
+&#125;
+</code></pre>
+<ul>
+<li>@AutoConfigurationPackage</li>
+</ul>
+<pre><code class="java">@Target(&#123;ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@Import(&#123;AutoConfigurationPackages.Registrar.class&#125;) //导入Registrar中注册的组件
+public @interface AutoConfigurationPackage &#123;
+    String[] basePackages() default &#123;&#125;;
+
+    Class&lt;?&gt;[] basePackageClasses() default &#123;&#125;;
+&#125;
+</code></pre>
+<p>我们继续查看Registrar中的实现</p>
+<pre><code class="java">    static class Registrar implements ImportBeanDefinitionRegistrar, DeterminableImports &#123;
+        Registrar() &#123;
+        &#125;
+
+        public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) &#123;
+            AutoConfigurationPackages.register(registry, (String[])(new PackageImports(metadata)).getPackageNames().toArray(new String[0]));
+        &#125;
+
+        public Set&lt;Object&gt; determineImports(AnnotationMetadata metadata) &#123;
+            return Collections.singleton(new PackageImports(metadata));
+        &#125;
+    &#125;
+</code></pre>
+<p>可以发现其中有一个registerBeanDefinitions方法,就是将主程序类所在包及所有子包下的组件扫描的Spring容器中</p>
+<ul>
+<li>@Import({AutoConfigurationImportSelector.class})</li>
+</ul>
+<p>将AutoConfigurationImportSelector类导入到容器中,这个类可以将所有符合条件的@Configuration注解类配置加载到Spring的IOC容器中.</p>
+<pre><code class="java">    public String[] selectImports(AnnotationMetadata annotationMetadata) &#123;
+        if (!this.isEnabled(annotationMetadata)) &#123;
+            return NO_IMPORTS;
+        &#125; else &#123;
+            AutoConfigurationEntry autoConfigurationEntry = this.getAutoConfigurationEntry(annotationMetadata);
+            return StringUtils.toStringArray(autoConfigurationEntry.getConfigurations());
+        &#125;
+    &#125;
+</code></pre>
+<p><strong>深入loadMetadata方法</strong></p>
+<pre><code class="java"> static AutoConfigurationMetadata loadMetadata(ClassLoader classLoader) &#123;
+         // 需要加载的配置类的类路径
+        return loadMetadata(classLoader, &quot;META-INF/spring-autoconfigure-metadata.properties&quot;);
+    &#125;
+
+    static AutoConfigurationMetadata loadMetadata(ClassLoader classLoader, String path) &#123;
+        try &#123;
+            // 读取spring-autoconfigure-metadata.properties信息生成的url
+            Enumeration&lt;URL&gt; urls = classLoader != null ? classLoader.getResources(path) : ClassLoader.getSystemResources(path);
+            Properties properties = new Properties();
+
+            // 解析urls枚举对象中的信息,封装成properties对象并加载
+            while(urls.hasMoreElements()) &#123;
+                properties.putAll(PropertiesLoaderUtils.loadProperties(new UrlResource((URL)urls.nextElement())));
+            &#125;
+            // 根据封装好的properties对象生成AutoConfigurationMetada对象
+            return loadMetadata(properties);
+        &#125; catch (IOException var4) &#123;
+            throw new IllegalArgumentException(&quot;Unable to load @ConditionalOnClass location [&quot; + path + &quot;]&quot;, var4);
+        &#125;
+    &#125;
+</code></pre>
+<p><strong>深入getCandidateConfigurations方法</strong></p>
+<pre><code class="java">    protected List&lt;String&gt; getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) &#123;
+        /**
+        * getSpringFactoriesLoaderFactoryClass 返回EnableAutoConfiguration.class
+        * getBeanClassLoader 返回beanClassLoader
+        */
+        List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(this.getSpringFactoriesLoaderFactoryClass(), this.getBeanClassLoader());
+        Assert.notEmpty(configurations, &quot;No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.&quot;);
+        return configurations;
+    &#125;
+
+    protected Class&lt;?&gt; getSpringFactoriesLoaderFactoryClass() &#123;
+        return EnableAutoConfiguration.class;
+    &#125;
+
+    protected ClassLoader getBeanClassLoader() &#123;
+        return this.beanClassLoader;
+    &#125;
+</code></pre>
+<p>继续点开loadFactoryNames方法</p>
+<pre><code class="java">public static List&lt;String&gt; loadFactoryNames(Class&lt;?&gt; factoryClass, @Nullable ClassLoader classLoader) &#123;
+        String factoryClassName = factoryClass.getName();
+        return (List)loadSpringFactories(classLoader).getOrDefault(factoryClassName, Collections.emptyList());
+    &#125;
+
+    private static Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(@Nullable ClassLoader classLoader) &#123;
+        MultiValueMap&lt;String, String&gt; result = (MultiValueMap)cache.get(classLoader);
+        if (result != null) &#123;
+            return result;
+        &#125; else &#123;
+            try &#123;
+                // 如果类加载器不为空,则加载spring.factories文件,封装其中Configuration文件为Enumeration
+                Enumeration&lt;URL&gt; urls = classLoader != null ? classLoader.getResources(&quot;META-INF/spring.factories&quot;) : ClassLoader.getSystemResources(&quot;META-INF/spring.factories&quot;);
+                MultiValueMap&lt;String, String&gt; result = new LinkedMultiValueMap();
+                // 循环Enumeration对象,封装为Properties对象
+                while(urls.hasMoreElements()) &#123;
+                    URL url = (URL)urls.nextElement();
+                    UrlResource resource = new UrlResource(url);
+                    Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+                    Iterator var6 = properties.entrySet().iterator();
+
+                    while(var6.hasNext()) &#123;
+                        Map.Entry&lt;?, ?&gt; entry = (Map.Entry)var6.next();
+                        String factoryClassName = ((String)entry.getKey()).trim();
+                        String[] var9 = StringUtils.commaDelimitedListToStringArray((String)entry.getValue());
+                        int var10 = var9.length;
+
+                        for(int var11 = 0; var11 &lt; var10; ++var11) &#123;
+                            String factoryName = var9[var11];
+                            result.add(factoryClassName, factoryName.trim());
+                        &#125;
+                    &#125;
+                &#125;
+
+                cache.put(classLoader, result);
+                return result;
+            &#125; catch (IOException var13) &#123;
+                throw new IllegalArgumentException(&quot;Unable to load factories from location [META-INF/spring.factories]&quot;, var13);
+            &#125;
+        &#125;
+    &#125;
+</code></pre>
+<p>实际上,加载的就是这个路径下的配置文件</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210131645837.png" alt="image-20221013164539737" class="lazyload"></p>
+<p>以web项目为例,在项目中加入了Web环境依赖启动器,对应的WebMvcAutoConfiguration就会生效,打开这个配置类,就会发现该类通过全注解的方式对Spring所需环境进行了默认配置.</p>
+<p><strong>总结</strong></p>
+<p>springboot底层自动配置的步骤是:</p>
+<p>1.springboot应用启动</p>
+<p>2.@SpringBootApplication起作用</p>
+<p>3.@EnableAutoConfiguration</p>
+<p>4.@AutoConfigurationPackage:扫描加载启动类同级及子级目录下的配置类</p>
+<p>5.@Import(AutoConfigurationImportSelector.class):加载classpath上jar中的META-INF&#x2F;spring.factories文件中指定的配置类</p>
+<h5 id="3-ComponentScan"><a href="#3-ComponentScan" class="headerlink" title="3.@ComponentScan"></a>3.@ComponentScan</h5><p>扫描启动类下面的bean对象</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><pre><code class="java">|- @SpringBootConfiguration
+ |- @Configuration //通过javaConfig的方式添加组件到IOC容器中
+|- @EnableAutoConfiguration
+ |- @AutoConfigurationPackage //自动配置包,与@ComponmentScan扫描到的添加到IOC中
+ |- @Import(AutoConfigurationImportSelector.class) // 扫描META-INF/spring.factories中指定的bean到IOC容器中
+|- @ComponentScan //包扫描
+</code></pre>
+<h3 id="自定义Starter"><a href="#自定义Starter" class="headerlink" title="自定义Starter"></a>自定义Starter</h3><h4 id="1-引入自动配置依赖"><a href="#1-引入自动配置依赖" class="headerlink" title="1.引入自动配置依赖"></a>1.引入自动配置依赖</h4><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-autoconfigure&lt;/artifactId&gt;
+    &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h4 id="2-定义JavaBean"><a href="#2-定义JavaBean" class="headerlink" title="2.定义JavaBean"></a>2.定义JavaBean</h4><pre><code class="java">@EnableConfigurationProperties(SimpleBean.class)
+@ConfigurationProperties(prefix = &quot;simple&quot;)
+@Data
+public class SimpleBean &#123;
+
+    private int id;
+
+    private String name;
+
+&#125;
+</code></pre>
+<h4 id="3-编写配置类"><a href="#3-编写配置类" class="headerlink" title="3.编写配置类"></a>3.编写配置类</h4><pre><code class="java">@Configuration
+public class MyAutoConfiguration &#123;
+
+    static &#123;
+        System.out.println(&quot;MyAutoConfiguration init....&quot;);
+    &#125;
+
+    @Bean
+    public SimpleBean simpleBean() &#123;
+        return new SimpleBean();
+    &#125;
+
+&#125;
+</code></pre>
+<h4 id="4-配置启动类加载路径"><a href="#4-配置启动类加载路径" class="headerlink" title="4.配置启动类加载路径"></a>4.配置启动类加载路径</h4><p>在resources下创建&#x2F;META-INF&#x2F;spring.factories文件,指定配置类全路径</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210141358204.png" alt="image-20221014135815091" class="lazyload"></p>
+<h4 id="5-测试starter"><a href="#5-测试starter" class="headerlink" title="5.测试starter"></a>5.测试starter</h4><p>在测试包中引入自定义starter</p>
+<pre><code class="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.example&lt;/groupId&gt;
+            &lt;artifactId&gt;my-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p>在配置文件application.properties中加入前缀配置</p>
+<pre><code class="xml">simple.id=1
+simple.name=test
+</code></pre>
+<p>编写测试方法</p>
+<pre><code class="java">    @Autowired
+    private SimpleBean simpleBean;
+
+    @Test
+    public void testStarter()&#123;
+        System.out.println(simpleBean);
+    &#125;
+</code></pre>
+<h3 id="执行原理"><a href="#执行原理" class="headerlink" title="执行原理"></a>执行原理</h3><p>我们从启动类开始断点查看程序执行步骤,首先是调用了SpringApplication的run方法.</p>
+<p>在run方法中,主要做了两个操作,一个是SpringApplication的初始化,以及调用run()启动项目</p>
+<pre><code class="java">(new SpringApplication(primarySources)).run(args);
+</code></pre>
+<h4 id="1-SpringApplication初始化"><a href="#1-SpringApplication初始化" class="headerlink" title="1.SpringApplication初始化"></a>1.SpringApplication初始化</h4><pre><code class="java">public SpringApplication(ResourceLoader resourceLoader, Class&lt;?&gt;... primarySources) &#123;
+    this.sources = new LinkedHashSet();
+    this.bannerMode = Mode.CONSOLE;
+    this.logStartupInfo = true;
+    this.addCommandLineProperties = true;
+    this.addConversionService = true;
+    this.headless = true;
+    this.registerShutdownHook = true;
+    this.additionalProfiles = new HashSet();
+    this.isCustomEnvironment = false;
+    this.lazyInitialization = false;
+    this.resourceLoader = resourceLoader;
+    Assert.notNull(primarySources, &quot;PrimarySources must not be null&quot;);
+    //把项目启动类.class设置为属性存储起来
+    this.primarySources = new LinkedHashSet(Arrays.asList(primarySources));
+    //判断当前WebApplicationType类型
+    this.webApplicationType = WebApplicationType.deduceFromClasspath();
+    //设置初始化器,最后会调用这些初始化器
+    this.setInitializers(this.getSpringFactoriesInstances(ApplicationContextInitializer.class));
+    //设置监听器
+    this.setListeners(this.getSpringFactoriesInstances(ApplicationListener.class));
+    //用于推断并设置项目main()方法启动的主程序启动类
+    this.mainApplicationClass = this.deduceMainApplicationClass();
+&#125;
+</code></pre>
+<h4 id="2-run-方法执行"><a href="#2-run-方法执行" class="headerlink" title="2.run()方法执行"></a>2.run()方法执行</h4><pre><code class="java">    public ConfigurableApplicationContext run(String... args) &#123;
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        ConfigurableApplicationContext context = null;
+        Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = new ArrayList();
+        this.configureHeadlessProperty();
+        // 1.获取监听器并启动
+        SpringApplicationRunListeners listeners = this.getRunListeners(args);
+        listeners.starting();
+
+        Collection exceptionReporters;
+        try &#123;
+            ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+            // 2.根据SpringApplicationRunListeners以及参数来准备环境
+            ConfigurableEnvironment environment = this.prepareEnvironment(listeners, applicationArguments);
+            this.configureIgnoreBeanInfo(environment);
+            // 准备Banner打印器,就是console中输出的艺术字体
+            Banner printedBanner = this.printBanner(environment);
+            // 3.创建Spring容器
+            context = this.createApplicationContext();
+            exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]&#123;ConfigurableApplicationContext.class&#125;, context);
+            // 4.Spring容器前置处理
+            this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+            // 5.刷新容器
+            this.refreshContext(context);
+            // 6.容器刷新后置处理
+            this.afterRefresh(context, applicationArguments);
+            stopWatch.stop();
+            if (this.logStartupInfo) &#123;
+                (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);
+            &#125;
+            // 7.发出结束执行的事件
+            listeners.started(context);
+            // 返回容器
+            this.callRunners(context, applicationArguments);
+        &#125; catch (Throwable var10) &#123;
+            this.handleRunFailure(context, var10, exceptionReporters, listeners);
+            throw new IllegalStateException(var10);
+        &#125;
+
+        try &#123;
+            listeners.running(context);
+            return context;
+        &#125; catch (Throwable var9) &#123;
+            this.handleRunFailure(context, var9, exceptionReporters, (SpringApplicationRunListeners)null);
+            throw new IllegalStateException(var9);
+        &#125;
+    &#125;
+</code></pre>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/202210141437926.png" alt="image-20221014143737733" class="lazyload"></p>
+<h3 id="Springboot缓存管理"><a href="#Springboot缓存管理" class="headerlink" title="Springboot缓存管理"></a>Springboot缓存管理</h3><h4 id="默认缓存"><a href="#默认缓存" class="headerlink" title="默认缓存"></a>默认缓存</h4><p>1.启动类使用@EnableCaching注解</p>
+<pre><code class="java">@SpringBootApplication
+@EnableCaching // 开启SpringBoot基于注解的缓存管理支持
+public class Springboot01DemoApplication &#123;
+
+    public static void main(String[] args) &#123;
+        SpringApplication.run(Springboot01DemoApplication.class, args);
+    &#125;
+
+&#125;
+</code></pre>
+<p>2.查询方法添加@Cacheable注解配置缓存</p>
+<pre><code class="java">// 根据id查询实体类
+@Cacheable(cacheNames = &quot;a&quot;)
+public A findById(String id)&#123;
+    A a = dao.findById(id)
+    return a;    
+&#125;
+</code></pre>
+<p>springboot默认使用的是SimpleCacheConfiguration配置类,用CurrentMap当作底层数据结构进行数据缓存</p>
+<h4 id="整合Redis进行缓存"><a href="#整合Redis进行缓存" class="headerlink" title="整合Redis进行缓存"></a>整合Redis进行缓存</h4><h5 id="1-添加Spring-Data-Redis依赖启动器"><a href="#1-添加Spring-Data-Redis依赖启动器" class="headerlink" title="1.添加Spring Data Redis依赖启动器"></a>1.添加Spring Data Redis依赖启动器</h5><pre><code class="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p>当我们加入此依赖后,Springboot会使用RedisCacheConfiguration当作生效的自动配置类,容器使用的缓存管理器是RedisCacheManager类,创建的Cache是RedisCache</p>
+<h5 id="2-添加redis连接配置"><a href="#2-添加redis连接配置" class="headerlink" title="2.添加redis连接配置"></a>2.添加redis连接配置</h5><pre><code class="properties">spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=
+</code></pre>
+<h5 id="3-将缓存对象进行序列化"><a href="#3-将缓存对象进行序列化" class="headerlink" title="3.将缓存对象进行序列化"></a>3.将缓存对象进行序列化</h5><p>对缓存的实体类实现Serializable,添加序列化ID</p>
+<h5 id="4-使用上面同样的注解-即可实现基于Redis的缓存"><a href="#4-使用上面同样的注解-即可实现基于Redis的缓存" class="headerlink" title="4.使用上面同样的注解,即可实现基于Redis的缓存"></a>4.使用上面同样的注解,即可实现基于Redis的缓存</h5>
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/SpringBoot%E4%B8%80/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;SpringBoot%E4%B8%80&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;SpringBoot%E4%B8%80&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487576"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+

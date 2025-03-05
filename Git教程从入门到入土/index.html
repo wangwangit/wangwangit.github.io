@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>Git教程从入门到入土 - 一只会飞的旺旺-IT技术分享</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="FHLjkCq3_Lc-cEgxXN8BfR4rfC9omgFmaAB1vhSrJyw" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-pSK313Q8yf" />
+
+  <link rel="shortcut icon" href="/images/head/a.webp" type="image/png" />
+  <meta name="description" content="Git 是一个用于管理源代码的分布式版本控制系统。那么什么是版本控制？简而言之，版本控制是用于跟踪文件更改的系统。修改文件时，版本控制系统会记录并保存每个更改。这允许您随时还原以前版本的代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git教程从入门到入土">
+<meta property="og:url" content="https://www.wangwangit.com/Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.html">
+<meta property="og:site_name" content="一只会飞的旺旺-IT技术分享">
+<meta property="og:description" content="Git 是一个用于管理源代码的分布式版本控制系统。那么什么是版本控制？简而言之，版本控制是用于跟踪文件更改的系统。修改文件时，版本控制系统会记录并保存每个更改。这允许您随时还原以前版本的代码。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230526151632523.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527093735968.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527093759496.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527095236101.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529140907770.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529140951104.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529141047313.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529142453301.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529143023576.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/pull_requests_005.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527100019061.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527100521011.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527102658500.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527101911038.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230601162344522.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527104616212.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527110259587.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527104643300.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529092512688.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-start.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-soft.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-mixed.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-hard.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104050805.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104347741.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104143719.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104233174.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529110320003.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529110535662.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529111141457.png">
+<meta property="og:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529111406929.png">
+<meta property="article:published_time" content="2023-05-22T20:14:00.000Z">
+<meta property="article:modified_time" content="2025-03-05T07:40:53.860Z">
+<meta property="article:author" content="一只会飞的旺旺">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230526151632523.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1741160487488">
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="一只会飞的旺旺-IT技术分享" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-color: #3b75d5; box-shadow: inset 0 0 10px #BF360C;"></div>
+    <!--<div class="nexmoe-small" style="background-image: url(/images/background/lihui.webp)"></div>-->
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" rel="external nofollow noreferrer" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="一只会飞的旺旺" class="mdui-btn mdui-btn-icon"><img src="/images/head/a.webp" alt="一只会飞的旺旺"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <script src="/js/popup.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+<div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="一只会飞的旺旺">
+            <img src="/images/head/a.webp" alt="一只会飞的旺旺" alt="一只会飞的旺旺">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>154 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>132<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/bookmark.html" title="书签分享">
+            <i class="mdui-list-item-icon nexmoefont icon-zhediejiantou"></i>
+            <div class="mdui-list-item-content">
+                书签分享
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于旺旺">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于旺旺
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/atom.xml" title="RSS">
+            <i class="mdui-list-item-icon nexmoefont icon-rss"></i>
+            <div class="mdui-list-item-content">
+                RSS
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=1249217495&site=qq&menu=yes" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:1249217495@vip.qq.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(235, 87, 87);background-color: rgba(235, 87, 87, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/wangwangit" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(36, 123, 160);background-color: rgba(36, 123, 160, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://ali.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '资源盘'}" style="color: rgb(0, 168, 150);background-color: rgba(0, 168, 150, .15);">
+            <i class="nexmoefont icon-hanbao"></i>
+        </a><a class="mdui-ripple" href="http://tool.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '工具站'}" style="color: rgb(255, 159, 28);background-color: rgba(255, 159, 28, .15);">
+            <i class="nexmoefont icon-cola"></i>
+        </a><a class="mdui-ripple" href="https://shop.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '商店'}" style="color: rgb(126, 214, 223);background-color: rgba(126, 214, 223, .15);">
+            <i class="nexmoefont icon-fuzhi"></i>
+        </a><a class="mdui-ripple" href="http://video.wangwangit.com" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: '影视站'}" style="color: rgb(108, 92, 231);background-color: rgba(108, 92, 231, .15);">
+            <i class="nexmoefont icon-jiubei"></i>
+        </a><a class="mdui-ripple" href="http://chat.wangzai.top" rel="external nofollow noreferrer" target="_blank" mdui-tooltip="{content: 'AI站'}" style="color: rgb(178, 190, 195);background-color: rgba(178, 190, 195, .15);">
+            <i class="nexmoefont icon-meishi"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/AI/">AI</a>
+          <span class="category-list-count">29</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/开发/">开发</a>
+          <span class="category-list-count">51</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/教程/">教程</a>
+          <span class="category-list-count">27</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网站/">网站</a>
+          <span class="category-list-count">15</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">23</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/AI/" style="font-size: 17.78px;">AI</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI工具</a> <a href="/tags/Ai/" style="font-size: 10px;">Ai</a> <a href="/tags/Alist/" style="font-size: 10px;">Alist</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple/" style="font-size: 10px;">Apple</a> <a href="/tags/Aria2/" style="font-size: 10px;">Aria2</a> <a href="/tags/Azure/" style="font-size: 11.11px;">Azure</a> <a href="/tags/Baidu/" style="font-size: 10px;">Baidu</a> <a href="/tags/Bing/" style="font-size: 10px;">Bing</a> <a href="/tags/CDN/" style="font-size: 12.22px;">CDN</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/Chat2DB/" style="font-size: 10px;">Chat2DB</a> <a href="/tags/Chatgpt/" style="font-size: 18.89px;">Chatgpt</a> <a href="/tags/Clash/" style="font-size: 10px;">Clash</a> <a href="/tags/Claude/" style="font-size: 11.11px;">Claude</a> <a href="/tags/Claude3/" style="font-size: 10px;">Claude3</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Cloudflare/" style="font-size: 11.11px;">Cloudflare</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Copilot/" style="font-size: 10px;">Copilot</a> <a href="/tags/DeepSeek-R1/" style="font-size: 10px;">DeepSeek R1</a> <a href="/tags/Docker/" style="font-size: 14.44px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EGADS/" style="font-size: 10px;">EGADS</a> <a href="/tags/Easypoi/" style="font-size: 10px;">Easypoi</a> <a href="/tags/Edge/" style="font-size: 13.33px;">Edge</a> <a href="/tags/Elasticsearch/" style="font-size: 11.11px;">Elasticsearch</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/ExpiringMap/" style="font-size: 10px;">ExpiringMap</a> <a href="/tags/GIF/" style="font-size: 10px;">GIF</a> <a href="/tags/GPT4/" style="font-size: 11.11px;">GPT4</a> <a href="/tags/Git/" style="font-size: 14.44px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Google/" style="font-size: 12.22px;">Google</a> <a href="/tags/Hexo/" style="font-size: 12.22px;">Hexo</a> <a href="/tags/Hosts/" style="font-size: 10px;">Hosts</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/InfluxDB/" style="font-size: 11.11px;">InfluxDB</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 11.11px;">JetBrains</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/KPlayer/" style="font-size: 10px;">KPlayer</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 12.22px;">Linux</a> <a href="/tags/Logstash/" style="font-size: 10px;">Logstash</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Minio/" style="font-size: 10px;">Minio</a> <a href="/tags/Mqtt/" style="font-size: 10px;">Mqtt</a> <a href="/tags/MySQL/" style="font-size: 11.11px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 11.11px;">Mybatis</a> <a href="/tags/Navicat/" style="font-size: 10px;">Navicat</a> <a href="/tags/Netflix/" style="font-size: 10px;">Netflix</a> <a href="/tags/Netplan/" style="font-size: 10px;">Netplan</a> <a href="/tags/Nginx/" style="font-size: 12.22px;">Nginx</a> <a href="/tags/Office/" style="font-size: 10px;">Office</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/OracleCloud/" style="font-size: 10px;">OracleCloud</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/PowerShell/" style="font-size: 11.11px;">PowerShell</a> <a href="/tags/RabbitMQ/" style="font-size: 11.11px;">RabbitMQ</a> <a href="/tags/Reddit/" style="font-size: 10px;">Reddit</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/SciHub/" style="font-size: 10px;">SciHub</a> <a href="/tags/Screw/" style="font-size: 10px;">Screw</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Slack/" style="font-size: 11.11px;">Slack</a> <a href="/tags/Spring/" style="font-size: 15.56px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14.44px;">SpringCloud</a> <a href="/tags/SpringSecurity/" style="font-size: 11.11px;">SpringSecurity</a> <a href="/tags/Tamperonkey/" style="font-size: 10px;">Tamperonkey</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vps/" style="font-size: 11.11px;">Vps</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Warp/" style="font-size: 10px;">Warp</a> <a href="/tags/WebRTC/" style="font-size: 10px;">WebRTC</a> <a href="/tags/Windows/" style="font-size: 20px;">Windows</a> <a href="/tags/Windows-Terminal/" style="font-size: 11.11px;">Windows Terminal</a> <a href="/tags/WizTree/" style="font-size: 10px;">WizTree</a> <a href="/tags/ZLibrary/" style="font-size: 10px;">ZLibrary</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/prompt/" style="font-size: 10px;">prompt</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1/" style="font-size: 10px;">临时邮箱</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 10px;">使用教程</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">内网穿透</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" style="font-size: 10px;">包管理器</a> <a href="/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">去广告</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">图像分析</a> <a href="/tags/%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98/" style="font-size: 10px;">小白羊云盘</a> <a href="/tags/%E5%B1%8F%E5%B9%95%E5%85%B1%E4%BA%AB/" style="font-size: 10px;">屏幕共享</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E5%B8%83%E7%BD%AE/" style="font-size: 10px;">工作室布置</a> <a href="/tags/%E5%BD%95%E5%B1%8F/" style="font-size: 10px;">录屏</a> <a href="/tags/%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" style="font-size: 10px;">批量重命名</a> <a href="/tags/%E6%8E%A5%E7%A0%81/" style="font-size: 10px;">接码</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">搜索技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文件管理</a> <a href="/tags/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF/" style="font-size: 10px;">新闻资讯</a> <a href="/tags/%E6%B5%81%E8%A1%8C%E6%A2%97/" style="font-size: 10px;">流行梗</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">浏览器插件</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E7%A9%BA%E9%97%B4%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">游戏空间设计</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 10px;">物联网</a> <a href="/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E5%85%B8/" style="font-size: 10px;">百科词典</a> <a href="/tags/%E7%9B%B4%E6%92%AD/" style="font-size: 10px;">直播</a> <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">短链接</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/" style="font-size: 10px;">系统清理</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/" style="font-size: 10px;">系统镜像</a> <a href="/tags/%E7%BD%91%E7%AB%99%E8%B5%84%E6%BA%90/" style="font-size: 10px;">网站资源</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%96%87%E5%8C%96/" style="font-size: 10px;">网络文化</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 11.11px;">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 10px;">自动化</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B5%84%E8%AE%AF%E8%81%9A%E5%90%88/" style="font-size: 10px;">资讯聚合</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10px;">软件管理</a> <a href="/tags/%E9%A9%B1%E5%8A%A8%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">驱动更新</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(10);
+        var tags_length = parseInt(132);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+	 <div class="nexmoe-copyright">
+			
+			<div style="font-size: 12px">
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				本站总访问量<a id="busuanzi_value_site_pv"></a> 次<br />
+				本站访客数<a id="busuanzi_value_site_uv"></a>人次<br />
+			</div>
+			
+			<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">鄂ICP备2021017800号-1</a><br/>
+			
+			
+	</div>
+ 
+
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 30%">
+            <img data-src="/images/background/8.webp" data-sizes="auto" alt="Git教程从入门到入土" class="lazyload">
+            <h1>Git教程从入门到入土</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年05月23日</a>
+    <a><i class="nexmoefont icon-areachart"></i>6.3k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 26 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-valign">
+                        <div class="nexmoe-toc">
+                            
+                            
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">本地版本控制系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.3.</span> <span class="toc-text">分布式版本控制系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">2.1.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">2.2.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS"><span class="toc-number">2.3.</span> <span class="toc-text">MacOS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">主要组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">3.3.</span> <span class="toc-text">文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">3.4.</span> <span class="toc-text">远程存储库和本地存储库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E5%AF%86%E9%92%A5"><span class="toc-number">3.5.</span> <span class="toc-text">SSH密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH%E5%AF%86%E9%92%A5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">3.5.1.</span> <span class="toc-text">SSH密钥是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90SSH%E5%AF%86%E9%92%A5"><span class="toc-number">3.5.2.</span> <span class="toc-text">如何生成SSH密钥</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">4.1.</span> <span class="toc-text">什么是分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">4.2.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-number">4.3.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-number">4.4.</span> <span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0"><span class="toc-number">4.5.</span> <span class="toc-text">标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">4.6.</span> <span class="toc-text">简单的工作流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">5.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">5.1.</span> <span class="toc-text">创建存储库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">5.1.1.</span> <span class="toc-text">创建新的存储库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">5.1.2.</span> <span class="toc-text">克隆已有存储库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4"><span class="toc-number">5.2.</span> <span class="toc-text">代码提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-add"><span class="toc-number">5.2.1.</span> <span class="toc-text">git add</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-commit"><span class="toc-number">5.2.2.</span> <span class="toc-text">git commit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%93%E5%BA%93"><span class="toc-number">5.3.</span> <span class="toc-text">推送仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-remote"><span class="toc-number">5.3.1.</span> <span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-config"><span class="toc-number">5.3.2.</span> <span class="toc-text">git config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-push"><span class="toc-number">5.3.3.</span> <span class="toc-text">git push</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E5%BC%82%E5%88%86%E6%9E%90"><span class="toc-number">5.4.</span> <span class="toc-text">差异分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-diff"><span class="toc-number">5.4.1.</span> <span class="toc-text">git diff</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E6%9B%B4%E6%94%B9"><span class="toc-number">5.5.</span> <span class="toc-text">暂存更改</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-stash"><span class="toc-number">5.5.1.</span> <span class="toc-text">git stash</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">5.6.</span> <span class="toc-text">忽略文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gitignore"><span class="toc-number">5.6.1.</span> <span class="toc-text">.gitignore</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">5.7.</span> <span class="toc-text">管理存储库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-status"><span class="toc-number">5.7.1.</span> <span class="toc-text">git status</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-log"><span class="toc-number">5.7.2.</span> <span class="toc-text">git log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-tag"><span class="toc-number">5.7.3.</span> <span class="toc-text">git tag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8F%98%E6%9B%B4"><span class="toc-number">5.8.</span> <span class="toc-text">撤销变更</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-checkout"><span class="toc-number">5.8.1.</span> <span class="toc-text">git checkout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-revert"><span class="toc-number">5.8.2.</span> <span class="toc-text">git revert</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-reset"><span class="toc-number">5.8.3.</span> <span class="toc-text">git reset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-reset%E4%B8%8Egit-revert%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.8.4.</span> <span class="toc-text">git reset与git revert的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-clean"><span class="toc-number">5.8.5.</span> <span class="toc-text">git clean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-rm"><span class="toc-number">5.8.6.</span> <span class="toc-text">git rm</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-number">5.9.</span> <span class="toc-text">同步存储库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-pull"><span class="toc-number">5.9.1.</span> <span class="toc-text">git pull</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-push-1"><span class="toc-number">5.9.2.</span> <span class="toc-text">git push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-merge"><span class="toc-number">5.9.3.</span> <span class="toc-text">git merge</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-remote-1"><span class="toc-number">5.9.4.</span> <span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-fetch"><span class="toc-number">5.9.5.</span> <span class="toc-text">git fetch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E6%9B%B4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4"><span class="toc-number">5.10.</span> <span class="toc-text">变更历史提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-commit-%E2%80%93amend"><span class="toc-number">5.10.1.</span> <span class="toc-text">git commit –amend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-rebase"><span class="toc-number">5.10.2.</span> <span class="toc-text">git rebase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-cherry-pick"><span class="toc-number">5.10.3.</span> <span class="toc-text">git cherry pick</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-merge-squash"><span class="toc-number">5.10.4.</span> <span class="toc-text">git merge -squash</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%9C%B0%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text">参考地址</span></a></li></ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    <!-- 找到这里，添加代码 -->
+  
+    
+    <div class="notice" >
+        <i class="fa fa-bookmark"></i>
+        <div class="notice-content">小卖铺上新啦!ChatGPT账号大甩卖! <a href=https://shop.wangwangit.com>一键直达</a></div>
+    </div>
+    
+    
+    <style>
+.notice {
+  padding: 20px;
+  border: none; /* 去除边框 */
+  color: #fff; /* 修改文字颜色 */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a; /* 修改背景颜色 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: linear-gradient(45deg, #56dfae, #632b77); /* 添加背景渐变 */
+
+}
+
+.notice i {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  padding-right: 10px;
+  vertical-align: middle;
+  margin-top: 3px;
+}
+
+.notice-content {
+  display: initial;
+  vertical-align: middle;
+}
+</style>
+    
+  <!-- 到这里结束 -->
+        <article>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Git 是一个用于管理源代码的分布式版本控制系统。</p>
+<p>那么什么是版本控制？简而言之，版本控制是用于跟踪文件更改的系统。修改文件时，版本控制系统会记录并保存每个更改。这允许您随时还原以前版本的代码。</p>
+<h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><h4 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h4><p>最初的版本控制系统，它们使用简单的数据库或文件复制的方式来保存不同的版本，但是容易出错和丢失数据。例如 RCS。</p>
+<h4 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h4><p>后来出现的版本控制系统，它们使用一个中央服务器来保存所有文件的修订版本，而客户端通过网络连接来取出或提交更新。这样可以方便地管理权限和协作，但是也有单点故障和必须联网的缺点。例如 CVS、SVN和 Perforce。</p>
+<h4 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h4><p>最新的版本控制系统，它们允许每个客户端完整地镜像整个代码仓库，包括所有的历史记录。这样可以提高速度和安全性，也可以支持更灵活的协作模式。例如 Git、Mercurial、Bazaar 和 Darcs</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>跟踪代码历史记录</li>
+<li>方便团队协作处理代码</li>
+<li>便于代码溯源,查看谁进行了哪些更改</li>
+<li>将代码部署到过渡或生产环境</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ol>
+<li><p>下载最新的 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://git-scm.com/">Git for Windows 安装程序</a>。</p>
+</li>
+<li><p>成功启动安装程序后，应会看到 Git 安装程序向导屏幕。按照“下一步”和“完成”提示完成安装。默认选项对于大多数用户来说非常明智。</p>
+</li>
+<li><p>打开命令提示符（如果在安装过程中选择不使用 Windows 命令提示符下的 Git，则打开 Git Bash）。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230526151632523.png" alt="image-20230526151632523" class="lazyload"></p>
+</li>
+<li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p>
+<pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;
+$ git config --global user.email &quot;wangwangit@qq.com&quot;
+</code></pre>
+</li>
+</ol>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ol>
+<li><p>在 shell 中，使用 apt-get 安装 Git：</p>
+<pre><code class="sh">$ sudo apt-get update
+$ sudo apt-get install git
+</code></pre>
+</li>
+<li><p>通过键入 <code>git --version</code> 验证安装是否成功：</p>
+<pre><code class="sh">$ git --version
+git version 2.9.2
+</code></pre>
+</li>
+<li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p>
+<pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;
+$ git config --global user.email &quot;wangwangit@qq.com&quot;
+</code></pre>
+</li>
+</ol>
+<h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><ol>
+<li><p>下载最新的 Git for Mac 安装程序。<a target="_blank" rel="noopener external nofollow noreferrer" href="https://sourceforge.net/projects/git-osx-installer/files/">Git for Mac installer</a></p>
+</li>
+<li><p>按照提示安装 Git。</p>
+</li>
+<li><p>打开终端并通过键入 <code>git --version</code> 验证安装是否成功：</p>
+<pre><code class="shell">$ git --version
+git version 2.9.2
+</code></pre>
+</li>
+<li><p>使用以下命令配置您的 Git 用户名和电子邮件,注意替换信息</p>
+<pre><code class="sh">$ git config --global user.name &quot;wangwangit&quot;
+$ git config --global user.email &quot;wangwangit@qq.com&quot;
+</code></pre>
+</li>
+</ol>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Git是一个版本控制系统，包括三个主要组件：存储库（Repository）、工作树（Working Tree）和索引（Index）。了解这些组件以及Git中的文件状态对于有效的协作和代码管理至关重要。</p>
+<h3 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527093735968.png" alt="image-20230527093735968" class="lazyload"></p>
+<ol>
+<li><strong>存储库（Repository）</strong>：存储库是跟踪项目文件变化的“容器”。它保存了所有的提交（Commits），即特定时间点上文件的快照。可以使用Git日志访问提交历史记录。</li>
+<li><strong>工作树（Working Tree）</strong>：工作树，也称为工作目录，包含当前正在处理的文件。它类似于一个文件系统，您可以根据需要查看和修改文件。</li>
+<li><strong>索引（Index）</strong>：索引，也称为暂存区域（Staging Area），是准备提交的中间步骤。它在工作树和存储库之间起到桥梁作用。当您在工作树中对文件进行更改时，索引会跟踪并将其标记为已修改，然后才能提交更改。</li>
+</ol>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>基本的Git工作流程包括以下步骤：</p>
+<ol>
+<li><strong>修改文件</strong>：根据项目需求修改工作树中的文件。</li>
+<li><strong>暂存更改</strong>：有选择性地暂存要包含在下一次提交中的更改。暂存允许您准备具有特定修改的提交，同时排除其他修改。</li>
+<li><strong>提交更改</strong>：执行提交操作，永久保存更改。此过程将索引中的文件作为快照存储在存储库中。在提交时，通常会包含描述性消息以总结所做的更改。</li>
+</ol>
+<h3 id="文件状态"><a href="#文件状态" class="headerlink" title="文件状态"></a>文件状态</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527093759496.png" alt="image-20230527093759496" class="lazyload"></p>
+<p>Git中的文件可以存在三种主要状态：</p>
+<ol>
+<li><strong>已修改</strong>：当您修改文件时，更改仅存在于工作树中，尚未包含在存储库或索引中。</li>
+<li><strong>已暂存</strong>：暂存是指准备要包含在下一次提交中的更改的过程。处于已暂存状态的文件已添加到索引中，并且其修改将在即将进行的提交中排队等待。</li>
+<li><strong>已提交</strong>：一旦提交更改，Git将索引中的文件作为快照存储在存储库中。已提交的</li>
+</ol>
+<h3 id="远程存储库和本地存储库"><a href="#远程存储库和本地存储库" class="headerlink" title="远程存储库和本地存储库"></a>远程存储库和本地存储库</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527095236101.png" alt="image-20230527095236101" class="lazyload"></p>
+<ul>
+<li>远程存储库托管在多个团队成员之间共享的远程或异地服务器上。</li>
+<li>本地存储库托管在本地计算机上供单个用户使用。</li>
+</ul>
+<p>虽然我们可以在本地存储库中利用 Git 版本控制功能，但协作功能（例如与团队成员一起拉取和推送代码更改）将更适合远程存储库。</p>
+<h3 id="SSH密钥"><a href="#SSH密钥" class="headerlink" title="SSH密钥"></a>SSH密钥</h3><h4 id="SSH密钥是什么"><a href="#SSH密钥是什么" class="headerlink" title="SSH密钥是什么"></a>SSH密钥是什么</h4><p>SSH 密钥是一种用于 SSH（安全外壳）网络协议的访问凭证。SSH 是一种用于在不安全的开放网络上进行远程机器之间的认证和加密的安全网络协议。SSH 可用于远程文件传输，网络管理和远程操作系统访问。SSH 这个缩写也用来描述一组用于与 SSH 协议交互的工具。</p>
+<h4 id="如何生成SSH密钥"><a href="#如何生成SSH密钥" class="headerlink" title="如何生成SSH密钥"></a>如何生成SSH密钥</h4><ol>
+<li><p>执行下面命令创建密钥,此命令将使用电子邮件作为标签创建新的 SSH 密钥</p>
+<pre><code class="sh">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+</code></pre>
+</li>
+<li><p>系统将提示您“输入要在其中保存密钥的文件”。您可以指定一个文件位置， 或者按“Enter”键接受默认 的文件位置。</p>
+<pre><code class="sh">&gt; Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+</code></pre>
+</li>
+<li><p>下一个提示会要求您输入一个安全 的密码短语。 密码短语会为 SSH 增加一层额外 的安全性， 并且每次使用 SSH 密 钮时都需要输入密码短语。 如果有人获得了存储私钥的计算机的访问权限，他们也可能获得使用该密钥的任何系统的访问权限。为密钥添加密码短语可以防止这种情况发生。</p>
+</li>
+<li><p>ssh-agent是另一个属于SSH工具套件的程序。ssh-agent负责保存私钥。可以把它想象成一个钥匙链。除了保存私钥外，它还代理使用私钥对SSH请求进行签名的请求，以便私钥不会不安全地传递。</p>
+</li>
+<li><p>在将新的SSH密钥添加到ssh-agent之前，首先确保ssh-agent正在运行，通过执行：</p>
+<pre><code class="sh">$ eval &quot;$(ssh-agent -s)&quot;
+</code></pre>
+<p>一旦ssh-agent运行起来，以下命令将把新的SSH密钥添加到本地SSH代理。</p>
+<pre><code class="sh">$ ssh-add ~/.ssh/id_rsa
+</code></pre>
+<p>新的SSH密钥现在已经注册并准备好使用了！</p>
+</li>
+</ol>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="什么是分支"><a href="#什么是分支" class="headerlink" title="什么是分支"></a>什么是分支</h3><p>Git 分支本质上是一个独立的开发线。它将您的工作与其他团队成员的工作隔离开来。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529140907770.png" alt="image-20230529140907770" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529140951104.png" alt="image-20230529140951104" class="lazyload"></p>
+<h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><pre><code class="sh">git branch issue1
+</code></pre>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529141047313.png" alt="image-20230529141047313" class="lazyload"></p>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><pre><code>git checkout issue1
+</code></pre>
+<p>对于新存储库，Git 默认将 HEAD 指向主分支。更改 HEAD 指向的位置将更新您当前的活动分支。</p>
+<p>~（波浪号）和 ^（插入符号）符号用于指向相对于特定提交的位置。这些符号与提交引用一起使用，通常是 HEAD 或提交哈希。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529142453301.png" alt="image-20230529142453301" class="lazyload"></p>
+<p>每当切换到工作树中具有未提交更改（或添加了新文件）的另一个分支时，这些未提交的更改也将传递到切换到的新分支。您提交的更改将提交到新切换的分支。</p>
+<p>但是，如果 Git 发现新切换分支中的文件与上一个分支中的未提交更改之间存在冲突，则不允许切换到另一个分支。在切换分支之前，必须先提交或存储这些更改。可以使用如下命令进行暂存</p>
+<pre><code class="sh">git stash
+</code></pre>
+<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><ul>
+<li>git merge<br>保留对合并分支的所有更改和历史记录。在许多合并提交后，修订历史记录可能会变得复杂。</li>
+<li>git rebase<br>保持干净的修订历史记录，因为合并的提交附加到目标分支的末尾。冲突可能比合并方法更频繁地发生，需要立即解决。</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529143023576.png" alt="image-20230529143023576" class="lazyload"></p>
+<h3 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h3><p>Git 标记用于标记和标记历史记录中的特定提交。标记通常用于指示发布版本，其中版本名称（即 v1.0）是标记的名称。有两种类型的 Git 标记：</p>
+<ul>
+<li>轻量级标记<br>轻量级标记类似于不会更改的分支。它只是直接指向历史记录中的特定提交。轻量级标签主要临时用于本地工作区。</li>
+<li>带注释的标记<br>带注释的标记是校验和的，通常在您计划标记重要提交时使用。您可以添加注释、签名、日期以及标记者的姓名和电子邮件。</li>
+</ul>
+<h3 id="简单的工作流程"><a href="#简单的工作流程" class="headerlink" title="简单的工作流程"></a>简单的工作流程</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/pull_requests_005.png" alt="developer - review pr" class="lazyload"></p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="创建存储库"><a href="#创建存储库" class="headerlink" title="创建存储库"></a>创建存储库</h3><h4 id="创建新的存储库"><a href="#创建新的存储库" class="headerlink" title="创建新的存储库"></a>创建新的存储库</h4><p>此示例假定你已有一个要在其中创建存储库的现有项目文件夹。</p>
+<p>首先 <code>cd</code> 到根项目文件夹，然后执行 <code>git init</code> 命令。</p>
+<pre><code class="sh">cd /path/to/your/existing/code 
+git init
+</code></pre>
+<p>以下命令具有同等效果</p>
+<pre><code class="sh">git init &lt;project directory&gt;
+</code></pre>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527100019061.png" alt="image-20230527100019061" class="lazyload"></p>
+<h4 id="克隆已有存储库"><a href="#克隆已有存储库" class="headerlink" title="克隆已有存储库"></a>克隆已有存储库</h4><p>如果已在中央存储库中设置了项目，则可以使用<code>git clone</code>获取本地工作副本.</p>
+<pre><code class="sh">git clone &lt;repo url&gt;
+</code></pre>
+<p>Git 支持几种不同的网络协议和相应的 URL 格式。例如SSH,HTTP等</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527100521011.png" alt="image-20230527100521011" class="lazyload"></p>
+<h3 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h3><p>Git 不会自动保存您所做的每项更改。您必须通过暂存这些更改来告诉 Git 要记录哪些更改。暂存后，可以提交更改，以便将它们记录在存储库中。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527102658500.png" alt="image-20230527102658500" class="lazyload"></p>
+<p>现在，您已经克隆或初始化了存储库，您可以向其提交文件版本更改。以下示例假定您已在 <code>/path/to/project</code> 处设置了一个项目。此示例中执行的步骤如下：</p>
+<ul>
+<li>将目录更改为 <code>/path/to/project</code></li>
+<li>创建一个包含内容的新文件 <code>hello.txt</code> <del>“hello git”</del></li>
+<li>git 将 <code>hello.txt</code> 添加到存储库暂存区域</li>
+<li>创建一个新提交，其中包含一条消息，描述在提交中完成了哪些工作</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527101911038.png" alt="image-20230527101911038" class="lazyload"></p>
+<p>执行此示例后，存储库现在会将 <code>hello.txt</code> 添加到历史记录中，并将跟踪文件的未来更新。</p>
+<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p><code>git add</code>命令用于将文件的更改添加到<code>暂存区</code>（即将更改的文件添加到下一次提交中）。它将修改过的文件从工作目录添加到Git的暂存区，准备进行提交。使用<code>git add</code>可以选择性地将特定文件或整个目录添加到暂存区。</p>
+<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p><code>git commit</code>命令用于将暂存区中的更改提交到本地代码仓库。提交操作将创建一个新的提交记录，该记录包含了暂存区中文件的当前状态。每次提交都需要包含一个描述性的提交消息，以便更好地描述所做的更改。</p>
+<h3 id="推送仓库"><a href="#推送仓库" class="headerlink" title="推送仓库"></a>推送仓库</h3><p>如果用 <code>git clone</code> 创建本地库，就可以用 <code>git push</code> 同步远程库。如果用 <code>git init</code> 创建本地库，就要先在托管服务上建远程库，再用 Git URL 链接本地库。</p>
+<h4 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h4><pre><code class="sh">git remote add &lt;remote_name&gt; &lt;remote_repo_url&gt;
+</code></pre>
+<p>此命令会将 <code>远程存储库映射到本地存储库中</code> 。映射远程存储库后，可以将本地分支推送到该存储库。</p>
+<h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><p>git config是一个命令行工具，用于配置Git安装或单个仓库的选项。这些选项可以影响Git的行为和外观，例如你的用户名、邮箱、文本编辑器、别名等。Git存储配置选项在三个不同的文件中，分别对应于本地仓库、用户或整个系统的设置。你可以用不同的标志来指定配置选项的作用范围，也可以直接编辑纯文本文件来修改。</p>
+<p><strong>配置文件</strong>:</p>
+<ul>
+<li>系统级：$(prefix)&#x2F;etc&#x2F;gitconfig。这里的选项对系统上所有用户和仓库都有效。使用–system标志来设置或读取这个文件中的选项。</li>
+<li>用户级：~&#x2F;.gitconfig。这里的选项只对当前用户和他的所有仓库有效。使用–global标志来设置或读取这个文件中的选项。</li>
+<li>仓库级：.git&#x2F;config。这里的选项只对当前仓库有效。使用–local标志或不使用任何标志来设置或读取这个文件中的选项。</li>
+</ul>
+<p>当这些文件中的选项发生冲突时，本地设置会覆盖用户设置，用户设置会覆盖系统设置。如果你打开任何一个文件，你会看到类似以下内容：</p>
+<pre><code class="text">[user]
+    name = John Smith
+    email = john@example.com
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    up = rebase
+    ci = commit
+[core]
+    editor = vim
+</code></pre>
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><pre><code class="sh">git push -u &lt;remote_name&gt; &lt;local_branch_name&gt;
+</code></pre>
+<p>此命令会将 <code>&lt; local_branch_name &gt;</code> 下的本地存储库分支推送到 <code>&lt; remote_name &gt;</code> 的远程存储库。</p>
+<h3 id="差异分析"><a href="#差异分析" class="headerlink" title="差异分析"></a>差异分析</h3><h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p>Git diff 是一个命令，它可以比较两个数据源，并显示它们之间的差异。数据源可以是提交、分支、文件等。例如，你可以使用 git diff 来：</p>
+<ul>
+<li>查看你已经修改但尚未暂存的变化（<code>git diff</code>）。</li>
+<li>查看你已经暂存但尚未提交的变化（<code>git diff --staged</code>）。</li>
+<li>查看两个提交之间的差异（<code>git diff commit1 commit2</code>）。</li>
+<li>查看两个分支之间的差异（<code>git diff branch1 branch2</code>）。</li>
+<li>查看你的工作目录和一个特定提交之间的差异（<code>git diff commit</code>）。</li>
+</ul>
+<h3 id="暂存更改"><a href="#暂存更改" class="headerlink" title="暂存更改"></a>暂存更改</h3><h4 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h4><p><code>git stash</code> 命令获取未提交的更改（暂存和未暂存），保存这些更改以供以后使用，然后从工作副本中还原它们。</p>
+<p>您可以使用 <code>git stash pop</code> 重新应用以前隐藏的更改,会从存储中删除更改，并将它们重新应用于工作副本。</p>
+<p>或者，您可以将更改重新应用于工作副本，并将它们保留在存储中，通过使用用 <code>git stash apply</code> </p>
+<p>下图是关于git statsh命令作用文件的范围:</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230601162344522.png" alt="image-20230601162344522" class="lazyload"></p>
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>Git 将工作副本中的每个文件视为以下三件事之一：</p>
+<ul>
+<li>tracked: 先前已暂存或提交的文件;</li>
+<li>untracked: 尚未暂存或提交的文件</li>
+<li>ignored: 一个 Git 被明确告知忽略的文件。</li>
+</ul>
+<p>忽略的文件通常是构建工件和计算机生成的文件，这些文件可以从存储库源派生，否则不应提交。一些常见的例子是：</p>
+<ul>
+<li>依赖项缓存，例如 <code>/node_modules</code> 或 <code>/packages</code> 的内容</li>
+<li>编译的代码，例如 <code>.o</code> 、 <code>.pyc</code> 和 <code>.class</code> 文件</li>
+<li>生成输出目录，例如 <code>/bin</code> 、 <code>/out</code> 或 <code>/target</code></li>
+<li>运行时生成的文件，例如 <code>.log</code> 、 <code>.lock</code> 或 <code>.tmp</code></li>
+<li>隐藏的系统文件，例如 <code>.DS_Store</code> 或 <code>Thumbs.db</code></li>
+<li>个人 IDE 配置文件，例如 <code>.idea/workspace.xml</code></li>
+</ul>
+<h4 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h4><p>.gitignore 是一个文件，用于指定 Git 应该忽略的文件。已经被 Git 跟踪的文件不受影响。</p>
+<p>.gitignore 文件中的每一行都是一个匹配模式，可以使用通配符、前缀、后缀等规则来匹配文件或目录。</p>
+<p>.gitignore 文件可以放在项目的根目录或任何子目录中，也可以放在 $GIT_DIR&#x2F;info&#x2F;exclude 或由 core.excludesFile 配置变量指定的文件中。</p>
+<p>.gitignore 文件的作用是让 Git 忽略一些不需要版本控制的文件，比如编译生成的文件、临时文件、编辑器生成的文件等。</p>
+<h3 id="管理存储库"><a href="#管理存储库" class="headerlink" title="管理存储库"></a>管理存储库</h3><h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p><code>git status</code> 命令显示工作目录和暂存区域的状态。它使你能够查看哪些更改已暂存，哪些尚未暂存，以及哪些文件未被 Git 跟踪。状态输出不会显示有关已提交项目历史记录的任何信息。</p>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p><code>git log</code> 命令显示已提交的快照。它允许您列出项目历史记录、对其进行过滤并搜索特定更改。</p>
+<h4 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h4><p><code>git tag</code>是指向 Git 历史记录中特定点的引用。标记通常用于捕获用于标记版本（即 v1.0.1）的历史记录点。标签就像一个不会改变的分支。与分支不同，标签在创建后没有进一步的提交历史记录。</p>
+<h3 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h3><p>Git 最有价值的功能之一是能够撤消错误。当您进行新提交时，Git 会存储项目的快照，以便您可以在需要时返回到早期版本。</p>
+<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p><code>git checkout</code>用于切换工作目录到指定的分支、标签或提交记录。</p>
+<p>如下: 根据一个历史提交,签出一个新的分支</p>
+<pre><code>git checkout -b new_branch_without_crazy_commit
+</code></pre>
+<h4 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527104616212.png" alt="image-20230527104616212" class="lazyload"></p>
+<p><code>git revert</code> 命令是一种向前移动的撤消操作，它提供了一种撤消更改的安全方法。还原不会删除或孤立提交历史记录中的提交，而是创建一个新的提交，该提交将反向更改指定的提交记录。</p>
+<p><strong>示例</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527110259587.png" alt="image-20230527110259587" class="lazyload"></p>
+<p>我们对存储库进行了 3 次提交，其中我们添加了一个文件 <code>1.txt</code> 并修改了两次其内容。在存储库设置过程结束时,我们传入了 <code>HEAD</code> 引用。这将还原最新的提交。<code>Git revert</code> 期望传入一个提交引用，如果没有提交引用，则不会执行。可以看到执行完成之后,状态回到了上一步提交时.</p>
+<p><strong>参数</strong></p>
+<ul>
+<li>-e –edit : 这是一个默认选项，不需要指定。此选项将打开配置的系统编辑器，并提示您在提交还原之前编辑提交消息</li>
+<li>–no-edit : 这是 <code>-e</code> 选项的反转。还原不会打开编辑器。</li>
+<li>-n –no-commit : 传递此选项将阻止 <code>git revert</code> 创建反向提交目标提交的新提交。此选项不会创建新的提交，而是将反向更改添加到暂存索引和工作目录。</li>
+</ul>
+<h4 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230527104643300.png" alt="image-20230527104643300" class="lazyload"></p>
+<p>有三种重置模式:</p>
+<ul>
+<li>Mixed(default)<br>移动Head指针,并重置暂存区,当保留工作目录的更改</li>
+<li>Soft<br>只移动Head指针,不改变暂存区和工作目录</li>
+<li>Hard<br>移动Head指针,并且重置暂存区和工作目录,丢弃所有未提交的更改</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529092512688.png" alt="image-20230529092512688" class="lazyload"></p>
+<p><strong>示例</strong></p>
+<p>假设你有一个Git仓库，里面有三个提交，分别是A，B和C，如下图所示：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-start.png" alt="image" class="lazyload"></p>
+<p>现在你的HEAD和main分支都指向C，你的暂存区和工作目录都和C一致。如果你想回退到B，你可以用不同的reset模式来实现：</p>
+<ul>
+<li>如果你用–soft模式，那么只有HEAD会移动到B，而main分支，暂存区和工作目录都不变，如下图所示：</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-soft.png" alt="image" class="lazyload"></p>
+<p>这样的话，你可以重新提交C的更改，或者添加其他更改到暂存区。</p>
+<ul>
+<li>如果你用–mixed模式（默认），那么HEAD和main分支都会移动到B，暂存区也会重置为B的状态，但工作目录不变，如下图所示：</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-mixed.png" alt="image" class="lazyload"></p>
+<p>这样的话，你可以重新暂存C的更改，或者放弃它们。</p>
+<ul>
+<li>如果你用–hard模式，那么HEAD，main分支，暂存区和工作目录都会移动到B，C的更改会被丢弃，如下图所示：</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/reset-hard.png" alt="image" class="lazyload"></p>
+<p>这样的话，你就彻底回退到了B的状态，无法恢复C的更改。</p>
+<p>希望这个示例能帮助你理解reset三种模式的区别。</p>
+<h4 id="git-reset与git-revert的区别"><a href="#git-reset与git-revert的区别" class="headerlink" title="git reset与git revert的区别"></a>git reset与git revert的区别</h4><ul>
+<li>git revert是一种安全的方式来撤销已经发布的提交,它会创建一个新的提交来逆转之前的更改</li>
+<li>git reset是一种危险的方式来撤销本地的提交或更改,他会完全删除一个变更集,可能导致数据丢失</li>
+<li>git revert适合于公共分支,git reset适合私有分支或者实验性分支</li>
+</ul>
+<h4 id="git-clean"><a href="#git-clean" class="headerlink" title="git clean"></a>git clean</h4><p>git clean是一个用于删除工作目录中未跟踪文件的命令。未跟踪文件是指在工作目录中创建但没有使用git add添加到Git索引的文件。git clean可以与git reset和git checkout等命令配合使用，以撤销对仓库的修改。</p>
+<ul>
+<li><code>git clean -n</code>：这个命令会列出工作目录中将要被删除的未跟踪文件，但不会真正删除它们。这是一个干运行，可以用来检查删除的文件是否正确。</li>
+<li><code>git clean -f</code>：这个命令会强制删除工作目录中的未跟踪文件。这是一个危险的操作，因为一旦删除，文件就无法恢复。在使用这个命令之前，最好先备份文件或使用干运行选项。</li>
+<li><code>git clean -d</code>：这个命令会删除工作目录中的未跟踪目录，以及它们包含的文件。如果不使用这个选项，git clean只会删除未跟踪的文件，而保留空的目录。</li>
+<li><code>git clean -i</code>：这个命令会进入交互式模式，让用户选择要删除的文件或目录。用户可以输入不同的过滤条件，如扩展名、大小、时间等，来筛选要删除的文件。用户还可以预览删除的结果，或取消删除操作。</li>
+<li><code>git clean -x</code>：这个命令会删除工作目录中所有的未跟踪文件，包括那些被.gitignore文件忽略的文件。如果不使用这个选项，git clean只会删除那些没有被忽略的未跟踪文件。</li>
+</ul>
+<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><p><code>git rm</code> 命令可用于删除单个文件或文件集合。 <code>git rm</code> 的主要功能是从 Git 索引中删除跟踪的文件。</p>
+<h3 id="同步存储库"><a href="#同步存储库" class="headerlink" title="同步存储库"></a>同步存储库</h3><p>远程仓库允许我们与团队的其他成员共享我们的更改。它们可以位于私人服务器上，也可以位于与您的计算机不同的计算机上，或者使用积压工作等服务托管。无论您的仓库托管在何处，您都需要能够经常将本地仓库与远程仓库同步。您将使用三个命令执行此操作：git push、git pull 和 git merge。</p>
+<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p>执行拉取时，最新的修订历史记录将从远程存储库下载并导入到本地存储库。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104050805.png" alt="image-20230529104050805" class="lazyload"></p>
+<h4 id="git-push-1"><a href="#git-push-1" class="headerlink" title="git push"></a>git push</h4><p>为了开始与他人共享更改，您必须使用“push”命令将它们推送到远程存储库。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104347741.png" alt="image-20230529104347741" class="lazyload"></p>
+<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><p>如果您的本地仓库未更新，则推送到远程仓库将被拒绝</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104143719.png" alt="image-20230529104143719" class="lazyload"></p>
+<p>如果是这种情况，您必须使用 git merge 命令从远程存储库获取最新更改，然后才能允许推送。Git 强制执行此操作以确保其他成员所做的更改保留在历史记录中。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529104233174.png" alt="image-20230529104233174" class="lazyload"></p>
+<h4 id="git-remote-1"><a href="#git-remote-1" class="headerlink" title="git remote"></a>git remote</h4><p><code>git remote</code> 命令允许您创建、查看和删除与其他存储库的连接。</p>
+<ul>
+<li>git remote add <name> <url><br>创建与远程存储库的新连接。</li>
+<li>git remote rm <name><br>删除与名为 <code>＜name＞</code> 的远程存储库的连接。</li>
+<li>git remote rename <old-name> <new-name><br>将远程连接从 <code>＜old-name＞</code> 重命名为 <code>＜new-name＞</code></li>
+</ul>
+<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><code>git fetch</code> 命令将提交、文件和引用从远程存储库下载到本地存储库中。它不会强迫您将更改实际合并到存储库中。Git 将获取的内容与现有的本地内容隔离开来;它绝对不会影响您当地的开发工作。</p>
+<h3 id="变更历史提交"><a href="#变更历史提交" class="headerlink" title="变更历史提交"></a>变更历史提交</h3><h4 id="git-commit-–amend"><a href="#git-commit-–amend" class="headerlink" title="git commit –amend"></a>git commit –amend</h4><p>可以通过运行 git commit –amend 来修改同一分支中的最新提交。此命令便于将新的或更新的文件添加到以前的提交中。这也是编辑或向上一次提交添加注释的简单方法。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529110320003.png" alt="image-20230529110320003" class="lazyload"></p>
+<h4 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h4><p>rebase是将提交到一个分支的所有更改应用到新分支的过程。运行 git rebase 并添加 -i 选项以重写、替换、删除和合并历史记录中的单个提交。您还可以：</p>
+<ul>
+<li>重写过去的提交消息</li>
+<li>将一组提交压缩在一起</li>
+<li>添加尚未提交的文件</li>
+</ul>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529110535662.png" alt="image-20230529110535662" class="lazyload"></p>
+<h4 id="git-cherry-pick"><a href="#git-cherry-pick" class="headerlink" title="git cherry pick"></a>git cherry pick</h4><p>将另一个分支中的现有提交应用到存储库中的当前分支</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529111141457.png" alt="image-20230529111141457" class="lazyload"></p>
+<h4 id="git-merge-squash"><a href="#git-merge-squash" class="headerlink" title="git merge -squash"></a>git merge -squash</h4><p>压缩是将多个提交合并为单个提交的过程。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i0.wp.com/wangwangit001.cachefly.net/wangwangit/image/master/img/image-20230529111406929.png" alt="image-20230529111406929" class="lazyload"></p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">Learn Git with Bitbucket Cloud </a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://nulab.com/learn/software-development/git-tutorial/git-basics/">Learn Git Basics</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://backlog.com/git-tutorial/cn/">猴子都能懂的GIT入门</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://git-scm.com/book/zh/v2">Git - Book</a></li>
+</ul>
+
+        </article>
+       
+        <div class="donate">
+          <h3>觉得文章对你有帮助？请我喝杯咖啡吧！</h3>
+          <button class="donate-button">赏</button>
+        </div>
+        
+        <div class="payment-codes">
+          <div class="code-container">
+            <div class="wechat-code">
+              <img src="/images/wechatpay.jpg" alt="微信支付码">
+              <span>微信支付</span>
+            </div>
+            <div class="alipay-code">
+              <img src="/images/alipay.jpg" alt="支付宝支付码">
+              <span>支付宝支付</span>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2114287505938813"
+     crossorigin="anonymous"></script>
+<!-- 广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2114287505938813"
+     data-ad-slot="4342703831"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <style>
+          .divider {
+            height: 10px;
+            background: linear-gradient(to right, #cf1e7e, #23527c);
+          }
+        
+          .donate {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border: none; /* 移除背景色 */
+          }
+        
+          .donate-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #337ab7, #23527c);
+            border: none;
+            cursor: pointer;
+          }
+        
+          .donate-button:hover {
+            background: linear-gradient(to right, #23527c, #337ab7);
+          }
+        
+          .payment-codes {
+            display: none;
+            padding-top: 20px; /* 调整上边距 */
+          }
+          
+          .code-container {
+            display: flex;
+            justify-content: center;
+          }
+        
+          .payment-codes .wechat-code,
+          .payment-codes .alipay-code {
+            margin: 0 10px;
+            text-align: center;
+          }
+        
+          .payment-codes img {
+            width: 300px;
+            height: 300px;
+          }
+        
+          .payment-codes span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          var donateButton = document.querySelector('.donate-button');
+          var paymentCodes = document.querySelector('.payment-codes');
+          var codeVisible = false;
+        
+          donateButton.addEventListener('click', function() {
+            if (!codeVisible) {
+              paymentCodes.style.display = 'block';
+              codeVisible = true;
+            } else {
+              paymentCodes.style.display = 'none';
+              codeVisible = false;
+            }
+          });
+        </script>
+          
+        <!-- 
+            
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>一只会飞的旺旺<br>
+    
+    <strong>本文链接：</strong><a href="https://www.wangwangit.com/Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" title="https:&#x2F;&#x2F;www.wangwangit.com&#x2F;Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;www.wangwangit.com&#x2F;Git%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F&#x2F;</a><br>
+
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+         -->
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Git/" rel="tag">Git</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Github/" rel="tag">Github</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="waline"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    Waline.init({
+        el: '.waline',
+        serverURL: 'https://blog-waline-nine-rho.vercel.app',
+         // 设置 emoji 为微博与哔哩小黄脸
+        emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji',
+        ],
+        reaction: true, // 开启反应
+});
+</script>
+  
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    
+    
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1741160487491"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENFHSEQW2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ENFHSEQW2K');
+</script>
+
+
+
+
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7a6812c7a8ad219e56fcc2f0397ea516";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/2c8d8bfb.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "2c8d8bfb"
+  });
+  daovoice('update');
+</script>
+
